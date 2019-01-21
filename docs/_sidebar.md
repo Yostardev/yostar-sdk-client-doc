@@ -7,3 +7,6 @@
     
 * iOS
     * [概述](/ZH/iOS/summary)
+    
+* 错误码
+    * [概述](/ZH/summary)
