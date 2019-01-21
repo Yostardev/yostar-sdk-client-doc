@@ -4,5 +4,5 @@
 
 * 按流程接入MSDK
 
-[GitHub](https://github.com/Pinkagit/testDoc2)
+[GitHub](https://github.com/Yostardev/yostarsdk)
 [Get Started](#概述)
