@@ -16,7 +16,9 @@ console.log('hello world!')
 
 # Num.1 title--2
 
-<center><img src="/docs/_media/1.jpg" width="200"/></center>
+<center>
+    <img src="_media/1.jpg" width="200"/>
+</center>
 
 # Num.1 title--3
 
