@@ -273,3 +273,182 @@ AiriSDKInstance.getInstance().SDKTranscodeReq(new AiriSDKConnect.TranscodeResult
 | ------ | ------ |
 | transcode | 继承码 |
 | transUid | 继承码对应的UID |
+
+### 渠道绑定
+
+#### 调用API
+```java
+void SDKLink(Platform platfrom,String params1,String params2,AiriSDKConnect.LinkResultCallback callback)
+```
+#### 调用实例
+```java
+AiriSDKInstance.getInstance().SDKLink(platform,params1,params2,new AiriSDKConnect.LinkResultCallback() {
+            @Override
+            public void onSuccess(Platform platform, String socailName) {
+                MainActivity.setResultTv("Binding success:" + platform.name() + ",Corresponding user name：" + socailName ) ;
+            }
+
+            @Override
+            public void onFail(ErrorEntity error) {
+                MainActivity.setResultTv("Binding failed："+error.toString()) ;
+            }
+        });
+```
+#### 接口参数说明
+
+| 参数名称 | 参数说明 | 是否必须 |
+| ------ | ------ | ------ |
+| Platform | 绑定使用的平台标识，渠道绑定参数标识可选择YOSTAR,FACEBOOK,TWITTER | 是 |
+| params1 | 绑定需要参数1，当Platform的值为Platform.YOSTAR时，params1为邮箱账号 | 否 |
+| params2 | 绑定需要参数2，当Platform的值为Platform.YOSTAR时，params2为邮箱收到的验证码 | 否 |
+| AiriSDKConnect.LinkResultCallback | 绑定结果回调 | 是 |
+
+#### 回调结果参数
+| 参数名称 | 参数说明 |
+| ------ | ------ |
+| Platform | 绑定的渠道标识 |
+| socailName | 绑定渠道对应的用户名 |
+
+### 覆盖绑定
+
+#### 调用API
+```java
+void SDKNewAccountLink(AiriSDKConnect.ReLinkResultCallback callback)
+```
+#### 调用实例
+```java
+AiriSDKInstance.getInstance().SDKNewAccountLink(new AiriSDKConnect.ReLinkResultCallback() {
+            @Override
+            public void onSuccess(Platform platform, String socailName, String accessToken) {
+                MainActivity.setResultTv("Binding tourists successfully:" + platform.name() + ",Corresponding user name：" + socailName + ",Updated AccessToken:" +accessToken ) ;
+            }
+
+            @Override
+            public void onFail(ErrorEntity error) {
+                MainActivity.setResultTv("Binding tourists failed："+error.toString()) ;
+            }
+        }) ;
+```
+#### 接口参数说明
+| 参数名称 | 参数说明 | 是否必须 |
+| ------ | ------ | ------ |
+| AiriSDKConnect.ReLinkResultCallback | 覆盖绑定结果回调 | 是 |
+
+#### 回调结果参数说明
+| 参数名称 | 参数说明 |
+| ------ | ------ |
+| Platform | 绑定的渠道标识 |
+| socailName | 绑定渠道对应的用户名 |
+| accessToken | 登陆时获取的accessToken过期，变成此accessToken |
+
+### 解除绑定
+#### 调用API
+```java
+void SDKUnlink(Platform platform,AiriSDKConnect.UnLinkResultCallback callback)
+```
+#### 调用实例
+```java
+AiriSDKInstance.getInstance().SDKUnlink(platform,new AiriSDKConnect.UnLinkResultCallback() {
+            @Override
+            public void onSuccess(Platform platform, String socailName) {
+                MainActivity.setResultTv("Unbind successfully:" + platform.name() + ",Corresponding user name：" + socailName ) ;
+            }
+
+            @Override
+            public void onFail(ErrorEntity error) {
+                MainActivity.setResultTv("Unbind successfully failed："+error.toString()) ;
+            }
+        } );
+```
+#### 接口参数说明
+| 参数名称 | 参数说明 | 是否必须 |
+| ------ | ------ | ------ |
+| platform | 解除绑定渠道标识,解除绑定可选择标识TWITTER,FACEBOOK | 是 |
+| AiriSDKConnect.UnLinkResultCallback | 解除绑定结果回调 | 是 |
+
+#### 回调结果参数
+| 参数名称 | 参数说明 |
+| ------ | ------ |
+| Platform | 解除绑定的渠道标识 |
+| socailName | 绑定渠道对应的用户名 |
+
+### 生日设置(其他可选,日本必接)
+
+#### 调用API
+```java
+void SDKSetBirth(String birthDay,AiriSDKConnect.BirthSetResultCallback callback)
+```
+#### 调用实例
+```java
+AiriSDKInstance.getInstance().SDKSetBirth(birthDay,new AiriSDKConnect.BirthSetResultCallback() {
+            @Override
+            public void onSuccess() {
+                MainActivity.setResultTv("Birthday setting is successful") ;
+            }
+
+            @Override
+            public void onFail(ErrorEntity error) {
+                MainActivity.setResultTv("Birthday setting failed："+error.toString()) ;
+            }
+        });
+```
+#### 接口参数说明
+| 参数名称 | 参数说明 | 是否必须 |
+| ------ | ------ | ------ |
+| birthDay | 生日日期，日期格式为yyyyMMdd | 是 |
+| AiriSDKConnect.BirthSetResultCallback | 设置生日结果回调 | 是 |
+
+### 统计事件上传
+
+#### 调用API
+```java
+void SDKUserEventUpload(String eventName,String eventJson)
+```
+#### 调用实例
+```java
+Map<String,String> map = new HashMap<>() ;
+map.put("params1","test1") ;
+map.put("params2","test2") ;
+JSONObject json = new JSONObject(map);
+AiriSDKInstance.getInstance().SDKUserEventUpload("role_levelup",json.toString());
+```
+#### 接口参数详情
+| 参数名称 | 参数说明 | 是否必须 |
+| ------ | ------ | ------ |
+| eventName | 事件名称，要与AiriSDK后台添加的相对应 | 是 |
+| eventJson | 事件详情，为JSON格式的字符串参数 | 是 |
+
+### 支付接口
+#### 调用API
+```java
+void SDKPurchase(Platform platform,String productId,String serverTag,String extraData,AiriSDKConnect.PurchaseResultCallback callback)
+```
+#### 调用实例
+```java
+AiriSDKInstance.getInstance().SDKPurchase(platform,productId,serverTag,extraData,new AiriSDKConnect.PurchaseResultCallback() {
+            @Override
+            public void onResult(String orderId, String extraData, ErrorEntity entity) {
+                if (entity.CODE() == 0){
+                    MainActivity.setResultTv("支付成功 - 订单ID:" + orderId + ", 附加参数：" + extraData );
+                }else{
+                    MainActivity.setResultTv("支付失败："+entity.toString()) ;
+                }
+            }
+        });
+```
+#### 接口参数详情
+| 参数名称 | 参数说明 | 是否必须 |
+| ------ | ------ | ------ |
+| platform | 支付渠道标识，支付时可以选择GOOGLE、AU， | 是 |
+| productId | 商品ID，要与支付渠道后台和AiriSDK后台配置的相符合 | 是 |
+| serverTag | 服务器标识，默认为production | 是 |
+| extraData | 附加参数，在支付结果回调时原样返回 | 是 |
+| AiriSDKConnect.PurchaseResultCallback | 支付结果回调 | 是 |
+
+#### 回调结果参数说明
+| 参数名称 | 参数说明 | 
+| ------ | ------ | 
+| orderId | AiriSDK订单号 |
+| extraData | 附加参数，由支付时传入 |
+| ErrorEntity | 支付结果信息，entity.CODE()==0时支付成功，其他情况为失败 |
+
