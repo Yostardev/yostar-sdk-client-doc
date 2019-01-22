@@ -54,7 +54,7 @@
 ![](https://upload-images.jianshu.io/upload_images/1948913-02273c6beb8989b6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ##### 1. 使用Cocoapods进行自动集成
-请Podfile根据要集成的版本将以下行之一添加到您的行中。
+请Podfile根据要集成的版本将以下行添加到您的行中。
 ```
 pod 'AiriSDK'，'~>2.1.4'＃需要接入的版本
 ```
@@ -79,8 +79,8 @@ QuickLook
 CoreLocation
 MobileCoreServices
 CoreSpotlight
-Photos (needed only for v5.10.0 or later)
-WebKit (needed only for v5.10.0 or later)
+Photos
+WebKit
 SafariServices
 libsqlite3.tbd
 libicucore.tbd
@@ -95,7 +95,7 @@ libz.tbd
 ![](https://upload-images.jianshu.io/upload_images/1948913-41590a26bd94178c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 #### 3. SDK使用
 
-```
+```OC
 // 导入头文件
 #import "AiriSDKAppDelegate.h"
 
@@ -123,4 +123,121 @@ return [AiriSDKAppDelegate AiriSDKApplication:app openURL:url options:options];
 ```
 
 * 在使用类中导入头文件`#import "AiriSDKInstance.h"`
-* 在合理的地方调用初始化方法(该方法会请求平台获取相关应用配置信息) 
+#### 3.1. 创建单例接口
+* 调用API
+`+ (instancetype)yostarShareton;`
+* 调用实例
+```
+self.airiSDK = [AiriSDKInstance yostarShareton];
+```
+#### 3.2. 获取DevicdID 接口
+* 调用API
+`+ (NSString *)SDKGetDeviceID;`
+* 调用实例
+```
+NSString *deviceStr = [AiriSDKInstance SDKGetDeviceID];
+```
+#### 3.3. Helpshift客服 接口
+* 调用API
+`+ (void)SDKOpenHelpShift;`
+* 调用实例
+```
+[AiriSDKInstance SDKOpenHelpShift];
+```
+#### 3.4. appstore 评分 接口
+* 调用API
+`+ (void)RequestStoreReview;`
+* 调用实例
+```
+[AiriSDKInstance RequestStoreReview];
+```
+#### 3.5. 初始化SDK 接口
+* 调用API
+`- (void)initSDK:(InitSuccessHandle)success fail:(InitFailHandle)fail;`
+* 调用实例
+```objective-c
+[self.airiSDK initSDK:^(NSDictionary *result) {
+NSLog(@"%@", result);
+} fail:^(NSDictionary *result) {
+NSLog(@"%@", result);
+}];
+```
+#### 3.6. 登录 接口
+* 调用API
+`- (void)SDKLogin:(NSInteger)platform param1:(NSString *)param1 param2:(NSString *)param2 isCreateNew:(BOOL)isCreateNew success:(LoginSuccessHandle)success fail:(LoginFailHandle)fail;`
+* 调用实例
+```objectiveC
+[self.airiSDK SDKLogin:platform param1:param1 param2:param2 isCreateNew:isNew success:^(NSDictionary *result) {
+NSLog(@"%@*****", result);
+} fail:^(NSDictionary *result) {
+NSLog(@"%@*****", result);
+}];
+```
+* 接口参数说明
+
+|参数名称|参数类型|参数说明|是否必须|
+|---|---|---|---|
+|platform|NSInteger|登录的渠道有DEVICE(0),TRANSCODE(1),TWITTER(2),FACEBOOK(3),YOSTAR(4)|是|
+|param1|NSString|当Platform的值为1时，param1代表继承码。当Platform的值为4时，param1为邮箱账号|否|
+|param2|NSString|当Platform的值为1时，param2代表继承码对应的UID。当Platform的值为4时，param2为邮箱收到的验证码|否|
+|isNew|BOOL|是否强制创建新的账号|是|
+#### 3.7. 快速登录 接口
+* 调用API
+`- (void)SDKQuickLogin:(QuickLoginSuccessHandle)success fail:(QuickLoginFailHandle)fail;`
+* 调用实例
+```
+[self.airiSDK SDKQuickLogin:^(NSDictionary *result) {
+NSLog(@"Quick::%@", result);
+} fail:^(NSDictionary *result) {
+NSLog(@"Quick::%@", result);
+}];
+```
+#### 3.8. 发行继承码接口
+* 调用API
+`- (void)SDKTranscodeReq:(TranscodeReqSuccessHandle)success fail:(TranscodeReqFailHandle)fail;`
+* 调用实例
+```
+[self.airiSDK SDKTranscodeReq:^(NSDictionary *result) {
+NSLog(@"TranscodeReq::%@", result);
+} fail:^(NSDictionary *result) {
+NSLog(@"TranscodeReq::%@", result);
+}];
+```
+#### 3.9. 请求验证码接口
+* 调用API
+`- (void)SDKVerificationCodeReq:(NSString *)accountEmail success:(VerCodeReqSuccessHandle)success fail:(VerCodeReqFailHandle)fail;`
+* 调用实例
+```
+[self.airiSDK SDKVerificationCodeReq:accountEmail success:^(NSDictionary *result) {
+NSLog(@"%@*****", result);
+} fail:^(NSDictionary *result) {
+NSLog(@"%@*****", result);
+}];
+```
+* 接口参数说明
+
+|参数名称|参数类型|参数说明|是否必须|
+|---|---|---|---|
+|accountEmail|NSString|要验证的邮箱账号|是|
+
+
+
+
+
+
+// 绑定
+- (void)SDKLink:(NSInteger)platfrom param1:(NSString *)param1 param2:(NSString *)param2 success:(LinkSuccessHandle)success fail:(LinkFailHandle)fail;
+// 解绑
+- (void)SDKUnLink:(NSInteger)platform success:(UnLinkSuccessHandle)success fail:(UnLinkFailHandle)fail;
+// 新绑定接口
+- (void)SDKNewAccountLink:(ReLinkSuccessHandle)success fail:(ReLinkFailHandle)fail;
+// 设置生日
+- (void)SDKSetBirth:(NSString *)birthDay success:(BirthSuccessHandle)success fail:(BirthFailHandle)fail;
+// 事件上传
+- (void)SDKUserEventUpload:(NSString *)strEventName strJson:(NSString *)strJson;
+// 注销、清空token
+- (void)SDKLogout:(LogoutHandle)handle;
+// 自带分享
+- (void)SDKSystemShare:(NSString *)strShareText shareImageData:(NSData *)shareImageData success:(ShareSuccessHandle)success fail:(ShareFailHandle)fail;
+// 购买商品
+- (void)SDKPurchase:(NSString *)productId serverTag:(NSString *)serverTag extraData:(NSString *)extraData success:(PurchaseSuccessHandle)success fail:(PurchaseFailHandle)fail;
