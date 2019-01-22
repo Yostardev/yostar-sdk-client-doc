@@ -7,7 +7,7 @@ AiriSDK主要用来向第三方应用程序提供方便快捷的、适合海外�
 
 ## 资源导入
 
-在您的项目中，打开 your_app | Gradle Scripts | build.gradle (Project) 并添加以下存储库到 buildscript { repositories {}} 部分，以便从Maven 中央存储库下载 SDK：
+在您的项目中，打开 ```your_app | Gradle Scripts | build.gradle (Project)``` 并添加以下存储库到 ```buildscript { repositories {}}``` 部分，以便从Maven 中央存储库下载 SDK：
 
 ```gradle
 maven {
@@ -15,7 +15,7 @@ maven {
 }
 ```
 
-在您的项目中，打开 your_app | Gradle Scripts | build.gradle (Module: app) 并添加以下一段执行语句至 dependencies{} 部分
+在您的项目中，打开 ```your_app | Gradle Scripts | build.gradle (Module: app)``` 并添加以下一段执行语句至 ```dependencies{}``` 部分
 
 ```gradle
 implementation 'com.airisdk.sdkcall:airisdk:2.1.0'
@@ -27,7 +27,7 @@ implementation 'com.airisdk.sdkcall:airisdk:2.1.0'
 
 ### Assets资源
 
-AiriSDK的环境资源和日志开关等参数都是由AiriSDKConf.properties文件中的参数控制，请开发者设置一下参数：
+AiriSDK的环境资源和日志开关等参数都是由```assets/AiriSDKConf.properties```文件中的参数控制，请开发者设置一下参数：
 
 参数值请联系悠星商务进行获取。
 
@@ -67,5 +67,9 @@ AiriSDK集成了firebase的部分功能，需要在```res/values/google_service_
 <string name="google_storage_bucket">*****</string>
 <string name="project_id">*****</string>
 ```
+
+## 开始接入
+
+
 
 
