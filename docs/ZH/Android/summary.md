@@ -91,11 +91,11 @@ https://github.com/Yostardev/yostar-sdk-android
 
 以下所有接口必须在初始化完成后调用。
 
-##### 调用API
+#### 调用API
 ```java
 void initSDK(Activity activity, AiriSDKConnect.InitResultCallback callback)
 ```
-##### 调用实例
+#### 调用实例
 ```java
  AiriSDKInstance.getInstance().initSDK(MainActivity.this,new AiriSDKConnect.InitResultCallback() {
             @Override
@@ -109,14 +109,14 @@ void initSDK(Activity activity, AiriSDKConnect.InitResultCallback callback)
             }
         });
 ```
-##### 接口参数说明
+#### 接口参数说明
 
 | 参数名称 | 参数说明 | 是否必须 |
 | ------ | ------ | ------ |
 | Activity | 程序上下文 | 是 |
 | AiriSDKConnect.InitResultCallback | 初始化结果回调 | 是 |
 
-##### 回调参数说明
+#### 回调参数说明
 
 | 参数名称 | 参数说明 |
 | ------ | ------ | 
@@ -125,12 +125,12 @@ void initSDK(Activity activity, AiriSDKConnect.InitResultCallback callback)
 
 ### 设备号获取
 
-##### 调用API
+#### 调用API
 
 ```java
 String SDKGetDeviceID()
 ```
-##### 调用实例
+#### 调用实例
 ```java
 AiriSDKInstance.getInstance().SDKGetDeviceID()
 ```
