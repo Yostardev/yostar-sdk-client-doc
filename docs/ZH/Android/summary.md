@@ -195,7 +195,7 @@ AiriSDKInstance.getInstance().SDKQuickLogin(loginResultCallback);
 | ------ | ------ | ------ |
 | AiriSDKConnect.LoginResultCallback | 登陆结果回调 | 是 |
 
-### 回调参数说明
+#### 回调参数说明
 
 | 参数名称 | 参数说明 |
 | ------ | ------ | 
@@ -452,3 +452,29 @@ AiriSDKInstance.getInstance().SDKPurchase(platform,productId,serverTag,extraData
 | extraData | 附加参数，由支付时传入 |
 | ErrorEntity | 支付结果信息，entity.CODE()==0时支付成功，其他情况为失败 |
 
+## 周期接口接入
+
+### void onResume()
+
+游戏需要在Launcher Activity和Main Activity的onResume方法中调用此接口
+
+#### 调用API
+```java
+void SDKOnResume() ;
+```
+#### 调用实例
+```java
+AiriSDKInstance.getInstance().SDKOnResume()
+```
+### void onPause()
+
+游戏需要在Launcher Activity和Main Activity的onPause方法中调用此接口
+
+#### 调用API
+```java
+void SDKOnPause() ;
+```
+#### 调用实例
+```java
+AiriSDKInstance.getInstance().SDKOnPause()
+```
