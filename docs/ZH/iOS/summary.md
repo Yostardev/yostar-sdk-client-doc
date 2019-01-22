@@ -126,7 +126,9 @@ return [AiriSDKAppDelegate AiriSDKApplication:app openURL:url options:options];
 
 #### 3.1. 创建单例接口
 * 调用API
-`+ (instancetype)yostarShareton;`
+```
++ (instancetype)yostarShareton;
+```
 * 调用实例
 ```
 self.airiSDK = [AiriSDKInstance yostarShareton];
@@ -134,7 +136,9 @@ self.airiSDK = [AiriSDKInstance yostarShareton];
 
 #### 3.2. 获取DevicdID 接口
 * 调用API
-`+ (NSString *)SDKGetDeviceID;`
+```
++ (NSString *)SDKGetDeviceID;
+```
 * 调用实例
 ```
 NSString *deviceStr = [AiriSDKInstance SDKGetDeviceID];
@@ -142,7 +146,9 @@ NSString *deviceStr = [AiriSDKInstance SDKGetDeviceID];
 
 #### 3.3. Helpshift客服 接口
 * 调用API
-`+ (void)SDKOpenHelpShift;`
+```
++ (void)SDKOpenHelpShift;
+```
 * 调用实例
 ```
 [AiriSDKInstance SDKOpenHelpShift];
@@ -150,7 +156,9 @@ NSString *deviceStr = [AiriSDKInstance SDKGetDeviceID];
 
 #### 3.4. appstore 评分 接口
 * 调用API
-`+ (void)RequestStoreReview;`
+```
++ (void)RequestStoreReview;
+```
 * 调用实例
 ```
 [AiriSDKInstance RequestStoreReview];
@@ -158,9 +166,11 @@ NSString *deviceStr = [AiriSDKInstance SDKGetDeviceID];
 
 #### 3.5. 初始化SDK 接口
 * 调用API
-`- (void)initSDK:(InitSuccessHandle)success fail:(InitFailHandle)fail;`
+```
+- (void)initSDK:(InitSuccessHandle)success fail:(InitFailHandle)fail;
+```
 * 调用实例
-```objective-c
+```ObjC
 [self.airiSDK initSDK:^(NSDictionary *result) {
 NSLog(@"%@", result);
 } fail:^(NSDictionary *result) {
@@ -170,7 +180,9 @@ NSLog(@"%@", result);
 
 #### 3.6. 登录 接口
 * 调用API
-`- (void)SDKLogin:(NSInteger)platform param1:(NSString *)param1 param2:(NSString *)param2 isCreateNew:(BOOL)isCreateNew success:(LoginSuccessHandle)success fail:(LoginFailHandle)fail;`
+```
+- (void)SDKLogin:(NSInteger)platform param1:(NSString *)param1 param2:(NSString *)param2 isCreateNew:(BOOL)isCreateNew success:(LoginSuccessHandle)success fail:(LoginFailHandle)fail;
+```
 * 调用实例
 ```objectiveC
 [self.airiSDK SDKLogin:platform param1:param1 param2:param2 isCreateNew:isNew success:^(NSDictionary *result) {
@@ -190,7 +202,9 @@ NSLog(@"%@*****", result);
 
 #### 3.7. 快速登录 接口
 * 调用API
-`- (void)SDKQuickLogin:(QuickLoginSuccessHandle)success fail:(QuickLoginFailHandle)fail;`
+```
+- (void)SDKQuickLogin:(QuickLoginSuccessHandle)success fail:(QuickLoginFailHandle)fail;
+```
 * 调用实例
 ```
 [self.airiSDK SDKQuickLogin:^(NSDictionary *result) {
@@ -202,7 +216,9 @@ NSLog(@"Quick::%@", result);
 
 #### 3.8. 发行继承码接口
 * 调用API
-`- (void)SDKTranscodeReq:(TranscodeReqSuccessHandle)success fail:(TranscodeReqFailHandle)fail;`
+```
+- (void)SDKTranscodeReq:(TranscodeReqSuccessHandle)success fail:(TranscodeReqFailHandle)fail;
+```
 * 调用实例
 ```
 [self.airiSDK SDKTranscodeReq:^(NSDictionary *result) {
@@ -214,7 +230,9 @@ NSLog(@"TranscodeReq::%@", result);
 
 #### 3.9. 请求验证码接口
 * 调用API
-`- (void)SDKVerificationCodeReq:(NSString *)accountEmail success:(VerCodeReqSuccessHandle)success fail:(VerCodeReqFailHandle)fail;`
+```
+- (void)SDKVerificationCodeReq:(NSString *)accountEmail success:(VerCodeReqSuccessHandle)success fail:(VerCodeReqFailHandle)fail;
+```
 * 调用实例
 ```
 [self.airiSDK SDKVerificationCodeReq:accountEmail success:^(NSDictionary *result) {
