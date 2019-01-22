@@ -225,10 +225,51 @@ void SDKLogin(Platform platform,String params1,String params2,boolean isCreateNe
 
 | 参数名称 | 参数说明 | 是否必须 |
 | ------ | ------ | ------ |
-| Platform | 登陆平台参数 | 是 |
+| Platform | 登陆平台参数，登陆渠道选择有DEVICE,TRANSCODE,YOSTAR,FACEBOOK,TWITTER | 是 |
 | params1 | 登陆需要参数1，当Platform的值为Platform.TRANSCODE时，parms1代表继承码。当Platform的值为Platform.YOSTAR时，params1为邮箱账号 | 否 |
 | params2 | 登陆需要参数2，当Platform的值为Platform.TRANSCODE时，parms2代表继承码对应的UID。当Platform的值为Platform.YOSTAR时，params2为邮箱收到的验证码 | 否 |
 | isCreateNew | 是否强制创建新的账号 | 是 |
 | AiriSDKConnect.LoginResultCallback | 登陆结果回调 | 是 |
 
+#### Platform参数说明
 
+| 参数名称 | 参数说明 |
+| ------ | ------ | 
+| Platform.DEVICE | 游客渠道 |
+| Platform.TRANSCODE | 继承码渠道 |
+| Platform.TWITTER | Twitter渠道 |
+| Platform.FACEBOOK | Facebook渠道 |
+| Platform.YOSTAR | Yostar渠道 |
+| Platform.GOOGLE | Google支付渠道 |
+| Platform.AU | AU支付渠道 |
+
+### 获取继承码
+
+#### 调用API
+```java
+void SDKTranscodeReq(AiriSDKConnect.TranscodeResultCallback callback)
+```
+#### 调用实例
+```java
+AiriSDKInstance.getInstance().SDKTranscodeReq(new AiriSDKConnect.TranscodeResultCallback() {
+            @Override
+            public void onSuccess(String transcode, String transUid) {
+                MainActivity.setResultTv("Get the transcode successfully:"+transcode + ",Corresponding UID：" + transUid) ;
+            }
+
+            @Override
+            public void onFail(ErrorEntity error) {
+                MainActivity.setResultTv("Get the transcode failed："+error.toString()) ;
+            }
+        });
+```
+#### 接口参数说明
+| 参数名称 | 参数说明 | 是否必须 |
+| ------ | ------ | ------ |
+| AiriSDKConnect.TranscodeResultCallback | 获取继承码结果回调 | 是 |
+
+#### 回调参数说明
+| 参数名称 | 参数说明 |
+| ------ | ------ |
+| transcode | 继承码 |
+| transUid | 继承码对应的UID |
