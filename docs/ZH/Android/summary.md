@@ -5,7 +5,7 @@ AiriSDK主要用来向第三方应用程序提供方便快捷的、适合海外�
 ## 阅读对象
 本文档面向具有一定Android开发基础的开发与管理人员。
 
-## 资源导入
+## SDK集成
 
 在您的项目中，打开 ```your_app | Gradle Scripts | build.gradle (Project)``` 并添加以下存储库到 ```buildscript { repositories {}}``` 部分，以便从Maven 中央存储库下载 SDK：
 
@@ -40,7 +40,9 @@ AiriSDK的环境资源和日志开关等参数都是由```assets/AiriSDKConf.pro
 
 ### AndroidManifeset配置
 
-AiriSDK集成了Helpshift作为客服管理工具，所以需要配置对应的Helpshift参数。
+#### 客服系统
+
+AiriSDK集成了Helpshift作为客服管理工具，所以在Package Explorer中，打开安卓项目的AndroidManifest.xml。在<application>元素中添加以下 meta-data 标签，配置对应的Helpshift参数。
 
 获取参数值请咨询悠星商务人员。
 
@@ -49,6 +51,15 @@ AiriSDK集成了Helpshift作为客服管理工具，所以需要配置对应的H
 <meta-data android:name="helpshift_demain" android:value="xxxxx" />
 <meta-data android:name="helpshift_appId" android:value="xxxxxxxxxxx" />
 ```
+
+### AU支付权限
+
+AiriSDK也集成了AU支付渠道，如果您的游戏有AU支付的需求，请在AndroidManifeset.xml文件中添加以下权限：
+
+```xml
+<uses-permission android:name="com.kddi.market.permission.USE_ALML" />
+```
+
 
 ### res资源配置
 
