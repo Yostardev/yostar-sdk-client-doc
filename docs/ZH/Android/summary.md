@@ -160,7 +160,7 @@ AiriSDKConnect.LoginResultCallback loginResultCallback = new AiriSDKConnect.Logi
                 MainActivity.setResultTv("Login successfully.");
                 if (entity.isCanBindGuest()){ //Whether the landing account can be bound to the local tourist account.
                     AlertDialog.Builder builder = new AlertDialog.Builder(AiriSDK.instance);
-                    builder.setTitle("FAQ:");
+                    builder.setTitle("Prompt:");
                     builder.setMessage("Whether to bind?");
                     builder.setIcon(R.mipmap.ic_launcher_round);
                     builder.setCancelable(true);
@@ -207,3 +207,28 @@ AiriSDKInstance.getInstance().SDKQuickLogin(loginResultCallback);
 | AiriLoginEntity.isCanBindGuest | 当前账号是否可以绑定当前机器保存的游客账号，为true时调用SDKNewAccountLink接口 |
 | AiriLoginEntity.airiUID | 当前账号的uid,作为账户唯一标识使用 |
 | AiriLoginEntity.virtual | 当前机器是否为虚拟机，为true时，说明当前机器为虚拟机 |
+
+### 渠道登陆
+
+#### 调用API
+
+```java
+void SDKLogin(Platform platform,String params1,String params2,boolean isCreateNew,AiriSDKConnect.LoginResultCallback callback)
+```
+#### 调用实例
+
+```java
+ AiriSDKInstance.getInstance().SDKLink(platform,params1,params2,loginResultCallback);
+```
+
+#### 接口参数说明
+
+| 参数名称 | 参数说明 | 是否必须 |
+| ------ | ------ | ------ |
+| Platform | 登陆平台参数 | 是 |
+| params1 | 登陆需要参数1，当Platform的值为Platform.TRANSCODE时，parms1代表继承码。当Platform的值为Platform.YOSTAR时，params1为邮箱账号 | 否 |
+| params2 | 登陆需要参数2，当Platform的值为Platform.TRANSCODE时，parms2代表继承码对应的UID。当Platform的值为Platform.YOSTAR时，params2为邮箱收到的验证码 | 否 |
+| isCreateNew | 是否强制创建新的账号 | 是 |
+| AiriSDKConnect.LoginResultCallback | 登陆结果回调 | 是 |
+
+
