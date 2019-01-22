@@ -79,8 +79,58 @@ AiriSDK集成了firebase的部分功能，需要在```res/values/google_service_
 <string name="project_id">*****</string>
 ```
 
-## 开始接入
+## 接口设计说明
 
+#### demo工程源码目录
 
+https://github.com/Yostardev/yostar-sdk-android
 
+接入过程您可以查看demo工程作为参考。
 
+### 初始化接口
+
+以下所有接口必须在初始化完成后调用。
+
+##### 调用API
+```java
+void initSDK(Activity activity, AiriSDKConnect.InitResultCallback callback)
+```
+##### 调用实例
+```java
+ AiriSDKInstance.getInstance().initSDK(MainActivity.this,new AiriSDKConnect.InitResultCallback() {
+            @Override
+            public void onSuccess(boolean isVirtual) {
+                MainActivity.setResultTv("初始化成功 - 是否为模拟器:" + isVirtual) ;
+            }
+
+            @Override
+            public void onFail(ErrorEntity entity) {
+                MainActivity.setResultTv("初始化失败" ) ;
+            }
+        });
+```
+##### 接口参数说明
+
+| 参数名称 | 参数说明 | 是否必须 |
+| ------ | ------ | ------ |
+| Activity | 程序上下文 | 是 |
+| AiriSDKConnect.InitResultCallback | 初始化结果回调 | 是 |
+
+##### 回调参数说明
+
+| 参数名称 | 参数说明 |
+| ------ | ------ | 
+| isVirtual | 当前机器是否为模拟器 |
+| ErrorEntity | 错误日志类，entity.CODE()为错误码，错误详情请查看错误码表 |
+
+### 设备号获取
+
+##### 调用API
+
+```java
+String SDKGetDeviceID()
+```
+##### 调用实例
+```java
+AiriSDKInstance.getInstance().SDKGetDeviceID()
+```
