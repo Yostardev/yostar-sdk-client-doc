@@ -123,6 +123,7 @@ return [AiriSDKAppDelegate AiriSDKApplication:app openURL:url options:options];
 ```
 
 * 在使用类中导入头文件`#import "AiriSDKInstance.h"`
+
 #### 3.1. 创建单例接口
 * 调用API
 `+ (instancetype)yostarShareton;`
@@ -130,6 +131,7 @@ return [AiriSDKAppDelegate AiriSDKApplication:app openURL:url options:options];
 ```
 self.airiSDK = [AiriSDKInstance yostarShareton];
 ```
+
 #### 3.2. 获取DevicdID 接口
 * 调用API
 `+ (NSString *)SDKGetDeviceID;`
@@ -137,6 +139,7 @@ self.airiSDK = [AiriSDKInstance yostarShareton];
 ```
 NSString *deviceStr = [AiriSDKInstance SDKGetDeviceID];
 ```
+
 #### 3.3. Helpshift客服 接口
 * 调用API
 `+ (void)SDKOpenHelpShift;`
@@ -144,6 +147,7 @@ NSString *deviceStr = [AiriSDKInstance SDKGetDeviceID];
 ```
 [AiriSDKInstance SDKOpenHelpShift];
 ```
+
 #### 3.4. appstore 评分 接口
 * 调用API
 `+ (void)RequestStoreReview;`
@@ -151,6 +155,7 @@ NSString *deviceStr = [AiriSDKInstance SDKGetDeviceID];
 ```
 [AiriSDKInstance RequestStoreReview];
 ```
+
 #### 3.5. 初始化SDK 接口
 * 调用API
 `- (void)initSDK:(InitSuccessHandle)success fail:(InitFailHandle)fail;`
@@ -162,6 +167,7 @@ NSLog(@"%@", result);
 NSLog(@"%@", result);
 }];
 ```
+
 #### 3.6. 登录 接口
 * 调用API
 `- (void)SDKLogin:(NSInteger)platform param1:(NSString *)param1 param2:(NSString *)param2 isCreateNew:(BOOL)isCreateNew success:(LoginSuccessHandle)success fail:(LoginFailHandle)fail;`
@@ -176,11 +182,12 @@ NSLog(@"%@*****", result);
 * 接口参数说明
 
 |参数名称|参数类型|参数说明|是否必须|
-|---|---|---|---|
+|----|----|----|----|
 |platform|NSInteger|登录的渠道有DEVICE(0),TRANSCODE(1),TWITTER(2),FACEBOOK(3),YOSTAR(4)|是|
 |param1|NSString|当Platform的值为1时，param1代表继承码。当Platform的值为4时，param1为邮箱账号|否|
 |param2|NSString|当Platform的值为1时，param2代表继承码对应的UID。当Platform的值为4时，param2为邮箱收到的验证码|否|
 |isNew|BOOL|是否强制创建新的账号|是|
+
 #### 3.7. 快速登录 接口
 * 调用API
 `- (void)SDKQuickLogin:(QuickLoginSuccessHandle)success fail:(QuickLoginFailHandle)fail;`
@@ -192,6 +199,7 @@ NSLog(@"Quick::%@", result);
 NSLog(@"Quick::%@", result);
 }];
 ```
+
 #### 3.8. 发行继承码接口
 * 调用API
 `- (void)SDKTranscodeReq:(TranscodeReqSuccessHandle)success fail:(TranscodeReqFailHandle)fail;`
@@ -203,6 +211,7 @@ NSLog(@"TranscodeReq::%@", result);
 NSLog(@"TranscodeReq::%@", result);
 }];
 ```
+
 #### 3.9. 请求验证码接口
 * 调用API
 `- (void)SDKVerificationCodeReq:(NSString *)accountEmail success:(VerCodeReqSuccessHandle)success fail:(VerCodeReqFailHandle)fail;`
@@ -217,7 +226,7 @@ NSLog(@"%@*****", result);
 * 接口参数说明
 
 |参数名称|参数类型|参数说明|是否必须|
-|---|---|---|---|
+|----|----|----|----|
 |accountEmail|NSString|要验证的邮箱账号|是|
 
 
