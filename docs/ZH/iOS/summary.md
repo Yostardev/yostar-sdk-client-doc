@@ -7,6 +7,7 @@
 **iOS 支持最低版本 iOS 9.0**
 #### 2. 接入流程
 * 在info.plist添加如下内容：
+
 ```
 <key>NSPhotoLibraryUsageDescription</key>
 <string>NeedToAccessYourPhotoAlbum</string>
@@ -43,6 +44,7 @@
 <string>fbshareextension</string>
 </array>
 ```
+
 * 配置后台模式功能，启用以下功能:
 •    Background fetch
 •    Remote notifications
@@ -58,6 +60,7 @@ pod 'AiriSDK'，'~>2.1.4'＃需要接入的版本
 #####2. 手动集成
 [下载最新的Airi iOS SDK]()
 * 将下载的包解压后添加到项目中，并导入所需的系统framework
+
 ```
 AdSupport
 iAd
@@ -88,6 +91,7 @@ libz.tbd
 在工程 Target 的 Build Settings ->Linking ->Other Linker Flags 添加“-ObjC”，如下图：
 ![](https://upload-images.jianshu.io/upload_images/1948913-41590a26bd94178c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 #### 3. SDK使用
+
 ```
 // 导入头文件
 #import "AiriSDKAppDelegate.h"
@@ -114,5 +118,6 @@ return [AiriSDKAppDelegate AiriSDKApplication:app openURL:url options:options];
 [AiriSDKAppDelegate AiriSDKApplicationDidBecomeActive];
 }
 ```
+
 * 在使用类中导入头文件`#import "AiriSDKInstance.h"`
 * 在合理的地方调用初始化方法(该方法会请求平台获取相关应用配置信息) 
