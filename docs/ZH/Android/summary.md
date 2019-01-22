@@ -7,3 +7,10 @@ AiriSDK主要用来向第三方应用程序提供方便快捷的、适合海外�
 
 ## 接入前期准备
 在接入前，请联系AiriSDK平台的负责人员，获取分配给您的应用的以下参数：
+
+| 参数名称 | 参数说明 | 是否必须 |
+| ------ | ------ | ------ |
+| AIRISDK_URL | 分配的AiriSDK服务器访问地址 | 是 |
+| AIRISDK_PAYSTOREID | 游戏支持的支付方式，默认为googleplay | 是 |
+| AIRISDK_SHOWDEBUGLOG | AiriSDK日志打印，默认为false，不打印 | 是 |
+| AIRISDK_NEWDEVICE | 是否将当前机器当作全新的机器使用，默认为false | 是 |
