@@ -1,56 +1,118 @@
-## 概述
+### 1. 概述
+### 2. 接入流程
+### 3. SDK使用
+#### 1. 概述
+本文档面向iOS开发者，Airi iOS SDK 使用OC编程开发。
+本文档用于指导开发者快速接入 Airi iOS SDK 为iOS应用提供登录、注册、支付、分享、App Store评分、客服等功能。
+**iOS 支持最低版本 iOS 9.0**
+#### 2. 接入流程
+* 在info.plist添加如下内容：
+```
+<key>NSPhotoLibraryUsageDescription</key>
+<string>NeedToAccessYourPhotoAlbum</string>
 
-!> MSDK登录功能是游戏玩家登录游戏的最快捷方便的方式：玩家可以使用QQ帐号，微信帐号，游客帐号登录您的游戏，可用于iOS、Android的手机，平板设备。
+<key>CFBundleURLTypes</key>
+<array>
+<dict>
+<key>CFBundleURLName</key>
+<string>facebook-unity-sdk</string>
+<key>CFBundleURLSchemes</key>
+<array>
+<string>fb962***1548(填写你的fbid)</string>
+</array>
+</dict>
+<dict>
+<key>CFBundleTypeRole</key>
+<string>Editor</string>
+<key>CFBundleURLSchemes</key>
+<array>
+<string>twitterkit-e7wRygYH7***VXzeUKm(填写你的twkey)</string>
+</array>
+</dict>
+</array>
 
-您可以参照下图在游戏登录页面放置登录按钮，应Appstore的要求，游客登录按钮需要放在第一个位置。
+<key>FacebookAppID</key>
+<string>962****548(填写你的fbid)</string>
+<key>LSApplicationQueriesSchemes</key>
+<array>
+<string>twitter</string>
+<string>twitterauth</string>
+<string>fbapi</string>
+<string>fbauth2</string>
+<string>fb-messenger-api</string>
+<string>fbshareextension</string>
+</array>
+```
+* 配置后台模式功能，启用以下功能:
+•    Background fetch
+•    Remote notifications
+如图：
+![](https://upload-images.jianshu.io/upload_images/1948913-02273c6beb8989b6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-<center><img src="https://wiki.ssl.msdk.qq.com/Unity/res/login_screen_c.png" width="500"/></center>
+#####1. 使用Cocoapods进行自动集成
+请Podfile根据要集成的版本将以下行之一添加到您的行中。
+```
+pod 'AiriSDK'，'~>2.1.4'＃需要接入的版本
+```
+并运行`pod install`或`pod update`刷新您的依赖项，至此接入完成。
+#####2. 手动集成
+[下载最新的Airi iOS SDK]()
+* 将下载的包解压后添加到项目中，并导入所需的系统framework
+```
+AdSupport
+iAd
+CoreTelephony
+CoreGraphics
+QuartzCore
+CoreText
+SystemConfiguration
+CoreTelephony
+UIKit
+Security
+QuickLook
+CoreLocation
+MobileCoreServices
+CoreSpotlight
+Photos (needed only for v5.10.0 or later)
+WebKit (needed only for v5.10.0 or later)
+SafariServices
+libsqlite3.tbd
+libicucore.tbd
+libz.tbd
+```
+添加完成后如图：
+![](https://upload-images.jianshu.io/upload_images/1948913-cebf3cf912812bc6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+* 导入资源包成功如图：
+![](https://upload-images.jianshu.io/upload_images/1948913-8575cd5252d89fa6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+* 设置Other Linker Flags
+在工程 Target 的 Build Settings ->Linking ->Other Linker Flags 添加“-ObjC”，如下图：
+![](https://upload-images.jianshu.io/upload_images/1948913-41590a26bd94178c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+#### 3. SDK使用
+```
+// 导入头文件
+#import "AiriSDKAppDelegate.h"
 
-MSDK登录可以打造出如下体验：
+// 在以下方法中添加如下代码：
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+[AiriSDKAppDelegate AiriSDKApplication:application didFinishLaunchingWithOptions:launchOptions];
+return YES;
+}
 
-1. **快速创建游戏登录账户**： MSDK登录让用户能够快速轻松地在游戏内创建游戏登录账户，无需设置密码（可能在之后忘记）。这一简单方便的体验可以产生更高的转化量。
-2. **个性化游戏运营**： MSDK登录后您可以授权获得玩家的头像，基本资料信息，方便游戏运营，能够产生更高的留存率。
-3. **社交功能**： MSDK登录后游戏玩家可以进行好友间分享，建立游戏工会群等，以促进游戏内体验的分享。
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options{
+return [AiriSDKAppDelegate AiriSDKApplication:app openURL:url options:options];
+}
 
-## QQ登录 {docsify-ignore}
+- (void)application:(UIApplication*)application didReceiveRemoteNotification:(NSDictionary*)userInfo{
+[AiriSDKAppDelegate AiriSDKApplicationDidReceiveRemoteNotification:userInfo];
+}
 
-您可以调用MSDK接口拉起手Q客户端引导玩家给游戏进行授权。一般登录流程如下。
+- (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken{
+[AiriSDKAppDelegate AiriSDKApplicationDidRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
+}
 
-1. 在游戏登录页点击“与QQ好友玩”
-
-<center><img src="https://wiki.ssl.msdk.qq.com/Unity/res/login_qq1_c.png" width="500"/></center>
-
-2. 在手Q登录页完成授权
-
-<center><img src="https://wiki.ssl.msdk.qq.com/Unity/res/login_qq2_c.png" width="500"/></center>
-
-其中各区域说明如下：
-
-+ 功能1.1: 授权登录按钮，点击可完成对游戏的登录授权。 
-+ 功能1.2: 用户给游戏授权的权限列表，特殊注意是否有"访问应用里你的QQ好友信息"项，如果没有则会在获取用户关系链时报错"100030"。需要确认在java代码中初始MSDK后调用WGPlatform.WGSetPermission(WGQZonePermissions.eOPEN_ALL);。 
-+ 功能1.3: "返回"按钮，用户点击后会取消登录，游戏有收到登录回调且flag为eFlag_QQ_UserCancel。 
-+ 功能1.4: "切换账号"按钮，用户点击此按钮可在手Q内切换手Q账号，并用切换后的账号对游戏授权。
-
-3. 登录成功，回到游戏进行选择区服或直接开始游戏
-
-<center><img src="https://wiki.ssl.msdk.qq.com/Unity/res/login_qq3_c.png" width="500"/></center>
-
-+ 功能1.5: 游戏本身的"进入游戏按钮，与MSDK功能无关。 
-+ 功能1.6: 游戏"切换账号"按钮，调用MSDK的登出接口，然后返回游戏登录页。
-
-## 微信登录
-
-您可以调用MSDK接口拉起微信客户端引导玩家给游戏进行授权。登录流程如下。
-
-1. 在游戏登录页点击“与微信好友玩”
-
-<center><img src="https://wiki.ssl.msdk.qq.com/Unity/res/login_wx1_c.png" width="500"/></center>
-
-2. 在微信登录页完成授权
-
-<center><img src="https://wiki.ssl.msdk.qq.com/Unity/res/login_wx2_c.png" width="500"/></center>
-
-+ 功能2.1: 授权登录按钮，点击可完成对游戏的登录授权。 
-+ 功能2.2: 用户给游戏授权的权限列表，其中"寻找与你共同使用该应用的好友"项表示可获取用户关系链。此项权限需要精品类游戏在PR2阶段由协同规划组申请开通，具体可咨询游戏的腾讯接口人。 
-+ 功能2.3: "取消"按钮，用户点击后会取消登录，游戏有收到登录回调且flag为eFlag_WX_UserCancel。 
-+ 功能2.4: "重试"按钮，用户点击此按钮在微信App上重试授权登录。
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+[AiriSDKAppDelegate AiriSDKApplicationDidBecomeActive];
+}
+```
+* 在使用类中导入头文件`#import "AiriSDKInstance.h"`
+* 在合理的地方调用初始化方法(该方法会请求平台获取相关应用配置信息) 
