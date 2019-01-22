@@ -46,18 +46,21 @@
 ```
 
 * 配置后台模式功能，启用以下功能:
+
 •    Background fetch
+
 •    Remote notifications
 如图：
 ![](https://upload-images.jianshu.io/upload_images/1948913-02273c6beb8989b6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-#####1. 使用Cocoapods进行自动集成
+##### 1. 使用Cocoapods进行自动集成
 请Podfile根据要集成的版本将以下行之一添加到您的行中。
 ```
 pod 'AiriSDK'，'~>2.1.4'＃需要接入的版本
 ```
 并运行`pod install`或`pod update`刷新您的依赖项，至此接入完成。
-#####2. 手动集成
+##### 2. 手动集成
+
 [下载最新的Airi iOS SDK]()
 * 将下载的包解压后添加到项目中，并导入所需的系统framework
 
