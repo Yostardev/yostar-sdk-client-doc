@@ -100,12 +100,12 @@ void initSDK(Activity activity, AiriSDKConnect.InitResultCallback callback)
  AiriSDKInstance.getInstance().initSDK(MainActivity.this,new AiriSDKConnect.InitResultCallback() {
             @Override
             public void onSuccess(boolean isVirtual) {
-                MainActivity.setResultTv("初始化成功 - 是否为模拟器:" + isVirtual) ;
+                MainActivity.setResultTv("Initialization was successful. Is it an emulator:" + isVirtual) ;
             }
 
             @Override
             public void onFail(ErrorEntity entity) {
-                MainActivity.setResultTv("初始化失败" ) ;
+                MainActivity.setResultTv("Initialization failed." ) ;
             }
         });
 ```
@@ -134,3 +134,76 @@ String SDKGetDeviceID()
 ```java
 AiriSDKInstance.getInstance().SDKGetDeviceID()
 ```
+
+### 打开客服界面
+
+#### 调用API
+```java
+void SDKOpenHelpShift()
+```
+#### 调用实例
+```java
+AiriSDKInstance.getInstance().SDKOpenHelpShift();
+```
+### 快速登陆
+
+#### 调用API
+```java
+void SDKQuickLogin(AiriSDKConnect.LoginResultCallback callback)
+```
+#### 调用实例
+```java
+AiriSDKConnect.LoginResultCallback loginResultCallback = new AiriSDKConnect.LoginResultCallback() {
+            @Override
+            public void onSuccess(AiriLoginEntity entity) {
+                MainActivity.showSettingLayout();
+                MainActivity.setResultTv("Login successfully.");
+                if (entity.isCanBindGuest()){ //Whether the landing account can be bound to the local tourist account.
+                    AlertDialog.Builder builder = new AlertDialog.Builder(AiriSDK.instance);
+                    builder.setTitle("FAQ:");
+                    builder.setMessage("Whether to bind?");
+                    builder.setIcon(R.mipmap.ic_launcher_round);
+                    builder.setCancelable(true);
+                    builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            //Call SDKNewAccountLink interface
+                        }
+                    });
+                    builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
+                }
+
+            }
+
+            @Override
+            public void onFail(ErrorEntity entity) {
+                MainActivity.setResultTv("Login failed:" + entity.toString());
+            }
+        } ;
+AiriSDKInstance.getInstance().SDKQuickLogin(loginResultCallback);
+```
+#### 接口参数说明
+
+| 参数名称 | 参数说明 | 是否必须 |
+| ------ | ------ | ------ |
+| AiriSDKConnect.LoginResultCallback | 登陆结果回调 | 是 |
+
+### 回调参数说明
+
+| 参数名称 | 参数说明 |
+| ------ | ------ | 
+| ErrorEntity | 错误日志类，entity.CODE()为错误码，错误详情请查看错误码表 |
+| AiriLoginEntity.accessToken | 登陆成功的AccessToken，作为验证账号的凭证 |
+| AiriLoginEntity.twitter_username | 当前账号绑定的Twitter账户的用户名，没有绑定为"" |
+| AiriLoginEntity.facebook_username | 当前账号绑定的Facebook账户的用户名，没有绑定为"" |
+| AiriLoginEntity.yostar_username | 当前账号绑定的Yostar账户的用户名，没有绑定为"" |
+| AiriLoginEntity.isCanBindGuest | 当前账号是否可以绑定当前机器保存的游客账号，为true时调用SDKNewAccountLink接口 |
+| AiriLoginEntity.airiUID | 当前账号的uid,作为账户唯一标识使用 |
+| AiriLoginEntity.virtual | 当前机器是否为虚拟机，为true时，说明当前机器为虚拟机 |
