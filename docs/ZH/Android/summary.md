@@ -10,9 +10,7 @@ AiriSDK主要用来向第三方应用程序提供方便快捷的、适合海外�
 在您的项目中，打开 ```your_app | Gradle Scripts | build.gradle (Project)``` 并添加以下存储库到 ```buildscript { repositories {}}``` 部分，以便从Maven 中央存储库下载 SDK：
 
 ```gradle
-maven {
-    url 'http://123.206.215.231/repository/maven-releases/'
-}
+maven { url 'http://nexus.yo-star.com/repository/maven-releases/' }
 ```
 
 在您的项目中，打开 ```your_app | Gradle Scripts | build.gradle (Module: app)``` 并添加以下一段执行语句至 ```dependencies{}``` 部分
@@ -81,6 +79,8 @@ AiriSDK集成了firebase的部分功能，需要在```res/values/google_service_
 
 ## 接口设计说明
 
+本SDK的主入口类为AiriSDKInstance，以下方法皆从该类中调用。
+
 #### demo工程源码目录
 
 https://github.com/Yostardev/yostar-sdk-android
@@ -91,11 +91,11 @@ https://github.com/Yostardev/yostar-sdk-android
 
 以下所有接口必须在初始化完成后调用。
 
-#### 调用API
++ 调用API
 ```java
 void initSDK(Activity activity, AiriSDKConnect.InitResultCallback callback)
 ```
-#### 调用实例
++ 调用实例
 ```java
  AiriSDKInstance.getInstance().initSDK(MainActivity.this,new AiriSDKConnect.InitResultCallback() {
             @Override
@@ -109,14 +109,14 @@ void initSDK(Activity activity, AiriSDKConnect.InitResultCallback callback)
             }
         });
 ```
-#### 接口参数说明
++ 接口参数说明
 
 | 参数名称 | 参数说明 | 是否必须 |
 | ------ | ------ | ------ |
 | Activity | 程序上下文 | 是 |
 | AiriSDKConnect.InitResultCallback | 初始化结果回调 | 是 |
 
-#### 回调参数说明
++ 回调参数说明
 
 | 参数名称 | 参数说明 |
 | ------ | ------ | 
@@ -125,33 +125,33 @@ void initSDK(Activity activity, AiriSDKConnect.InitResultCallback callback)
 
 ### 设备号获取
 
-#### 调用API
++ 调用API
 
 ```java
 String SDKGetDeviceID()
 ```
-#### 调用实例
++ 调用实例
 ```java
 AiriSDKInstance.getInstance().SDKGetDeviceID()
 ```
 
 ### 打开客服界面
 
-#### 调用API
++ 调用API
 ```java
 void SDKOpenHelpShift()
 ```
-#### 调用实例
++ 调用实例
 ```java
 AiriSDKInstance.getInstance().SDKOpenHelpShift();
 ```
 ### 快速登陆
 
-#### 调用API
++ 调用API
 ```java
 void SDKQuickLogin(AiriSDKConnect.LoginResultCallback callback)
 ```
-#### 调用实例
++ 调用实例
 ```java
 AiriSDKConnect.LoginResultCallback loginResultCallback = new AiriSDKConnect.LoginResultCallback() {
             @Override
@@ -189,13 +189,13 @@ AiriSDKConnect.LoginResultCallback loginResultCallback = new AiriSDKConnect.Logi
         } ;
 AiriSDKInstance.getInstance().SDKQuickLogin(loginResultCallback);
 ```
-#### 接口参数说明
++ 接口参数说明
 
 | 参数名称 | 参数说明 | 是否必须 |
 | ------ | ------ | ------ |
 | AiriSDKConnect.LoginResultCallback | 登陆结果回调 | 是 |
 
-#### 回调参数说明
++ 回调参数说明
 
 | 参数名称 | 参数说明 |
 | ------ | ------ | 
@@ -208,20 +208,50 @@ AiriSDKInstance.getInstance().SDKQuickLogin(loginResultCallback);
 | AiriLoginEntity.airiUID | 当前账号的uid,作为账户唯一标识使用 |
 | AiriLoginEntity.virtual | 当前机器是否为虚拟机，为true时，说明当前机器为虚拟机 |
 
+### Yostar邮箱获取验证码
+
+在使用Yostar账号系统登陆，绑定之前，需要用户手动输入邮箱，并调用此接口获取邮箱验证码.
+
++ 调用API
+```java
+void SDKVerificationCodeReq(String accountEmail,AiriSDKConnect.CodeReqResultCallback callback)
+```
++ 调用实例
+```java
+AiriSDKInstance.getInstance().SDKVerificationCodeReq(accountEmail, new AiriSDKConnect.CodeReqResultCallback() {
+            @Override
+            public void onSuccess() {
+                MainActivity.setResultTv("Get the verification code successfully.") ;
+            }
+
+            @Override
+            public void onFail(ErrorEntity entity) {
+                MainActivity.setResultTv("Failed to get verification code："+entity.toString()) ;
+            }
+        });
+```
++ 接口参数说明
+
+| 参数名称 | 参数说明 | 是否必须 |
+| ------ | ------ | ------ |
+| accountEmail | Yostar账户系统的邮箱 | 是 |
+| AiriSDKConnect.CodeReqResultCallback | 邮箱验证码回调 | 是 |
+
+
 ### 渠道登陆
 
-#### 调用API
++ 调用API
 
 ```java
 void SDKLogin(Platform platform,String params1,String params2,boolean isCreateNew,AiriSDKConnect.LoginResultCallback callback)
 ```
-#### 调用实例
++ 调用实例
 
 ```java
  AiriSDKInstance.getInstance().SDKLink(platform,params1,params2,loginResultCallback);
 ```
 
-#### 接口参数说明
++ 接口参数说明
 
 | 参数名称 | 参数说明 | 是否必须 |
 | ------ | ------ | ------ |
@@ -231,7 +261,7 @@ void SDKLogin(Platform platform,String params1,String params2,boolean isCreateNe
 | isCreateNew | 是否强制创建新的账号 | 是 |
 | AiriSDKConnect.LoginResultCallback | 登陆结果回调 | 是 |
 
-#### Platform参数说明
++ Platform参数说明
 
 | 参数名称 | 参数说明 |
 | ------ | ------ | 
@@ -245,11 +275,11 @@ void SDKLogin(Platform platform,String params1,String params2,boolean isCreateNe
 
 ### 获取继承码
 
-#### 调用API
++ 调用API
 ```java
 void SDKTranscodeReq(AiriSDKConnect.TranscodeResultCallback callback)
 ```
-#### 调用实例
++ 调用实例
 ```java
 AiriSDKInstance.getInstance().SDKTranscodeReq(new AiriSDKConnect.TranscodeResultCallback() {
             @Override
@@ -263,12 +293,14 @@ AiriSDKInstance.getInstance().SDKTranscodeReq(new AiriSDKConnect.TranscodeResult
             }
         });
 ```
-#### 接口参数说明
++ 接口参数说明
+
 | 参数名称 | 参数说明 | 是否必须 |
 | ------ | ------ | ------ |
 | AiriSDKConnect.TranscodeResultCallback | 获取继承码结果回调 | 是 |
 
-#### 回调参数说明
++ 回调参数说明
+
 | 参数名称 | 参数说明 |
 | ------ | ------ |
 | transcode | 继承码 |
@@ -276,11 +308,11 @@ AiriSDKInstance.getInstance().SDKTranscodeReq(new AiriSDKConnect.TranscodeResult
 
 ### 渠道绑定
 
-#### 调用API
++ 调用API
 ```java
 void SDKLink(Platform platfrom,String params1,String params2,AiriSDKConnect.LinkResultCallback callback)
 ```
-#### 调用实例
++ 调用实例
 ```java
 AiriSDKInstance.getInstance().SDKLink(platform,params1,params2,new AiriSDKConnect.LinkResultCallback() {
             @Override
@@ -294,7 +326,7 @@ AiriSDKInstance.getInstance().SDKLink(platform,params1,params2,new AiriSDKConnec
             }
         });
 ```
-#### 接口参数说明
++ 接口参数说明
 
 | 参数名称 | 参数说明 | 是否必须 |
 | ------ | ------ | ------ |
@@ -303,7 +335,8 @@ AiriSDKInstance.getInstance().SDKLink(platform,params1,params2,new AiriSDKConnec
 | params2 | 绑定需要参数2，当Platform的值为Platform.YOSTAR时，params2为邮箱收到的验证码 | 否 |
 | AiriSDKConnect.LinkResultCallback | 绑定结果回调 | 是 |
 
-#### 回调结果参数
++ 回调结果参数
+
 | 参数名称 | 参数说明 |
 | ------ | ------ |
 | Platform | 绑定的渠道标识 |
@@ -311,11 +344,11 @@ AiriSDKInstance.getInstance().SDKLink(platform,params1,params2,new AiriSDKConnec
 
 ### 覆盖绑定
 
-#### 调用API
++ 调用API
 ```java
 void SDKNewAccountLink(AiriSDKConnect.ReLinkResultCallback callback)
 ```
-#### 调用实例
++ 调用实例
 ```java
 AiriSDKInstance.getInstance().SDKNewAccountLink(new AiriSDKConnect.ReLinkResultCallback() {
             @Override
@@ -329,12 +362,14 @@ AiriSDKInstance.getInstance().SDKNewAccountLink(new AiriSDKConnect.ReLinkResultC
             }
         }) ;
 ```
-#### 接口参数说明
++ 接口参数说明
+
 | 参数名称 | 参数说明 | 是否必须 |
 | ------ | ------ | ------ |
 | AiriSDKConnect.ReLinkResultCallback | 覆盖绑定结果回调 | 是 |
 
-#### 回调结果参数说明
++ 回调结果参数说明
+
 | 参数名称 | 参数说明 |
 | ------ | ------ |
 | Platform | 绑定的渠道标识 |
@@ -342,11 +377,11 @@ AiriSDKInstance.getInstance().SDKNewAccountLink(new AiriSDKConnect.ReLinkResultC
 | accessToken | 登陆时获取的accessToken过期，变成此accessToken |
 
 ### 解除绑定
-#### 调用API
++ 调用API
 ```java
 void SDKUnlink(Platform platform,AiriSDKConnect.UnLinkResultCallback callback)
 ```
-#### 调用实例
++ 调用实例
 ```java
 AiriSDKInstance.getInstance().SDKUnlink(platform,new AiriSDKConnect.UnLinkResultCallback() {
             @Override
@@ -360,13 +395,15 @@ AiriSDKInstance.getInstance().SDKUnlink(platform,new AiriSDKConnect.UnLinkResult
             }
         } );
 ```
-#### 接口参数说明
++ 接口参数说明
+
 | 参数名称 | 参数说明 | 是否必须 |
 | ------ | ------ | ------ |
 | platform | 解除绑定渠道标识,解除绑定可选择标识TWITTER,FACEBOOK | 是 |
 | AiriSDKConnect.UnLinkResultCallback | 解除绑定结果回调 | 是 |
 
-#### 回调结果参数
++ 回调结果参数
+
 | 参数名称 | 参数说明 |
 | ------ | ------ |
 | Platform | 解除绑定的渠道标识 |
@@ -374,11 +411,11 @@ AiriSDKInstance.getInstance().SDKUnlink(platform,new AiriSDKConnect.UnLinkResult
 
 ### 生日设置(其他可选,日本必接)
 
-#### 调用API
++ 调用API
 ```java
 void SDKSetBirth(String birthDay,AiriSDKConnect.BirthSetResultCallback callback)
 ```
-#### 调用实例
++ 调用实例
 ```java
 AiriSDKInstance.getInstance().SDKSetBirth(birthDay,new AiriSDKConnect.BirthSetResultCallback() {
             @Override
@@ -392,7 +429,8 @@ AiriSDKInstance.getInstance().SDKSetBirth(birthDay,new AiriSDKConnect.BirthSetRe
             }
         });
 ```
-#### 接口参数说明
++ 接口参数说明
+
 | 参数名称 | 参数说明 | 是否必须 |
 | ------ | ------ | ------ |
 | birthDay | 生日日期，日期格式为yyyyMMdd | 是 |
@@ -400,11 +438,11 @@ AiriSDKInstance.getInstance().SDKSetBirth(birthDay,new AiriSDKConnect.BirthSetRe
 
 ### 统计事件上传
 
-#### 调用API
++ 调用API
 ```java
 void SDKUserEventUpload(String eventName,String eventJson)
 ```
-#### 调用实例
++ 调用实例
 ```java
 Map<String,String> map = new HashMap<>() ;
 map.put("params1","test1") ;
@@ -412,18 +450,19 @@ map.put("params2","test2") ;
 JSONObject json = new JSONObject(map);
 AiriSDKInstance.getInstance().SDKUserEventUpload("role_levelup",json.toString());
 ```
-#### 接口参数详情
++ 接口参数详情
+
 | 参数名称 | 参数说明 | 是否必须 |
 | ------ | ------ | ------ |
 | eventName | 事件名称，要与AiriSDK后台添加的相对应 | 是 |
 | eventJson | 事件详情，为JSON格式的字符串参数 | 是 |
 
 ### 支付接口
-#### 调用API
++ 调用API
 ```java
 void SDKPurchase(Platform platform,String productId,String serverTag,String extraData,AiriSDKConnect.PurchaseResultCallback callback)
 ```
-#### 调用实例
++ 调用实例
 ```java
 AiriSDKInstance.getInstance().SDKPurchase(platform,productId,serverTag,extraData,new AiriSDKConnect.PurchaseResultCallback() {
             @Override
@@ -436,7 +475,8 @@ AiriSDKInstance.getInstance().SDKPurchase(platform,productId,serverTag,extraData
             }
         });
 ```
-#### 接口参数详情
++ 接口参数详情
+
 | 参数名称 | 参数说明 | 是否必须 |
 | ------ | ------ | ------ |
 | platform | 支付渠道标识，支付时可以选择GOOGLE、AU， | 是 |
@@ -445,12 +485,65 @@ AiriSDKInstance.getInstance().SDKPurchase(platform,productId,serverTag,extraData
 | extraData | 附加参数，在支付结果回调时原样返回 | 是 |
 | AiriSDKConnect.PurchaseResultCallback | 支付结果回调 | 是 |
 
-#### 回调结果参数说明
++ 回调结果参数说明
+
 | 参数名称 | 参数说明 | 
 | ------ | ------ | 
 | orderId | AiriSDK订单号 |
 | extraData | 附加参数，由支付时传入 |
 | ErrorEntity | 支付结果信息，entity.CODE()==0时支付成功，其他情况为失败 |
+
+### 系统级分享(可选)
+
++ 调用API
+```java
+void SDKSystemShare(String shareText,Bitmap bitmap,AiriSDKConnect.ShareResultCallback callback)
+```
++ 调用实例
+```java
+AiriSDKInstance.getInstance().SDKSystemShare("测试图片-截图",activityShot(MainActivity.this),new AiriSDKConnect.ShareResultCallback() {
+            @Override
+            public void onSuccess() {
+                MainActivity.setResultTv("System-level sharing on the Android side, there is no share result callback, so except for special cases, the default is success.");
+            }
+
+            @Override
+            public void onFail(ErrorEntity entity) {
+                MainActivity.setResultTv("Android share failed：" + entity.MESSAGE());
+            }
+        });
+```
++ 接口参数说明
+
+| 参数名称 | 参数说明 | 是否必须 |
+| ------ | ------ | ------ |
+| shareText | 分享图片时带的文字内容，可能无效 | 是 |
+| bitmap | 图片Bitmap | 是 |
+| AiriSDKConnect.ShareResultCallback | 分享结果回调(默认为成功，除了特殊情况，例如：图片没获取等情况返回失败) | 是 |
+
+### 注销功能
+
+调用注销功能会清除所有SDK缓存，请CP谨慎调用。
+调用注销功能后，如果需要再次使用SDK功能请重新初始化SDK。
+
++ 调用API
+```java
+void SDKLogout(AiriSDKConnect.LogoutCallback callback)
+```
++ 调用实例
+```java
+AiriSDKInstance.getInstance().SDKLogout(new AiriSDKConnect.LogoutCallback() {
+            @Override
+            public void onSuccess() {
+                MainActivity.setResultTv("Logout successful, please re-initialize the sdk." ) ;
+            }
+
+            @Override
+            public void onFail(ErrorEntity entity) {
+                MainActivity.setResultTv("Logout failed："+entity.toString()) ;
+            }
+        });
+```
 
 ## 周期接口接入
 
@@ -458,11 +551,11 @@ AiriSDKInstance.getInstance().SDKPurchase(platform,productId,serverTag,extraData
 
 游戏需要在Launcher Activity和Main Activity的onResume方法中调用此接口
 
-#### 调用API
++ 调用API
 ```java
 void SDKOnResume() ;
 ```
-#### 调用实例
++ 调用实例
 ```java
 AiriSDKInstance.getInstance().SDKOnResume()
 ```
@@ -470,11 +563,11 @@ AiriSDKInstance.getInstance().SDKOnResume()
 
 游戏需要在Launcher Activity和Main Activity的onPause方法中调用此接口
 
-#### 调用API
++ 调用API
 ```java
 void SDKOnPause() ;
 ```
-#### 调用实例
++ 调用实例
 ```java
 AiriSDKInstance.getInstance().SDKOnPause()
 ```
