@@ -124,7 +124,9 @@ return [AiriSDKAppDelegate AiriSDKApplication:app openURL:url options:options];
 ```objectivec
 + (instancetype)yostarShareton;
 ```
+
 * 调用实例
+
 ```objectivec
 self.airiSDK = [AiriSDKInstance yostarShareton];
 ```
@@ -135,7 +137,9 @@ self.airiSDK = [AiriSDKInstance yostarShareton];
 ```objectivec
 + (NSString *)SDKGetDeviceID;
 ```
+
 * 调用实例
+
 ```objectivec
 NSString *deviceStr = [AiriSDKInstance SDKGetDeviceID];
 ```
@@ -146,7 +150,9 @@ NSString *deviceStr = [AiriSDKInstance SDKGetDeviceID];
 ```objectivec
 + (void)SDKOpenHelpShift;
 ```
+
 + 调用实例
+
 ```objectivec
 [AiriSDKInstance SDKOpenHelpShift];
 ```
@@ -157,7 +163,9 @@ NSString *deviceStr = [AiriSDKInstance SDKGetDeviceID];
 ```objectivec
 + (void)RequestStoreReview;
 ```
+
 * 调用实例
+
 ```objectivec
 [AiriSDKInstance RequestStoreReview];
 ```
@@ -168,7 +176,9 @@ NSString *deviceStr = [AiriSDKInstance SDKGetDeviceID];
 ```objectivec
 - (void)initSDK:(InitSuccessHandle)success fail:(InitFailHandle)fail;
 ```
+
 * 调用实例
+
 ```objectivec
 [self.airiSDK initSDK:^(NSDictionary *result) {
 NSLog(@"%@", result);
@@ -183,6 +193,7 @@ NSLog(@"%@", result);
 ```objectivec
 - (void)SDKLogin:(NSInteger)platform param1:(NSString *)param1 param2:(NSString *)param2 isCreateNew:(BOOL)isCreateNew success:(LoginSuccessHandle)success fail:(LoginFailHandle)fail;
 ```
+
 * 调用实例
 
 ```objectivec
@@ -192,6 +203,7 @@ NSLog(@"%@*****", result);
 NSLog(@"%@*****", result);
 }];
 ```
+
 * 接口参数说明
 
 |参数名称|参数类型|参数说明|是否必须|
@@ -207,7 +219,9 @@ NSLog(@"%@*****", result);
 ```objectivec
 - (void)SDKQuickLogin:(QuickLoginSuccessHandle)success fail:(QuickLoginFailHandle)fail;
 ```
+
 * 调用实例
+
 ```objectivec
 [self.airiSDK SDKQuickLogin:^(NSDictionary *result) {
 NSLog(@"Quick::%@", result);
@@ -222,7 +236,9 @@ NSLog(@"Quick::%@", result);
 ```objectivec
 - (void)SDKTranscodeReq:(TranscodeReqSuccessHandle)success fail:(TranscodeReqFailHandle)fail;
 ```
+
 * 调用实例
+
 ```objectivec
 [self.airiSDK SDKTranscodeReq:^(NSDictionary *result) {
 NSLog(@"TranscodeReq::%@", result);
@@ -237,7 +253,9 @@ NSLog(@"TranscodeReq::%@", result);
 ```objectivec
 - (void)SDKVerificationCodeReq:(NSString *)accountEmail success:(VerCodeReqSuccessHandle)success fail:(VerCodeReqFailHandle)fail;
 ```
+
 * 调用实例
+
 ```objectivec
 [self.airiSDK SDKVerificationCodeReq:accountEmail success:^(NSDictionary *result) {
 NSLog(@"%@*****", result);
@@ -257,7 +275,9 @@ NSLog(@"%@*****", result);
 ```objectivec
 - (void)SDKLink:(NSInteger)platfrom param1:(NSString *)param1 param2:(NSString *)param2 success:(LinkSuccessHandle)success fail:(LinkFailHandle)fail;
 ```
+
 * 调用实例
+
 ```objectivec
 [self.airiSDK SDKLink:platform param1:param1 param2:param2 success:^(NSDictionary *result) {
 NSLog(@"%@*****", result);
@@ -279,7 +299,9 @@ NSLog(@"%@*****", result);
 ```objectivec
 - (void)SDKUnLink:(NSInteger)platform success:(UnLinkSuccessHandle)success fail:(UnLinkFailHandle)fail;
 ```
+
 * 调用实例
+
 ```objectivec
 [self.airiSDK SDKUnLink:platform success:^(NSDictionary *result) {
 NSLog(@"%@*****", result);
@@ -299,7 +321,9 @@ NSLog(@"%@*****", result);
 ```objectivec
 - (void)SDKNewAccountLink:(ReLinkSuccessHandle)success fail:(ReLinkFailHandle)fail;
 ```
+
 * 调用实例
+
 ```objectivec
 [self.airiSDK SDKNewAccountLink:^(NSDictionary *result) {
 NSLog(@"NewAccountLink::%@", result);
@@ -314,7 +338,9 @@ NSLog(@"NewAccountLink::%@", result);
 ```objectivec
 - (void)SDKSetBirth:(NSString *)birthDay success:(BirthSuccessHandle)success fail:(BirthFailHandle)fail;
 ```
+
 * 调用实例
+
 ```objectivec
 [self.airiSDK SDKSetBirth:birthDay success:^(NSDictionary *result) {
 NSLog(@"%@*****", result);
@@ -334,7 +360,9 @@ NSLog(@"%@*****", result);
 ```objectivec
 - (void)SDKUserEventUpload:(NSString *)strEventName strJson:(NSString *)strJson;
 ```
+
 * 调用实例
+
 ```objectivec
 [self.airiSDK SDKUserEventUpload:strEventName strJson:strJson];
 ```
@@ -351,7 +379,9 @@ NSLog(@"%@*****", result);
 ```objectivec
 - (void)SDKSystemShare:(NSString *)strShareText shareImageData:(NSData *)shareImageData success:(ShareSuccessHandle)success fail:(ShareFailHandle)fail;
 ```
+
 * 调用实例
+
 ```objectivec
 [self.airiSDK SDKSystemShare:strShareText shareImageData:shareImageData success:^(NSDictionary *result) {
 
@@ -372,7 +402,9 @@ NSLog(@"%@*****", result);
 ```objectivec
 - (void)SDKPurchase:(NSString *)productId serverTag:(NSString *)serverTag extraData:(NSString *)extraData success:(PurchaseSuccessHandle)success fail:(PurchaseFailHandle)fail;
 ```
+
 * 调用实例
+
 ```objectivec
 [self.airiSDK SDKPurchase:productId serverTag:serverTag extraData:extraData success:^(NSDictionary *result) {
 NSLog(@"%@*****", result);
@@ -394,7 +426,9 @@ NSLog(@"%@*****", result);
 ```objectivec
 - (void)SDKLogout:(LogoutHandle)handle;
 ```
+
 * 调用实例
+
 ```objectivec
 [self.airiSDK SDKLogout:^(NSDictionary *result) {
 NSLog(@"Logout::%@", result);
