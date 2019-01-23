@@ -88,6 +88,7 @@ pod 'AiriSDK'，'~>2.1.4'＃需要接入的版本
 * 设置Other Linker Flags
 在工程 Target 的 Build Settings ->Linking ->Other Linker Flags 添加“-ObjC”，如下图：
 ![](https://upload-images.jianshu.io/upload_images/1948913-41590a26bd94178c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 ### 3. SDK使用
 
 ```objectivec
@@ -181,11 +182,19 @@ NSString *deviceStr = [AiriSDKInstance SDKGetDeviceID];
 
 ```objectivec
 [self.airiSDK initSDK:^(NSDictionary *result) {
-NSLog(@"%@", result);
+NSLog(@"%@*****", result);
 } fail:^(NSDictionary *result) {
-NSLog(@"%@", result);
+NSLog(@"%@*****", result);
 }];
 ```
+
+* 回调字典参数说明
+
+|参数名称|参数类型|参数说明|
+|----|----|----|
+|METHOD|NSString|请求行为：OnInitNotify|
+|R_CODE|NSNumber|状态码，0表示成功|
+|R_MSG|NSString|状态码说明|
 
 #### 3.6. 登录 接口
 * 调用API
@@ -213,6 +222,21 @@ NSLog(@"%@*****", result);
 |param2|NSString|当Platform的值为1时，param2代表继承码对应的UID。当Platform的值为4时，param2为邮箱收到的验证码|否|
 |isNew|BOOL|是否强制创建新的账号|是|
 
+* 回调字典参数说明
+
+|参数名称|参数类型|参数说明|
+|----|----|----|
+|METHOD|NSString|请求行为：OnLoginNotify|
+|R_CODE|NSNumber|状态码，0表示成功,错误详情请查看错误码表|
+|R_MSG|NSString|状态码说明|
+|ACCESS_TOKEN|NSString|登陆成功的AccessToken，作为验证账号的凭证|
+|ISCAN_BIND_GUEST|BOOL|当前账号是否可以绑定当前机器保存的游客账号，为true时调用SDKNewAccountLink接口|
+|LOGIN_PLATFORM|NSNumber|登录平台，DEVICE(0),TRANSCODE(1),TWITTER(2),FACEBOOK(3),YOSTAR(4)|
+|UID|NSString|当前账号的uid,作为账户唯一标识使用|
+|FACEBOOK_NAME|NSString|当前账号绑定的Facebook账户的用户名，没有绑定该字段为空|
+|TWITTER_NAME|NSString|当前账号绑定的Twitter账户的用户名，没有绑定该字段为空|
+|YOSTAR_NAME|NSString|当前账号绑定的Yostar账户的用户名，没有绑定该字段为空|
+
 #### 3.7. 快速登录 接口
 * 调用API
 
@@ -224,11 +248,14 @@ NSLog(@"%@*****", result);
 
 ```objectivec
 [self.airiSDK SDKQuickLogin:^(NSDictionary *result) {
-NSLog(@"Quick::%@", result);
+NSLog(@"Quick::%@*****", result);
 } fail:^(NSDictionary *result) {
-NSLog(@"Quick::%@", result);
+NSLog(@"Quick::%@*****", result);
 }];
 ```
+
+* 回调字典参数说明
+**同3.6. 登录接口返回说明**
 
 #### 3.8. 发行继承码接口
 * 调用API
@@ -241,11 +268,21 @@ NSLog(@"Quick::%@", result);
 
 ```objectivec
 [self.airiSDK SDKTranscodeReq:^(NSDictionary *result) {
-NSLog(@"TranscodeReq::%@", result);
+NSLog(@"TranscodeReq::%@*****", result);
 } fail:^(NSDictionary *result) {
-NSLog(@"TranscodeReq::%@", result);
+NSLog(@"TranscodeReq::%@*****", result);
 }];
 ```
+
+* 回调字典参数说明
+
+|参数名称|参数类型|参数说明|
+|----|----|----|
+|METHOD|NSString|请求行为：OnTranscodeNotify|
+|R_CODE|NSNumber|状态码，0表示成功,错误详情请查看错误码表|
+|R_MSG|NSString|状态码说明|
+|TRANSCODE|NSString| 继承码|
+|UID|NSString|继承码对应的UID|
 
 #### 3.9. 请求验证码接口
 * 调用API
@@ -268,6 +305,14 @@ NSLog(@"%@*****", result);
 |参数名称|参数类型|参数说明|是否必须|
 |----|----|----|----|
 |accountEmail|NSString|要验证的邮箱账号|是|
+
+* 回调字典参数说明
+
+|参数名称|参数类型|参数说明|
+|----|----|----|
+|METHOD|NSString|请求行为：OnVerificationCodeNotify|
+|R_CODE|NSNumber|状态码，0表示成功,错误详情请查看错误码表|
+|R_MSG|NSString|状态码说明|
 
 #### 3.10. 绑定接口
 * 调用API
@@ -293,6 +338,16 @@ NSLog(@"%@*****", result);
 |param1|NSString|当Platform的值为4时，params1为邮箱账号|否|
 |param2|NSString|当Platform的值为4时，params2为邮箱收到的验证码|否|
 
+* 回调字典参数说明
+
+|参数名称|参数类型|参数说明|
+|----|----|----|
+|METHOD|NSString|请求行为：OnLinkNotify|
+|R_CODE|NSNumber|状态码，0表示成功,错误详情请查看错误码表|
+|R_MSG|NSString|状态码说明|
+|LOGIN_PLATFORM|NSNumber|绑定的渠道标识，TWITTER(2),FACEBOOK(3),YOSTAR(4)|
+|SOCAIL_NAME|NSString|绑定渠道对应的用户名|
+
 #### 3.11. 解绑接口
 * 调用API
 
@@ -315,6 +370,16 @@ NSLog(@"%@*****", result);
 |----|----|----|----|
 |platform|NSInteger|解除绑定渠道标识,解除绑定可选择标识TWITTER(2),FACEBOOK(3)|是|
 
+* 回调字典参数说明
+
+|参数名称|参数类型|参数说明|
+|----|----|----|
+|METHOD|NSString|请求行为：OnUnLinkNotify|
+|R_CODE|NSNumber|状态码，0表示成功,错误详情请查看错误码表|
+|R_MSG|NSString|状态码说明|
+|LOGIN_PLATFORM|NSNumber|解绑的渠道标识，TWITTER(2),FACEBOOK(3)|
+|SOCAIL_NAME|NSString|解绑渠道对应的用户名|
+
 #### 3.12. 覆盖绑定接口
 * 调用API
 
@@ -331,6 +396,17 @@ NSLog(@"NewAccountLink::%@", result);
 NSLog(@"NewAccountLink::%@", result);
 }];
 ```
+
+* 回调字典参数说明
+
+|参数名称|参数类型|参数说明|
+|----|----|----|
+|METHOD|NSString|请求行为：OnLinkNotify|
+|R_CODE|NSNumber|状态码，0表示成功,错误详情请查看错误码表|
+|R_MSG|NSString|状态码说明|
+|LOGIN_PLATFORM|NSNumber|绑定的渠道标识，TWITTER(2),FACEBOOK(3),YOSTAR(4)|
+|SOCAIL_NAME|NSString|绑定渠道对应的用户名|
+|ACCESS_TOKEN|NSString|登陆时获取的accessToken过期，变成此accessToken|
 
 #### 3.13. 设置生日接口
 * 调用API
@@ -353,6 +429,14 @@ NSLog(@"%@*****", result);
 |参数名称|参数类型|参数说明|是否必须|
 |----|----|----|----|
 |birthDay|NSString|生日日期，日期格式为yyyyMMdd|是|
+
+* 回调字典参数说明
+
+|参数名称|参数类型|参数说明|
+|----|----|----|
+|METHOD|NSString|请求行为：OnSetBrithNotify|
+|R_CODE|NSNumber|状态码，0表示成功,错误详情请查看错误码表|
+|R_MSG|NSString|状态码说明|
 
 #### 3.14. 事件上传接口
 * 调用API
@@ -393,8 +477,16 @@ NSLog(@"%@*****", result);
 
 |参数名称|参数类型|参数说明|是否必须|
 |----|----|----|----|
-|strShareText|NSString|要分享的文字内容，是否显示根据分享的平台支持情况定|否|
+|strShareText|NSString|要分享的文字内容，是否显示根据分享的平台支持情况定|是|
 |shareImageData|NSData|要分享的data格式的图片|是|
+
+* 回调字典参数说明
+
+|参数名称|参数类型|参数说明|
+|----|----|----|
+|METHOD|NSString|请求行为：OnSystemShareNotify|
+|R_CODE|NSNumber|状态码，0表示成功,错误详情请查看错误码表|
+|R_MSG|NSString|状态码说明|
 
 #### 3.16. 支付接口
 * 调用API
@@ -420,6 +512,16 @@ NSLog(@"%@*****", result);
 |serverTag|NSString|服务器标识|是|
 |extraData|NSString|附加参数，在支付结果回调时原样返回|是|
 
+* 回调字典参数说明
+
+|参数名称|参数类型|参数说明|
+|----|----|----|
+|METHOD|NSString|请求行为：OnSystemShareNotify|
+|R_CODE|NSNumber|状态码，0表示成功,错误详情请查看错误码表|
+|R_MSG|NSString|状态码说明|
+|EXTRADATA|NSString|附加参数，由支付时传入|
+|ORDERID|NSString|AiriSDK订单号|
+
 #### 3.17. 注销、清空token接口
 * 调用API
 
@@ -435,3 +537,11 @@ NSLog(@"Logout::%@", result);
 }];
 ```
 **注意：调用该接口会清空用户缓存的账号数据**
+
+* 回调字典参数说明
+
+|参数名称|参数类型|参数说明|
+|----|----|----|
+|METHOD|NSString|请求行为：OnClearAccountInfoNotify|
+|R_CODE|NSNumber|状态码，0表示成功,错误详情请查看错误码表|
+|R_MSG|NSString|状态码说明|
