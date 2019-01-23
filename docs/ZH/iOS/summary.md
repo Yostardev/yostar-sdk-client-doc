@@ -95,7 +95,7 @@ libz.tbd
 ![](https://upload-images.jianshu.io/upload_images/1948913-41590a26bd94178c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 #### 3. SDK使用
 
-```OC
+```objectivec
 // 导入头文件
 #import "AiriSDKAppDelegate.h"
 
@@ -126,51 +126,51 @@ return [AiriSDKAppDelegate AiriSDKApplication:app openURL:url options:options];
 
 #### 3.1. 创建单例接口
 * 调用API
-```
+```objectivec
 + (instancetype)yostarShareton;
 ```
 * 调用实例
-```
+```objectivec
 self.airiSDK = [AiriSDKInstance yostarShareton];
 ```
 
 #### 3.2. 获取DevicdID 接口
 * 调用API
-```
+```objectivec
 + (NSString *)SDKGetDeviceID;
 ```
 * 调用实例
-```
+```objectivec
 NSString *deviceStr = [AiriSDKInstance SDKGetDeviceID];
 ```
 
 #### 3.3. Helpshift客服 接口
 * 调用API
-```
+```objectivec
 + (void)SDKOpenHelpShift;
 ```
 * 调用实例
-```
+```objectivec
 [AiriSDKInstance SDKOpenHelpShift];
 ```
 
 #### 3.4. appstore 评分 接口
 * 调用API
-```
+```objectivec
 + (void)RequestStoreReview;
 ```
 * 调用实例
-```
+```objectivec
 [AiriSDKInstance RequestStoreReview];
 ```
 
 #### 3.5. 初始化SDK 接口
 * 调用API
-```
+```objectivec
 - (void)initSDK:(InitSuccessHandle)success fail:(InitFailHandle)fail;
 ```
 * 调用实例
-```ObjC
+```objectivec
 [self.airiSDK initSDK:^(NSDictionary *result) {
 NSLog(@"%@", result);
 } fail:^(NSDictionary *result) {
@@ -180,11 +180,11 @@ NSLog(@"%@", result);
 
 #### 3.6. 登录 接口
 * 调用API
-```
+```objectivec
 - (void)SDKLogin:(NSInteger)platform param1:(NSString *)param1 param2:(NSString *)param2 isCreateNew:(BOOL)isCreateNew success:(LoginSuccessHandle)success fail:(LoginFailHandle)fail;
 ```
 * 调用实例
-```objectiveC
+```objectivec
 [self.airiSDK SDKLogin:platform param1:param1 param2:param2 isCreateNew:isNew success:^(NSDictionary *result) {
 NSLog(@"%@*****", result);
 } fail:^(NSDictionary *result) {
@@ -202,11 +202,11 @@ NSLog(@"%@*****", result);
 
 #### 3.7. 快速登录 接口
 * 调用API
-```
+```objectivec
 - (void)SDKQuickLogin:(QuickLoginSuccessHandle)success fail:(QuickLoginFailHandle)fail;
 ```
 * 调用实例
-```
+```objectivec
 [self.airiSDK SDKQuickLogin:^(NSDictionary *result) {
 NSLog(@"Quick::%@", result);
 } fail:^(NSDictionary *result) {
@@ -216,11 +216,11 @@ NSLog(@"Quick::%@", result);
 
 #### 3.8. 发行继承码接口
 * 调用API
-```
+```objectivec
 - (void)SDKTranscodeReq:(TranscodeReqSuccessHandle)success fail:(TranscodeReqFailHandle)fail;
 ```
 * 调用实例
-```
+```objectivec
 [self.airiSDK SDKTranscodeReq:^(NSDictionary *result) {
 NSLog(@"TranscodeReq::%@", result);
 } fail:^(NSDictionary *result) {
@@ -230,11 +230,11 @@ NSLog(@"TranscodeReq::%@", result);
 
 #### 3.9. 请求验证码接口
 * 调用API
-```
+```objectivec
 - (void)SDKVerificationCodeReq:(NSString *)accountEmail success:(VerCodeReqSuccessHandle)success fail:(VerCodeReqFailHandle)fail;
 ```
 * 调用实例
-```
+```objectivec
 [self.airiSDK SDKVerificationCodeReq:accountEmail success:^(NSDictionary *result) {
 NSLog(@"%@*****", result);
 } fail:^(NSDictionary *result) {
