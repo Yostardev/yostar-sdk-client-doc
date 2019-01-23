@@ -45,7 +45,7 @@
 </array>
 ```
 
-* 配置后台模式功能，启用以下功能:
++ 配置后台模式功能，启用以下功能:
 
 •    Background fetch
 
@@ -62,39 +62,35 @@ pod 'AiriSDK'，'~>2.1.4'＃需要接入的版本
 ##### 2. 手动集成
 
 [下载最新的Airi iOS SDK]()
-* 将下载的包解压后添加到项目中，并导入所需的系统framework
-
-```
-AdSupport
-iAd
-CoreTelephony
-CoreGraphics
-QuartzCore
-CoreText
-SystemConfiguration
-CoreTelephony
-UIKit
-Security
-QuickLook
-CoreLocation
-MobileCoreServices
-CoreSpotlight
-Photos
-WebKit
-SafariServices
-libsqlite3.tbd
-libicucore.tbd
-libz.tbd
-```
++ 将下载的包解压后添加到项目中，并导入所需的系统framework
+`AdSupport`
+`iAd`
+`CoreTelephony`
+`CoreGraphics`
+`QuartzCore`
+`CoreText`
+`SystemConfiguration`
+`CoreTelephony`
+`UIKit`
+`Security`
+`QuickLook`
+`CoreLocation`
+`MobileCoreServices`
+`CoreSpotlight`
+`Photos`
+`WebKit`
+`SafariServices`
+`libsqlite3.tbd`
+`libicucore.tbd`
+`libz.tbd`
 添加完成后如图：
 ![](https://upload-images.jianshu.io/upload_images/1948913-cebf3cf912812bc6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-* 导入资源包成功如图：
++ 导入资源包成功如图：
 ![](https://upload-images.jianshu.io/upload_images/1948913-8575cd5252d89fa6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-* 设置Other Linker Flags
++ 设置Other Linker Flags
 在工程 Target 的 Build Settings ->Linking ->Other Linker Flags 添加“-ObjC”，如下图：
 ![](https://upload-images.jianshu.io/upload_images/1948913-41590a26bd94178c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 #### 3. SDK使用
-
 ```objectivec
 // 导入头文件
 #import "AiriSDKAppDelegate.h"
@@ -121,55 +117,54 @@ return [AiriSDKAppDelegate AiriSDKApplication:app openURL:url options:options];
 [AiriSDKAppDelegate AiriSDKApplicationDidBecomeActive];
 }
 ```
-
-* 在使用类中导入头文件`#import "AiriSDKInstance.h"`
++ 在使用类中导入头文件`#import "AiriSDKInstance.h"`
 
 #### 3.1. 创建单例接口
-* 调用API
++ 调用API
 ```objectivec
 + (instancetype)yostarShareton;
 ```
-* 调用实例
++ 调用实例
 ```objectivec
 self.airiSDK = [AiriSDKInstance yostarShareton];
 ```
 
 #### 3.2. 获取DevicdID 接口
-* 调用API
++ 调用API
 ```objectivec
 + (NSString *)SDKGetDeviceID;
 ```
-* 调用实例
++ 调用实例
 ```objectivec
 NSString *deviceStr = [AiriSDKInstance SDKGetDeviceID];
 ```
 
 #### 3.3. Helpshift客服 接口
-* 调用API
++ 调用API
 ```objectivec
 + (void)SDKOpenHelpShift;
 ```
-* 调用实例
++ 调用实例
 ```objectivec
 [AiriSDKInstance SDKOpenHelpShift];
 ```
 
 #### 3.4. appstore 评分 接口
-* 调用API
++ 调用API
 ```objectivec
 + (void)RequestStoreReview;
 ```
-* 调用实例
++ 调用实例
 ```objectivec
 [AiriSDKInstance RequestStoreReview];
 ```
 
 #### 3.5. 初始化SDK 接口
-* 调用API
++ 调用API
 ```objectivec
 - (void)initSDK:(InitSuccessHandle)success fail:(InitFailHandle)fail;
 ```
-* 调用实例
++ 调用实例
 ```objectivec
 [self.airiSDK initSDK:^(NSDictionary *result) {
 NSLog(@"%@", result);
@@ -179,11 +174,11 @@ NSLog(@"%@", result);
 ```
 
 #### 3.6. 登录 接口
-* 调用API
++ 调用API
 ```objectivec
 - (void)SDKLogin:(NSInteger)platform param1:(NSString *)param1 param2:(NSString *)param2 isCreateNew:(BOOL)isCreateNew success:(LoginSuccessHandle)success fail:(LoginFailHandle)fail;
 ```
-* 调用实例
++ 调用实例
 ```objectivec
 [self.airiSDK SDKLogin:platform param1:param1 param2:param2 isCreateNew:isNew success:^(NSDictionary *result) {
 NSLog(@"%@*****", result);
@@ -191,7 +186,7 @@ NSLog(@"%@*****", result);
 NSLog(@"%@*****", result);
 }];
 ```
-* 接口参数说明
++ 接口参数说明
 
 |参数名称|参数类型|参数说明|是否必须|
 |----|----|----|----|
@@ -201,11 +196,11 @@ NSLog(@"%@*****", result);
 |isNew|BOOL|是否强制创建新的账号|是|
 
 #### 3.7. 快速登录 接口
-* 调用API
++ 调用API
 ```objectivec
 - (void)SDKQuickLogin:(QuickLoginSuccessHandle)success fail:(QuickLoginFailHandle)fail;
 ```
-* 调用实例
++ 调用实例
 ```objectivec
 [self.airiSDK SDKQuickLogin:^(NSDictionary *result) {
 NSLog(@"Quick::%@", result);
@@ -215,11 +210,11 @@ NSLog(@"Quick::%@", result);
 ```
 
 #### 3.8. 发行继承码接口
-* 调用API
++ 调用API
 ```objectivec
 - (void)SDKTranscodeReq:(TranscodeReqSuccessHandle)success fail:(TranscodeReqFailHandle)fail;
 ```
-* 调用实例
++ 调用实例
 ```objectivec
 [self.airiSDK SDKTranscodeReq:^(NSDictionary *result) {
 NSLog(@"TranscodeReq::%@", result);
@@ -229,11 +224,11 @@ NSLog(@"TranscodeReq::%@", result);
 ```
 
 #### 3.9. 请求验证码接口
-* 调用API
++ 调用API
 ```objectivec
 - (void)SDKVerificationCodeReq:(NSString *)accountEmail success:(VerCodeReqSuccessHandle)success fail:(VerCodeReqFailHandle)fail;
 ```
-* 调用实例
++ 调用实例
 ```objectivec
 [self.airiSDK SDKVerificationCodeReq:accountEmail success:^(NSDictionary *result) {
 NSLog(@"%@*****", result);
@@ -241,7 +236,7 @@ NSLog(@"%@*****", result);
 NSLog(@"%@*****", result);
 }];
 ```
-* 接口参数说明
++ 接口参数说明
 
 |参数名称|参数类型|参数说明|是否必须|
 |----|----|----|----|
