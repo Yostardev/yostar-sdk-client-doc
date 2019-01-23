@@ -10,9 +10,7 @@ AiriSDK主要用来向第三方应用程序提供方便快捷的、适合海外�
 在您的项目中，打开 ```your_app | Gradle Scripts | build.gradle (Project)``` 并添加以下存储库到 ```buildscript { repositories {}}``` 部分，以便从Maven 中央存储库下载 SDK：
 
 ```gradle
-maven {
-    url 'http://123.206.215.231/repository/maven-releases/'
-}
+maven { url 'http://nexus.yo-star.com/repository/maven-releases/' }
 ```
 
 在您的项目中，打开 ```your_app | Gradle Scripts | build.gradle (Module: app)``` 并添加以下一段执行语句至 ```dependencies{}``` 部分
@@ -80,6 +78,8 @@ AiriSDK集成了firebase的部分功能，需要在```res/values/google_service_
 ```
 
 ## 接口设计说明
+
+本SDK的主入口类为AiriSDKInstance，以下方法皆从该类中调用。
 
 #### demo工程源码目录
 
@@ -207,6 +207,35 @@ AiriSDKInstance.getInstance().SDKQuickLogin(loginResultCallback);
 | AiriLoginEntity.isCanBindGuest | 当前账号是否可以绑定当前机器保存的游客账号，为true时调用SDKNewAccountLink接口 |
 | AiriLoginEntity.airiUID | 当前账号的uid,作为账户唯一标识使用 |
 | AiriLoginEntity.virtual | 当前机器是否为虚拟机，为true时，说明当前机器为虚拟机 |
+
+### Yostar邮箱获取验证码
+
+在使用Yostar账号系统登陆，绑定之前，需要用户手动输入邮箱，并调用此接口获取邮箱验证码.
+
+#### 调用API
+```java
+void SDKVerificationCodeReq(String accountEmail,AiriSDKConnect.CodeReqResultCallback callback)
+```
+#### 调用实例
+```java
+AiriSDKInstance.getInstance().SDKVerificationCodeReq(accountEmail, new AiriSDKConnect.CodeReqResultCallback() {
+            @Override
+            public void onSuccess() {
+                MainActivity.setResultTv("Get the verification code successfully.") ;
+            }
+
+            @Override
+            public void onFail(ErrorEntity entity) {
+                MainActivity.setResultTv("Failed to get verification code："+entity.toString()) ;
+            }
+        });
+```
+#### 接口参数说明
+| 参数名称 | 参数说明 | 是否必须 |
+| ------ | ------ | ------ |
+| accountEmail | Yostar账户系统的邮箱 | 是 |
+| AiriSDKConnect.CodeReqResultCallback | 邮箱验证码回调 | 是 |
+
 
 ### 渠道登陆
 
@@ -451,6 +480,58 @@ AiriSDKInstance.getInstance().SDKPurchase(platform,productId,serverTag,extraData
 | orderId | AiriSDK订单号 |
 | extraData | 附加参数，由支付时传入 |
 | ErrorEntity | 支付结果信息，entity.CODE()==0时支付成功，其他情况为失败 |
+
+### 系统级分享(可选)
+
+#### 调用API
+```java
+void SDKSystemShare(String shareText,Bitmap bitmap,AiriSDKConnect.ShareResultCallback callback)
+```
+#### 调用实例
+```java
+AiriSDKInstance.getInstance().SDKSystemShare("测试图片-截图",activityShot(MainActivity.this),new AiriSDKConnect.ShareResultCallback() {
+            @Override
+            public void onSuccess() {
+                MainActivity.setResultTv("System-level sharing on the Android side, there is no share result callback, so except for special cases, the default is success.");
+            }
+
+            @Override
+            public void onFail(ErrorEntity entity) {
+                MainActivity.setResultTv("Android share failed：" + entity.MESSAGE());
+            }
+        });
+```
+#### 接口参数说明
+
+| 参数名称 | 参数说明 | 是否必须 |
+| ------ | ------ | ------ |
+| shareText | 分享图片时带的文字内容，可能无效 | 是 |
+| bitmap | 图片Bitmap | 是 |
+| AiriSDKConnect.ShareResultCallback | 分享结果回调(默认为成功，除了特殊情况，例如：图片没获取等情况返回失败) | 是 |
+
+### 注销功能
+
+调用注销功能会清除所有SDK缓存，请CP谨慎调用。
+调用注销功能后，如果需要再次使用SDK功能请重新初始化SDK。
+
+#### 调用API
+```java
+void SDKLogout(AiriSDKConnect.LogoutCallback callback)
+```
+#### 调用实例
+```java
+AiriSDKInstance.getInstance().SDKLogout(new AiriSDKConnect.LogoutCallback() {
+            @Override
+            public void onSuccess() {
+                MainActivity.setResultTv("Logout successful, please re-initialize the sdk." ) ;
+            }
+
+            @Override
+            public void onFail(ErrorEntity entity) {
+                MainActivity.setResultTv("Logout failed："+entity.toString()) ;
+            }
+        });
+```
 
 ## 周期接口接入
 
