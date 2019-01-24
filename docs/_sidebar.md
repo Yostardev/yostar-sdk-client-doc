@@ -2,8 +2,7 @@
     * [概述](/ZH/Unity3D/summary)
     * [接入向导](/ZH/Unity3D/insert)
 
-* Android
-    * [接入文档](/ZH/Android/summary)
+* [Android](/ZH/Android/summary)
     
 * iOS
     * [接入文档](/ZH/iOS/summary)
