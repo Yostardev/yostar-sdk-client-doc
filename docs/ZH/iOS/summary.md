@@ -93,6 +93,9 @@ pod 'AiriSDK'＃或者直接pod使用最新的SDK版本
 在工程 Target 的 Build Settings ->Linking ->Other Linker Flags 添加“-ObjC”，如下图：
 ![](https://upload-images.jianshu.io/upload_images/1948913-41590a26bd94178c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
+* **注意：需要将AiriSDKConf.plist里面的参数替换为分配的参数，使用Cocoapods集成的工程plist文件在下图位置**
+![image.png](https://upload-images.jianshu.io/upload_images/1948913-f2f84289d6fffb9a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 ## 3. SDK使用
 
 ```objectivec
