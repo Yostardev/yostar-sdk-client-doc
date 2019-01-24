@@ -1,8 +1,8 @@
-###  1. 概述
+##  1. 概述
 本文档面向iOS开发者，Airi iOS SDK 使用OC编程开发。
 本文档用于指导开发者快速接入 Airi iOS SDK 为iOS应用提供登录、注册、支付、分享、App Store评分、客服等功能。
 **iOS 支持最低版本 iOS 9.0**
-### 2. 接入流程
+## 2. 接入流程
 * 在info.plist添加如下内容：
 
 ```
@@ -11,34 +11,34 @@
 
 <key>CFBundleURLTypes</key>
 <array>
-<dict>
-<key>CFBundleURLName</key>
-<string>facebook-unity-sdk</string>
-<key>CFBundleURLSchemes</key>
-<array>
-<string>fb962***1548(填写你的fbid)</string>
-</array>
-</dict>
-<dict>
-<key>CFBundleTypeRole</key>
-<string>Editor</string>
-<key>CFBundleURLSchemes</key>
-<array>
-<string>twitterkit-e7wRygYH7***VXzeUKm(填写你的twkey)</string>
-</array>
-</dict>
+    <dict>
+        <key>CFBundleURLName</key>
+        <string>facebook-unity-sdk</string>
+        <key>CFBundleURLSchemes</key>
+        <array>
+            <string>fb962***1548(填写你的fbid)</string>
+        </array>
+    </dict>
+    <dict>
+        <key>CFBundleTypeRole</key>
+        <string>Editor</string>
+        <key>CFBundleURLSchemes</key>
+        <array>
+            <string>twitterkit-e7wRygYH7***VXzeUKm(填写你的twkey)</string>
+        </array>
+        </dict>
 </array>
 
 <key>FacebookAppID</key>
 <string>962****548(填写你的fbid)</string>
 <key>LSApplicationQueriesSchemes</key>
 <array>
-<string>twitter</string>
-<string>twitterauth</string>
-<string>fbapi</string>
-<string>fbauth2</string>
-<string>fb-messenger-api</string>
-<string>fbshareextension</string>
+    <string>twitter</string>
+    <string>twitterauth</string>
+    <string>fbapi</string>
+    <string>fbauth2</string>
+    <string>fb-messenger-api</string>
+    <string>fbshareextension</string>
 </array>
 ```
 
@@ -50,19 +50,19 @@
 如图：
 ![](https://upload-images.jianshu.io/upload_images/1948913-02273c6beb8989b6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-#### 1. 使用Cocoapods进行自动集成
+### 1. 使用Cocoapods进行自动集成
 请Podfile根据要集成的版本将以下行添加到您的行中。
 ```
 pod 'AiriSDK'，'~>2.1.4'＃需要接入的版本
 pod 'AiriSDK'＃或者直接pod使用最新的SDK版本
 ```
 并运行`pod install`或`pod update`刷新您的依赖项，至此接入完成。
-#### 2. 手动集成
+### 2. 手动集成
 
 [下载最新的Airi iOS SDK]()
 * 解压后如图，Libraries文件夹下就是所需的Airi iOS SDK，把这些文件导入到你的工程中
 ![](https://upload-images.jianshu.io/upload_images/1948913-8e0913df9ad8e44d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-* 并导入以下所需的系统framework
+* 并导入一下所需的系统framework
 `AdSupport`
 `iAd`
 `CoreTelephony`
@@ -91,7 +91,7 @@ pod 'AiriSDK'＃或者直接pod使用最新的SDK版本
 在工程 Target 的 Build Settings ->Linking ->Other Linker Flags 添加“-ObjC”，如下图：
 ![](https://upload-images.jianshu.io/upload_images/1948913-41590a26bd94178c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-### 3. SDK使用
+## 3. SDK使用
 
 ```objectivec
 // 导入头文件
@@ -99,29 +99,29 @@ pod 'AiriSDK'＃或者直接pod使用最新的SDK版本
 
 // 在以下方法中添加如下代码：
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-[AiriSDKAppDelegate AiriSDKApplication:application didFinishLaunchingWithOptions:launchOptions];
+    [AiriSDKAppDelegate AiriSDKApplication:application didFinishLaunchingWithOptions:launchOptions];
 return YES;
 }
 
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options{
-return [AiriSDKAppDelegate AiriSDKApplication:app openURL:url options:options];
+    return [AiriSDKAppDelegate AiriSDKApplication:app openURL:url options:options];
 }
 
 - (void)application:(UIApplication*)application didReceiveRemoteNotification:(NSDictionary*)userInfo{
-[AiriSDKAppDelegate AiriSDKApplicationDidReceiveRemoteNotification:userInfo];
+    [AiriSDKAppDelegate AiriSDKApplicationDidReceiveRemoteNotification:userInfo];
 }
 
 - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken{
-[AiriSDKAppDelegate AiriSDKApplicationDidRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
+    [AiriSDKAppDelegate AiriSDKApplicationDidRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-[AiriSDKAppDelegate AiriSDKApplicationDidBecomeActive];
+    [AiriSDKAppDelegate AiriSDKApplicationDidBecomeActive];
 }
 ```
 * 在使用类中导入头文件`#import "AiriSDKInstance.h"`
 
-#### 3.1. 创建单例接口
+### 3.1. 创建单例接口
 * 调用API
 
 ```objectivec
@@ -134,7 +134,7 @@ return [AiriSDKAppDelegate AiriSDKApplication:app openURL:url options:options];
 self.airiSDK = [AiriSDKInstance yostarShareton];
 ```
 
-#### 3.2. 获取DevicdID 接口
+### 3.2. 获取DevicdID 接口
 * 调用API
 
 ```objectivec
@@ -147,7 +147,7 @@ self.airiSDK = [AiriSDKInstance yostarShareton];
 NSString *deviceStr = [AiriSDKInstance SDKGetDeviceID];
 ```
 
-#### 3.3. Helpshift客服 接口
+### 3.3. Helpshift客服 接口
 * 调用API
 
 ```objectivec
@@ -160,7 +160,7 @@ NSString *deviceStr = [AiriSDKInstance SDKGetDeviceID];
 [AiriSDKInstance SDKOpenHelpShift];
 ```
 
-#### 3.4. appstore 评分 接口
+### 3.4. appstore 评分 接口
 * 调用API
 
 ```objectivec
@@ -173,7 +173,7 @@ NSString *deviceStr = [AiriSDKInstance SDKGetDeviceID];
 [AiriSDKInstance RequestStoreReview];
 ```
 
-#### 3.5. 初始化SDK 接口
+### 3.5. 初始化SDK 接口
 * 调用API
 
 ```objectivec
@@ -184,9 +184,9 @@ NSString *deviceStr = [AiriSDKInstance SDKGetDeviceID];
 
 ```objectivec
 [self.airiSDK initSDK:^(NSDictionary *result) {
-NSLog(@"%@*****", result);
+    NSLog(@"%@*****", result);
 } fail:^(NSDictionary *result) {
-NSLog(@"%@*****", result);
+    NSLog(@"%@*****", result);
 }];
 ```
 
@@ -198,7 +198,7 @@ NSLog(@"%@*****", result);
 |R_CODE|NSNumber|状态码，0表示成功|
 |R_MSG|NSString|状态码说明|
 
-#### 3.6. 登录 接口
+### 3.6. 登录 接口
 * 调用API
 
 ```objectivec
@@ -209,9 +209,9 @@ NSLog(@"%@*****", result);
 
 ```objectivec
 [self.airiSDK SDKLogin:platform param1:param1 param2:param2 isCreateNew:isNew success:^(NSDictionary *result) {
-NSLog(@"%@*****", result);
+    NSLog(@"%@*****", result);
 } fail:^(NSDictionary *result) {
-NSLog(@"%@*****", result);
+    NSLog(@"%@*****", result);
 }];
 ```
 
@@ -239,7 +239,7 @@ NSLog(@"%@*****", result);
 |TWITTER_NAME|NSString|当前账号绑定的Twitter账户的用户名，没有绑定该字段为空|
 |YOSTAR_NAME|NSString|当前账号绑定的Yostar账户的用户名，没有绑定该字段为空|
 
-#### 3.7. 快速登录 接口
+### 3.7. 快速登录 接口
 * 调用API
 
 ```objectivec
@@ -250,9 +250,9 @@ NSLog(@"%@*****", result);
 
 ```objectivec
 [self.airiSDK SDKQuickLogin:^(NSDictionary *result) {
-NSLog(@"Quick::%@*****", result);
+    NSLog(@"Quick::%@*****", result);
 } fail:^(NSDictionary *result) {
-NSLog(@"Quick::%@*****", result);
+    NSLog(@"Quick::%@*****", result);
 }];
 ```
 
@@ -260,7 +260,7 @@ NSLog(@"Quick::%@*****", result);
 
 **同3.6. 登录接口返回说明**
 
-#### 3.8. 发行继承码接口
+### 3.8. 发行继承码接口
 * 调用API
 
 ```objectivec
@@ -271,9 +271,9 @@ NSLog(@"Quick::%@*****", result);
 
 ```objectivec
 [self.airiSDK SDKTranscodeReq:^(NSDictionary *result) {
-NSLog(@"TranscodeReq::%@*****", result);
+    NSLog(@"TranscodeReq::%@*****", result);
 } fail:^(NSDictionary *result) {
-NSLog(@"TranscodeReq::%@*****", result);
+    NSLog(@"TranscodeReq::%@*****", result);
 }];
 ```
 
@@ -287,7 +287,7 @@ NSLog(@"TranscodeReq::%@*****", result);
 |TRANSCODE|NSString| 继承码|
 |UID|NSString|继承码对应的UID|
 
-#### 3.9. 请求验证码接口
+### 3.9. 请求验证码接口
 * 调用API
 
 ```objectivec
@@ -298,9 +298,9 @@ NSLog(@"TranscodeReq::%@*****", result);
 
 ```objectivec
 [self.airiSDK SDKVerificationCodeReq:accountEmail success:^(NSDictionary *result) {
-NSLog(@"%@*****", result);
+    NSLog(@"%@*****", result);
 } fail:^(NSDictionary *result) {
-NSLog(@"%@*****", result);
+    NSLog(@"%@*****", result);
 }];
 ```
 * 接口参数说明
@@ -317,7 +317,7 @@ NSLog(@"%@*****", result);
 |R_CODE|NSNumber|状态码，0表示成功,错误详情请查看错误码表|
 |R_MSG|NSString|状态码说明|
 
-#### 3.10. 绑定接口
+### 3.10. 绑定接口
 * 调用API
 
 ```objectivec
@@ -328,9 +328,9 @@ NSLog(@"%@*****", result);
 
 ```objectivec
 [self.airiSDK SDKLink:platform param1:param1 param2:param2 success:^(NSDictionary *result) {
-NSLog(@"%@*****", result);
+    NSLog(@"%@*****", result);
 } fail:^(NSDictionary *result) {
-NSLog(@"%@*****", result);
+    NSLog(@"%@*****", result);
 }];
 ```
 * 接口参数说明
@@ -351,7 +351,7 @@ NSLog(@"%@*****", result);
 |LOGIN_PLATFORM|NSNumber|绑定的渠道标识，TWITTER(2),FACEBOOK(3),YOSTAR(4)|
 |SOCAIL_NAME|NSString|绑定渠道对应的用户名|
 
-#### 3.11. 解绑接口
+### 3.11. 解绑接口
 * 调用API
 
 ```objectivec
@@ -362,9 +362,9 @@ NSLog(@"%@*****", result);
 
 ```objectivec
 [self.airiSDK SDKUnLink:platform success:^(NSDictionary *result) {
-NSLog(@"%@*****", result);
+    NSLog(@"%@*****", result);
 } fail:^(NSDictionary *result) {
-NSLog(@"%@*****", result);
+    NSLog(@"%@*****", result);
 }];
 ```
 * 接口参数说明
@@ -383,7 +383,7 @@ NSLog(@"%@*****", result);
 |LOGIN_PLATFORM|NSNumber|解绑的渠道标识，TWITTER(2),FACEBOOK(3)|
 |SOCAIL_NAME|NSString|解绑渠道对应的用户名|
 
-#### 3.12. 覆盖绑定接口
+### 3.12. 覆盖绑定接口
 * 调用API
 
 ```objectivec
@@ -394,9 +394,9 @@ NSLog(@"%@*****", result);
 
 ```objectivec
 [self.airiSDK SDKNewAccountLink:^(NSDictionary *result) {
-NSLog(@"NewAccountLink::%@", result);
+    NSLog(@"NewAccountLink::%@", result);
 } fail:^(NSDictionary *result) {
-NSLog(@"NewAccountLink::%@", result);
+    NSLog(@"NewAccountLink::%@", result);
 }];
 ```
 
@@ -411,7 +411,7 @@ NSLog(@"NewAccountLink::%@", result);
 |SOCAIL_NAME|NSString|绑定渠道对应的用户名|
 |ACCESS_TOKEN|NSString|登陆时获取的accessToken过期，变成此accessToken|
 
-#### 3.13. 设置生日接口
+### 3.13. 设置生日接口
 * 调用API
 
 ```objectivec
@@ -422,9 +422,9 @@ NSLog(@"NewAccountLink::%@", result);
 
 ```objectivec
 [self.airiSDK SDKSetBirth:birthDay success:^(NSDictionary *result) {
-NSLog(@"%@*****", result);
+    NSLog(@"%@*****", result);
 } fail:^(NSDictionary *result) {
-NSLog(@"%@*****", result);
+    NSLog(@"%@*****", result);
 }];
 ```
 * 接口参数说明
@@ -441,7 +441,7 @@ NSLog(@"%@*****", result);
 |R_CODE|NSNumber|状态码，0表示成功,错误详情请查看错误码表|
 |R_MSG|NSString|状态码说明|
 
-#### 3.14. 事件上传接口
+### 3.14. 事件上传接口
 * 调用API
 
 ```objectivec
@@ -460,7 +460,7 @@ NSLog(@"%@*****", result);
 |strEventName|NSString|事件名称，要与AiriSDK后台添加的相对应|是|
 |strJson|NSString|事件详情，为JSON格式的字符串参数|是|
 
-#### 3.15. 自带分享接口
+### 3.15. 自带分享接口
 * 调用API
 
 ```objectivec
@@ -491,7 +491,7 @@ NSLog(@"%@*****", result);
 |R_CODE|NSNumber|状态码，0表示成功,错误详情请查看错误码表|
 |R_MSG|NSString|状态码说明|
 
-#### 3.16. 支付接口
+### 3.16. 支付接口
 * 调用API
 
 ```objectivec
@@ -502,9 +502,9 @@ NSLog(@"%@*****", result);
 
 ```objectivec
 [self.airiSDK SDKPurchase:productId serverTag:serverTag extraData:extraData success:^(NSDictionary *result) {
-NSLog(@"%@*****", result);
+    NSLog(@"%@*****", result);
 } fail:^(NSDictionary *result) {
-NSLog(@"%@*****", result);
+    NSLog(@"%@*****", result);
 }];
 ```
 * 接口参数说明
@@ -525,7 +525,7 @@ NSLog(@"%@*****", result);
 |EXTRADATA|NSString|附加参数，由支付时传入|
 |ORDERID|NSString|AiriSDK订单号|
 
-#### 3.17. 注销、清空token接口
+### 3.17. 注销、清空token接口
 * 调用API
 
 ```objectivec
@@ -536,7 +536,7 @@ NSLog(@"%@*****", result);
 
 ```objectivec
 [self.airiSDK SDKLogout:^(NSDictionary *result) {
-NSLog(@"Logout::%@", result);
+    NSLog(@"Logout::%@", result);
 }];
 ```
 **注意：调用该接口会清空用户缓存的账号数据**
