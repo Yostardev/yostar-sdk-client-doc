@@ -54,13 +54,15 @@
 请Podfile根据要集成的版本将以下行添加到您的行中。
 ```
 pod 'AiriSDK'，'~>2.1.4'＃需要接入的版本
+pod 'AiriSDK'＃或者直接pod使用最新的SDK版本
 ```
 并运行`pod install`或`pod update`刷新您的依赖项，至此接入完成。
 #### 2. 手动集成
 
 [下载最新的Airi iOS SDK]()
-
-* 将下载的包解压后添加到项目中，并导入所需的系统framework
+* 解压后如图，Libraries文件夹下就是所需的Airi iOS SDK，把这些文件导入到你的工程中
+![](https://upload-images.jianshu.io/upload_images/1948913-8e0913df9ad8e44d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+* 并导入一下所需的系统framework
 `AdSupport`
 `iAd`
 `CoreTelephony`
@@ -255,6 +257,7 @@ NSLog(@"Quick::%@*****", result);
 ```
 
 * 回调字典参数说明
+
 **同3.6. 登录接口返回说明**
 
 #### 3.8. 发行继承码接口
