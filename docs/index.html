@@ -46,21 +46,7 @@
 			},
 
 			plugins: [
-				function (hook, vm) {
-					hook.beforeEach(function (html) {
-
-						console.log("!!", vm.route.file)
-
-						var url = 'https://github.com/Yostardev/yostarsdk/tree/master/docs/' + vm.route.file
-						var editHtml = '[📝 EDIT DOCUMENT](' + url + ')\n'
-
-						return html
-							+ '\n----\n'
-							+ 'Last modified {docsify-updated} '
-							+ editHtml
-
-					})
-				}
+				
 			]
 		}
 	</script>
