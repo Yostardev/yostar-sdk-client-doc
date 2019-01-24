@@ -1,11 +1,7 @@
-* Unity3D
-    * [概述](/ZH/Unity3D/summary)
-    * [接入向导](/ZH/Unity3D/insert)
-
+* [Unity3D](/ZH/Unity3D/summary)
+    
 * [Android](/ZH/Android/summary)
     
-* iOS
-    * [接入文档](/ZH/iOS/summary)
+* [iOS](/ZH/iOS/summary)
     
-* 错误码
-    * [概述](/ZH/errorcode)
+* [错误码](/ZH/errorcode)
