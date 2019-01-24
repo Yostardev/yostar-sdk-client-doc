@@ -7,7 +7,7 @@
 
 接入过程您可以查看demo工程作为参考。
 
-### 初始化接口
+### 1.初始化接口
 
 以下所有接口必须在初始化完成后调用。
 
@@ -43,7 +43,7 @@ void initSDK(Activity activity, AiriSDKConnect.InitResultCallback callback)
 | isVirtual | 当前机器是否为模拟器 |
 | ErrorEntity | 错误日志类，entity.CODE()为错误码，错误详情请查看错误码表 |
 
-### 设备号获取
+### 2.设备号获取
 
 + 调用API
 
@@ -55,7 +55,7 @@ String SDKGetDeviceID()
 AiriSDKInstance.getInstance().SDKGetDeviceID()
 ```
 
-### 打开客服界面
+### 3.打开客服界面
 
 + 调用API
 ```java
@@ -65,7 +65,7 @@ void SDKOpenHelpShift()
 ```java
 AiriSDKInstance.getInstance().SDKOpenHelpShift();
 ```
-### 快速登陆
+### 4.快速登陆
 
 + 调用API
 ```java
@@ -128,7 +128,7 @@ AiriSDKInstance.getInstance().SDKQuickLogin(loginResultCallback);
 | AiriLoginEntity.airiUID | 当前账号的uid,作为账户唯一标识使用 |
 | AiriLoginEntity.virtual | 当前机器是否为虚拟机，为true时，说明当前机器为虚拟机 |
 
-### Yostar邮箱获取验证码
+### 5.Yostar邮箱获取验证码
 
 在使用Yostar账号系统登陆，绑定之前，需要用户手动输入邮箱，并调用此接口获取邮箱验证码.
 
@@ -158,7 +158,7 @@ AiriSDKInstance.getInstance().SDKVerificationCodeReq(accountEmail, new AiriSDKCo
 | AiriSDKConnect.CodeReqResultCallback | 邮箱验证码回调 | 是 |
 
 
-### 渠道登陆
+### 6.渠道登陆
 
 + 调用API
 
@@ -193,7 +193,7 @@ void SDKLogin(Platform platform,String params1,String params2,boolean isCreateNe
 | Platform.GOOGLE | Google支付渠道 |
 | Platform.AU | AU支付渠道 |
 
-### 获取继承码
+### 7.获取继承码
 
 + 调用API
 ```java
@@ -226,7 +226,7 @@ AiriSDKInstance.getInstance().SDKTranscodeReq(new AiriSDKConnect.TranscodeResult
 | transcode | 继承码 |
 | transUid | 继承码对应的UID |
 
-### 渠道绑定
+### 8.渠道绑定
 
 + 调用API
 ```java
@@ -262,7 +262,7 @@ AiriSDKInstance.getInstance().SDKLink(platform,params1,params2,new AiriSDKConnec
 | Platform | 绑定的渠道标识 |
 | socailName | 绑定渠道对应的用户名 |
 
-### 覆盖绑定
+### 9.覆盖绑定
 
 + 调用API
 ```java
@@ -296,7 +296,7 @@ AiriSDKInstance.getInstance().SDKNewAccountLink(new AiriSDKConnect.ReLinkResultC
 | socailName | 绑定渠道对应的用户名 |
 | accessToken | 登陆时获取的accessToken过期，变成此accessToken |
 
-### 解除绑定
+### 10.解除绑定
 + 调用API
 ```java
 void SDKUnlink(Platform platform,AiriSDKConnect.UnLinkResultCallback callback)
@@ -329,7 +329,7 @@ AiriSDKInstance.getInstance().SDKUnlink(platform,new AiriSDKConnect.UnLinkResult
 | Platform | 解除绑定的渠道标识 |
 | socailName | 绑定渠道对应的用户名 |
 
-### 生日设置(其他可选,日本必接)
+### 11.生日设置(其他可选,日本必接)
 
 + 调用API
 ```java
@@ -356,7 +356,7 @@ AiriSDKInstance.getInstance().SDKSetBirth(birthDay,new AiriSDKConnect.BirthSetRe
 | birthDay | 生日日期，日期格式为yyyyMMdd | 是 |
 | AiriSDKConnect.BirthSetResultCallback | 设置生日结果回调 | 是 |
 
-### 统计事件上传
+### 12.统计事件上传
 
 + 调用API
 ```java
@@ -377,7 +377,7 @@ AiriSDKInstance.getInstance().SDKUserEventUpload("role_levelup",json.toString())
 | eventName | 事件名称，要与AiriSDK后台添加的相对应 | 是 |
 | eventJson | 事件详情，为JSON格式的字符串参数 | 是 |
 
-### 支付接口
+### 13.支付接口
 + 调用API
 ```java
 void SDKPurchase(Platform platform,String productId,String serverTag,String extraData,AiriSDKConnect.PurchaseResultCallback callback)
@@ -413,7 +413,7 @@ AiriSDKInstance.getInstance().SDKPurchase(platform,productId,serverTag,extraData
 | extraData | 附加参数，由支付时传入 |
 | ErrorEntity | 支付结果信息，entity.CODE()==0时支付成功，其他情况为失败 |
 
-### 系统级分享(可选)
+### 14.系统级分享(可选)
 
 + 调用API
 ```java
@@ -441,7 +441,7 @@ AiriSDKInstance.getInstance().SDKSystemShare("测试图片-截图",activityShot(
 | bitmap | 图片Bitmap | 是 |
 | AiriSDKConnect.ShareResultCallback | 分享结果回调(默认为成功，除了特殊情况，例如：图片没获取等情况返回失败) | 是 |
 
-### 注销功能
+### 15.注销功能
 
 调用注销功能会清除所有SDK缓存，请CP谨慎调用。
 调用注销功能后，如果需要再次使用SDK功能请重新初始化SDK。
@@ -465,7 +465,7 @@ AiriSDKInstance.getInstance().SDKLogout(new AiriSDKConnect.LogoutCallback() {
         });
 ```
 
-## 周期接口接入
+## 16.周期接口接入
 
 ### void onResume()
 
