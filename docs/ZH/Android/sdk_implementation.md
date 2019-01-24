@@ -11,3 +11,4 @@ maven { url 'http://nexus.yo-star.com/repository/maven-releases/' }
 ```gradle
 implementation 'com.airisdk.sdkcall:airisdk:2.1.0'
 ```
+构建项目。
