@@ -2,6 +2,8 @@
 本文档面向iOS开发者，Airi iOS SDK 使用OC编程开发。
 本文档用于指导开发者快速接入 Airi iOS SDK 为iOS应用提供登录、注册、支付、分享、App Store评分、客服等功能。
 **iOS 支持最低版本 iOS 9.0**
+* [demo工程下载地址，](https://github.com/Yostardev/yostar-sdk-ios)接入过程您可以查看demo工程作为参考。
+
 ## 2. 接入流程
 * 在info.plist添加如下内容：
 
@@ -59,7 +61,7 @@ pod 'AiriSDK'＃或者直接pod使用最新的SDK版本
 并运行`pod install`或`pod update`刷新您的依赖项，至此接入完成。
 ### 2.2. 手动集成
 
-[下载最新的Airi iOS SDK]()
+[下载最新的Airi iOS SDK](https://github.com/Yostardev/yostar-sdk-ios)
 * 解压后如图，Libraries文件夹下就是所需的Airi iOS SDK，把这些文件导入到你的工程中
 ![](https://upload-images.jianshu.io/upload_images/1948913-8e0913df9ad8e44d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 * 并导入一下所需的系统framework
