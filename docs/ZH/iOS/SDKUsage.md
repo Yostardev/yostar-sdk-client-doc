@@ -1,5 +1,3 @@
-## 3. SDK使用
-
 ```objectivec
 // 导入头文件
 #import "AiriSDKAppDelegate.h"
