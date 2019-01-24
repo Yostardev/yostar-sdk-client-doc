@@ -26,7 +26,7 @@ return YES;
 ```
 * 在使用类中导入头文件`#import "AiriSDKInstance.h"`
 
-### 3.1. 创建单例接口
+### 1. 创建单例接口
 * 调用API
 
 ```objectivec
@@ -39,7 +39,7 @@ return YES;
 self.airiSDK = [AiriSDKInstance yostarShareton];
 ```
 
-### 3.2. 获取DevicdID 接口
+### 2. 获取DevicdID 接口
 * 调用API
 
 ```objectivec
@@ -52,7 +52,7 @@ self.airiSDK = [AiriSDKInstance yostarShareton];
 NSString *deviceStr = [AiriSDKInstance SDKGetDeviceID];
 ```
 
-### 3.3. Helpshift客服 接口
+### 3. Helpshift客服 接口
 * 调用API
 
 ```objectivec
@@ -65,7 +65,7 @@ NSString *deviceStr = [AiriSDKInstance SDKGetDeviceID];
 [AiriSDKInstance SDKOpenHelpShift];
 ```
 
-### 3.4. appstore 评分 接口
+### 4. appstore 评分 接口
 * 调用API
 
 ```objectivec
@@ -78,7 +78,7 @@ NSString *deviceStr = [AiriSDKInstance SDKGetDeviceID];
 [AiriSDKInstance RequestStoreReview];
 ```
 
-### 3.5. 初始化SDK 接口
+### 5. 初始化SDK 接口
 * 调用API
 
 ```objectivec
@@ -103,7 +103,7 @@ NSString *deviceStr = [AiriSDKInstance SDKGetDeviceID];
 |R_CODE|NSNumber|状态码，0表示成功|
 |R_MSG|NSString|状态码说明|
 
-### 3.6. 登录 接口
+### 6. 登录 接口
 * 调用API
 
 ```objectivec
@@ -144,7 +144,7 @@ NSString *deviceStr = [AiriSDKInstance SDKGetDeviceID];
 |TWITTER_NAME|NSString|当前账号绑定的Twitter账户的用户名，没有绑定该字段为空|
 |YOSTAR_NAME|NSString|当前账号绑定的Yostar账户的用户名，没有绑定该字段为空|
 
-### 3.7. 快速登录 接口
+### 7. 快速登录 接口
 * 调用API
 
 ```objectivec
@@ -163,9 +163,9 @@ NSString *deviceStr = [AiriSDKInstance SDKGetDeviceID];
 
 * 回调字典参数说明
 
-**同3.6. 登录接口返回说明**
+**同6. 登录接口返回说明**
 
-### 3.8. 发行继承码接口
+### 8. 发行继承码接口
 * 调用API
 
 ```objectivec
@@ -192,7 +192,7 @@ NSString *deviceStr = [AiriSDKInstance SDKGetDeviceID];
 |TRANSCODE|NSString| 继承码|
 |UID|NSString|继承码对应的UID|
 
-### 3.9. 请求验证码接口
+### 9. 请求验证码接口
 * 调用API
 
 ```objectivec
@@ -222,7 +222,7 @@ NSString *deviceStr = [AiriSDKInstance SDKGetDeviceID];
 |R_CODE|NSNumber|状态码，0表示成功,错误详情请查看错误码表|
 |R_MSG|NSString|状态码说明|
 
-### 3.10. 绑定接口
+### 10. 绑定接口
 * 调用API
 
 ```objectivec
@@ -256,7 +256,7 @@ NSString *deviceStr = [AiriSDKInstance SDKGetDeviceID];
 |LOGIN_PLATFORM|NSNumber|绑定的渠道标识，TWITTER(2),FACEBOOK(3),YOSTAR(4)|
 |SOCAIL_NAME|NSString|绑定渠道对应的用户名|
 
-### 3.11. 解绑接口
+### 11. 解绑接口
 * 调用API
 
 ```objectivec
@@ -288,7 +288,7 @@ NSString *deviceStr = [AiriSDKInstance SDKGetDeviceID];
 |LOGIN_PLATFORM|NSNumber|解绑的渠道标识，TWITTER(2),FACEBOOK(3)|
 |SOCAIL_NAME|NSString|解绑渠道对应的用户名|
 
-### 3.12. 覆盖绑定接口
+### 12. 覆盖绑定接口
 * 调用API
 
 ```objectivec
@@ -316,7 +316,7 @@ NSString *deviceStr = [AiriSDKInstance SDKGetDeviceID];
 |SOCAIL_NAME|NSString|绑定渠道对应的用户名|
 |ACCESS_TOKEN|NSString|登陆时获取的accessToken过期，变成此accessToken|
 
-### 3.13. 设置生日接口
+### 13. 设置生日接口
 * 调用API
 
 ```objectivec
@@ -346,7 +346,7 @@ NSString *deviceStr = [AiriSDKInstance SDKGetDeviceID];
 |R_CODE|NSNumber|状态码，0表示成功,错误详情请查看错误码表|
 |R_MSG|NSString|状态码说明|
 
-### 3.14. 事件上传接口
+### 14. 事件上传接口
 * 调用API
 
 ```objectivec
@@ -365,7 +365,7 @@ NSString *deviceStr = [AiriSDKInstance SDKGetDeviceID];
 |strEventName|NSString|事件名称，要与AiriSDK后台添加的相对应|是|
 |strJson|NSString|事件详情，为JSON格式的字符串参数|是|
 
-### 3.15. 自带分享接口
+### 15. 自带分享接口
 * 调用API
 
 ```objectivec
@@ -396,7 +396,7 @@ NSString *deviceStr = [AiriSDKInstance SDKGetDeviceID];
 |R_CODE|NSNumber|状态码，0表示成功,错误详情请查看错误码表|
 |R_MSG|NSString|状态码说明|
 
-### 3.16. 支付接口
+### 16. 支付接口
 * 调用API
 
 ```objectivec
@@ -430,7 +430,7 @@ NSString *deviceStr = [AiriSDKInstance SDKGetDeviceID];
 |EXTRADATA|NSString|附加参数，由支付时传入|
 |ORDERID|NSString|AiriSDK订单号|
 
-### 3.17. 注销、清空token接口
+### 17. 注销、清空token接口
 * 调用API
 
 ```objectivec
