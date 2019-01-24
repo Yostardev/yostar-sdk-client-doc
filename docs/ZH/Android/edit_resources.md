@@ -1,6 +1,6 @@
 
 
-### Assets资源
+### 1.Assets资源
 
 AiriSDK的环境资源和日志开关等参数都是由```assets/AiriSDKConf.properties```文件中的参数控制，请开发者设置一下参数：
 
@@ -13,7 +13,7 @@ AiriSDK的环境资源和日志开关等参数都是由```assets/AiriSDKConf.pro
 | AIRISDK_SHOWDEBUGLOG | AiriSDK日志打印，默认为false，不打印 | 是 |
 | AIRISDK_NEWDEVICE | 是否将当前机器当作全新的机器使用，默认为false | 是 |
 
-### AndroidManifeset配置
+### 2.AndroidManifeset配置
 
 #### 客服系统
 
@@ -27,7 +27,7 @@ AiriSDK集成了Helpshift作为客服管理工具，所以在Package Explorer中
 <meta-data android:name="helpshift_appId" android:value="xxxxxxxxxxx" />
 ```
 
-### AU支付权限
+### 3.AU支付权限
 
 AiriSDK也集成了AU支付渠道，如果您的游戏有AU支付的需求，请在AndroidManifeset.xml文件中添加以下权限：
 
@@ -36,7 +36,7 @@ AiriSDK也集成了AU支付渠道，如果您的游戏有AU支付的需求，请
 ```
 
 
-### res资源配置
+### 4.res资源配置
 
 AiriSDK集成了firebase的部分功能，需要在```res/values/google_service_strings.xml```中配置firebase服务参数。
 
