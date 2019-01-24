@@ -62,7 +62,7 @@ pod 'AiriSDK'＃或者直接pod使用最新的SDK版本
 [下载最新的Airi iOS SDK]()
 * 解压后如图，Libraries文件夹下就是所需的Airi iOS SDK，把这些文件导入到你的工程中
 ![](https://upload-images.jianshu.io/upload_images/1948913-8e0913df9ad8e44d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-* 并导入一下所需的系统framework
+* 并导入以下所需的系统framework
 `AdSupport`
 `iAd`
 `CoreTelephony`
