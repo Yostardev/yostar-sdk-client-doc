@@ -6,7 +6,7 @@
     * [概述](/ZH/Android/summary)
     
 * iOS
-    * [概述](/ZH/iOS/summary)
+    * [接入文档](/ZH/iOS/summary)
     
 * 错误码
     * [概述](/ZH/errorcode)
