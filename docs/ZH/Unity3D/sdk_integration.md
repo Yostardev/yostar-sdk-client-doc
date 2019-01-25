@@ -1,6 +1,4 @@
 
-### 导入SDK文件
-
 在和本文档一起提供的压缩包中，可以找到 AiriSDK.unitypackage 。
 在Unity编辑器打开了您的游戏工程后，双击即可通过正常的流程导入所需的文件。
 在导入时请注意AndroidManifest.xml的导入与覆盖。若您已经有正在使用的Manifest文件，
