@@ -128,7 +128,7 @@ AiriSDKInstance.getInstance().SDKQuickLogin(loginResultCallback);
 | AiriLoginEntity.airiUID | 当前账号的uid,作为账户唯一标识使用 |
 | AiriLoginEntity.virtual | 当前机器是否为虚拟机，为true时，说明当前机器为虚拟机 |
 
-### 5.邮箱获取验证码
+### 5.请求邮箱验证码
 
 在使用Yostar账号系统登陆，绑定之前，需要用户手动输入邮箱，并调用此接口获取邮箱验证码.
 
@@ -193,7 +193,7 @@ void SDKLogin(Platform platform,String params1,String params2,boolean isCreateNe
 | Platform.GOOGLE | Google支付渠道 |
 | Platform.AU | AU支付渠道 |
 
-### 7.获取继承码
+### 7.发行继承码
 
 + 调用API
 ```java
