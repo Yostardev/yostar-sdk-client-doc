@@ -3,9 +3,8 @@
     
 * Android
    * [概述](/ZH/Android/summary)
-   * [阅读对象](/ZH/Android/reading_requirements)
    * [SDK集成](/ZH/Android/sdk_implementation)
-   * [编辑您的资源和清单](/ZH/Android/edit_resources)
+   * [配置工程参数](/ZH/Android/edit_resources)
    * [接口设计说明](/ZH/Android/Interface_design_description)
    * [程序周期接口](/ZH/Android/access)
     
