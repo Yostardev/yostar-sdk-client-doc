@@ -533,15 +533,188 @@ AiriSDK.Instance.UnLinkSocial(LoginPlatform.FACEBOOK);
 | ------ | ------ | ------ |
 | platform | LoginPlatform（枚举） | 平台类型（必要） |
 
+### 解绑回调EVENT
 
++ 回调Event:			
+```csharp
+AirisdkEvent.Instance.UnLinkEvent
+```
++ 回调Event类型:	
+```csharp
+UnLinkRet
+```
++ 回调Event 示例：
+```csharp
+using Airisdk.Event;
+AirisdkEvent.Instance.UnLinkEvent+= OnUnLinkRespone;
+private void OnUnLinkRespone(UnLinkRet ret) {  
+	//to do  
+} 
+```
++ 回调Event参数说明
 
+| 参数名称 | 参数类型 | 参数说明 |
+| ------ | ------ | ------ |
+| R_CODE | string | 错误码 : 0成功，其它见后面统一错误码表 |
+| R_MSG | string | 错误信息，辅助用 |
+| LOGIN_PLATFORM | LoginPlatform（枚举） | 当前游戏绑定平台，枚举Airisdk.LoginPlatform |
+| SOCAIL_NAME | string | 当前游戏绑定平台用户名称 |
 
+### PC端调试
 
+由于大部分功能都涉及到手机端原生API
+暂时PC端调试仅仅开放了以下接口：
++ SDK初始化：public void Init()
++ 快速登陆：public void QuickLogin()
++ 设备号登陆：public void LoginWithDevice()
++ 继承码登陆：	ResultCode void LoginWithTranscode(string strTranscode, string strUid)
 
+### 设置用户生日
 
+调用该接口，可以设置用户的生日。在日本，用户的年轻决定了它当月可以氪金的上限。
 
++ 调用API: 	
+```csharp
+public ResultCode SetBirth(string strBirth)
+```
+调用示例： 
+```csharp
+using Airisdk;
+AiriSDK.Instance.SetBirth(“19901212”);
+```
++ 回调Event：	
+```csharp
+AirisdkEvent.Instance.BirthSetEvent
+```
++ 回调Event类型：
+```csharp
+BirthSetRet
+```
+回调Event 示例：
+```csharp
+using Airisdk.Event;
+AirisdkEvent.Instance.BirthSetEvent+= OnBirthSetRespone;
+private void OnBirthSetRespone(BirthSetRet ret) {  
+	//to do  
+} 
+```
++ 接口参数说明
 
+| 参数名称 | 参数类型 | 参数说明 |
+| ------ | ------ | ------ |
+| strBirth | string | 生日，格式“yyyymmdd”，如“19901212”（必要） |
 
++ 回调Event参数说明
 
+| 参数名称 | 参数类型 | 参数说明 |
+| ------ | ------ | ------ |
+| R_CODE | string | 错误码 : 0成功，其它见后面统一错误码表 |
+| R_MSG | string | 错误信息，辅助用 |
+
+### 清除本地账号缓存
+
+调用该接口可以清楚设备上的账号信息。
+
+注意：清空后快速登陆将无法使用上一次的账号直接登录，FB\TW\悠星账号都需要重新登录。
+
+注意：请慎重调用，并在执行前向玩家多确认。
+
+注意：如果玩家没有发行继承码，并且没有FB\TW\悠星账号，清除账号数据将很难找回账号。
+
++ 调用API: 	
+```csharp
+public void ClearAccountInfo()
+```
++ 调用示例: 
+```csharp
+using Airisdk;
+AiriSDK.Instance.ClearAccountInfo();
+```
++ 回调Event:	
+```csharp
+AirisdkEvent.Instance.ClearAccountEvent
+```
++ 回调Event类型:	
+```csharp
+ClearAccountInfoRet
+```
++ 回调Event 示例:
+```csharp
+using Airisdk.Event;
+AirisdkEvent.Instance.ClearAccountEvent+= OnClearAccountRespone;
+private void OnClearAccountRespone(ClearAccountInfoRet ret) {  
+	//to do  
+} 
+```
+### 用户行为数据上报（数据统计）
+
+调用这些接口，可以通知SDK服务器一些用户事件。具体需要哪些用户事件会由运营人员和CP方进行对接。
+
++ 调用API: 	
+```csharp
+public void UserEventUpload(string strEventName, Dictionary<string, string> strCallbackParameter = null)
+```
++ 调用示例： 
+```csharp
+using Airisdk;
+Dictionary<string, string> dicParam = new Dictionary<string, string>();
+dicParam.Add("test1", "test1");
+dicParam.Add("test2", "test2");
+AiriSDK.Instance.UserEventUpload(m_inputEventName.text, dicParam);
+```
++ 回调Event：
+```
+无
+```
++ 接口参数说明
+
+| 参数名称 | 参数类型 | 参数说明 |
+| ------ | ------ | ------ |
+| strEventName | string | 事件名称（运营方提供）（必要） |
+| strCallbackParameter | Dictionary<string, string> | 回调参数（运营方提供）（非必要） |
+
+### 分享游戏自定义图片
+
+调用该接口，可以将自定义的Texture2D进行分享iOS或Android的原生分享。该接口从参数texture获取贴图数据，
+
++ 调用API: 	
+```csharp
+public void SystemShare(string strShareText, Texture2D texShare = null)
+```
++ 调用示例： 
+```csharp
+using Airisdk;
+Texture2D screenShot = GetScreeShot()；
+AiriSDK.Instance.SystemShare("test share", screenShot)；
+```
++ 回调Event：	
+```csharp
+AirisdkEvent.Instance.SystemShareEvent
+```
++ 回调Event数据参数：
+```csharp
+SystemShareRet
+```
++ 回调Event 示例：
+```csharp
+using Airisdk.Event;
+AirisdkEvent.Instance.SystemShareEvent += OnSystemShareRespone;
+private void OnSystemShareRespone(SystemShareRet ret) {  
+	//to do  
+} 
+```
++ 接口参数说明
+
+| 参数名称 | 参数类型 | 参数说明 |
+| ------ | ------ | ------ |
+| strShareText | string | 分享文字（必要） |
+| texShare  | Texture2D | 分享图片（非必要） |
+
++ 回调Event参数说明
+
+| 参数名称 | 参数类型 | 参数说明 |
+| ------ | ------ | ------ |
+| R_CODE | string | 错误码 : 0成功，其它见后面统一错误码表 |
+| R_MSG | string | 错误信息，辅助用 |
 
 
