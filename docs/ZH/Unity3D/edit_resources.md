@@ -39,11 +39,7 @@ ConfigSettings填写完整正确参数后，点击```Modify Manifest```，会将
 
 #### modify google service params
 
-从AiriSDK平台的负责方获取文件```google-services.json```，并替换目录
-\Assets\Plugins\Android\assets下相同文件
-执行此操作，会将替换目录文件
-\Assets\Plugins\Android\res\values\google_service_strings.xml中的各项参数，用于	 
-google firebase 使用
+从AiriSDK平台的负责方获取文件```google-services.json```，并替换目录\Assets\Plugins\Android\assets下相同文件执行此操作，会将替换目录文件\Assets\Plugins\Android\res\values\google_service_strings.xml中的各项参数，用于google firebase 使用
 
 注意：填写正确后必须执行，否则ADJUST、HELPSHIFT功能将受到影响
 
