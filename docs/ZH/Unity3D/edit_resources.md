@@ -140,7 +140,7 @@ ConfigSettings填写完整正确参数后，点击```Modify Manifest```，会将
 
 ```
 
-### 6、helpshift配置
+#### 6、helpshift配置
 
 注意:helpshift_apiKey、helpshift_demain、helpshift_appId 三个参数的value需从运营商获取，并在UNITY的ConfigSettings.asset文件设置后，执行ModifyManifest填充正确的数据
 
