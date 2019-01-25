@@ -43,7 +43,7 @@ void initSDK(Activity activity, AiriSDKConnect.InitResultCallback callback)
 | isVirtual | 当前机器是否为模拟器 |
 | ErrorEntity | 错误日志类，entity.CODE()为错误码，错误详情请查看错误码表 |
 
-### 2.设备号获取
+### 2.获取设备号
 
 + 调用API
 
@@ -128,7 +128,7 @@ AiriSDKInstance.getInstance().SDKQuickLogin(loginResultCallback);
 | AiriLoginEntity.airiUID | 当前账号的uid,作为账户唯一标识使用 |
 | AiriLoginEntity.virtual | 当前机器是否为虚拟机，为true时，说明当前机器为虚拟机 |
 
-### 5.Yostar邮箱获取验证码
+### 5.邮箱获取验证码
 
 在使用Yostar账号系统登陆，绑定之前，需要用户手动输入邮箱，并调用此接口获取邮箱验证码.
 
@@ -329,7 +329,7 @@ AiriSDKInstance.getInstance().SDKUnlink(platform,new AiriSDKConnect.UnLinkResult
 | Platform | 解除绑定的渠道标识 |
 | socailName | 绑定渠道对应的用户名 |
 
-### 11.生日设置(其他可选,日本必接)
+### 11.生日设置(可选,日本必接)
 
 + 调用API
 ```java
@@ -413,7 +413,7 @@ AiriSDKInstance.getInstance().SDKPurchase(platform,productId,serverTag,extraData
 | extraData | 附加参数，由支付时传入 |
 | ErrorEntity | 支付结果信息，entity.CODE()==0时支付成功，其他情况为失败 |
 
-### 14.系统级分享(可选)
+### 14.系统分享(可选)
 
 + 调用API
 ```java
@@ -441,7 +441,7 @@ AiriSDKInstance.getInstance().SDKSystemShare("测试图片-截图",activityShot(
 | bitmap | 图片Bitmap | 是 |
 | AiriSDKConnect.ShareResultCallback | 分享结果回调(默认为成功，除了特殊情况，例如：图片没获取等情况返回失败) | 是 |
 
-### 15.注销功能
+### 15.注销
 
 调用注销功能会清除所有SDK缓存，请CP谨慎调用。
 调用注销功能后，如果需要再次使用SDK功能请重新初始化SDK。
