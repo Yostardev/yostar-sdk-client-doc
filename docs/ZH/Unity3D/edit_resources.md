@@ -18,12 +18,12 @@
 
 首次导入SDK包，请创建config asset文件，菜单如下图
 
-![config_accsets](https://github.com/Yostardev/yostarsdk/blob/master/docs/_media/config_assets.png)
+![config_accsets](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/config_assets.png)
 
 创建成功后会在目录
 ..\Assets\AiriSDK\Resources\下生成文件ConfigSettings.asset，点击后在inspecrtor如下图
 
-![config_setting](https://github.com/Yostardev/yostarsdk/blob/master/docs/_media/config_setting.png)
+![config_setting](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/config_setting.png)
 
 #### Save config
 
@@ -40,9 +40,9 @@ ConfigSettings填写完整正确参数后，点击```Modify Manifest```，会将
 #### modify google service params
 
 从AiriSDK平台的负责方获取文件```google-services.json```，并替换目录
-```..\Assets\Plugins\Android\assets```下相同文件
+```\Assets\Plugins\Android\assets```下相同文件
 执行此操作，会将替换目录文件
-```..\Assets\Plugins\Android\res\values\google_service_strings.xml```中的各项参数，用于	 
+```\Assets\Plugins\Android\res\values\google_service_strings.xml```中的各项参数，用于	 
 google firebase 使用
 
 注意：填写正确后必须执行，否则ADJUST、HELPSHIFT功能将受到影响
