@@ -86,7 +86,7 @@ public void QuickLogin()
 + 调用示例: 
 ```csharp
 using Airisdk;
-AiriSDK.Instance.LoginWithDevice();
+AiriSDK.Instance.QuickLogin();
 ```
 + 回调Event:
 ```csharp
