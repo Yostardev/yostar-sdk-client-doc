@@ -57,7 +57,7 @@ private void OnApplicationPause(bool isPause)
 }
 ```
 
-### 游客登陆
+### 3、游客登陆
 
 使用设备号登陆游戏，账号无保障。
 
@@ -75,7 +75,7 @@ AiriSDK.Instance.LoginWithDevice();
 AirisdkEvent.Instance.LoginEvent (后续文章详细介绍)
 ```
 
-### 快速登陆
+### 4、快速登陆
 
 使用最近一次登陆过游戏的账号快速登陆，若没有最近一次账号，则默认使用游客登陆。注：手机重装或本地账号缓存清除，最近登陆信息清空。
 
@@ -93,7 +93,7 @@ AiriSDK.Instance.LoginWithDevice();
 AirisdkEvent.Instance.LoginEvent
 ```
 
-### Facebook登陆
+### 5、Facebook登陆
 
 使用facebook账号登陆游戏，若第一次使用facebook账号登陆，会自动创建SDK ID。
 
@@ -111,7 +111,7 @@ AiriSDK.Instance.LoginWithFB();
 AirisdkEvent.Instance.LoginEvent
 ```
 
-### Twitter登陆
+### 6、Twitter登陆
 
 使用twitter账号登陆游戏，若第一次使用twitter账号登陆，会自动创建SDK ID。
 
@@ -129,7 +129,7 @@ AiriSDK.Instance.LoginWithTW();
 AirisdkEvent.Instance.LoginEvent 
 ```
 
-### 继承码登陆
+### 7、继承码登陆
 
 使用继承码登陆游戏，继承码信息获取需要调用独立API获取，下面解释。调用函数返回值ResultCode（后续文章专门介绍）仅用来验证参数合法性，实际成功与否需要根据LoginEvent的返回数据进行判断。
 
@@ -160,7 +160,7 @@ AirisdkEvent.Instance.LoginEvent
 | strUid | string | SDK UID（必要） |
 
 
-### 继承码获取
+### 8、继承码获取
 
 在登陆游戏后，调用该API可以获取到当前账号的继承码和UID信息，当在未绑定第三方账号时，更换设备等可以通过继承码登陆找回之前账号。
 
@@ -200,7 +200,7 @@ private void OnTranscodeRespone(TranscodeRet ret) {
 } 
 ```
 
-### 登陆统一回调EVENT
+### 9、登陆统一回调EVENT
 
 不管用以上哪一种登陆方式，回调事件都是这个。包括下文即将提到的悠星账号系统，同为AirisdkEvent.Instance.LoginEvent
 
@@ -236,7 +236,7 @@ private void OnLoginRespone(LoginRet ret) {
 } 
 ```
 
-### 悠星账号注册
+### 10、悠星账号注册
 
 悠星账号注册成功后会自动登陆，所以这里的回调EVENT还是登陆回调。调用函数返回值ResultCode（后续文章专门介绍）仅用来验证参数合法性，实际成功与否需要根据LoginEvent的返回数据进行判断。不得在游戏内调用此接口。
 
@@ -268,7 +268,7 @@ If(rc == ResultCode.OK){
 | strEmailDoubleCheck | string | 邮箱地址二次检查（必要） |
 | strVerificationCode | string | 发给邮箱的验证码（必要） |
 
-### 悠星账号登陆
+### 11、悠星账号登陆
 
 悠星账号登陆成功后，回调EVENT还是登陆回调。调用函数返回值ResultCode（后续文章专门介绍）仅用来验证参数合法性，实际成功与否需要根据LoginEvent的返回数据进行判断。
 
@@ -301,7 +301,7 @@ If(rc == ResultCode.OK){
 | strEmail | string | 邮箱地址（必要） |
 | strVerificationCode | string | 发给邮箱的验证码（必要） |
 
-### 悠星账号验证码获取
+### 12、悠星账号验证码获取
 
 悠星账号系统的验证码请求均为该API，验证码会发送到传入的邮箱内，所有回调接口不会包含验证码，只有ERRCODE。
 
@@ -348,7 +348,7 @@ private void OnVerificationCodeRespone(VerificationCodeRet ret){
 | R_CODE | string | 错误码 : 0成功，其它见后面统一错误码表 |
 | R_MSG | string | 错误信息，辅助用 |
 
-### Facebook 、Twitter账号绑定
+### 13、Facebook 、Twitter账号绑定
 
 调用函数返回值ResultCode（后续文章专门介绍）仅用来验证参数合法性，实际成功与否需要根据LinkEvent的返回数据进行判断。后面会介绍。
 
@@ -381,7 +381,7 @@ AirisdkEvent.Instance.LinkEvent（后续文章详细介绍）
 | ------ | ------ | ------ |
 | platform | LoginPlatform（枚举） | 平台类型（必要） |
 
-### 悠星账号绑定（已有账号）
+### 14、悠星账号绑定（已有账号）
 
 调用函数返回值ResultCode（后续文章专门介绍）仅用来验证参数合法性，实际成功与否需要根据LinkEvent的返回数据进行判断。后面会介绍。
 
@@ -419,7 +419,7 @@ AirisdkEvent.Instance.LinkEvent（后续文章详细介绍）
 | strVerificationCode | string | 平台类型（必要） |
 
 
-### 悠星账号绑定（注册新账号）
+### 15、悠星账号绑定（注册新账号）
 
 API说明：调用函数返回值ResultCode（后续文章专门介绍）仅用来验证参数合法性，实际成功与否需要根据LinkEvent的返回数据进行判断。后面会介绍。
 
@@ -456,7 +456,7 @@ AirisdkEvent.Instance.LinkEvent（后续文章详细介绍）
 | strVerificationCode | string | 发给邮箱的验证码（必要） |
 
 
-### 特殊绑定
+### 16、特殊绑定
 
 API说明：调用函数无返回值，成功与否需要根据LinkEvent的返回数据进行判断。后面会介绍。
 
@@ -480,7 +480,7 @@ AiriSDK.Instance.NewAccountLink();
 AirisdkEvent.Instance.LinkEvent（后续文章详细介绍）
 ```
 
-### 绑定统一回调EVENT
+### 17、绑定统一回调EVENT
 
 + 回调Event:		
 ```csharp
@@ -508,7 +508,7 @@ private void OnLinkRespone(LinkRet ret) {
 | LOGIN_PLATFORM | LoginPlatform（枚举） | 当前游戏绑定平台，枚举Airisdk.LoginPlatform |
 | SOCAIL_NAME | string | 当前游戏绑定平台用户名称 |
 
-### 账号解绑系统
+### 18、账号解绑系统
 
 API说明：调用函数返回值ResultCode（后续文章专门介绍）仅用来验证参数合法性，实际成功与否需要根据UnLinkEvent的返回数据进行判断。
 
@@ -533,7 +533,7 @@ AiriSDK.Instance.UnLinkSocial(LoginPlatform.FACEBOOK);
 | ------ | ------ | ------ |
 | platform | LoginPlatform（枚举） | 平台类型（必要） |
 
-### 解绑回调EVENT
+### 19、解绑回调EVENT
 
 + 回调Event:			
 ```csharp
@@ -560,7 +560,7 @@ private void OnUnLinkRespone(UnLinkRet ret) {
 | LOGIN_PLATFORM | LoginPlatform（枚举） | 当前游戏绑定平台，枚举Airisdk.LoginPlatform |
 | SOCAIL_NAME | string | 当前游戏绑定平台用户名称 |
 
-### PC端调试
+### 20、PC端调试
 
 由于大部分功能都涉及到手机端原生API
 暂时PC端调试仅仅开放了以下接口：
@@ -569,7 +569,7 @@ private void OnUnLinkRespone(UnLinkRet ret) {
 + 设备号登陆：public void LoginWithDevice()
 + 继承码登陆：	ResultCode void LoginWithTranscode(string strTranscode, string strUid)
 
-### 设置用户生日
+### 21、设置用户生日
 
 调用该接口，可以设置用户的生日。在日本，用户的年轻决定了它当月可以氪金的上限。
 
@@ -611,7 +611,7 @@ private void OnBirthSetRespone(BirthSetRet ret) {
 | R_CODE | string | 错误码 : 0成功，其它见后面统一错误码表 |
 | R_MSG | string | 错误信息，辅助用 |
 
-### 清除本地账号缓存
+### 22、清除本地账号缓存
 
 调用该接口可以清楚设备上的账号信息。
 
@@ -646,7 +646,7 @@ private void OnClearAccountRespone(ClearAccountInfoRet ret) {
 	//to do  
 } 
 ```
-### 用户行为数据上报（数据统计）
+### 23、用户行为数据上报（数据统计）
 
 调用这些接口，可以通知SDK服务器一些用户事件。具体需要哪些用户事件会由运营人员和CP方进行对接。
 
@@ -673,7 +673,7 @@ AiriSDK.Instance.UserEventUpload(m_inputEventName.text, dicParam);
 | strEventName | string | 事件名称（运营方提供）（必要） |
 | strCallbackParameter | Dictionary<string, string> | 回调参数（运营方提供）（非必要） |
 
-### 分享游戏自定义图片
+### 24、分享游戏自定义图片
 
 调用该接口，可以将自定义的Texture2D进行分享iOS或Android的原生分享。该接口从参数texture获取贴图数据，
 
@@ -717,7 +717,7 @@ private void OnSystemShareRespone(SystemShareRet ret) {
 | R_CODE | string | 错误码 : 0成功，其它见后面统一错误码表 |
 | R_MSG | string | 错误信息，辅助用 |
 
-### APPSTORE商店评分
+### 25、APPSTORE商店评分
 
 调用该接口，可以在不跳转APPSTORE的前提下，自动给应用打分。
 
@@ -733,7 +733,7 @@ using Airisdk;
 AiriSDK.Instance.RequestStoreReview();
 ```
 
-### 第三方客服HelpShift
+### 26、第三方客服HelpShift
 
 调用该接口，会自动打开HelpShift第三方客服插件，玩家可以通过上面查看基本疑问或者向官方进行QA。
 
@@ -747,7 +747,7 @@ using Airisdk;
 AiriSDK.Instance.OpenHelpShift();
 ```
 
-### 购买商品
+### 27、购买商品
 
 调用该接口会开始执行商品的购买。商品信息是配置在AiriSDK后台的，具体请参考服务端接入文档。调用函数返回值ResultCode（后续文章专门介绍）仅用来验证参数合法性，实际成功与否需要根据BuyEvent的返回数据进行判断。
 
@@ -796,7 +796,7 @@ private void OnBuyRespone(BuyRet ret) {
 | EXTRADATA | string | 透传参数，发起购买请求时的透传字段 |
 | ORDERID | string | 订单号，如果正确地发起了购买请求，该字段就是在AiriSDK的订单号 |
 
-### 公用数据获取接口
+### 28、公用数据获取接口
 
 | 属性 | 说明 | 
 | ------ | ------ |
@@ -804,6 +804,6 @@ private void OnBuyRespone(BuyRet ret) {
 | AiriSdkData.Instance.AiriSDK_VERSION | SDK版本号 |
 
 
-### 错误码
+### 29、错误码
 
 [错误码文档](https://github.com/Yostardev/yostarsdk/blob/master/docs/ZH/errorcode.md)
