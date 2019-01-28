@@ -12,7 +12,7 @@
 
 确认Plugins文件夹内容以及更新
 
-![logo](https://github.com/Yostardev/yostarsdk/blob/master/docs/_media/plugin.png)
+![logo](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/plugin.png)
 
 以上是unitypackage的所有内容。在更新时，可以将上面除了AndroidManifest.xml文件以外的都删除后，重新导入。
 
@@ -20,4 +20,4 @@
 
 从AiriSDK平台的负责人员处，可以获知您的应用在Google Play、iTunes Store及其它渠道（例如AU）中使用的游戏包名。您可以在Unity的PlayerSettings中Android及iOS的设置中设置成对应的包名。
 
-![BundleId](https://github.com/Yostardev/yostarsdk/blob/master/docs/_media/bundleid_unity.png)
+![BundleId](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/bundleid_unity.png)
