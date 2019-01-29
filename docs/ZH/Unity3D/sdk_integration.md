@@ -10,7 +10,7 @@
 在导入时请注意AndroidManifest.xml的导入与覆盖。若您已经有正在使用的Manifest文件，
 请参见 "配置工程参数"。
 
-确认Plugins文件夹内容以及更新
+#### 确认Plugins文件夹内容以及更新
 
 ![logo](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/plugin.png)
 
