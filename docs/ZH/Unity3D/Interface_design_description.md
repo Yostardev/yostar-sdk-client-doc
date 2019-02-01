@@ -564,10 +564,22 @@ private void OnUnLinkRespone(UnLinkRet ret) {
 
 由于大部分功能都涉及到手机端原生API
 暂时PC端调试仅仅开放了以下接口：
-+ SDK初始化：public void Init()
-+ 快速登陆：public void QuickLogin()
-+ 设备号登陆：public void LoginWithDevice()
-+ 继承码登陆：	ResultCode void LoginWithTranscode(string strTranscode, string strUid)
++ SDK初始化：
+```csharp
+public void Init()
+```
++ 快速登陆：
+```csharp
+public void QuickLogin()
+```
++ 设备号登陆：
+```csharp
+public void LoginWithDevice()
+```
++ 继承码登陆：	
+```csharp
+ResultCode void LoginWithTranscode(string strTranscode, string strUid)
+```
 
 ### 21、设置用户生日
 
