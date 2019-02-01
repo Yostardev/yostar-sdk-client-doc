@@ -1,5 +1,3 @@
-## Error Code List
-
 | Error Code | Description | 
 | ------ | ------ | 
 | -1 | Unknown error | 
