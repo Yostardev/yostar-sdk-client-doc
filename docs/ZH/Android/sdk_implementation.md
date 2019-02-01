@@ -1,14 +1,14 @@
 
 
-In order to download the SDK from central repository of Maven, you need to open ```your_app | Gradle Scripts | build.gradle (Project)``` in your project and add the following repository to ```buildscript { repositories {}}```:
+在您的项目中，打开 ```your_app | Gradle Scripts | build.gradle (Project)``` 并添加以下存储库到 ```buildscript { repositories {}}``` 部分，以便从Maven 中央存储库下载 SDK："
 
 ```gradle
 maven { url 'http://nexus.yo-star.com/repository/maven-releases/' }
 ```
 
-In your project, please open ```your_app | Gradle Scripts | build.gradle (Module: app)``` and add the following line to ```dependencies{}```:
+在您的项目中，打开 ```your_app | Gradle Scripts | build.gradle (Module: app)``` 并添加以下一段执行语句至 ```dependencies{}``` 部分：
 
 ```gradle
 implementation 'com.airisdk.sdkcall:airisdk:2.1.0'
 ```
-Build project.
+构建项目.
