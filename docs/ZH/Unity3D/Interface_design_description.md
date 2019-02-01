@@ -416,7 +416,7 @@ AirisdkEvent.Instance.LinkEvent（后续文章详细介绍）
 | ------ | ------ | ------ |
 | platform | LoginPlatform（枚举） | 平台类型（必要） |
 | strEmail | string | 邮箱地址（必要） |
-| strVerificationCode | string | 平台类型（必要） |
+| strVerificationCode | string | 发给邮箱的验证码（必要） |
 
 
 ### 15、悠星账号绑定（注册新账号）
