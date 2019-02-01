@@ -1,5 +1,5 @@
 * Android
-   * [Overview](/Android/summary)
-   * [SDK integration](/Android/sdk_implementation)
-   * [Configuration engineering parameters](/Android/edit_resources)
-   * [Interface design description](/Android/Interface_design_description)
+   * [Overview](/EN/Android/summary)
+   * [SDK integration](/EN/Android/sdk_implementation)
+   * [Configuration engineering parameters](/EN/Android/edit_resources)
+   * [Interface design description](/EN/Android/Interface_design_description)
