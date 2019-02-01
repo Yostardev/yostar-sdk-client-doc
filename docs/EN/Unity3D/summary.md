@@ -1,24 +1,4 @@
-# Headline (the first title 1 will not be displayed in the sidebar)
+AiriSDK (SDK) is mainly targeted to provide third-party applications with convenient login and payment services for players from overseas. This document demonstrates the usage of the API-related functions to allow Unity developers gain smooth access of the SDK.
 
-> READ.md home
 
-# Num.1 title--1
-
-## Num.2 title--1-2
-
-```js
-console.log('hello world!')
-```
-
-### Num.3 title
-
-#### Num.4 title
-
-# Num.1 title--2
-
-<center>
-    <img src="_media/1.jpg" width="200"/>
-</center>
-
-# Num.1 title--3
-
+This document is written for developers with a certain level of Unity development experience and a fundamental knowledge of Android packaging.
