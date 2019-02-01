@@ -563,10 +563,22 @@ private void OnUnLinkRespone(UnLinkRet ret) {
 ### 20、Testing on PC
 
 Since most of the functions involve the original APIs on mobile, the testing on PC only contain the following:
-+ SDK initialization：public void Init()
-+ Fast Login：public void QuickLogin()
-+ Guest Login：public void LoginWithDevice()
-+ Device Transfer Code Login：	ResultCode void LoginWithTranscode(string strTranscode, string strUid)
++ SDK initialization：
+```csharp
+public void Init()
+```
++ Fast Login：
+```csharp
+public void QuickLogin()
+```
++ Guest Login：
+```csharp
+public void LoginWithDevice()
+```
++ Device Transfer Code Login：	
+```csharp
+ResultCode void LoginWithTranscode(string strTranscode, string strUid)
+```
 
 ### 21、Birthday Setting
 
