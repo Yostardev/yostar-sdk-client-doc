@@ -15,3 +15,5 @@
     * [Implementation](/EN/iOS/2.AccessProcess)
     * [Edit Project Setting Values](/EN/iOS/3.ConfigProjectParam)
     * [API Instruction](/EN/iOS/4.SDKUsage)
+    
+[Error Code Document](/EN/errorcode)
