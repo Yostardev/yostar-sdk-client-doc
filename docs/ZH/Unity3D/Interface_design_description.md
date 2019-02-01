@@ -812,8 +812,8 @@ private void OnBuyRespone(BuyRet ret) {
 
 | 属性 | 说明 | 
 | ------ | ------ |
-| AiriSDK.Instance.GetDeviceID() | 获取用户设备的唯一标识号 |
-| AiriSdkData.Instance.AiriSDK_VERSION | SDK版本号 |
+| ```AiriSDK.Instance.GetDeviceID()``` | 获取用户设备的唯一标识号 |
+| ```AiriSdkData.Instance.AiriSDK_VERSION``` | SDK版本号 |
 
 
 ### 29、错误码
