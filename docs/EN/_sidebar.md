@@ -5,7 +5,7 @@
    * [API Instruction](/EN/Android/Interface_design_description)
 
 * iOS
-    * [Introduction](/ZH/iOS/1.summary)
-    * [Implementation](/ZH/iOS/2.AccessProcess)
-    * [Edit Project Setting Values](/ZH/iOS/3.ConfigProjectParam)
-    * [API Instruction](/ZH/iOS/4.SDKUsage)
+    * [Introduction](/EN/iOS/1.summary)
+    * [Implementation](/EN/iOS/2.AccessProcess)
+    * [Edit Project Setting Values](/EN/iOS/3.ConfigProjectParam)
+    * [API Instruction](/EN/iOS/4.SDKUsage)
