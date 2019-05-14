@@ -31,7 +31,7 @@ InitRet
 ### 2、后台切换
 
 在unity程序前后台切换时调用。
-<h1>OnResume需要在初始化时再次调用一遍。<h1>
+<b>OnResume需要在初始化时再次调用一遍。</b>
 
 + 调用API:		
 
