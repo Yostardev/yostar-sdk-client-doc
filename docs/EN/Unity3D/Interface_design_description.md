@@ -31,7 +31,7 @@ InitRet
 ### 2、Server Shift
 
 Called when Unity program is shifting between client and server.
-OnResume needs to be called once again after successful initialization
+**OnResume needs to be called once again after successful initialization**
 + Call API:
 
 ```csharp
