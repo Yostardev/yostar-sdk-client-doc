@@ -125,6 +125,7 @@ AiriSDKInstance.getInstance().SDKQuickLogin(loginResultCallback);
 | AiriLoginEntity.facebook_username | The username of Facebook account, "" means the account is not bound to Twitter yet |
 | AiriLoginEntity.yostar_username | The username of Yostar account, "" means the account is not bound to Twitter yet |
 | AiriLoginEntity.isCanBindGuest | Identify whether the current account is bound with the guest account currently saved in the device. If "ture", call API from "SDKNewAccountLink" |
+| AiriLoginEntity.google_username | The username of Google account, "" means the account is not bound to Google yet |
 | AiriLoginEntity.airiUID | The UID of current account, used as an unique identification of this account |
 | AiriLoginEntity.virtual | Identify whether the current device is an emulator, "true" means it is an emulator |
 
@@ -175,7 +176,7 @@ void SDKLogin(Platform platform,String params1,String params2,boolean isCreateNe
 
 | Parameter | Description | Necessity |
 | ------ | ------ | ------ |
-| Platform | Platform parameter, platform includes DEVICE,TRANSCODE,YOSTAR,FACEBOOK,TWITTER | YES |
+| Platform | Platform parameter, platform includes DEVICE,TRANSCODE,YOSTAR,FACEBOOK,TWITTER，Google | YES |
 | params1 |The first parameter required for login. When Platform.TRANSCODE, params1 serves as the Device Transfer code; When Platform.YOSTAR, params1 serves as the email account | NO |
 | params2 | The second parameter required for login. When Platform.TRANSCODE, params2 serves as the UID that pairs with the Device Transfer code; When Platform.YOSTAR, params2 serves as the verification code sent to the email | NO |
 | isCreateNew | Whether to force a new account being created | YES |
@@ -190,7 +191,7 @@ void SDKLogin(Platform platform,String params1,String params2,boolean isCreateNe
 | Platform.TWITTER | Twitter |
 | Platform.FACEBOOK | Facebook |
 | Platform.YOSTAR | Yostar |
-| Platform.GOOGLE | Google Play payment method |
+| Platform.GOOGLE | Google Play payment or login method |
 | Platform.AU | AU payment method |
 
 ### 7.Generate Device Transfer Code
@@ -250,7 +251,7 @@ AiriSDKInstance.getInstance().SDKLink(platform,params1,params2,new AiriSDKConnec
 
 | Parameter | Description | Necessity |
 | ------ | ------ | ------ |
-| Platform | Account binding parameter, used to determine platforms which include YOSTAR,FACEBOOK,TWITTER | YES |
+| Platform | Account binding parameter, used to determine platforms which include YOSTAR,FACEBOOK,TWITTER,Google | YES |
 | params1 | When Platform.YOSTAR, params1 serves as the email account | NO |
 | params2 | When Platform.YOSTAR, params2 serves as the verification code sent to the email | NO |
 | AiriSDKConnect.LinkResultCallback | Account binding result | YES |
@@ -319,7 +320,7 @@ AiriSDKInstance.getInstance().SDKUnlink(platform,new AiriSDKConnect.UnLinkResult
 
 | Parameter | Description | Necessity |
 | ------ | ------ | ------ |
-| platform | Account unbinding parameter, can choose between FACEBOOK and TWITTER | YES |
+| platform | Account unbinding parameter, can choose between FACEBOOK and TWITTER,Google | YES |
 | AiriSDKConnect.UnLinkResultCallback | Account unbinding result | YES |
 
 + Callback Parameter Details
