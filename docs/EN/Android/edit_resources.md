@@ -35,7 +35,6 @@ AU payment has been implemented within AiriSDK, if your game accepts AU payment,
 <uses-permission android:name="com.kddi.market.permission.USE_ALML" />
 ```
 
-
 ### 4.res Settings
 
 A part of Firebase's functions have been implemented within AiriSDK,please edit Firebase setting values in ```res/values/google_service_strings.xml```.
@@ -52,4 +51,14 @@ Please contact Yostar to acquire the setting values.
 <string name="google_crash_reporting_api_key">******</string>
 <string name="google_storage_bucket">*****</string>
 <string name="project_id">*****</string>
+```
+
+### 5.AiriSDK Settings
+
+```xml
+        <activity
+            android:name="com.airisdk.sdkcall.AiriSDKContentActivity"
+            android:launchMode="singleTask"
+            android:taskAffinity="com.xjp"
+            android:theme="@style/AiriSDKThemeTranslucent" />
 ```
