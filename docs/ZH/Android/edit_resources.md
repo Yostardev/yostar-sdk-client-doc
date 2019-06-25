@@ -53,3 +53,11 @@ AiriSDK集成了firebase的部分功能，需要在```res/values/google_service_
 <string name="google_storage_bucket">*****</string>
 <string name="project_id">*****</string>
 ```
+### 5.AiriSDK设置
+```xml
+        <activity
+            android:name="com.airisdk.sdkcall.AiriSDKContentActivity"
+            android:launchMode="singleTask"
+            android:taskAffinity="com.xjp"
+            android:theme="@style/AiriSDKThemeTranslucent" />
+```
