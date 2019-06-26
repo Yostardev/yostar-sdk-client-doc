@@ -129,6 +129,9 @@ AiriSDKInstance.getInstance().SDKQuickLogin(loginResultCallback);
 | AiriLoginEntity.airiUID | 当前账号的uid,作为账户唯一标识使用 |
 | AiriLoginEntity.virtual | 当前机器是否为虚拟机，为true时，说明当前机器为虚拟机 |
 
++ 注意说明
+如果不需要游客登陆，Cp需要判断当前登陆是否为第一次登陆，如果是第一次登陆，Cp需要隐藏此接口，防止玩家误点击，自动完成游客登陆的操作！
+
 ### 5.请求邮箱验证码
 
 在使用Yostar账号系统登陆，绑定之前，需要用户手动输入邮箱，并调用此接口获取邮箱验证码.
