@@ -9,6 +9,6 @@ maven { url 'http://nexus.yo-star.com/repository/maven-releases/' }
 In your project, please open ```your_app | Gradle Scripts | build.gradle (Module: app)``` and add the following line to ```dependencies{}```:
 
 ```gradle
-implementation 'com.airisdk.sdkcall:airisdk:2.3.0'
+implementation 'com.airisdk.sdkcall:airisdk:2.3.1'
 ```
 Build project.
