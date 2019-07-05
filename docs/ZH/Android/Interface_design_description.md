@@ -195,6 +195,7 @@ void SDKLogin(Platform platform,String params1,String params2,boolean isCreateNe
 | Platform.FACEBOOK | Facebook渠道 |
 | Platform.YOSTAR | Yostar渠道 |
 | Platform.GOOGLE | Google支付登陆渠道 |
+| Platform.GOOGLEPLAY | Google支付登陆渠道 |
 | Platform.AU | AU支付渠道 |
 
 ### 7.发行继承码
@@ -254,7 +255,7 @@ AiriSDKInstance.getInstance().SDKLink(platform,params1,params2,new AiriSDKConnec
 
 | 参数名称 | 参数说明 | 是否必须 |
 | ------ | ------ | ------ |
-| Platform | 绑定使用的平台标识，渠道绑定参数标识可选择YOSTAR,FACEBOOK,TWITTER,Google | 是 |
+| Platform | 绑定使用的平台标识，渠道绑定参数标识可选择YOSTAR,FACEBOOK,TWITTER,Google,GOOGLEPLAY | 是 |
 | params1 | 绑定需要参数1，当Platform的值为Platform.YOSTAR时，params1为邮箱账号 | 否 |
 | params2 | 绑定需要参数2，当Platform的值为Platform.YOSTAR时，params2为邮箱收到的验证码 | 否 |
 | AiriSDKConnect.LinkResultCallback | 绑定结果回调 | 是 |
@@ -323,7 +324,7 @@ AiriSDKInstance.getInstance().SDKUnlink(platform,new AiriSDKConnect.UnLinkResult
 
 | 参数名称 | 参数说明 | 是否必须 |
 | ------ | ------ | ------ |
-| platform | 解除绑定渠道标识,解除绑定可选择标识TWITTER,FACEBOOK,Google | 是 |
+| platform | 解除绑定渠道标识,解除绑定可选择标识TWITTER,FACEBOOK,Google,GOOGLEPLAY | 是 |
 | AiriSDKConnect.UnLinkResultCallback | 解除绑定结果回调 | 是 |
 
 + 回调结果参数
