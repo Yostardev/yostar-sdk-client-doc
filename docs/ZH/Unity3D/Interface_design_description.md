@@ -130,7 +130,25 @@ AiriSDK.Instance.LoginWithGoogle();
 AirisdkEvent.Instance.LoginEvent
 ```
 
-### 7、Twitter登陆
+### 7、Google Play Game Services登陆
+
+使用Google账号登陆游戏，若第一次使用Google Play Game Services登陆，会自动创建SDK ID。
+
++ 调用API:		
+```csharp
+public void LoginWithGooglePlay()
+```
++ 调用示例:
+```csharp
+using Airisdk;
+AiriSDK.Instance.LoginWithGooglePlay();
+```
++ 回调Event:
+```csharp
+AirisdkEvent.Instance.LoginEvent
+```
+
+### 8、Twitter登陆
 
 使用twitter账号登陆游戏，若第一次使用twitter账号登陆，会自动创建SDK ID。
 
@@ -148,7 +166,7 @@ AiriSDK.Instance.LoginWithTW();
 AirisdkEvent.Instance.LoginEvent 
 ```
 
-### 8、继承码登陆
+### 9、继承码登陆
 
 使用继承码登陆游戏，继承码信息获取需要调用独立API获取，下面解释。调用函数返回值ResultCode（后续文章专门介绍）仅用来验证参数合法性，实际成功与否需要根据LoginEvent的返回数据进行判断。
 
@@ -179,7 +197,7 @@ AirisdkEvent.Instance.LoginEvent
 | strUid | string | SDK UID（必要） |
 
 
-### 9、继承码获取
+### 10、继承码获取
 
 在登陆游戏后，调用该API可以获取到当前账号的继承码和UID信息，当在未绑定第三方账号时，更换设备等可以通过继承码登陆找回之前账号。
 
@@ -219,7 +237,7 @@ private void OnTranscodeRespone(TranscodeRet ret) {
 } 
 ```
 
-### 10、登陆统一回调EVENT
+### 11、登陆统一回调EVENT
 
 不管用以上哪一种登陆方式，回调事件都是这个。包括下文即将提到的悠星账号系统，同为AirisdkEvent.Instance.LoginEvent
 
@@ -368,7 +386,7 @@ private void OnVerificationCodeRespone(VerificationCodeRet ret){
 | R_CODE | string | 错误码 : 0成功，其它见后面统一错误码表 |
 | R_MSG | string | 错误信息，辅助用 |
 
-### 14、Facebook 、Twitter，Google账号绑定
+### 14、Facebook 、Twitter，Google,Google Game Services账号绑定
 
 调用函数返回值ResultCode（后续文章专门介绍）仅用来验证参数合法性，实际成功与否需要根据LinkEvent的返回数据进行判断。后面会介绍。
 
