@@ -176,7 +176,7 @@ void SDKLogin(Platform platform,String params1,String params2,boolean isCreateNe
 
 | Parameter | Description | Necessity |
 | ------ | ------ | ------ |
-| Platform | Platform parameter, platform includes DEVICE,TRANSCODE,YOSTAR,FACEBOOK,TWITTER，Google | YES |
+| Platform | Platform parameter, platform includes DEVICE,TRANSCODE,YOSTAR,FACEBOOK,TWITTER，Google,GOOGLEPLAY | YES |
 | params1 |The first parameter required for login. When Platform.TRANSCODE, params1 serves as the Device Transfer code; When Platform.YOSTAR, params1 serves as the email account | NO |
 | params2 | The second parameter required for login. When Platform.TRANSCODE, params2 serves as the UID that pairs with the Device Transfer code; When Platform.YOSTAR, params2 serves as the verification code sent to the email | NO |
 | isCreateNew | Whether to force a new account being created | YES |
@@ -192,6 +192,7 @@ void SDKLogin(Platform platform,String params1,String params2,boolean isCreateNe
 | Platform.FACEBOOK | Facebook |
 | Platform.YOSTAR | Yostar |
 | Platform.GOOGLE | Google Play payment or login method |
+| Platform.GOOGLEPLAY | Google Play login method.|
 | Platform.AU | AU payment method |
 
 ### 7.Generate Device Transfer Code
@@ -251,7 +252,7 @@ AiriSDKInstance.getInstance().SDKLink(platform,params1,params2,new AiriSDKConnec
 
 | Parameter | Description | Necessity |
 | ------ | ------ | ------ |
-| Platform | Account binding parameter, used to determine platforms which include YOSTAR,FACEBOOK,TWITTER,Google | YES |
+| Platform | Account binding parameter, used to determine platforms which include YOSTAR,FACEBOOK,TWITTER,Google,GOOGLEPLAY | YES |
 | params1 | When Platform.YOSTAR, params1 serves as the email account | NO |
 | params2 | When Platform.YOSTAR, params2 serves as the verification code sent to the email | NO |
 | AiriSDKConnect.LinkResultCallback | Account binding result | YES |
@@ -320,7 +321,7 @@ AiriSDKInstance.getInstance().SDKUnlink(platform,new AiriSDKConnect.UnLinkResult
 
 | Parameter | Description | Necessity |
 | ------ | ------ | ------ |
-| platform | Account unbinding parameter, can choose between FACEBOOK and TWITTER,Google | YES |
+| platform | Account unbinding parameter, can choose between FACEBOOK and TWITTER,Google,GOOGLEPLAY | YES |
 | AiriSDKConnect.UnLinkResultCallback | Account unbinding result | YES |
 
 + Callback Parameter Details
