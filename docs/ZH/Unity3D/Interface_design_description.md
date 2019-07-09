@@ -172,12 +172,12 @@ AirisdkEvent.Instance.LoginEvent
 
 + 调用API: 		
 ```csharp
-ResultCode void LoginWithTranscode(string strTranscode, string strUid)
+ResultCode void LoginWithMigrationCode(string strTranscode, string strUid)
 ```
 + 调用示例： 
 ```csharp
 using Airisdk;
-ResultCode rc = AiriSDK.Instance.LoginWithTranscode(strcode, struid);
+ResultCode rc = AiriSDK.Instance.LoginWithMigrationCode(strcode, struid);
 If(rc == ResultCode.OK){ 
     //todo suc 
   } else { 
@@ -203,20 +203,20 @@ AirisdkEvent.Instance.LoginEvent
 
 + 调用API: 
 ```csharp
-public void TranscodeRequest()
+public void MigrationCodeRequest()
 ```
 + 调用示例:
 ```csharp
 using Airisdk;
-AiriSDK.Instance.TranscodeRequest();
+AiriSDK.Instance.MigrationCodeRequest();
 ```
 + 回调Event:			
 ```csharp
-AirisdkEvent.Instance.TranscodeEvent
+AirisdkEvent.Instance.MigrationCodeEvent
 ```
 + 回调Event类型:	
 ```csharp
-TranscodeRet
+MigrationCodeRet
 ```
 + 回调Event参数说明
 
@@ -231,8 +231,8 @@ TranscodeRet
 
 ```csharp
 using Airisdk.Event;
-AirisdkEvent.Instance.TranscodeEvent += OnTranscodeRespone;
-private void OnTranscodeRespone(TranscodeRet ret) {  
+AirisdkEvent.Instance.MigrationCodeEvent += OnMigrationRespone;
+private void OnMigrationRespone(MigrationCodeRet ret) {  
   //to do  
 } 
 ```
