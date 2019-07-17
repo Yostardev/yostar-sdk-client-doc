@@ -2,7 +2,7 @@
 
 ### 下载资源文件
 
-[AiriSDK.unitypackage](https://github.com/Yostardev/yostarsdk/edit/master/docs/ZH/Unity3D/)
+[AiriSDK.unitypackage](https://sdkresources.oss-cn-shanghai.aliyuncs.com/YostarSDK/2.0.4/AiriSDK_2.0.4_f9.unitypackage)
 
 ### 资源文件导入到项目
 
