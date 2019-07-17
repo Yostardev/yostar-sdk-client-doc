@@ -8,4 +8,8 @@ AiriSDK（简称：SDK）主要用来向第三方应用程序提供方便快捷�
 
 + 登陆时序图
 
-![登陆时序图](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/sdk_login.png)
+![登陆时序图](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/sdk_login.jpg)
+
++ 支付时序图
+
+![支付时序图](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/sdk_pay.jpg)
