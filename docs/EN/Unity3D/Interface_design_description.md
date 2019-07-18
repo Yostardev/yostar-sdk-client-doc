@@ -621,6 +621,7 @@ private void OnBirthSetRespone(BirthSetRet ret) {
 | ------ | ------ | ------ |
 | R_CODE | string | Status code, 0 means success; If an error occurs, please check error_code_document for more details |
 | R_MSG | string | Error message |
+| BIRTH | string | Birthday Information |
 
 ### 22、Local Account Data Cache Clearing
 
