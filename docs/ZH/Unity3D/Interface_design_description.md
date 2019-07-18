@@ -660,6 +660,7 @@ private void OnBirthSetRespone(BirthSetRet ret) {
 | ------ | ------ | ------ |
 | R_CODE | string | 错误码 : 0成功，其它见后面统一错误码表 |
 | R_MSG | string | 错误信息，辅助用 |
+| BIRTH | string | 生日，格式“yyyymmdd”，如“19901212”（必要） |
 
 ### 23、清除本地账号缓存
 
