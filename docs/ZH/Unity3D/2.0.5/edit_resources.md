@@ -11,6 +11,8 @@
 | 安卓包名 | 安卓注册用包名 |
 | IOS BUNDLEID | 苹果注册bundleid |
 | HelpShift 各参数 | 第三方客服需要的参数 |
+| Google Api Client ID | Google账号登陆的必须参数，为 OAuth 2.0 客户端的网页客户端ID |
+| Google Play AppID| Google Game Services登陆的必须参数，AppId为Google控制台对应游戏的ID |
 
 以上参数是在SDK初始化时需要的参数。这些参数可以使得SDK能够正常使用账号系统。支付系统的正常工作还需要服务端程序进行配合，请参考服务端文档。
 
@@ -23,7 +25,7 @@
 创建成功后会在目录
 ..\Assets\AiriSDK\Resources\下生成文件ConfigSettings.asset，点击后在inspecrtor如下图
 
-![config_setting](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/config_setting.png)
+![config_setting](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/2.0.5_airisdk_setting.png)
 
 #### Save config
 
@@ -64,7 +66,7 @@ ConfigSettings填写完整正确参数后，点击```Modify Manifest```，会将
 
 ```xml
 <application android:allowBackup="true"
-  android:networkSecurityConfig="@xml/airisdk_network_security_config"		
+  android:networkSecurityConfig="@xml/airisdk_network_security_config"
   android:icon="@drawable/app_icon"
 	android:label="@string/app_name"
   android:supportsRtl="true" >
@@ -93,54 +95,7 @@ ConfigSettings填写完整正确参数后，点击```Modify Manifest```，会将
 </activity>
 ```
 
-#### 5、firebase配置
-
-注意:必须配置在Application域中
-
-```xml
-<service android:name="com.airisdk.firebase.MyFirebaseInstanceIDService">
-  <intent-filter>
-  <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
-  </intent-filter>
-</service>
-
-<service android:name="com.airisdk.firebase.MyFirebaseMessagingService">
-  <intent-filter>
-    <action android:name="com.google.firebase.MESSAGING_EVENT"/>
-  </intent-filter>
-</service>
-
-<service android:exported="true" 			 			
-  android:name="com.google.firebase.messaging.FirebaseMessagingService">
-  <intent-filter android:priority="-500">
-    <action android:name="com.google.firebase.MESSAGING_EVENT"/>
-  </intent-filter>
-</service>
-
-<service android:name="com.google.firebase.components.ComponentDiscoveryService">
-  <meta-data 	android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" 	
-              android:value="com.google.firebase.components.ComponentRegistrar"/>
-</service>
-
-<receiver android:exported="true" 	
-  android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" 	
-  android:permission="com.google.android.c2dm.permission.SEND">
-    <intent-filter>
-      <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
-      <category android:name="${applicationId}"/>
-    </intent-filter>
-</receiver>
-
-<service android:exported="true" 	
-  android:name="com.google.firebase.iid.FirebaseInstanceIdService">
-  <intent-filter android:priority="-500">
-    <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
-  </intent-filter>
-</service>
-
-```
-
-#### 6、helpshift配置
+#### 5、helpshift配置
 
 注意:helpshift_apiKey、helpshift_demain、helpshift_appId 三个参数的value需从运营商获取，并在UNITY的ConfigSettings.asset文件设置后，执行ModifyManifest填充正确的数据
 
@@ -150,4 +105,14 @@ ConfigSettings填写完整正确参数后，点击```Modify Manifest```，会将
 <meta-data android:name="helpshift_apiKey" android:value="xxx" />
 <meta-data android:name="helpshift_demain" android:value="xxx" />
 <meta-data android:name="helpshift_appId" android:value="xxx" />
+```
+
+#### 6、Google登陆配置
+
+注意:com.google.android.gms.games.APP_ID 参数的value需从运营商获取，并在UNITY的ConfigSettings.asset文件设置后，执行ModifyManifest填充正确的数据到google_service_strings.xml文件中
+
+注意:必须配置在Application域中
+
+```xml
+<meta-data android:name="com.google.android.gms.games.APP_ID" android:value="@string/app_id" />
 ```

@@ -2,7 +2,7 @@
 
 ### 下载资源文件
 
-[AiriSDK.unitypackage](https://sdkresources.oss-cn-shanghai.aliyuncs.com/YostarSDK/2.0.4/AiriSDK_2.0.4_f9.unitypackage)
+[AiriSDK.unitypackage](https://sdkresources.oss-cn-shanghai.aliyuncs.com/YostarSDK/2.1.0/AiriSDK_2.1.0.unitypackage)
 
 ### 资源文件导入到项目
 
@@ -27,3 +27,7 @@
 + 旧版本资源务必删除干净，不然可能会造成打包过程中资源冲突的问题
 + 旧版本和新版本的接口调用不一致，请仔细查看2.x的接入文档，以免造成接口调用失败。
 + 为了Firebase工作，需要替换新版SDK的Android\assets\google-services.json文件，并根据modify google service params进行配置工作
+
+### 2.0.4版本更新到2.1.0版本
+
++ 把OpenHelpshift接口替换为OpenCustomerServices接口
