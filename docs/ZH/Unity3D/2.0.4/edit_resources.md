@@ -93,54 +93,9 @@ ConfigSettings填写完整正确参数后，点击```Modify Manifest```，会将
 </activity>
 ```
 
-#### 5、firebase配置
 
-注意:必须配置在Application域中
 
-```xml
-<service android:name="com.airisdk.firebase.MyFirebaseInstanceIDService">
-  <intent-filter>
-  <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
-  </intent-filter>
-</service>
-
-<service android:name="com.airisdk.firebase.MyFirebaseMessagingService">
-  <intent-filter>
-    <action android:name="com.google.firebase.MESSAGING_EVENT"/>
-  </intent-filter>
-</service>
-
-<service android:exported="true" 			 			
-  android:name="com.google.firebase.messaging.FirebaseMessagingService">
-  <intent-filter android:priority="-500">
-    <action android:name="com.google.firebase.MESSAGING_EVENT"/>
-  </intent-filter>
-</service>
-
-<service android:name="com.google.firebase.components.ComponentDiscoveryService">
-  <meta-data 	android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" 	
-              android:value="com.google.firebase.components.ComponentRegistrar"/>
-</service>
-
-<receiver android:exported="true" 	
-  android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" 	
-  android:permission="com.google.android.c2dm.permission.SEND">
-    <intent-filter>
-      <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
-      <category android:name="${applicationId}"/>
-    </intent-filter>
-</receiver>
-
-<service android:exported="true" 	
-  android:name="com.google.firebase.iid.FirebaseInstanceIdService">
-  <intent-filter android:priority="-500">
-    <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
-  </intent-filter>
-</service>
-
-```
-
-#### 6、helpshift配置
+#### 5、helpshift配置
 
 注意:helpshift_apiKey、helpshift_demain、helpshift_appId 三个参数的value需从运营商获取，并在UNITY的ConfigSettings.asset文件设置后，执行ModifyManifest填充正确的数据
 
