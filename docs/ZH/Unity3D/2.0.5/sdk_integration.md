@@ -22,12 +22,6 @@
 
 ![BundleId](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/bundleid_unity.png)
 
-### 1.x版本更新到2.x版本
-
-+ 旧版本资源务必删除干净，不然可能会造成打包过程中资源冲突的问题
-+ 旧版本和新版本的接口调用不一致，请仔细查看2.x的接入文档，以免造成接口调用失败。
-+ 为了Firebase工作，需要替换新版SDK的Android\assets\google-services.json文件，并根据modify google service params进行配置工作
-
 ### 2.0.4版本更新到2.1.0版本
 
 + 把OpenHelpshift接口替换为OpenCustomerServices接口
