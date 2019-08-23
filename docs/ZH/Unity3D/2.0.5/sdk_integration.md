@@ -12,7 +12,7 @@
 
 #### 确认Plugins文件夹内容以及更新
 
-![logo](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/plugin.png)
+![logo](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/plugin210.png)
 
 以上是unitypackage的所有内容。在更新时，可以将上面除了AndroidManifest.xml文件以外的都删除后，重新导入。
 
@@ -22,6 +22,4 @@
 
 ![BundleId](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/bundleid_unity.png)
 
-### 2.0.4版本更新到2.1.0版本
 
-+ 把OpenHelpshift接口替换为OpenCustomerServices接口
