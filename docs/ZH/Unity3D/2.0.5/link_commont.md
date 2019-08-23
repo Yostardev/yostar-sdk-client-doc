@@ -31,7 +31,7 @@ AirisdkEvent.Instance.LinkEvent（后续文章详细介绍）
 | ------ | ------ | ------ |
 | platform | LoginPlatform（枚举） | 平台类型（必要） |
 
-### 2、悠星账号绑定（已有账号）
+### 2、悠星账号绑定
 
 调用函数返回值ResultCode（后续文章专门介绍）仅用来验证参数合法性，实际成功与否需要根据LinkEvent的返回数据进行判断。后面会介绍。
 
@@ -68,45 +68,7 @@ AirisdkEvent.Instance.LinkEvent（后续文章详细介绍）
 | strEmail | string | 邮箱地址（必要） |
 | strVerificationCode | string | 发给邮箱的验证码（必要） |
 
-
-### 3、悠星账号绑定（注册新账号）
-
-API说明：调用函数返回值ResultCode（后续文章专门介绍）仅用来验证参数合法性，实际成功与否需要根据LinkEvent的返回数据进行判断。后面会介绍。
-
-注意：不可以覆盖绑定，悠星账号不可以解绑。
-
-注意：只能在登陆成功之后调用。
-
-注意：该API是在游戏内注册悠星账号并同时绑定。
-
-+ 调用API: 	
-```csharp
-ResultCode void SDKRegsitLink(string strEmail, string strEmailDoubleCheck, string strVerificationCode)
-```
-+ 调用示例:
-```csharp
-using Airisdk;
-ResultCode rc = AiriSDK.Instance.SDKRegsitLink(strEmail, strEmailDoubleCheck,strVerificationCode);
-If(rc == ResultCode.OK){ 
-  //todo suc 
-} else { 
-  //todo failed 
-}
-```
-+ 回调Event:	
-```csharp
-AirisdkEvent.Instance.LinkEvent（后续文章详细介绍）
-```
-+ 接口参数说明
-
-| 参数名称 | 参数类型 | 参数说明 |
-| ------ | ------ | ------ |
-| strEmail | string | 邮箱地址（必要） |
-| strEmailDoubleCheck | string | 邮箱地址二次检查（必要） |
-| strVerificationCode | string | 发给邮箱的验证码（必要） |
-
-
-### 4、特殊绑定
+### 3、特殊绑定
 
 API说明：调用函数无返回值，成功与否需要根据LinkEvent的返回数据进行判断。后面会介绍。
 
@@ -130,7 +92,7 @@ AiriSDK.Instance.NewAccountLink();
 AirisdkEvent.Instance.LinkEvent（后续文章详细介绍）
 ```
 
-### 5、绑定统一回调EVENT
+### 4、绑定统一回调EVENT
 
 + 回调Event:		
 ```csharp
@@ -158,7 +120,7 @@ private void OnLinkRespone(LinkRet ret) {
 | LOGIN_PLATFORM | LoginPlatform（枚举） | 当前游戏绑定平台，枚举Airisdk.LoginPlatform |
 | SOCAIL_NAME | string | 当前游戏绑定平台用户名称 |
 
-### 6、账号解绑系统
+### 5、账号解绑系统
 
 API说明：调用函数返回值ResultCode（后续文章专门介绍）仅用来验证参数合法性，实际成功与否需要根据UnLinkEvent的返回数据进行判断。
 
@@ -183,7 +145,7 @@ AiriSDK.Instance.UnLinkSocial(LoginPlatform.FACEBOOK);
 | ------ | ------ | ------ |
 | platform | LoginPlatform（枚举） | 平台类型（必要） |
 
-### 7、解绑回调EVENT
+### 6、解绑回调EVENT
 
 + 回调Event:			
 ```csharp
