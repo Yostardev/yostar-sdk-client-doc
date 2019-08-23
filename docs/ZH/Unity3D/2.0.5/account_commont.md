@@ -215,51 +215,19 @@ private void OnLoginRespone(LoginRet ret) {
 } 
 ```
 
-### 10、悠星账号注册
-
-悠星账号注册成功后会自动登陆，所以这里的回调EVENT还是登陆回调。调用函数返回值ResultCode（后续文章专门介绍）仅用来验证参数合法性，实际成功与否需要根据LoginEvent的返回数据进行判断。不得在游戏内调用此接口。
-
-+ 调用API: 	
-```csharp
-ResultCode void SDKRegistLogin(string strEmail, string strEmailDoubleCheck, string strVerificationCode)
-```
-+ 调用示例： 
-```csharp
-using Airisdk;
-ResultCode rc = AiriSDK.Instance.SDKRegistLogin(strEmail, strEmailDoubleCheck, strVerificationCode);
-If(rc == ResultCode.OK){ 
-  //todo suc 
-} else { 
-  //todo failed 
-}
-```
-
-+ 回调Event：	
-
-```csharp
-同上一章节登陆回调Event
-```
-+ 接口参数说明
-
-| 参数名称 | 参数类型 | 参数说明 |
-| ------ | ------ | ------ |
-| strEmail | string | 邮箱地址（必要） |
-| strEmailDoubleCheck | string | 邮箱地址二次检查（必要） |
-| strVerificationCode | string | 发给邮箱的验证码（必要） |
-
-### 11、悠星账号登陆
+### 10、悠星账号登陆
 
 悠星账号登陆成功后，回调EVENT还是登陆回调。调用函数返回值ResultCode（后续文章专门介绍）仅用来验证参数合法性，实际成功与否需要根据LoginEvent的返回数据进行判断。
 
 + 调用API: 	
 ```csharp
-ResultCode void LoginWithSDKAccount(string strEmail, string strVerificationCode)
+ResultCode void LoginWithSDK(string strEmail, string strVerificationCode)
 ```
 
 + 调用示例： 
 ```csharp
 using Airisdk;
-ResultCode rc = AiriSDK.Instance.LoginWithSDKAccount(strEmail, strVerificationCode);
+ResultCode rc = AiriSDK.Instance.LoginWithSDK(strEmail, strVerificationCode);
 If(rc == ResultCode.OK){ 
   //todo suc 
 } else { 
@@ -280,7 +248,7 @@ If(rc == ResultCode.OK){
 | strEmail | string | 邮箱地址（必要） |
 | strVerificationCode | string | 发给邮箱的验证码（必要） |
 
-### 12、悠星账号验证码获取
+### 11、悠星账号验证码获取
 
 悠星账号系统的验证码请求均为该API，验证码会发送到传入的邮箱内，所有回调接口不会包含验证码，只有ERRCODE。
 
