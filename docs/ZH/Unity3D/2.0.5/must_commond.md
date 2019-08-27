@@ -27,6 +27,10 @@ InitRet
 | R_VIRTUAL | Int | 是否是模拟器 1：模拟器 0：真机 |
 | R_CODE | ResultCode（枚举） | 错误码 : 0成功，其它见后面统一错误码表 |
 | R_MSG | string | 错误信息，辅助用 |
+| ISCACHE | Int | 是否存在登陆缓存，存在1，不存在0 |
+| LOGIN_PLATFORM | LoginPlatform（枚举） | 缓存登陆的平台 |
+| LOGIN_UID | string | 缓存的UID |
+| LOGIN_NAME | string | 缓存的名称 |
 
 ### 2、后台切换
 
