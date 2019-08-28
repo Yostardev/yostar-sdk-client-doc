@@ -9,7 +9,7 @@
        * [概述](/ZH/Unity3D/2.0.5/summary)
        * [SDK集成](/ZH/Unity3D/2.0.5/sdk_integration)
        * [配置工程参数](/ZH/Unity3D/2.0.5/edit_resources)
-       * [接口设计说明](/ZH/Unity3D/2.0.5)
+       * 接口设计说明
             * [1、必接功能](/ZH/Unity3D/2.0.5/must_commond)
             * [2、账号功能](/ZH/Unity3D/2.0.5/account_commont)
             * [3、绑定功能](/ZH/Unity3D/2.0.5/link_commont)
