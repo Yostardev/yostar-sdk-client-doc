@@ -1,5 +1,3 @@
-### Google登录配置说明
-
 #### 凭据配置
 
 + 在[API控制台](https://console.developers.google.com/apis/credentials)中打开`凭据`页面。
