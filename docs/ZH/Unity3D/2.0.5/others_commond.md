@@ -155,7 +155,37 @@ using Airisdk;
 AiriSDK.Instance.OpenHelpShift();
 ```
 
-### 7、公用数据获取接口
+### 7、删除账号
+
+调用该接口，会自动此账号与所有第三方的账号绑定，并清理本地缓存，删除服务器数据记录，请CP谨慎调用。
+
++ 调用API: 	
+```csharp
+public string SDKDeleteAccount()
+```
++ 调用示例： 
+```csharp
+using Airisdk;
+AiriSDK.Instance.SDKDeleteAccount();
+```
++ 回调Event
+
+```csharp
+AirisdkEvent.Instance.DeleteAccountRet
+```
++ 回调Event类型
+```
+DeleteAccountRet
+```
++ 回调Event参数说明
+
+| 参数名称 | 参数类型 | 参数说明 |
+| ------ | ------ | ------ |
+| R_CODE | string | 错误码 : 0成功，其它见后面统一错误码表 |
+| R_MSG | string | 错误信息，辅助用 |
+
+
+### 8、公用数据获取接口
 
 | 属性 | 说明 | 
 | ------ | ------ |
@@ -163,6 +193,6 @@ AiriSDK.Instance.OpenHelpShift();
 | ```AiriSdkData.Instance.AiriSDK_VERSION``` | SDK版本号 |
 
 
-### 8、错误码
+### 9、错误码
 
 [错误码文档](https://github.com/Yostardev/yostarsdk/blob/master/docs/ZH/errorcode.md)
