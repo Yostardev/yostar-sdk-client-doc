@@ -20,8 +20,8 @@
   ```
   + 软件包名称，为游戏的包名
   
-设置完成后点击`创建`,完成凭据的配置，并复制生成的客户端ID
+设置完成后点击`创建`,完成凭据的配置。
 
-![oauth_id](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/oauth_id.png)
+#### 凭据获取
 
-将生成的客户端ID，复制到AiriSDK中的`Google Api Client ID`中，完成AiriSDK的配置。
++ AiriSDK使用的`Google Api Client ID`为配置完成后，在`凭据`界面中最新的web client的客户端ID
