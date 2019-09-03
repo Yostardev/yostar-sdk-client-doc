@@ -1,5 +1,3 @@
-### Facebook配置说明
-
 #### 环境配置
 进入到游戏开发者界面：[https://developers.facebook.com/](https://developers.facebook.com/)
 
