@@ -1,5 +1,3 @@
-### Twitter配置说明
-
 #### 环境配置
 
 进入到Twitter游戏开发者界面：[https://developer.twitter.com](https://developer.twitter.com)
