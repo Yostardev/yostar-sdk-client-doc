@@ -8,10 +8,6 @@
    * 2.1.0
        * [概述](/ZH/Unity3D/2.0.5/summary)
        * [SDK集成](/ZH/Unity3D/2.0.5/sdk_integration)
-       * [SDK渠道配置](/ZH/Unity3D/2.0.5/evement_comond)
-            * [Facebook环境配置](/ZH/Unity3D/2.0.5/fb_environmental_configuration)
-            * [Twitter环境配置](/ZH/Unity3D/2.0.5/twitter_environmental_configuration)
-            * [Google登录环境配置](/ZH/Unity3D/2.0.5/google_sign_in_eventment)
        * [配置工程参数](/ZH/Unity3D/2.0.5/edit_resources)
        * [接口设计说明](/ZH/Unity3D/2.0.5/implementation_comond)
             * [1、必接功能](/ZH/Unity3D/2.0.5/must_commond)
