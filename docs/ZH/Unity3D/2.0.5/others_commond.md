@@ -191,8 +191,22 @@ DeleteAccountRet
 | ------ | ------ |
 | ```AiriSDK.Instance.GetDeviceID()``` | 获取用户设备的唯一标识号 |
 | ```AiriSdkData.Instance.AiriSDK_VERSION``` | SDK版本号 |
+| ```AiriSdkData.Instance.GetAgreement()``` | 获取用户协议链接 |
 
+### 9、确认用户协议
 
-### 9、错误码
+此接口再用户点击同意协议时调用。
+
++ 调用API: 	
+```csharp
+public string ConifrmAgreement()
+```
++ 调用示例： 
+```csharp
+using Airisdk;
+AiriSDK.Instance.ConifrmAgreement();
+```
+
+### 10、错误码
 
 [错误码文档](https://github.com/Yostardev/yostarsdk/blob/master/docs/ZH/errorcode.md)
