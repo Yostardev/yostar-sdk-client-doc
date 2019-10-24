@@ -199,7 +199,7 @@ DeleteAccountRet
 
 + 调用API: 	
 ```csharp
-public string ConifrmAgreement()
+public void ConifrmAgreement()
 ```
 + 调用示例： 
 ```csharp
