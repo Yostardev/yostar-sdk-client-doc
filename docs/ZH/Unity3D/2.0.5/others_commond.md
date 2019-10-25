@@ -216,7 +216,7 @@ DeleteAccountRet
 | R_MSG | string | 错误信息，辅助用 |
 
 
-### 8、恢复账号
+### 9、恢复账号
 
 调用该接口，会自动此账号与所有第三方的账号绑定，并清理本地缓存，删除服务器数据记录，请CP谨慎调用。
 
@@ -246,7 +246,7 @@ RebornAccountRet
 | R_MSG | string | 错误信息，辅助用 |
 
 
-### 9、公用数据获取接口
+### 10、公用数据获取接口
 
 | 属性 | 说明 | 
 | ------ | ------ |
@@ -254,7 +254,7 @@ RebornAccountRet
 | ```AiriSdkData.Instance.AiriSDK_VERSION``` | SDK版本号 |
 | ```AiriSdkData.Instance.GetAgreement()``` | 获取用户协议链接 |
 
-### 10、确认用户协议
+### 11、确认用户协议
 
 此接口再用户点击同意协议时调用。
 
@@ -268,6 +268,6 @@ using Airisdk;
 AiriSDK.Instance.ConifrmAgreement();
 ```
 
-### 11、错误码
+### 12、错误码
 
 [错误码文档](https://github.com/Yostardev/yostarsdk/blob/master/docs/ZH/errorcode.md)
