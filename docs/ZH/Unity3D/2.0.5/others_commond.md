@@ -155,7 +155,38 @@ using Airisdk;
 AiriSDK.Instance.OpenHelpShift();
 ```
 
-### 7、删除账号
+### 7、第三方客服HelpShift(角色参数)
+
+调用该接口，会自动打开HelpShift第三方客服插件，玩家可以通过上面查看基本疑问或者向官方进行QA。
+
++ 调用API:
+
+
+```csharp
+public string OpenHelpShift(string roleUid, string roleName, string roleLevel, string roleServer, string rolePurchase, string createTime)
+```
++ API参数说明
+
+| 参数名称 | 参数类型 | 参数说明 |
+| ------ | ------ | ------ |
+| roleUid | string | 角色ID |
+| roleName  | string | 角色名称 |
+| roleLevel  | string | 角色等级 |
+| roleServer  | string | 角色所在服务器（格式：服务器ID - 服务器名称） |
+| rolePurchase  | string | 角色在此服务器的充值金额（美元） |
+| createTime  | string | 角色创建的时间（yyyy-mm-dd hh:MM:ss） |
+
+
+
++ 调用示例:
+
+
+```csharp
+using Airisdk;
+AiriSDK.Instance.OpenHelpShift("11552233", "昨日方舟", 1+"", "2 - 雄霸天下",18 + "", "2019-08-06 10:57:11");
+```
+
+### 8、删除账号
 
 调用该接口，会自动此账号与所有第三方的账号绑定，并清理本地缓存，删除服务器数据记录，请CP谨慎调用。
 
@@ -185,7 +216,37 @@ DeleteAccountRet
 | R_MSG | string | 错误信息，辅助用 |
 
 
-### 8、公用数据获取接口
+### 8、恢复账号
+
+调用该接口，会自动此账号与所有第三方的账号绑定，并清理本地缓存，删除服务器数据记录，请CP谨慎调用。
+
++ 调用API: 	
+```csharp
+public string RebornAccount()
+```
++ 调用示例： 
+```csharp
+using Airisdk;
+AiriSDK.Instance.RebornAccount();
+```
++ 回调Event
+
+```csharp
+AirisdkEvent.Instance.RebornAccount
+```
++ 回调Event类型
+```
+RebornAccountRet
+```
++ 回调Event参数说明
+
+| 参数名称 | 参数类型 | 参数说明 |
+| ------ | ------ | ------ |
+| R_CODE | string | 错误码 : 0成功，其它见后面统一错误码表 |
+| R_MSG | string | 错误信息，辅助用 |
+
+
+### 9、公用数据获取接口
 
 | 属性 | 说明 | 
 | ------ | ------ |
@@ -193,7 +254,7 @@ DeleteAccountRet
 | ```AiriSdkData.Instance.AiriSDK_VERSION``` | SDK版本号 |
 | ```AiriSdkData.Instance.GetAgreement()``` | 获取用户协议链接 |
 
-### 9、确认用户协议
+### 10、确认用户协议
 
 此接口再用户点击同意协议时调用。
 
@@ -207,6 +268,6 @@ using Airisdk;
 AiriSDK.Instance.ConifrmAgreement();
 ```
 
-### 10、错误码
+### 11、错误码
 
 [错误码文档](https://github.com/Yostardev/yostarsdk/blob/master/docs/ZH/errorcode.md)
