@@ -133,7 +133,7 @@ private void OnSystemShareRespone(SystemShareRet ret) {
 
 + 调用API: 	
 ```csharp
-public string RequestStoreReview()
+public void RequestStoreReview()
 ```
 + 调用示例： 
 ```csharp
@@ -147,7 +147,7 @@ AiriSDK.Instance.RequestStoreReview();
 
 + 调用API: 	
 ```csharp
-public string OpenHelpShift()
+public void OpenHelpShift()
 ```
 + 调用示例： 
 ```csharp
@@ -163,7 +163,7 @@ AiriSDK.Instance.OpenHelpShift();
 
 
 ```csharp
-public string OpenHelpShift(string roleUid, string roleName, string roleLevel, string roleServer, string rolePurchase, string createTime)
+public void OpenHelpShift(string roleUid, string roleName, string roleLevel, string roleServer, string rolePurchase, string createTime)
 ```
 + API参数说明
 
