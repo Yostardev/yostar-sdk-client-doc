@@ -16,7 +16,6 @@
             * [4、支付功能](/ZH/Unity3D/2.0.5/buy_commond)
             * [5、其他功能](/ZH/Unity3D/2.0.5/others_commond)
             * [6、错误码](/ZH/Unity3D/2.0.5/errorcode)
-            * [7、错误码(日语)](/ZH/Unity3D/2.0.5/jp_errorcode)
        
 * Android
    * [概述](/ZH/Android/summary)
