@@ -268,6 +268,3 @@ using Airisdk;
 AiriSDK.Instance.ConifrmAgreement();
 ```
 
-### 12、错误码
-
-[错误码文档](https://github.com/Yostardev/yostarsdk/blob/master/docs/ZH/errorcode.md)
