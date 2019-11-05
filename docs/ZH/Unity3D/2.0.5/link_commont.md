@@ -35,8 +35,6 @@ AirisdkEvent.Instance.LinkEvent（后续文章详细介绍）
 
 调用函数返回值ResultCode（后续文章专门介绍）仅用来验证参数合法性，实际成功与否需要根据LinkEvent的返回数据进行判断。后面会介绍。
 
-注意：不可以覆盖绑定，悠星账号不可以解绑。
-
 注意：只能在登陆成功之后调用。
 
 注意：一个悠星账号下可以允许有无数个绑定游戏，如在A游戏注册的悠星账号，对于B游戏就是已有账号。
@@ -128,7 +126,6 @@ API说明：调用函数返回值ResultCode（后续文章专门介绍）仅用�
 
 注意：只能在登陆成功之后调用。
 
-注意：仅FB、TW支持解绑操作
 
 + 调用API: 	
 ```csharp
@@ -145,7 +142,36 @@ AiriSDK.Instance.UnLinkSocial(LoginPlatform.FACEBOOK);
 | ------ | ------ | ------ |
 | platform | LoginPlatform（枚举） | 平台类型（必要） |
 
-### 6、解绑回调EVENT
+### 6、悠星账号解绑
+
++ 调用API: 	
+```csharp
+ResultCode void UnLinkSocial(LoginPlatform platform, string strEmail, string strVerificationCode)
+```
++ 调用示例:
+```csharp
+using Airisdk;
+ResultCode rc = AiriSDK.Instance.UnLinkSocial(LoginPlatform.YOSTAR, strEmail, strVerificationCode);
+If(rc == ResultCode.OK){ 
+  //todo suc 
+ } else { 
+  //todo failed 
+ }
+```
++ 回调Event:	
+```csharp
+AirisdkEvent.Instance.UnLinkEvent（后续文章详细介绍）
+```
+
++ 接口参数说明
+
+| 参数名称 | 参数类型 | 参数说明 |
+| ------ | ------ | ------ |
+| platform | LoginPlatform（枚举） | 平台类型（必要） |
+| strEmail | string | 邮箱地址（必要） |
+| strVerificationCode | string | 发给邮箱的验证码（必要） |
+
+### 7、解绑回调EVENT
 
 + 回调Event:			
 ```csharp
