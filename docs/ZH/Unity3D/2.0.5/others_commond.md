@@ -284,4 +284,4 @@ string jsonArrayInfo = AiriSDK.Instance.GetAgreement();
 
 + 注意
 
-此接口返回的是一个完整的JsonArray字符串，考虑到有些国家的特殊需求，JsonArray的长度大于等于1，请CP根据需求显示协议
+此接口返回的是一个完整的JsonArray字符串，考虑到有些国家的特殊需求，JsonArray的长度大于等于1,表示协议文件个数大于等于1，请CP根据需求显示协议
