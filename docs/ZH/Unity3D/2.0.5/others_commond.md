@@ -273,7 +273,7 @@ AiriSDK.Instance.ConifrmAgreement();
 
 + 调用API: 
 ```csharp
-AiriSdkData.Instance.GetAgreement()
+public string GetAgreement()
 ```
 + 调用示例:
 
