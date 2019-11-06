@@ -252,7 +252,6 @@ RebornAccountRet
 | ------ | ------ |
 | ```AiriSDK.Instance.GetDeviceID()``` | 获取用户设备的唯一标识号 |
 | ```AiriSdkData.Instance.AiriSDK_VERSION``` | SDK版本号 |
-| ```AiriSdkData.Instance.GetAgreement()``` | 获取用户协议链接 |
 
 ### 11、确认用户协议
 
@@ -268,3 +267,21 @@ using Airisdk;
 AiriSDK.Instance.ConifrmAgreement();
 ```
 
+### 12、用户协议获取
+
+此接口用于CP需要显示用户协议时调用
+
++ 调用API: 
+```csharp
+AiriSdkData.Instance.GetAgreement()
+```
++ 调用示例:
+
+```csharp
+using Airisdk;
+string jsonArrayInfo = AiriSDK.Instance.GetAgreement();
+```
+
++ 注意
+
+此接口返回的是一个完整的JsonArray字符串，考虑到有些国家的特殊需求，JsonArray的长度大于等于1，请CP根据需求显示协议
