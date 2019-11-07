@@ -202,7 +202,7 @@ AiriSDK.Instance.SDKDeleteAccount();
 + 回调Event
 
 ```csharp
-AirisdkEvent.Instance.DeleteAccountRet
+AirisdkEvent.Instance.DeleteAccountEvent
 ```
 + 回调Event类型
 ```
@@ -232,7 +232,7 @@ AiriSDK.Instance.RebornAccount();
 + 回调Event
 
 ```csharp
-AirisdkEvent.Instance.RebornAccountRet
+AirisdkEvent.Instance.RebornAccountEvent
 ```
 + 回调Event类型
 ```
@@ -312,9 +312,24 @@ AiriSDK.Instance.GetAgreementInfo();
 + 回调Event
 
 ```csharp
-AirisdkEvent.Instance.GetAgreementRet
+AirisdkEvent.Instance.GetAgreementEvent
 ```
 
++ 回调类型
+
+```csharp
+GetAgreementRet
+```
+
++ 回调示例：
+
+```csharp
+using Airisdk.Event;
+AirisdkEvent.Instance.GetAgreementEvent += OnGetAgreementResponse;
+private void OnGetAgreementResponse(GetAgreementRet ret) {  
+	//to do  
+} 
+```
 + 回调Event参数说明
 
 | 参数名称 | 参数类型 | 参数说明 |
