@@ -232,7 +232,7 @@ AiriSDK.Instance.RebornAccount();
 + 回调Event
 
 ```csharp
-AirisdkEvent.Instance.RebornAccount
+AirisdkEvent.Instance.RebornAccountRet
 ```
 + 回调Event类型
 ```
@@ -267,7 +267,7 @@ using Airisdk;
 AiriSDK.Instance.ConifrmAgreement();
 ```
 
-### 12、用户协议获取
+### 12、用户协议链接获取
 
 此接口用于CP需要显示用户协议时调用
 
@@ -276,12 +276,49 @@ AiriSDK.Instance.ConifrmAgreement();
 public string GetAgreement()
 ```
 + 调用示例:
-
 ```csharp
 using Airisdk;
-string jsonArrayInfo = AiriSDK.Instance.GetAgreement();
+string greement_url = AiriSDK.Instance.GetAgreement();
 ```
 
 + 注意
+此接口返回的是一个完整的网络链接，CP可以请求此链接获取到协议的相关信息
+返回参数示例：
+```
+http://test.sdk.azurlane.jp:3011/user/agreement?version=v1.0.0
+```
+请求后获取的参数示例：
+```json
+{
+    "version": "v1.0.0",
+    "data": [
+        "Part 1",
+        "Part 2"
+    ]
+}
+```
 
-此接口返回的是一个完整的JsonArray字符串，考虑到有些国家的特殊需求，JsonArray的长度大于等于1,表示协议文件个数大于等于1，请CP根据需求显示协议
+### 13、用户协议具体内容获取
+
++ 调用API：
+```csharp
+public void GetAgreementInfo()
+```
+
++ 调用示例：
+```csharp
+AiriSDK.Instance.GetAgreementInfo();
+```
++ 回调Event
+
+```csharp
+AirisdkEvent.Instance.GetAgreementRet
+```
+
++ 回调Event参数说明
+
+| 参数名称 | 参数类型 | 参数说明 |
+| ------ | ------ | ------ |
+| R_CODE | string | 错误码 : 0成功，其它见后面统一错误码表 |
+| R_MSG | string | 错误信息，辅助用 |
+| Agreements | string | 具体的协议，格式位JsonArray字符串 |
