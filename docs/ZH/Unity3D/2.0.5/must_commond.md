@@ -31,6 +31,7 @@ InitRet
 | LOGIN_PLATFORM | LoginPlatform（枚举） | 缓存登陆的平台 |
 | LOGIN_UID | string | 缓存的UID |
 | LOGIN_NAME | string | 缓存的名称 |
+| IS_POPUP_AGREEMENT | Int | 是否需要弹出公告栏，1：需要 ，0：不需要 |
 
 ### 2、后台切换
 
