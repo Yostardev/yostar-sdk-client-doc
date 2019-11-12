@@ -337,3 +337,21 @@ private void OnGetAgreementResponse(GetAgreementRet ret) {
 | R_CODE | string | 错误码 : 0成功，其它见后面统一错误码表 |
 | R_MSG | string | 错误信息，辅助用 |
 | Agreements | string | 具体的协议，格式位JsonArray字符串 |
+
+### 14、Google S2S接口
+
++ 调用API：
+```csharp
+public void GoogleServerToServer(string devToken, string linkID, string eventName, string priceValue, string currencyCode)
+```
+
++ 调用示例：
+```csharp
+AiriSDK.Instance.GoogleServerToServer(
+                "xxxxxxxxxxxxxxxxxxxxx",
+                "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                "xxxxxxxxxxxxxx S2S_purchase_click",
+                "xxx",
+                "USD"
+            );
+```
