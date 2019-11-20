@@ -338,6 +338,12 @@ private void OnGetAgreementResponse(GetAgreementRet ret) {
 | R_MSG | string | 错误信息，辅助用 |
 | Agreements | string | 具体的协议，格式位JsonArray字符串 |
 
++ 返回值Agreements示例
+
+```json
+[{"part 1"}{"part 2"}] 
+```
+
 ### 14、Google S2S接口
 
 + 调用API：
