@@ -94,8 +94,8 @@ AirisdkEvent.Instance.LinkEvent（后续文章详细介绍）
 
 + 回调Event:		
 ```csharp
-	AirisdkEvent.Instance.LinkEvent
- ```
+AirisdkEvent.Instance.LinkEvent
+```
 + 回调Event类型:	
 ```csharp
 LinkRet
