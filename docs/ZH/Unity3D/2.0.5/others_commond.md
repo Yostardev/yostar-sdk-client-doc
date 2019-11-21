@@ -202,7 +202,7 @@ AiriSDK.Instance.DeleteAccount();
 + 回调Event
 
 ```csharp
-AirisdkEvent.Instance.DeleteAccount
+AirisdkEvent.Instance.DeleteAccountEvent
 ```
 + 回调Event类型
 ```
