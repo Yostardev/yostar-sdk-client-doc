@@ -192,17 +192,17 @@ AiriSDK.Instance.OpenHelpShift("11552233", "昨日方舟", 1+"", "2 - 雄霸天�
 
 + 调用API: 	
 ```csharp
-public void SDKDeleteAccount()
+public void DeleteAccount()
 ```
 + 调用示例： 
 ```csharp
 using Airisdk;
-AiriSDK.Instance.SDKDeleteAccount();
+AiriSDK.Instance.DeleteAccount();
 ```
 + 回调Event
 
 ```csharp
-AirisdkEvent.Instance.DeleteAccountEvent
+AirisdkEvent.Instance.DeleteAccount
 ```
 + 回调Event类型
 ```
