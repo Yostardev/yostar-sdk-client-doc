@@ -129,12 +129,12 @@ API说明：调用函数返回值ResultCode（后续文章专门介绍）仅用�
 
 + 调用API: 	
 ```csharp
-ResultCode void UnLinkSocial(LoginPlatform platform)
+ResultCode void UnlinkSocial(LoginPlatform platform)
 ```
 + 调用示例:
 ```csharp
 using Airisdk;
-AiriSDK.Instance.UnLinkSocial(LoginPlatform.FACEBOOK);
+AiriSDK.Instance.UnlinkSocial(LoginPlatform.FACEBOOK);
 ```
 + 接口参数说明
 
@@ -146,12 +146,12 @@ AiriSDK.Instance.UnLinkSocial(LoginPlatform.FACEBOOK);
 
 + 调用API: 	
 ```csharp
-ResultCode void UnLinkSocial(LoginPlatform platform, string strEmail, string strVerificationCode)
+ResultCode void UnlinkSocial(LoginPlatform platform, string strEmail, string strVerificationCode)
 ```
 + 调用示例:
 ```csharp
 using Airisdk;
-ResultCode rc = AiriSDK.Instance.UnLinkSocial(LoginPlatform.YOSTAR, strEmail, strVerificationCode);
+ResultCode rc = AiriSDK.Instance.UnlinkSocial(LoginPlatform.YOSTAR, strEmail, strVerificationCode);
 If(rc == ResultCode.OK){ 
   //todo suc 
  } else { 
