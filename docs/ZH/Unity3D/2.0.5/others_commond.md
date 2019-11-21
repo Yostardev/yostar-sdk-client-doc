@@ -341,7 +341,7 @@ private void OnGetAgreementResponse(GetAgreementRet ret) {
 + 返回值Agreements示例
 
 ```json
-[{"公告1"}{"公告2"}] 
+["Part 1 ","Part 2"]
 ```
 
 ### 14、Google S2S接口
