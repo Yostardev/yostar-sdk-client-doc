@@ -361,3 +361,24 @@ AiriSDK.Instance.GoogleServerToServer(
                 "USD"
             );
 ```
+
+
+### 15、错误码信息返回接口
+
++ 调用API：
+```csharp
+public string GetSDKRecommendedErrorMsg(int code, LanguageType type)
+```
+
++ 调用示例：
+```csharp
+string strMsg = AiriSDK.Instance.GetSDKRecommendedErrorMsg(100404, LanguageType.MSG_EN);
+```
+
++ 参数说明：
+
+| 参数名称 | 参数类型 | 参数说明 |
+| ------ | ------ | ------ |
+| code | int | 错误码 :具体的错误码为每个接口返回的R_CODE参数 |
+| type | LanguageType | 语言参数，暂时只支持中文，英文，韩文，日文 |
+
