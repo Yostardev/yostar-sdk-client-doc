@@ -89,6 +89,24 @@ AiriSDK.Instance.LoginWithGooglePlay();
 AirisdkEvent.Instance.LoginEvent
 ```
 
+### 6、Apple登陆
+
+使用Apple账号登陆游戏，若第一次使用Apple登陆，会自动创建SDK ID。
+
++ 调用API:		
+```csharp
+public void LoginWithApple()
+```
++ 调用示例:
+```csharp
+using Airisdk;
+AiriSDK.Instance.LoginWithApple();
+```
++ 回调Event:
+```csharp
+AirisdkEvent.Instance.LoginEvent
+```
+
 ### 6、Twitter登陆
 
 使用twitter账号登陆游戏，若第一次使用twitter账号登陆，会自动创建SDK ID。
