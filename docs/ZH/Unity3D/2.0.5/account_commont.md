@@ -107,7 +107,7 @@ AiriSDK.Instance.LoginWithApple();
 AirisdkEvent.Instance.LoginEvent
 ```
 
-### 6、Twitter登陆
+### 7、Twitter登陆
 
 使用twitter账号登陆游戏，若第一次使用twitter账号登陆，会自动创建SDK ID。
 
@@ -125,7 +125,7 @@ AiriSDK.Instance.LoginWithTW();
 AirisdkEvent.Instance.LoginEvent 
 ```
 
-### 7、继承码登陆
+### 8、继承码登陆
 
 使用继承码登陆游戏，继承码信息获取需要调用独立API获取，下面解释。调用函数返回值ResultCode（后续文章专门介绍）仅用来验证参数合法性，实际成功与否需要根据LoginEvent的返回数据进行判断。
 
@@ -156,7 +156,7 @@ AirisdkEvent.Instance.LoginEvent
 | strUid | string | SDK UID（必要） |
 
 
-### 8、继承码获取
+### 9、继承码获取
 
 在登陆游戏后，调用该API可以获取到当前账号的继承码和UID信息，当在未绑定第三方账号时，更换设备等可以通过继承码登陆找回之前账号。
 
@@ -196,7 +196,7 @@ private void OnMigrationRespone(MigrationCodeRet ret) {
 } 
 ```
 
-### 9、登陆统一回调EVENT
+### 10、登陆统一回调EVENT
 
 不管用以上哪一种登陆方式，回调事件都是这个。包括下文即将提到的悠星账号系统，同为AirisdkEvent.Instance.LoginEvent
 
@@ -235,7 +235,7 @@ private void OnLoginRespone(LoginRet ret) {
 } 
 ```
 
-### 10、悠星账号登陆
+### 11、悠星账号登陆
 
 悠星账号登陆成功后，回调EVENT还是登陆回调。调用函数返回值ResultCode（后续文章专门介绍）仅用来验证参数合法性，实际成功与否需要根据LoginEvent的返回数据进行判断。
 
@@ -268,7 +268,7 @@ If(rc == ResultCode.OK){
 | strEmail | string | 邮箱地址（必要） |
 | strVerificationCode | string | 发给邮箱的验证码（必要） |
 
-### 11、悠星账号验证码获取
+### 12、悠星账号验证码获取
 
 悠星账号系统的验证码请求均为该API，验证码会发送到传入的邮箱内，所有回调接口不会包含验证码，只有ERRCODE。
 
