@@ -133,3 +133,8 @@ private void OnGetShopAgreementResponse(GetShopAgreementRet ret)
 | R_CODE | string | 错误码 : 0成功，其它见后面统一错误码表 |
 | R_MSG | string | 错误信息，辅助用 |
 | SHOP_AGREEMENT | string | 商店协议得文本信息，具体联系SDK配置 |
+
++ SHOP_AGREEMENT协议示例
+```
+["sa1"]
+```
