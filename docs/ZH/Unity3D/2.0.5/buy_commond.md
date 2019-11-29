@@ -89,3 +89,47 @@ private void OnBuyRespone(BuyRet ret) {
 | R_MSG | string | 错误信息，辅助用 |
 | EXTRADATA | string | 透传参数，发起购买请求时的透传字段 |
 | ORDERID | string | 订单号，如果正确地发起了购买请求，该字段就是在AiriSDK的订单号 |
+
+### 3、商店协议获取
+
+调用该接口，可以根据地区获取商店协议。
+
++ 调用API: 	
+```csharp
+public void GetShopAgreement(ShopAgreementType agreementType);
+```
+调用示例： 
+```csharp
+using Airisdk;
+AiriSDK.Instance.GetShopAgreement(ShopAgreementType.SHOP_AGREEMENT_1);
+```
++ 回调Event：	
+```csharp
+AirisdkEvent.Instance.GetShopAgreementEvent
+```
++ 回调Event类型：
+```csharp
+GetShopAgreementRet
+```
+回调Event 示例：
+```csharp
+using Airisdk.Event;
+AirisdkEvent.Instance.GetShopAgreementEvent += OnGetShopAgreementResponse;
+private void OnGetShopAgreementResponse(GetShopAgreementRet ret)
+{
+   Debug.Log("OnGetShopAgreementResponse:" + ret.R_CODE + "," + ret.R_MSG + "," + ret.SHOP_AGREEMENT);
+}
+```
++ 接口参数说明
+
+| 参数名称 | 参数类型 | 参数说明 |
+| ------ | ------ | ------ |
+| agreementType | ShopAgreementType | 协议参数，SHOP_AGREEMENT_1：资金结算法(日服)或退款说明(韩服) SHOP_AGREEMENT_2:特定商业交易法(日服)或退款协议(韩服) |
+
++ 回调Event参数说明
+
+| 参数名称 | 参数类型 | 参数说明 |
+| ------ | ------ | ------ |
+| R_CODE | string | 错误码 : 0成功，其它见后面统一错误码表 |
+| R_MSG | string | 错误信息，辅助用 |
+| SHOP_AGREEMENT | string | 商店协议得文本信息，具体联系SDK配置 |
