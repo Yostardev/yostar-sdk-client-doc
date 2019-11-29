@@ -382,3 +382,28 @@ string strMsg = AiriSDK.Instance.GetSDKRecommendedErrorMsg(100404, LanguageType.
 | code | int | 错误码 :具体的错误码为每个接口返回的R_CODE参数 |
 | type | LanguageType | 语言参数，暂时只支持中文，英文，韩文，日文 |
 
+
+### 16、剪贴板
+
++ 调用API：
+```csharp
+public ResultCode SDKToClipboard(string cValue);
+```
+
++ 调用示例：
+```csharp
+ResultCode code = AiriSDK.Instance.SDKToClipboard(uid);
+if (code == ResultCode.OK) {
+   Debug.Log("SUCCESS");
+}
+```
+
++ 参数说明：
+
+| 参数名称 | 参数类型 | 参数说明 |
+| ------ | ------ | ------ |
+| cValue | string | 需要复制到剪贴板的内容 |
+
+
+
+
