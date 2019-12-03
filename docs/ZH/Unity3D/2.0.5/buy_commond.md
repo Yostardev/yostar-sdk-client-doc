@@ -79,7 +79,7 @@ private void OnBuyRespone(BuyRet ret) {
 | ------ | ------ | ------ |
 | strProductId | string | 商品ID，和运营方协商后获取，该ID是配置在AiriSDK后台（必要） |
 | eServerTag  | BuyServerTag(枚举) | 服务器枚举（提审服、预发布服、正式服）（必要）支付对应的服务器tag。根据这个tag不同，最后服务端的支付通知URL也会不同 |
-| strExtraData  | string | 透传字段，该字段会在客户端的回调，以及服务端的支付回调中原样返回。服务端的支付回调通知请参见服务端接入文档。（必要） |
+| strExtraData  | string | 透传字段，该字段会在客户端的回调，以及服务端的支付回调中原样返回，请保证每次传入的参数不一致。服务端的支付回调通知请参见服务端接入文档。（必要） |
 
 + 回调Event参数说明
 
