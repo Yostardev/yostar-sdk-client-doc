@@ -404,6 +404,17 @@ if (code == ResultCode.OK) {
 | ------ | ------ | ------ |
 | cValue | string | 需要复制到剪贴板的内容 |
 
+### 17、iOS系统是否支持Sign in with apple
+
++ 调用API：
+```csharp
+public bool IOSAppleSignInAvailable(string cValue);
+```
+
++ 调用示例：
+```csharp
+bool isAvailable = AiriSDK.Instance.IOSAppleSignInAvailable(uid);
+```
 
 
 
