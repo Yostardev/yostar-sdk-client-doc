@@ -392,7 +392,7 @@ public ResultCode SDKToClipboard(string cValue);
 
 + 调用示例：
 ```csharp
-ResultCode code = AiriSDK.Instance.SDKToClipboard(uid);
+ResultCode code = AiriSDK.Instance.SDKToClipboard(cValue);
 if (code == ResultCode.OK) {
    Debug.Log("SUCCESS");
 }
@@ -408,12 +408,12 @@ if (code == ResultCode.OK) {
 
 + 调用API：
 ```csharp
-public bool IOSAppleSignInAvailable(string cValue);
+public bool IOSAppleSignInAvailable();
 ```
 
 + 调用示例：
 ```csharp
-bool isAvailable = AiriSDK.Instance.IOSAppleSignInAvailable(uid);
+bool isAvailable = AiriSDK.Instance.IOSAppleSignInAvailable();
 ```
 
 
