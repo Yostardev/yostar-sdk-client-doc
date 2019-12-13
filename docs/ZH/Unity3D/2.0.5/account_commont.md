@@ -333,7 +333,7 @@ string Sdk_Uid = AiriSDK.Instance.SDKGetUID();
 string Sdk_AccessToken = AiriSDK.Instance.SDKGetAccessToken();
 ```
 
-+ 接口说明
++ 接口说明：
 
 `SDKGetUID`接口用于获取当前的SDK UID，
 `SDKGetAccessToken`接口用于获取当前缓存的SDK AccessToken，AccessToken用于游戏验证登陆的有效性
