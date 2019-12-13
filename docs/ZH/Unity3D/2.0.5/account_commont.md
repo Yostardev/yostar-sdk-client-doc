@@ -315,3 +315,22 @@ private void OnVerificationCodeRespone(VerificationCodeRet ret){
 | ------ | ------ | ------ |
 | R_CODE | string | 错误码 : 0成功，其它见后面统一错误码表 |
 | R_MSG | string | 错误信息，辅助用 |
+
+
+### 13、获取当前SDK登陆信息
+
++ 调用API：
+```csharp
+
+public string SDKGetUID();
+
+public string SDKGetAccessToken();
+```
+
++ 调用示例：
+```csharp
+//获取UID
+string Sdk_Uid = AiriSDK.Instance.SDKGetUID();
+//获取AccessToken
+string Sdk_AccessToken = AiriSDK.Instance.SDKGetAccessToken();
+```
