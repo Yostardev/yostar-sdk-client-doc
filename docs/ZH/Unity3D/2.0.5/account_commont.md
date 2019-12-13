@@ -321,16 +321,17 @@ private void OnVerificationCodeRespone(VerificationCodeRet ret){
 
 + 调用API：
 ```csharp
-
 public string SDKGetUID();
-
 public string SDKGetAccessToken();
 ```
 
 + 调用示例：
 ```csharp
-//获取UID
 string Sdk_Uid = AiriSDK.Instance.SDKGetUID();
-//获取AccessToken
 string Sdk_AccessToken = AiriSDK.Instance.SDKGetAccessToken();
 ```
+
++ 接口说明
+`SDKGetUID`接口用于获取当前的SDK UID，
+`SDKGetAccessToken`接口用于获取当前缓存的SDK AccessToken，AccessToken用于游戏验证登陆的有效性
+
