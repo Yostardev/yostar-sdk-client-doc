@@ -60,7 +60,13 @@ ConfigSettings填写完整正确参数后，点击```Modify Manifest```，会将
 ```xml
 <uses-permission android:name="com.kddi.market.permission.USE_ALML" />
 ```
-#### 3、Application设置
+
+#### 3、分享
+
+```xml
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+```
+#### 4、Application设置
 
 必须包含```android:networkSecurityConfig="@xml/airisdk_network_security_config"```的application配置，以适配Android 9.0的网络请求.
 
@@ -75,7 +81,7 @@ ConfigSettings填写完整正确参数后，点击```Modify Manifest```，会将
 </application>
 ```
 
-#### 4、airisdk主activity配置
+#### 5、airisdk主activity配置
 
 注意:该步骤主要是用于将android原生平台的信息与支付插件之间互相通信。
 
@@ -95,7 +101,7 @@ ConfigSettings填写完整正确参数后，点击```Modify Manifest```，会将
 </activity>
 ```
 
-#### 5、helpshift配置
+#### 6、helpshift配置
 
 注意:helpshift_apiKey、helpshift_demain、helpshift_appId 三个参数的value需从运营商获取，并在UNITY的ConfigSettings.asset文件设置后，执行ModifyManifest填充正确的数据
 
@@ -107,7 +113,7 @@ ConfigSettings填写完整正确参数后，点击```Modify Manifest```，会将
 <meta-data android:name="helpshift_appId" android:value="xxx" />
 ```
 
-#### 6、Google登陆配置
+#### 7、Google登陆配置
 
 注意:com.google.android.gms.games.APP_ID 参数的value需从运营商获取，并在UNITY的ConfigSettings.asset文件设置后，执行ModifyManifest填充正确的数据到google_service_strings.xml文件中
 
