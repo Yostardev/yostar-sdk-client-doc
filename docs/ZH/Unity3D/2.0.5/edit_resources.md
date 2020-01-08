@@ -117,6 +117,21 @@ ConfigSettings填写完整正确参数后，点击```Modify Manifest```，会将
 
 注意:com.google.android.gms.games.APP_ID 参数的value需从运营商获取，并在UNITY的ConfigSettings.asset文件设置后，执行ModifyManifest填充正确的数据到google_service_strings.xml文件中
 
+Google依赖参数对应：
+```xml
+    <string name="default_web_client_id">1xxxxxx.apps.googleusercontent.com</string>
+    <string name="fcm_fallback_notification_channel_label">xxxxxx</string>
+    <string name="firebase_database_url">xxxxxxxxxxx</string>
+    <string name="gcm_defaultSenderId">xxxxxx</string>
+    <string name="google_api_key">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</string>
+    <string name="google_app_id">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</string>
+    <string name="google_crash_reporting_api_key">xxxxxxxxxxxxxxxxxxxxxxxxxx</string>
+    <string name="google_storage_bucket">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</string>
+    <string name="project_id">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</string>
+    <string name="server_client_id">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</string>
+    <string name="app_id">xxxxxxxxxx</string>
+```
+
 注意:必须配置在Application域中
 
 ```xml
