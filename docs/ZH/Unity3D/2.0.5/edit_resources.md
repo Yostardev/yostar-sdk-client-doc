@@ -137,3 +137,9 @@ Google依赖参数对应：
 ```xml
 <meta-data android:name="com.google.android.gms.games.APP_ID" android:value="@string/app_id" />
 ```
+
+### Xcode工程需要的配置
+
+#### 需要在`Xcode`工程的`Capability`开启`Push Notifications`和`Sign In with Apple`
+
+![Capability_setting](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/2.0.5_Capability_setting.png)
