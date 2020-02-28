@@ -1,25 +1,25 @@
-### 1、Set User's Birthday
+### 1、设置用户生日
 
-Call this interface to set user's birthday. In Japan, the maximum amount of money a user could spend in the game per month is determined by the user's age.
+调用该接口，可以设置用户的生日。在日本，用户的年轻决定了它当月可以氪金的上限。
 
-+ Calling API: 	
++ 调用API: 	
 ```csharp
 public ResultCode SetBirth(string strBirth)
 ```
-+ Examples of API Call： 
+调用示例： 
 ```csharp
 using Airisdk;
 AiriSDK.Instance.SetBirth(“19901212”);
 ```
-+ Callback Event：	
++ 回调Event：	
 ```csharp
 AirisdkEvent.Instance.BirthSetEvent
 ```
-+ Callback Event Type：
++ 回调Event类型：
 ```csharp
 BirthSetRet
 ```
-+ Examples of Callback Event：
+回调Event 示例：
 ```csharp
 using Airisdk.Event;
 AirisdkEvent.Instance.BirthSetEvent+= OnBirthSetRespone;
@@ -27,45 +27,45 @@ private void OnBirthSetRespone(BirthSetRet ret) {
 	//to do  
 } 
 ```
-+ Interface parameter description
++ 接口参数说明
 
-| Parameter Name | Parameter Type | Parameter Description |
+| 参数名称 | 参数类型 | 参数说明 |
 | ------ | ------ | ------ |
-| strBirth | string | Birthday, in the format "yyyymmdd", e.g. "19901212"(required) |
+| strBirth | string | 生日，格式“yyyymmdd”，如“19901212”（必要） |
 
-+ Callback EventParameter Description
++ 回调Event参数说明
 
-| Parameter Name | Parameter Type | Parameter Description |
+| 参数名称 | 参数类型 | 参数说明 |
 | ------ | ------ | ------ |
-| R_CODE | string | Error code: 0 success. See Error Code Table for other error codes. |
-| R_MSG | string | Error message, auxiliary |
-| BIRTH | string | Birthday, in the format "yyyymmdd", e.g. "19901212" |
+| R_CODE | string | 错误码 : 0成功，其它见后面统一错误码表 |
+| R_MSG | string | 错误信息，辅助用 |
+| BIRTH | string | 生日，格式“yyyymmdd”，如“19901212”（必要） |
 
-### 2、Purchase
+### 2、购买商品
 
-Calling this interface will initiate the purchase request of the product. The product information is configured in the AiriSDK backend. For details, please refer to Server Access Documentation. The return value of the function, ResultCode (further explained in later part of the documentation) is only used to verify the parameters. Whether it succeeds should be judged based on the return value of BuyEvent.
+调用该接口会开始执行商品的购买。商品信息是配置在AiriSDK后台的，具体请参考服务端接入文档。调用函数返回值ResultCode（后续文章专门介绍）仅用来验证参数合法性，实际成功与否需要根据BuyEvent的返回数据进行判断。
 
-+ Calling API:
++ 调用API:
 ```csharp
 ResultCode void Buy(string strProductId, BuyServerTag eServerTag, string strExtraData)
 ```
 
-+ Examples of API Call： 
++ 调用示例： 
 ```csharp
 using Airisdk;
 AiriSDK.Instance.Buy(“productid”, BuyServerTag.preAudit, “ExtraData”);
 ```
 
-+ Callback Event:		
++ 回调Event:		
 ```csharp
 AirisdkEvent.Instance.BuyEvent 
 ```
-+ Callback Event Type：	
++ 回调Event类型：	
 ```csharp
 BuyRet
 ```
 
-+ Examples of Callback Event：
++ 回调Event示例：
 ```csharp
 using Airisdk.Event;
 AirisdkEvent.Instance.BuyEvent += OnBuyRespone;
@@ -73,45 +73,45 @@ private void OnBuyRespone(BuyRet ret) {
 	//to do  
 } 
 ```
-+ Interface parameter description
++ 接口参数说明
 
-| Parameter Name | Parameter Type | Parameter Description |
+| 参数名称 | 参数类型 | 参数说明 |
 | ------ | ------ | ------ |
-| strProductId | string | Product ID, obtained after consultation with the SP, the ID is configured in the AiriSDK backend(required) |
-| eServerTag  | BuyServerTag(enum) | Server enumeration (review server, pre-release server, formal server) (required) The corresponding server tags of payment. The final payment notification URL of the server side will be different based on the different server tags. |
-| strExtraData  | string | Pass-through field(required). This field will be returned as it is in the callback of the client side and the payment callback of the server side. Please ensure that the parameters passed in each time are different. Please refer to Server Access Documentation for the payment callback notification of the server side.(required) |
+| strProductId | string | 商品ID，和运营方协商后获取，该ID是配置在AiriSDK后台（必要） |
+| eServerTag  | BuyServerTag(枚举) | 服务器枚举（提审服、预发布服、正式服）（必要）支付对应的服务器tag。根据这个tag不同，最后服务端的支付通知URL也会不同 |
+| strExtraData  | string | 透传字段，该字段会在客户端的回调，以及服务端的支付回调中原样返回，请保证每次传入的参数不一致。服务端的支付回调通知请参见服务端接入文档。（必要） |
 
-+ Callback EventParameter Description
++ 回调Event参数说明
 
-| Parameter Name | Parameter Type | Parameter Description |
+| 参数名称 | 参数类型 | 参数说明 |
 | ------ | ------ | ------ |
-| R_CODE | string | Error code: 0 success. See Error Code Table for other error codes. |
-| R_MSG | string | Error message, auxiliary |
-| EXTRADATA | string | Pass-through parameters. Pass-through fields when initiating a purchase request. |
-| ORDERID | string | Order number. If the purchase request has been initiated correctly, this field is the order number in AiriSDK. |
+| R_CODE | string | 错误码 : 0成功，其它见后面统一错误码表 |
+| R_MSG | string | 错误信息，辅助用 |
+| EXTRADATA | string | 透传参数，发起购买请求时的透传字段 |
+| ORDERID | string | 订单号，如果正确地发起了购买请求，该字段就是在AiriSDK的订单号 |
 
-### 3、Store Agreement Acquisition
+### 3、商店协议获取
 
-Call this interface to obtain the store agreement based on region.
+调用该接口，可以根据地区获取商店协议。
 
-+ Calling API: 	
++ 调用API: 	
 ```csharp
 public void GetShopAgreement(ShopAgreementType agreementType);
 ```
-Examples of API Call： 
+调用示例： 
 ```csharp
 using Airisdk;
 AiriSDK.Instance.GetShopAgreement(ShopAgreementType.SHOP_AGREEMENT_1);
 ```
-+ Callback Event：	
++ 回调Event：	
 ```csharp
 AirisdkEvent.Instance.GetShopAgreementEvent
 ```
-+ Callback Event Type：
++ 回调Event类型：
 ```csharp
 GetShopAgreementRet
 ```
-Examples of Callback Event：
+回调Event 示例：
 ```csharp
 using Airisdk.Event;
 AirisdkEvent.Instance.GetShopAgreementEvent += OnGetShopAgreementResponse;
@@ -120,21 +120,21 @@ private void OnGetShopAgreementResponse(GetShopAgreementRet ret)
    Debug.Log("OnGetShopAgreementResponse:" + ret.R_CODE + "," + ret.R_MSG + "," + ret.SHOP_AGREEMENT);
 }
 ```
-+ Interface parameter description
++ 接口参数说明
 
-| Parameter Name | Parameter Type | Parameter Description |
+| 参数名称 | 参数类型 | 参数说明 |
 | ------ | ------ | ------ |
-| agreementType | ShopAgreementType | Agreement parameters, SHOP_AGREEMENT_1: Fund Settlement Law (JP server) or Refund Agreement (KR server) SHOP_AGREEMENT_2: Specified Commercial Transaction Law (JP server) or Refund Agreement (KR server) |
+| agreementType | ShopAgreementType | 协议参数，SHOP_AGREEMENT_1：资金结算法(日服)或退款说明(韩服) SHOP_AGREEMENT_2:特定商业交易法(日服)或退款协议(韩服) |
 
-+ Callback EventParameter Description
++ 回调Event参数说明
 
-| Parameter Name | Parameter Type | Parameter Description |
+| 参数名称 | 参数类型 | 参数说明 |
 | ------ | ------ | ------ |
-| R_CODE | string | Error code: 0 success. See Error Code Table for other error codes. |
-| R_MSG | string | Error message, auxiliary |
-| SHOP_AGREEMENT | string | The text of the store agreement, specifically related to the SDK configuration |
+| R_CODE | string | 错误码 : 0成功，其它见后面统一错误码表 |
+| R_MSG | string | 错误信息，辅助用 |
+| SHOP_AGREEMENT | string | 商店协议得文本信息，具体联系SDK配置 |
 
-+ Examples of SHOP_AGREEMENT
++ SHOP_AGREEMENT协议示例
 ```
 ["sa1"]
 ```
