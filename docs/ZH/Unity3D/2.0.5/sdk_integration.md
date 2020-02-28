@@ -2,7 +2,7 @@
 
 ### 下载资源文件
 
-[AiriSDK.unitypackage](https://sdkresources.oss-cn-shanghai.aliyuncs.com/YostarSDK/2.1.0/AiriSDK_2.1.0.unitypackage)
+[AiriSDK.unitypackage](https://sdkresources.oss-cn-shanghai.aliyuncs.com/YostarSDK/2.1.0/AiriSDK_2.1.30.unitypackage)
 
 ### 资源文件导入到项目
 
