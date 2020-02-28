@@ -9,7 +9,7 @@
       * [3、Binding Functionality](/EN/Unity3D/2.1.0/link_commont)
       * [4、Payment Functionality](/EN/Unity3D/2.1.0/buy_commond)
       * [5、Other Functionalities](/EN/Unity3D/2.1.0/others_commond)
-      * [6、Error Code](/EN/Unity3D/2.1.0/errorcode)
+      * [6、Error Code](/ZN/Unity3D/2.1.0/errorcode)
     
 * Android
    * [Introduction](/EN/Android/summary)
