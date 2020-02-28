@@ -1,8 +1,15 @@
 * Unity3D
-    * [Introduction](/EN/Unity3D/summary)
-    * [Implementation](/EN/Unity3D/sdk_integration)
-    * [Edit Project Setting Values](/EN/Unity3D/edit_resources)
-    * [API Instruction](/EN/Unity3D/Interface_design_description)
+
+   * [Overview](/EN/Unity3D/2.1.0/summary)
+   * [SDK Integration](/EN/Unity3D/2.1.0/sdk_integration)
+   * [Configure Project Parameters](/EN/Unity3D/2.1.0/edit_resources)
+   * [Interface Design Description](/EN/Unity3D/2.1.0/implementation_comond)
+      * [1、Required Functionality](/EN/Unity3D/2.1.0/must_commond)
+      * [2、Account Functionality](/EN/Unity3D/2.1.0/account_commont)
+      * [3、Binding Functionality](/EN/Unity3D/2.1.0/link_commont)
+      * [4、Payment Functionality](/EN/Unity3D/2.1.0/buy_commond)
+      * [5、Other Functionalities](/EN/Unity3D/2.1.0/others_commond)
+      * [6、Error Code](/EN/Unity3D/2.1.0/errorcode)
     
 * Android
    * [Introduction](/EN/Android/summary)
