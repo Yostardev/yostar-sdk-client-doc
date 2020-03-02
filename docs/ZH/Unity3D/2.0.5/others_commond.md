@@ -125,7 +125,7 @@ private void OnSystemShareRespone(SystemShareRet ret) {
 | R_CODE | string | 错误码 : 0成功，其它见后面统一错误码表 |
 | R_MSG | string | 错误信息，辅助用 |
 
-### 5、APPSTORE商店评分
+### 5、商店评分
 
 调用该接口，可以在不跳转APPSTORE的前提下，自动给应用打分。
 
