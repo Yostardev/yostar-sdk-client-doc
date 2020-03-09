@@ -70,10 +70,7 @@ dicParam.Add("test1", "test1");
 dicParam.Add("test2", "test2");
 AiriSDK.Instance.UserEventUpload(m_inputEventName.text, dicParam);
 ```
-+ Callback Event：
-```
-无
-```
+
 + Interface parameter description
 
 | Parameter Name | Parameter Type | Parameter Description |
@@ -180,7 +177,7 @@ public void OpenHelpShift(string roleUid, string roleName, string roleLevel, str
 
 ```csharp
 using Airisdk;
-AiriSDK.Instance.OpenHelpShift("11552233", "昨日方舟", 1+"", "2 - 雄霸天下",18 + "", "2019-08-06 10:57:11");
+AiriSDK.Instance.OpenHelpShift("11552233", "RoleNameTest", 1+"", "2 - GameServerTest",18 + "", "2019-08-06 10:57:11");
 ```
 
 ### 8、Delete account
@@ -278,7 +275,7 @@ using Airisdk;
 string greement_url = AiriSDK.Instance.GetAgreement();
 ```
 
-+ 注意
++ Note
 Note This interface returns a complete web link. CP can request to obtain relevant information about the agreement from the link. Examples of return parameters:
 ```
 http://test.sdk.azurlane.jp:3011/user/agreement?version=v1.0.0
