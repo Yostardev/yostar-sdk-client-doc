@@ -9,8 +9,8 @@ Sequence diagrams of login and payment processes are prepared for developers to 
 
 + Login Sequence Diagram
 
-![Login Sequence Diagram](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/sdk_login.jpg)
+![Login Sequence Diagram](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/Login_timing_diagram.png)
 
 + Payment Sequence Diagram
 
-![Payment Sequence Diagram](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/sdk_pay.jpg)
+![Payment Sequence Diagram](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/Payment_Sequence_Diagram.png)
