@@ -8,8 +8,8 @@ AiriSDK (약칭: SDK)는 제3자 애플리케이션에 편리하고 빠른 로�
 
 + 로그인 시퀀스 다이어그램
 
-![로그인 시퀀스 다이어그램](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/sdk_login.jpg)
+![로그인 시퀀스 다이어그램](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/kr_login_in.png)
 
 + 결제 시퀀스 다이어그램
 
-![결제 시퀀스 다이어그램](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/sdk_pay.jpg)
+![결제 시퀀스 다이어그램](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/kr_pay.png)
