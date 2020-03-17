@@ -80,7 +80,7 @@ Android 9.0의 네트워크 요청과 호환 되려면 애플리케이션 구성
 </application>
 ```
 
-#### 5、AiriSDK 주요 Activity 설
+#### 5、AiriSDK 주요 Activity 설정
 
 주의: 이 단계는 주로 Android native 플랫폼의 정보와 결제 플러그인 간의 통신에 사용됩니다.
 
