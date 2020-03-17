@@ -196,4 +196,4 @@ private void OnUnLinkRespone(UnLinkRet ret) {
 | R_CODE | string | 오류 코드 : 0 성공 , 기타 오류 코드는 오류 코드 표를 참조하십시오. |
 | R_MSG | string | 오류 메시지, 서포트 용 |
 | LOGIN_PLATFORM | LoginPlatform | 현재 게임 연동 플랫폼, Enum Airisdk.LoginPlatform |
-| SOCAIL_NAME | string | Current 게임의 연동 플랫폼의 유저 명칭 |
+| SOCAIL_NAME | string | 현재 게임의 연동 플랫폼의 유저 명칭 |
