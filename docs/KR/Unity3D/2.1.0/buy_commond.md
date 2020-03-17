@@ -120,13 +120,13 @@ private void OnGetShopAgreementResponse(GetShopAgreementRet ret)
    Debug.Log("OnGetShopAgreementResponse:" + ret.R_CODE + "," + ret.R_MSG + "," + ret.SHOP_AGREEMENT);
 }
 ```
-+ 接口파라미터 설명
++ 파라미터 설명
 
 | 파라미터 명칭 | 파라미터 유형 | 파라미터 설명 |
 | ------ | ------ | ------ |
 | agreementType | ShopAgreementType | 약관 파라미터, SHOP_AGREEMENT_1 : 자금 결산 법 (JP 서버) 또는 환불 약관 (KR 서버) SHOP_AGREEMENT_2 : 특정 상업 거래법 (JP 서버) 또는 환불 약관 (KR 서버) |
 
-+ 回调Event파라미터 설명
++ Event파라미터 설명
 
 | 파라미터 명칭 | 파라미터 유형 | 파라미터 설명 |
 | ------ | ------ | ------ |
