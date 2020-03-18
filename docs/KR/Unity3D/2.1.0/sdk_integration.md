@@ -2,7 +2,7 @@
 
 ### 리소스 파일 다운로드
 
-[AiriSDK.unitypackage](https://sdkresources.oss-cn-shanghai.aliyuncs.com/YostarSDK/2.1.0/AiriSDK_2.1.30.unitypackage)
+[AiriSDK.unitypackage](https://sdkresources.oss-cn-shanghai.aliyuncs.com/YostarSDK/2.1.0/AiriSDK_2.1.31.unitypackage)
 
 ### 리소스 파일을 프로젝트에 import
 
