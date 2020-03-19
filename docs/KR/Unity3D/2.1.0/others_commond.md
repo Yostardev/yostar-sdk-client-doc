@@ -340,7 +340,45 @@ private void OnGetAgreementResponse(GetAgreementRet ret) {
 ["Part 1 ","Part 2"]
 ```
 
-### 14、Google S2S 인터페이스
+### 14、소액 환불 계약
+
++ API 호출：
+```csharp
+public void GetUnderAgeAgrement()
+```
+
++ 호출 사례：
+```csharp
+AiriSDK.Instance.GetUnderAgeAgrement();
+```
+
++ 콜백 이벤트
+
+```csharp
+AirisdkEvent.Instance.GetUnderAgreementEvent
+```
+
++ 콜백 이벤트의 사례：
+
+```csharp
+using Airisdk.Event;
+AirisdkEvent.Instance.GetUnderAgreementEvent += OnGetUnderAgreementResponse;
+private void OnGetUnderAgreementResponse(GetUnderAgreementRet ret)
+{
+//to do  
+}
+```
+
++ 콜백 이벤트 파라미터 설명
+
+| 파라미터 명칭 | 파라미터 유형 | 파라미터 설명 |
+| ------ | ------ | ------ |
+| R_CODE | string | 오류 코드 : 0 성공 , 기타 오류 코드는 오류 코드 표를 참조하십시오. |
+| R_MSG | string | 오류 메시지, 서포트 용 |
+| SHOP_AGREEMENT | string | 구체적인 약관 내용, JsonArray 문자열 형식. |
+| isSHOW | int | 프로토콜 표시 여부, 1 : 필수, 0 : 필수 |
+
+### 15、Google S2S 인터페이스
 
 + API 호출：
 ```csharp
@@ -359,7 +397,7 @@ AiriSDK.Instance.GoogleServerToServer(
 ```
 
 
-### 15、오류 코드 메시지 리턴 인터페이스
+### 16、오류 코드 메시지 리턴 인터페이스
 
 + API 호출：
 ```csharp
@@ -379,7 +417,7 @@ string strMsg = AiriSDK.Instance.GetSDKRecommendedErrorMsg(100404, LanguageType.
 | type | LanguageType | 언어 파라미터, 현재 중국어, 영어, 한국어 및 일본어 만 지원 |
 
 
-### 16、클립 보드
+### 17、클립 보드
 
 + API 호출：
 ```csharp
@@ -400,7 +438,7 @@ if (code == ResultCode.OK) {
 | ------ | ------ | ------ |
 | cValue | string | 클립 보드에 복사해야하는 내용 |
 
-### 17、iOS 시스템 Apple 로그인 지원 여부
+### 18、iOS 시스템 Apple 로그인 지원 여부
 
 + API 호출：
 ```csharp
