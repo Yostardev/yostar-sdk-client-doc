@@ -344,6 +344,45 @@ private void OnGetAgreementResponse(GetAgreementRet ret) {
 ["Part 1 ","Part 2"]
 ```
 
+### 13、未成年人退款协议
+
++ 调用API：
+```csharp
+public void GetUnderAgeAgrement()
+```
+
++ 调用示例：
+```csharp
+AiriSDK.Instance.GetUnderAgeAgrement();
+```
+
++ 回调Event
+
+```csharp
+AirisdkEvent.Instance.GetUnderAgreementEvent
+```
+
++ 回调示例：
+
+```csharp
+using Airisdk.Event;
+AirisdkEvent.Instance.GetUnderAgreementEvent += OnGetUnderAgreementResponse;
+private void OnGetUnderAgreementResponse(GetUnderAgreementRet ret)
+{
+//to do  
+}
+```
+
++ 回调Event参数说明
+
+| 参数名称 | 参数类型 | 参数说明 |
+| ------ | ------ | ------ |
+| R_CODE | string | 错误码 : 0成功，其它见后面统一错误码表 |
+| R_MSG | string | 错误信息，辅助用 |
+| SHOP_AGREEMENT | string | 具体的协议，格式位JsonArray字符串 |
+| isSHOW | int | 是否需要显示协议，1：需要，0：不需要 |
+
+
 ### 14、Google S2S接口
 
 + 调用API：
