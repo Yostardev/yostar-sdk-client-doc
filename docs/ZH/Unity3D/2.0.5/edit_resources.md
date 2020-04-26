@@ -30,6 +30,7 @@
 #### Save config
 
 从AiriSDK平台的负责方那里获取到对应的参数，并在ConfigSettings中完整填写，点击```Save Config``` 按钮，会在同目录下生成文件 ```SDKConfigSettings.json```。该数据会在游戏运行时由SDK读取。
+
 如果游戏有`Amazon登陆`需求，需要在`Amazon ApiKey`中添加内容，并且点击`save Config`后，数据会在`Android/assets/api_key.txt`文件中更新。
 
 注意：填写正确后必须执行，否则游戏运行时讲获取不到SDK配置数据
