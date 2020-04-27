@@ -140,6 +140,22 @@ Google依赖参数对应：
 <meta-data android:name="com.google.android.gms.games.APP_ID" android:value="@string/app_id" />
 ```
 
+### 8、Amazon支付设置
+
+注意:必须配置在Application域中
+
+```xml
+
+        <receiver android:name="com.amazon.device.iap.ResponseReceiver" >
+            <intent-filter>
+                <action
+                    android:name="com.amazon.inapp.purchasing.NOTIFY"
+                    android:permission="com.amazon.inapp.purchasing.Permission.NOTIFY" />
+            </intent-filter>
+        </receiver>
+
+```
+
 ### Xcode工程需要的配置
 
 #### 需要在`Xcode`工程的`Capability`开启`Push Notifications`和`Sign In with Apple`
