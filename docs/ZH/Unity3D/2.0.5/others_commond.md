@@ -455,5 +455,17 @@ public bool IOSAppleSignInAvailable();
 bool isAvailable = AiriSDK.Instance.IOSAppleSignInAvailable();
 ```
 
+### 18、确认未成年人协议
+
++ 调用API：
+```csharp
+public void ConfirmUnderAger();
+```
+
++ 调用示例：
+```csharp
+AiriSDK.Instance.ConfirmUnderAger();
+```
+
 
 
