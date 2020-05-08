@@ -140,7 +140,7 @@ Google依赖参数对应：
 <meta-data android:name="com.google.android.gms.games.APP_ID" android:value="@string/app_id" />
 ```
 
-### 8、Amazon支付设置
+#### 8、Amazon支付设置
 
 注意:必须配置在Application域中
 
