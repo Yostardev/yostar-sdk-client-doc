@@ -244,6 +244,7 @@ LoginRet
 | R_DELETETIME | string | 时间单位(单位：毫秒),最终确定删除此账号的时间，在这个时间之前，账号都是可以恢复的 |
 | ISNEW | int | 是否为新账号，1：是新账号，0：不是新账号 |
 | MIGRATIONCODE | string | 继承码，账号没有继承码或者继承码过期时，参数为空 |
+| AMAZON_USER_ID | string | 用于标识是否绑定亚马逊账号 |
 
 + 回调Event 示例：
 ```csharp
