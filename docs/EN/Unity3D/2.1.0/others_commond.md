@@ -337,6 +337,44 @@ private void OnGetAgreementResponse(GetAgreementRet ret) {
 ["Part 1 ","Part 2"]
 ```
 
+### 13、Minor Refund Agreement
+
++ Calling API：
+```csharp
+public void GetUnderAgeAgrement()
+```
+
++ Examples of API Call：
+```csharp
+AiriSDK.Instance.GetUnderAgeAgrement();
+```
+
++ Callback Event
+
+```csharp
+AirisdkEvent.Instance.GetUnderAgreementEvent
+```
+
++ Examples of Callback Event:：
+
+```csharp
+using Airisdk.Event;
+AirisdkEvent.Instance.GetUnderAgreementEvent += OnGetUnderAgreementResponse;
+private void OnGetUnderAgreementResponse(GetUnderAgreementRet ret)
+{
+//to do  
+}
+```
+
++ Callback EventParameter Description
+
+| Parameter Name | Parameter Type | Parameter Description |
+| ------ | ------ | ------ |
+| R_CODE | string | Error code: 0 success. See Error Code Table for other error codes. |
+| R_MSG | string | Error message, auxiliary |
+| SHOP_AGREEMENT | string | Structral Agreement, format bit JsonArray string |
+| isSHOW | int | Do you want Agreement to display? 1: Yes 0: No |
+
 ### 14、Google S2S Interface
 
 + Calling API：
