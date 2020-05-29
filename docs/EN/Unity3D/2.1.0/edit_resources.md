@@ -13,7 +13,8 @@ Before integrating the SDK into the project, please contact the staff of the Air
 | IOS BUNDLEID | Apple bundleid for registration |
 | HelpShift Parameters | Parameters required by third-party customer service |
 | Google Api Client ID | Parameters required for Google account login: web client ID of OAuth 2.0 client. |
-| Google Play AppID| Parameters required for Google Game Services login: AppID, the ID of the corresponding game on Google Play Console. |
+| Google Play AppID| Parameters required for Google Game Services login: AppID, the ID of the corresponding game on Google Play Console.|
+| Amazon API KEY| Amazon API Key | Parameter for logging in to Amazon |
 
 Parameters above are required for SDK initialization. These parameters enable SDK to use the account system normally. Cooperation from the server end is required for the payment system to work normally. Please read for more details in documentations for server end.
 
@@ -135,6 +136,22 @@ Note: Must be configured in the Application domain.
 
 ```xml
 <meta-data android:name="com.google.android.gms.games.APP_ID" android:value="@string/app_id" />
+```
+
+#### 8、Amazon Payment Setting
+
+Note: Must be configured in the Application domain.
+
+```xml
+
+        <receiver android:name="com.amazon.device.iap.ResponseReceiver" >
+            <intent-filter>
+                <action
+                    android:name="com.amazon.inapp.purchasing.NOTIFY"
+                    android:permission="com.amazon.inapp.purchasing.Permission.NOTIFY" />
+            </intent-filter>
+        </receiver>
+
 ```
 
 ### Configuration Required by Xcode Project
