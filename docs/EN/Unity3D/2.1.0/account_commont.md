@@ -124,7 +124,26 @@ Callback Event:
 AirisdkEvent.Instance.LoginEvent 
 ```
 
-### 8、Login with Inheritance Code 
+### 8、Amazon Login
+
+Login with Amazon Account, if is your first time logging in, SDK ID will be created automatically.
+
+
+Calling API:	
+```csharp
+public void LoginWithAmazon()
+```
+Examples of API Call: 
+```csharp
+using Airisdk;
+AiriSDK.Instance.LoginWithAmazon();
+```
+Callback Event:		
+```csharp
+AirisdkEvent.Instance.LoginEvent 
+```
+
+### 9、Login with Inheritance Code 
 
 Log into the game with inheritance code. The independent API should be called to obtain the inheritance code information, which is explained below. The return value of the function, ResultCode (further explained in later part of the documentation) is only used to verify the parameters. Whether it succeeds should be judged based on the return value of LoginEvent.
 
@@ -155,7 +174,7 @@ AirisdkEvent.Instance.LoginEvent
 | strUid | string | SDK UID(required) |
 
 
-### 9、Obtain Inheritance Code
+### 10、Obtain Inheritance Code
 
 After logging into the game, the inheritance code and UID couldl be obtained by calling this API. If the game account is not bound to any third-party account, it could be recovered by login with inheritance code when changing login device.
 
@@ -195,7 +214,7 @@ private void OnMigrationRespone(MigrationCodeRet ret) {
 } 
 ```
 
-### 10、Login Unified Callback EVENT
+### 11、Login Unified Callback EVENT
 
 No matter which of the above login methods is used, including login with Yostar account which will be mentioned below, the callback event is always ```AirisdkEvent.Instance.LoginEvent``.
 
@@ -235,7 +254,7 @@ private void OnLoginRespone(LoginRet ret) {
 } 
 ```
 
-### 11、Yostar Account Login
+### 12、Yostar Account Login
 
 Log into the game with Yostar account. The return value of the function, ResultCode (further explained in later part of the documentation) is only used to verify the parameters. Whether it succeeds should be judged based on the return value of LoginEvent.
 
@@ -268,7 +287,7 @@ AirisdkEvent.Instance.LoginEvent
 | strEmail | string | Email Address (required) |
 | strVerificationCode | string | Verification Code Sent To Email(required) |
 
-### 12、Obtain Yostar Account Verification Code
+### 13、Obtain Yostar Account Verification Code
 
 The verification code request of the Yostar account system calls the API, and the verification code will be sent to the email address passed to the API. All callback interfaces will not contain the verification code, only ERRCODE.
 
@@ -316,7 +335,7 @@ private void OnVerificationCodeRespone(VerificationCodeRet ret){
 | R_MSG | string | Error message, auxiliary |
 
 
-### 13、Obtain the current SDK login information
+### 14、Obtain the current SDK login information
 
 + Calling API：
 
