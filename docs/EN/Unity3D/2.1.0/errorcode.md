@@ -81,4 +81,8 @@
 | 200340  | 	Payment canceled by user |
 | 200350  | 	Item ID search failed |
 | 200360  | 	Connection to play services failed |
+| 200370  | 	Repeatly creating orders |
 | 300100  | 	System sharing failed |
+
+
+
