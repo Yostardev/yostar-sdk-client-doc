@@ -99,7 +99,7 @@ Call this interface to obtain the store agreement based on region.
 ```csharp
 public void GetShopAgreement(ShopAgreementType agreementType);
 ```
-Examples of API Call： 
++ Examples of API Call： 
 ```csharp
 using Airisdk;
 AiriSDK.Instance.GetShopAgreement(ShopAgreementType.SHOP_AGREEMENT_1);
@@ -139,3 +139,41 @@ private void OnGetShopAgreementResponse(GetShopAgreementRet ret)
 ```
 ["sa1"]
 ```
+### 4、Receive Shop Information
+
+Using this port, it is possible to immediately obtain Item ID, price and currency unit.
+
++ Calling API: 
+
+```csharp
+public ResultCode QuerySkuDetails(string[] skus);
+```
++ Examples of API Call：  
+
+```csharp
+using Airisdk;
+string[] skus = ["com.yostar.p1","com.yostar.p2"]
+ResultCode resultCode =  AiriSDK.Instance.QuerySkuDetails(skus);
+```
++ Callback Event：
+
+```csharp
+QuerySkuDetailsEvent
+```
+
++ Callback EventParameter Description
+
+| Parameter Name | Parameter Type | Parameter Description |
+| ------ | ------ | ------ |
+| R_CODE | string | Error code: 0 success. See Error Code Table for other error codes. |
+| R_MSG | string | Error message, auxiliary |
+| R_SKUS | List<SKU> | Merchandise Information List |
+
++ SKU Parameter Description
+
+| Parameter Name | Parameter Type | Parameter Description |
+| ------ | ------ | ------ |
+| ID | string | Merchandise ID created after being purchased in the backend |
+| PRICE | string | The current Merchandise Price for this payment environment  |
+| CURRENCY | string | Currency Unit, example: USD |
+
