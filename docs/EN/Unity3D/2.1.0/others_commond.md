@@ -447,5 +447,16 @@ public bool IOSAppleSignInAvailable();
 bool isAvailable = AiriSDK.Instance.IOSAppleSignInAvailable();
 ```
 
+### 18、Minor Agreement confirmed
+
++ Calling API：
+```csharp
+public void ConfirmUnderAger();
+```
+
++ Examples of API Call：
+```csharp
+AiriSDK.Instance.ConfirmUnderAger();
+```
 
 
