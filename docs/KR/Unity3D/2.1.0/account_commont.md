@@ -335,3 +335,24 @@ string Sdk_AccessToken = AiriSDK.Instance.SDKGetAccessToken();
 
 ```SDKGetAccessToken``` 인터페이스는 현재 캐시의 SDK AccessToken을 얻는 데 사용됩되며 AccessToken은 게임 로그인의 유효성을 확인 하는데 사용됩니다. 
 
+### 14、Amazon로그인
+
+amazon 계정을 사용하여 처음 로그인 할 경우,SDK ID 는 자동 생성됩니다. 
+
++ API 호출:
+
+```csharp
+public void LoginWithAmazon()
+```
+
++ 호출 사례：
+
+```csharp
+using Airisdk;
+AiriSDK.Instance.LoginWithAmazon();
+```
++ 콜백 이벤트：
+```csharp
+AirisdkEvent.Instance.LoginEvent 
+```
+
