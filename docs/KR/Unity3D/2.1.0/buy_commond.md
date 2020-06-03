@@ -138,3 +138,41 @@ private void OnGetShopAgreementResponse(GetShopAgreementRet ret)
 ```
 ["sa1"]
 ```
+
+### 4、스토어 정보 획득
+
+해당 인터페이스 호출 시 실시간으로 상품 ID, 가격 및 화폐 단위를 획득 할 수 있습니다. 
+
++ API 호출:
+
+```csharp
+public ResultCode QuerySkuDetails(string[] skus);
+```
++ 호출 사례： 
+
+```csharp
+using Airisdk;
+string[] skus = ["com.yostar.p1","com.yostar.p2"]
+ResultCode resultCode =  AiriSDK.Instance.QuerySkuDetails(skus);
+```
++ 콜백 이벤트：
+
+```csharp
+QuerySkuDetailsEvent
+```
+
++ Event파라미터 설명
+
+| 파라미터 명칭 | 파라미터 유형 | 파라미터 설명 |
+| ------ | ------ | ------ |
+| R_CODE | string | 오류 코드 : 0 성공 기타 오류 코드는 오류 코드 표를 참조하십시오. |
+| R_MSG | string | 오류 메시지, 서포트용 |
+| R_SKUS | List<SKU> | 상품 정보 리스트 |
+
++ SKU파라미터 설명
+
+| 파라미터 명칭 | 파라미터 유형 | 파라미터 설명 |
+| ------ | ------ | ------ |
+| ID | string | 결제 백그라운드에서 추가한 상품 ID |
+| PRICE | string | 현재 결제 환경에서의 상품 가격 |
+| CURRENCY | string | 화폐 단위 (예: US$) |
