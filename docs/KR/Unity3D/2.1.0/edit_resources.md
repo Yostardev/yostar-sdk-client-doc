@@ -14,6 +14,7 @@ SDK를 프로젝트에 연동하기전,  책임자에게 문의하여 애플리�
 | HelpShift | 제3자 고객 서비스에 필요한 파라미터 |
 | Google Api Client ID | Google 계정 로그인에 필요한 파라미터, OAuth 2.0 클라이언트의 웹 클라이언트 ID입니다. |
 | Google Play AppID| Google 게임 서비스 로그인에 필요한 파라미터,  AppID는 Google Play Console에 대응하는 게임 ID 입니다. |
+| Amazon API KEY | | Amazon 로그인 필요 파라미터 |
 
 SDK 초기화에는 위의 파라미터가 필요합니다. 이 파라미터는 SDK가 계정 시스템을 정상적으로 사용할 수 있게 합니다. 결제 시스템이 정상적으로 작동하려면 서버 쪽에서 협력하여 진행 해야 합니다.  자세한 내용은 서버 설명 파일을 참고하여 주십시오.
 
@@ -135,6 +136,22 @@ Google 기능에 필요한 파라미터:
 
 ```xml
 <meta-data android:name="com.google.android.gms.games.APP_ID" android:value="@string/app_id" />
+```
+
+#### 8. Amazon 결제 세팅
+
+주의: 반드시 애플리케이션 도메인에 세팅해야 합니다.
+
+```xml
+
+        <receiver android:name="com.amazon.device.iap.ResponseReceiver" >
+            <intent-filter>
+                <action
+                    android:name="com.amazon.inapp.purchasing.NOTIFY"
+                    android:permission="com.amazon.inapp.purchasing.Permission.NOTIFY" />
+            </intent-filter>
+        </receiver>
+
 ```
 
 ### Xcode 프로젝트에 필요한 설정
