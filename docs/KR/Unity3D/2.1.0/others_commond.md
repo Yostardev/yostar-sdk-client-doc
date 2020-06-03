@@ -450,5 +450,43 @@ public bool IOSAppleSignInAvailable();
 bool isAvailable = AiriSDK.Instance.IOSAppleSignInAvailable();
 ```
 
+### 19、미성년자 청약 철회 약관
+
++ API 호출：
+```csharp
+public void GetUnderAgeAgrement()
+```
+
++ 호출 사례：
+```csharp
+AiriSDK.Instance.GetUnderAgeAgrement();
+```
+
++ 콜백 이벤트
+
+```csharp
+AirisdkEvent.Instance.GetUnderAgreementEvent
+```
+
++ 콜백 이벤트의 사례：
+
+```csharp
+using Airisdk.Event;
+AirisdkEvent.Instance.GetUnderAgreementEvent += OnGetUnderAgreementResponse;
+private void OnGetUnderAgreementResponse(GetUnderAgreementRet ret)
+{
+//to do  
+}
+```
+
++ 콜백 이벤트 파라미터 설명
+
+| 파라미터 명칭 | 파라미터 유형 | 파라미터 설명 |
+| ------ | ------ | ------ |
+| R_CODE | string | 오류 코드 : 0 성공 , 기타 오류 코드는 오류 코드 표를 참조하십시오. |
+| R_MSG | string | 오류 메시지, 서포트 용 |
+| SHOP_AGREEMENT | string | 상세 약관, 포맷은 JsonArray 텍스트열 |
+| isSHOW | int | 약관 출력 여부, 1: 필요, 0: 불필요 |
+
 
 
