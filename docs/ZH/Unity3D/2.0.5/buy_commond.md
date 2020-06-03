@@ -174,5 +174,5 @@ QuerySkuDetailsEvent
 | ------ | ------ | ------ |
 | ID | string | 商品在支付后台配置得商品ID |
 | PRICE | string | 商品在当前支付环境下的价格 |
-| CURRENCY | string | 货币单位 如：USD |
+| CURRENCY | string | 货币单位 如：US$ |
 
