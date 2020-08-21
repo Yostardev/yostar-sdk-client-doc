@@ -14,6 +14,7 @@
 | Google Api Client ID | Google账号登陆的必须参数，为 OAuth 2.0 客户端的网页客户端ID |
 | Google Play AppID| Google Game Services登陆的必须参数，AppId为Google控制台对应游戏的ID |
 | Amazon API KEY| Amazon登陆所需参数 |
+| OneStore API KEY| OneStore支付所需参数 |
 
 以上参数是在SDK初始化时需要的参数。这些参数可以使得SDK能够正常使用账号系统。支付系统的正常工作还需要服务端程序进行配合，请参考服务端文档。
 
