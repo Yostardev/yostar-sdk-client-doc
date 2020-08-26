@@ -1,6 +1,6 @@
 ### Download resource files
 
-[AiriSDK.unitypackage](https://sdkresources.oss-cn-shanghai.aliyuncs.com/YostarSDK/2.1.0/AiriSDK_2.1.39.unitypackage)
+[AiriSDK.unitypackage](https://sdkresources.oss-cn-shanghai.aliyuncs.com/YostarSDK/2.1.0/AiriSDK2.1.41.unitypackage)
 
 ### Import resource files into the project
 
