@@ -1,7 +1,8 @@
 
 
 ### 下载资源文件
-
+联系AiriSDK平台的负责人员获取最新版资源文件;
+[^_^]:
 [AiriSDK.unitypackage](https://sdkresources.oss-cn-shanghai.aliyuncs.com/YostarSDK/2.1.0/AiriSDK_2.1.39.unitypackage)
 
 ### 资源文件导入到项目
