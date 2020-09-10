@@ -216,7 +216,7 @@ public void ShowAiHelpFAQs(string sdkVersion,string serverId,string roleUid, str
 
 ```csharp
 using Airisdk;
-AiriSDK.Instance.ShowAiHelpFAQs("2.1.42", "serverId", "id123456", "天下霸唱", "2020-09-10", 1000, {"bad_user", "bug"});
+AiriSDK.Instance.ShowAiHelpFAQs("2.1.42", "serverId", "id123456", "roleName_one", "2020-09-10", 1000, {"bad_user", "bug"});
 ```
 
 ### 9、删除账号

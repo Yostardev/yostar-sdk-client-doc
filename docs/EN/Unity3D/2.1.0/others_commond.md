@@ -180,7 +180,42 @@ using Airisdk;
 AiriSDK.Instance.OpenHelpShift("11552233", "RoleNameTest", 1+"", "2 - GameServerTest",18 + "", "2019-08-06 10:57:11");
 ```
 
-### 8、Delete account
+### 8、Third-party Customer Service AiHelp (role parameters)
+
+Calling this interface will automatically open the AiHelp third-party customer service plug-in. Players can view FAQ on it or make direct inquiry to the developer team.
+
++ Calling API:
+
+
+```csharp
+public void ShowAiHelpFAQs(string sdkVersion,string serverId,string roleUid, string roleName,string roleCreateTime,int purchase,string[] tags)
+```
++ APIParameter Description
+
+| Parameter Name | Parameter Type | Parameter Description |
+| ------ | ------ | ------ |
+| sdkVersion | string | SDK version |
+| serverId | string | Server ID |
+| roleUid | string | Role ID |
+| roleName  | string | Role Name |
+| roleCreateTime  | string | When the role was created（yyyy-MM-dd） |
+| purchase  | int | 充值金额 |
+| tags  | string[] | 标签数组 |
+
+
+
+
++ Examples of API Call:
+
+
+```csharp
+using Airisdk;
+AiriSDK.Instance.ShowAiHelpFAQs("2.1.42", "serverId", "id123456", "roleName_one", "2020-09-10", 1000, {"bad_user", "bug"});
+```
+
+
+
+### 9、Delete account
 
 Calling this interface will automatically bind this account to all third-party accounts, and clear the local cache, delete server data records. CP needs to call it with caution.
 
@@ -210,7 +245,7 @@ DeleteAccountRet
 | R_MSG | string | Error message, auxiliary |
 
 
-### 9、Recover Account
+### 10、Recover Account
 
 Calling this interface will automatically bind this account to all third-party accounts, and clear the local cache, delete server data records. CP needs to call it with caution.
 
@@ -240,14 +275,14 @@ RebornAccountRet
 | R_MSG | string | Error message, auxiliary |
 
 
-### 10、Public Data Acquisition Interface
+### 11、Public Data Acquisition Interface
 
 | Interface | Parameter Description | 
 | ------ | ------ |
 | ```AiriSDK.Instance.GetDeviceID()``` | Obtain the unique identification number of the user device |
 | ```AiriSdkData.Instance.AiriSDK_VERSION``` | SDK Version Number |
 
-### 11、Confirm User Agreement
+### 12、Confirm User Agreement
 
 This interface is called when the user clicks to approve the User Agreement.
 
@@ -261,7 +296,7 @@ using Airisdk;
 AiriSDK.Instance.ConifrmAgreement();
 ```
 
-### 12、Obtain the Link of the User Agreement
+### 13、Obtain the Link of the User Agreement
 
 This interface is used when the CP needs to display the User Agreement.
 
@@ -291,7 +326,7 @@ http://test.sdk.azurlane.jp:3011/user/agreement?version=v1.0.0
 }
 ```
 
-### 13、User Agreement Content Acquisition
+### 14、User Agreement Content Acquisition
 
 + Calling API：
 ```csharp
@@ -337,7 +372,7 @@ private void OnGetAgreementResponse(GetAgreementRet ret) {
 ["Part 1 ","Part 2"]
 ```
 
-### 14、Minor Refund Agreement
+### 15、Minor Refund Agreement
 
 + Calling API：
 ```csharp
@@ -375,7 +410,7 @@ private void OnGetUnderAgreementResponse(GetUnderAgreementRet ret)
 | SHOP_AGREEMENT | string | Structral Agreement, format bit JsonArray string |
 | isSHOW | int | Do you want Agreement to display? 1: Yes 0: No |
 
-### 14、Google S2S Interface
+### 16、Google S2S Interface
 
 + Calling API：
 ```csharp
@@ -394,7 +429,7 @@ AiriSDK.Instance.GoogleServerToServer(
 ```
 
 
-### 15、Error Code Message Return Interface
+### 17、Error Code Message Return Interface
 
 + Calling API：
 ```csharp
@@ -414,7 +449,7 @@ string strMsg = AiriSDK.Instance.GetSDKRecommendedErrorMsg(100404, LanguageType.
 | type | LanguageType | Language parameters, currently only supports Chinese, English, Korean and Japanese |
 
 
-### 16、Clipboard
+### 18、Clipboard
 
 + Calling API：
 ```csharp
@@ -435,7 +470,7 @@ if (code == ResultCode.OK) {
 | ------ | ------ | ------ |
 | cValue | string | Content that needs to be copied to the clipboard |
 
-### 17、Does the iOS system support Sign in with apple
+### 19、Does the iOS system support Sign in with apple
 
 + Calling API：
 ```csharp
@@ -447,7 +482,7 @@ public bool IOSAppleSignInAvailable();
 bool isAvailable = AiriSDK.Instance.IOSAppleSignInAvailable();
 ```
 
-### 18、Minor Agreement confirmed
+### 20、Minor Agreement confirmed
 
 + Calling API：
 ```csharp
