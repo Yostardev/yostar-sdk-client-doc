@@ -489,7 +489,7 @@ private void OnGetUnderAgreementResponse(GetUnderAgreementRet ret)
 | isSHOW | int | 약관 출력 여부, 1: 필요, 0: 불필요 |
 
 
-### 18、미성년자 약관 확인
+### 20、미성년자 약관 확인
 
 + API 호출：
 

@@ -337,7 +337,7 @@ private void OnGetAgreementResponse(GetAgreementRet ret) {
 ["Part 1 ","Part 2"]
 ```
 
-### 13、Minor Refund Agreement
+### 14、Minor Refund Agreement
 
 + Calling API：
 ```csharp
