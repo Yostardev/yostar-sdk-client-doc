@@ -189,13 +189,12 @@ AiriSDK.Instance.OpenHelpShift("11552233", "xxxxxx", 1+"", "2 - rrrrrrr",18 + ""
 
 
 ```csharp
-public void ShowAiHelpFAQs(string sdkVersion,string serverId,string roleUid, string roleName,string roleCreateTime,int purchase,string[] tags)
+public void ShowAiHelpFAQs(string serverId, string roleUid, string roleName, string roleCreateTime, int purchase, string[] tags)
 ```
 + API 파라미터 설명
 
 | 파라미터 명칭 | 파라미터 유형 | 파라미터 설명 |
 | ------ | ------ | ------ |
-| sdkVersion | string | SDK 버전 |
 | serverId | string | 서버 ID |
 | roleUid | string | 캐릭터 ID |
 | roleName  | string | 캐릭터 명칭 |
@@ -211,7 +210,7 @@ public void ShowAiHelpFAQs(string sdkVersion,string serverId,string roleUid, str
 
 ```csharp
 using Airisdk;
-AiriSDK.Instance.ShowAiHelpFAQs("2.1.42", "serverId", "id123456", "roleName_one", "2020-09-10", 1000, {"bad_user", "bug"});
+AiriSDK.Instance.ShowAiHelpFAQs("serverId", "id123456", "roleName_one", "2020-09-10", 1000, {"bad_user", "bug"});
 ```
 
 

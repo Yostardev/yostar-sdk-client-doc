@@ -188,13 +188,12 @@ Calling this interface will automatically open the AiHelp third-party customer s
 
 
 ```csharp
-public void ShowAiHelpFAQs(string sdkVersion,string serverId,string roleUid, string roleName,string roleCreateTime,int purchase,string[] tags)
+public void ShowAiHelpFAQs(string serverId, string roleUid, string roleName, string roleCreateTime, int purchase, string[] tags)
 ```
 + APIParameter Description
 
 | Parameter Name | Parameter Type | Parameter Description |
 | ------ | ------ | ------ |
-| sdkVersion | string | SDK version |
 | serverId | string | Server ID |
 | roleUid | string | Role ID |
 | roleName  | string | Role Name |
@@ -210,7 +209,7 @@ public void ShowAiHelpFAQs(string sdkVersion,string serverId,string roleUid, str
 
 ```csharp
 using Airisdk;
-AiriSDK.Instance.ShowAiHelpFAQs("2.1.42", "serverId", "id123456", "roleName_one", "2020-09-10", 1000, {"bad_user", "bug"});
+AiriSDK.Instance.ShowAiHelpFAQs("serverId", "id123456", "roleName_one", "2020-09-10", 1000, {"bad_user", "bug"});
 ```
 
 

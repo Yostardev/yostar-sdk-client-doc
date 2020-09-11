@@ -194,13 +194,12 @@ AiriSDK.Instance.OpenHelpShift("11552233", "昨日方舟", 1+"", "2 - 雄霸天�
 
 
 ```csharp
-public void ShowAiHelpFAQs(string sdkVersion,string serverId,string roleUid, string roleName,string roleCreateTime,int purchase,string[] tags)
+public void ShowAiHelpFAQs(string serverId, string roleUid, string roleName, string roleCreateTime, int purchase, string[] tags)
 ```
 + API参数说明
 
 | 参数名称 | 参数类型 | 参数说明 |
 | ------ | ------ | ------ |
-| sdkVersion | string | SDK的版本 |
 | serverId | string | 服务器ID |
 | roleUid | string | 角色ID |
 | roleName  | string | 角色名称 |
@@ -216,7 +215,7 @@ public void ShowAiHelpFAQs(string sdkVersion,string serverId,string roleUid, str
 
 ```csharp
 using Airisdk;
-AiriSDK.Instance.ShowAiHelpFAQs("2.1.42", "serverId", "id123456", "roleName_one", "2020-09-10", 1000, {"bad_user", "bug"});
+AiriSDK.Instance.ShowAiHelpFAQs("serverId", "id123456", "roleName_one", "2020-09-10", 1000, {"bad_user", "bug"});
 ```
 
 ### 9、删除账号
