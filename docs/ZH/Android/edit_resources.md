@@ -1,42 +1,36 @@
 
 
-### 1.Assets资源
-
-AiriSDK的环境资源和日志开关等参数都是由```assets/AiriSDKConf.properties```文件中的参数控制，请开发者设置一下参数：
-
-参数值请联系悠星商务进行获取。
-
-| 参数名称 | 参数说明 | 是否必须 |
-| ------ | ------ | ------ |
-| AIRISDK_URL | 分配的AiriSDK服务器访问地址 | 是 |
-| AIRISDK_PAYSTOREID | 游戏支持的支付方式，默认为googleplay | 是 |
-| AIRISDK_SHOWDEBUGLOG | AiriSDK日志打印，默认为false，不打印 | 是 |
-| AIRISDK_NEWDEVICE | 是否将当前机器当作全新的机器使用，默认为false | 是 |
-
-### 2.AndroidManifeset配置
+### 1.AndroidManifeset配置
 
 #### 客服系统
 
-AiriSDK集成了Helpshift作为客服管理工具，所以在Package Explorer中，打开安卓项目的AndroidManifest.xml。在<application>元素中添加以下 meta-data 标签，配置对应的Helpshift参数。
+如果需要集成AiHelp作为客服管理工具，打开安卓项目的AndroidManifest.xml。在<application>元素中添加以下 meta-data 标签，配置对应的Helpshift参数。
 
 获取参数值请咨询悠星商务人员。
 
 ```xml
-<meta-data android:name="helpshift_apiKey" android:value="xxxxxxx" />
-<meta-data android:name="helpshift_demain" android:value="xxxxx" />
-<meta-data android:name="helpshift_appId" android:value="xxxxxxxxxxx" />
+<meta-data android:name="aihelp_apiKey" android:value="xxxxxxx" />
+<meta-data android:name="aihelp_demain" android:value="xxxxx" />
+<meta-data android:name="aihelp_appId" android:value="xxxxxxxxxxx" />
 ```
 
-### 3.AU支付权限
 
-AiriSDK也集成了AU支付渠道，如果您的游戏有AU支付的需求，请在AndroidManifeset.xml文件中添加以下权限：
+#### oneStore支付系统
+如果需要集成oneStore支付系统，打开安卓项目的AndroidManifest.xml。在<application>元素中添加以下 meta-data 标签，配置对应的OneStore参数。
+
+获取参数值请咨询悠星商务人员。
 
 ```xml
-<uses-permission android:name="com.kddi.market.permission.USE_ALML" />
+<meta-data android:name="oneStore_publicKey" android:value="xxxxxxx" />
 ```
 
 
-### 4.res资源配置
+### 2.assets资源配置
+如果需要集成亚马逊登录,需在app项目的assets目录下创建api_key.txt文件,并把参数填写保存在该文件中；
+
+
+
+### 3.res资源配置
 
 AiriSDK集成了firebase的部分功能，需要在```res/values/google_service_strings.xml```中配置firebase服务参数。
 
@@ -53,11 +47,4 @@ AiriSDK集成了firebase的部分功能，需要在```res/values/google_service_
 <string name="google_storage_bucket">*****</string>
 <string name="project_id">*****</string>
 ```
-### 5.AiriSDK设置
-```xml
-        <activity
-            android:name="com.airisdk.sdkcall.AiriSDKContentActivity"
-            android:launchMode="singleTask"
-            android:taskAffinity="com.xjp"
-            android:theme="@style/AiriSDKThemeTranslucent" />
-```
+
