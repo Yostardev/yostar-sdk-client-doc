@@ -7,10 +7,6 @@
 接入过程您可以查看demo工程作为参考。
 
 
-
-
-
-
 ### 1.设置全局回调
 
 + 调用API
@@ -76,51 +72,10 @@ AiriSDK.SDKInit("https://xxxxx.arknights.com", "googleplay", false, false);
 | IS_POPUP_AGREEMENT | Int | 是否需要弹出公告栏，1：需要 ，0：不需要 |
 | METHOD | string | OnInitNotify |
 
-### 2.获取设备号
-
-+ 调用API
-
-```java
-String SDKGetDeviceID()
-```
-
-+ 调用实例
-
-```java
-AiriSDK.SDKGetDeviceID()
-```
-
-### 3.打开客服界面
-
-+ 调用API
-
-```java
-void ShowAiHelpFAQs(String sdkVersion,String serverId,String roleUid, String roleName,String roleCreateTime,int purchase,String tags)
-```
-
-+ 调用实例
-
-```java
-JsonArray tagArray = new JsonArray();
-tagArray.add("tag1");
-tagArray.add("vip1");
-AiriSDK.ShowAiHelpFAQs("2.1.42","serverID 1","playerUid_271","playerName_271","2020-08-24",1000,tagArray.toString());
-```
-
-+ 接口参数说明
-
-| 参数名称             | 参数说明      | 备注 |
-|:-------------------|:------------|:--------|
-| sdkVersion            | sdk版本号|        |
-| serverId         | 角色所在服务器Id |  未登录可传""|
-| roleUid      | 角色ID| 未登录可传""|
-| roleName         |  角色名称 |未登录可传""|
-| roleCreateTime     | 角色创建时间|未登录可传""|
-| purchase            | 角色累计消费|未登录可传0|
-| tags            | 标签数组|未登录可传空数组|
 
 
-### 4.快速登陆
+
+### 3.快速登陆
 
 + 调用API
 
@@ -159,39 +114,8 @@ AiriSDK.QuickLogin();
 
 
 
-### 5.请求邮箱验证码
 
-在使用Yostar账号系统登陆，绑定之前，需要用户手动输入邮箱，并调用此接口获取邮箱验证码.
-
-+ 调用API
-
-```java
-void SDKVerificationCodeReq(String accountEmail)
-```
-
-+ 调用实例
-
-```java
-AiriSDK.SDKVerificationCodeReq("email_address@host.com");
-```
-
-+ 接口参数说明
-
-| 参数名称                              | 参数说明            | 是否必须 |
-|:-------------------------------------|:------------------|:--------|
-| accountEmail                         | Yostar账户系统的邮箱 | 是      |
-
-
-+ 回调参数说明
-
-| 参数名称 | 参数类型 | 参数说明 |
-| ------ | ------ | ------ |
-| R_CODE | string | 错误码 : 0成功，其它见后面统一错误码表 |
-| R_MSG | string | 错误信息，辅助用 |
-| METHOD | string | OnVerificationCodeNotify |
-
-
-### 6.渠道登陆
+### 4.三方渠道登陆
 
 + 调用API
 
@@ -252,7 +176,44 @@ AiriSDK.SDKLogin(AiriSDKCommon.LOGINPLATFORM_YOSTAR, "xxx@host.com", "btdf3gb", 
 
 
 
-### 7.发行继承码
+
+### 5.请求邮箱验证码
+
+在使用Yostar账号系统登陆、绑定之前，需要用户手动输入邮箱，并调用此接口获取邮箱验证码.
+
++ 调用API
+
+```java
+void SDKVerificationCodeReq(String accountEmail)
+```
+
++ 调用实例
+
+```java
+AiriSDK.SDKVerificationCodeReq("email_address@host.com");
+```
+
++ 接口参数说明
+
+| 参数名称                              | 参数说明            | 是否必须 |
+|:-------------------------------------|:------------------|:--------|
+| accountEmail                         | Yostar账户系统的邮箱 | 是      |
+
+
++ 回调参数说明
+
+| 参数名称 | 参数类型 | 参数说明 |
+| ------ | ------ | ------ |
+| R_CODE | string | 错误码 : 0成功，其它见后面统一错误码表 |
+| R_MSG | string | 错误信息，辅助用 |
+| METHOD | string | OnVerificationCodeNotify |
+
+
+
+
+### 6.发行继承码
+
+使用继承码登陆游戏时，继承码信息获取需要调该接口获取；
 
 + 调用API
 
@@ -276,7 +237,12 @@ void SDKTranscodeReq()
 | UID | string | SDK UID |
 | METHOD | string | OnMigrationCodeNotify |
 
-### 8.渠道绑定
+
+
+
+
+
+### 7.渠道绑定
 
 + 调用API
 
@@ -310,7 +276,7 @@ AiriSDK.SDKLink(AiriSDKCommon.LOGINPLATFORM_FACEBOOK, "", "");
 | METHOD | string | OnLinkNotify |
 
 
-### 9.覆盖绑定
+### 8.覆盖渠道绑定
 
 + 调用API
 
@@ -336,7 +302,7 @@ AiriSDK.SDKNewAccountLink()
 | METHOD | string | OnLinkNotify |
 
 
-### 10.解除绑定
+### 9.解除绑定
 
 + 调用API
 
@@ -369,7 +335,260 @@ AiriSDK.SDKNewAccountLink()
 | SOCAIL_NAME | string | 当前游戏绑定平台用户名称 |
 | METHOD | string | OnUnLinkNotify |
 
-### 11.生日设置(可选,日本必接)
+
+
+### 10.清除账号缓存
+调用该接口可以清楚设备上的账号信息。
+注意：清空后快速登陆将无法使用上一次的账号直接登录，FB\TW\悠星账号都需要重新登录。
+注意：请慎重调用，并在执行前向玩家多确认。
+注意：如果玩家没有发行继承码，并且没有FB\TW\悠星账号，清除账号数据将很难找回账号。
+
++ 调用API
+```java
+void SDKClearAccount();
+```
+
++ 调用实例
+```java
+AiriSDK.SDKClearAccount();
+```
+
+
+### 11.删除账号
+调用该接口，会自动此账号与所有第三方的账号绑定，并清理本地缓存，删除服务器数据记录，请CP谨慎调用。
++ 调用API
+```java
+void SDKDeleteAccount();
+```
+
++ 调用实例
+```java
+AiriSDK.SDKDeleteAccount();
+```
++ 回调参数说明
+
+| 参数名称 | 参数类型 | 参数说明 |
+| ------ | ------ | ------ |
+| R_CODE | string | 错误码 : 0成功，其它见后面统一错误码表 |
+| R_MSG | string | 错误信息，辅助用 |
+| METHOD | string | OnDeleteAccountNotify |
+
+
+### 12.恢复账号
+
++ 调用API
+```java
+void SDKRebornAccount();
+```
+
++ 调用实例
+```java
+AiriSDK.SDKRebornAccount();
+```
++ 回调参数说明
+
+| 参数名称 | 参数类型 | 参数说明 |
+| ------ | ------ | ------ |
+| R_CODE | string | 错误码 : 0成功，其它见后面统一错误码表 |
+| R_MSG | string | 错误信息，辅助用 |
+| METHOD | string | OnRebornAccountNotify |
+
+
+### 13.获取当前账号UID
+
++ 调用API
+```java
+String GetPresentUID();
+```
+
++ 调用实例
+```java
+String uid = AiriSDK.GetPresentUID();
+```
+
+
+### 14.获取当前账号Token
+
++ 调用API
+```java
+String GetPresentAccessToken();
+```
+
++ 调用实例
+```java
+String token = AiriSDK.GetPresentAccessToken();
+```
+
+
+
+### 15.支付接口
+
++ 调用API
+
+```java
+void SDKBuy(String productId, String serverTag, String extraData);
+```
+
++ 调用实例
+
+```java
+AiriSDK.SDKBuy("product_1", "audit", "testxxxxxxx2020||");
+```
+
++ 接口参数详情
+
+| 参数名称                               | 参数说明                                    | 是否必须 |
+|:--------------------------------------|:------------------------------------------|:--------|
+| productId                             | 商品ID，要与支付渠道后台和AiriSDK后台配置的相符合 | 是      |
+| serverTag                             | 服务器标识；提审服:audit、预发布服:preAudit、正式服:production | 是      |
+| extraData                             | 附加参数，在支付结果回调时原样返回               | 是      |
+
+
++ 回调结果参数说明
+
+| 参数名称     | 参数说明                                           |
+|:------------|:-------------------------------------------------|
+| ORDERID     | AiriSDK订单号                                      |
+| EXTRADATA   | 附加参数，由支付时传入                                |
+| R_CODE | 错误码 : 0成功，其它见后面统一错误码表 |
+| R_MSG | 错误信息，辅助用 |
+| METHOD      | OnBuyNotify |
+
+
+### 16.  获取用户协议链接
+
++ 调用API
+
+```java
+String SDKGetAgreement();
+```
+
++ 调用实例
+
+```java
+String url = AiriSDK.SDKGetAgreement();
+```
+
+
+
+### 17.获取用户协议内容
+
++ 调用API
+
+```java
+void SDKGetAgreementInfo();
+```
+
++ 调用实例
+
+```java
+AiriSDK.SDKGetAgreementInfo();
+```
+
++ 回调Event参数说明
+
+| 参数名称 | 参数类型 | 参数说明 |
+| ------ | ------ | ------ |
+| R_CODE | string | 错误码 : 0成功，其它见后面统一错误码表 |
+| R_MSG | string | 错误信息，辅助用 |
+| Agreements | string | 具体的协议，JsonArray字符串 |
+| METHOD     | string | OnGetAgreementNotify |
+
+
+
+### 18.确认用户协议
+
++ 调用API
+
+```java
+void SDKConifrmAgreement();
+```
+
++ 调用实例
+
+```java
+AiriSDK.SDKConifrmAgreement();
+```
+
+
+
+### 19.商店协议获取
+
++ 调用API
+
+```java
+void SDKGetShopAgreementInfo(String requestKey)；
+```
+
++ 调用实例
+
+```java
+AiriSDK.SDKGetShopAgreementInfo("SHOP_AGREEMENT_1");
+```
+
++ 接口参数详情
+
+| 参数名称                               | 参数说明                                    |
+|:--------------------------------------|:------------------------------------------|
+| requestKey                             |  协议参数;SHOP_AGREEMENT_1：资金结算法(日服)或退款说明(韩服)、 SHOP_AGREEMENT_2:特定商业交易法(日服)或退款协议(韩服)|
+
+
+
++ 回调Event参数说明
+
+| 参数名称 | 参数类型 | 参数说明 |
+| ------ | ------ | ------ |
+| R_CODE | string | 错误码 : 0成功，其它见后面统一错误码表 |
+| R_MSG | string | 错误信息，辅助用 |
+| SHOP_AGREEMENT | string | 商店协议得文本信息，具体联系SDK配置 |
+| METHOD     | string | OnGetShopAgreementNotify |
+
+
+
+
+### 20.获取未成年人退款协议
++ 调用API
+
+```java
+void SDKGetUnderAgeAgrement()；
+```
+
++ 调用实例
+
+```java
+AiriSDK.SDKGetUnderAgeAgrement();
+```
+
+
+
++ 回调Event参数说明
+
+| 参数名称 | 参数类型 | 参数说明 |
+| ------ | ------ | ------ |
+| R_CODE | string | 错误码 : 0成功，其它见后面统一错误码表 |
+| R_MSG | string | 错误信息，辅助用 |
+| SHOP_AGREEMENT | string | 具体的协议，格式位JsonArray字符串 |
+| isSHOW | int | 是否需要显示协议，1：需要，0：不需要 |
+| METHOD     | string | OnGetUnderAgeAgreementNotify |
+
+
+
+### 21.确认未成年人退款协议
++ 调用API
+
+```java
+void SDKConfrimUnder()；
+```
+
++ 调用实例
+
+```java
+AiriSDK.SDKConfrimUnder();
+```
+
+
+
+### 22.生日设置
 
 + 调用API
 
@@ -380,7 +599,7 @@ void SDKSetBirth(String birth)
 + 调用实例
 
 ```java
-AiriSDK.SDKSetBirth(birthDay);
+AiriSDK.SDKSetBirth("19910825");
 ```
 
 + 接口参数说明
@@ -399,7 +618,107 @@ AiriSDK.SDKSetBirth(birthDay);
 | BIRTH | string | 生日，格式“yyyymmdd”，如“19901212”（必要） |
 | METHOD | string | OnSetBrithNotify |
 
-### 12.统计事件上传
+
+
+
+
+### 23.获取设备号
+
++ 调用API
+
+```java
+String SDKGetDeviceID()
+```
+
++ 调用实例
+
+```java
+String deviceId = AiriSDK.SDKGetDeviceID()
+```
+
+### 24.打开客服界面
+
++ 调用API
+
+```java
+void ShowAiHelpFAQs(String sdkVersion,String serverId,String roleUid, String roleName,String roleCreateTime,int purchase,String tags)
+```
+
++ 调用实例
+
+```java
+JsonArray tagArray = new JsonArray();
+tagArray.add("tag1");
+tagArray.add("vip1");
+AiriSDK.ShowAiHelpFAQs("2.1.42","serverID 1","playerUid_271","playerName_271","2020-08-24",1000,tagArray.toString());
+```
+
++ 接口参数说明
+
+| 参数名称             | 参数说明      | 备注 |
+|:-------------------|:------------|:--------|
+| sdkVersion            | sdk版本号|        |
+| serverId         | 角色所在服务器Id |  未登录可传""|
+| roleUid      | 角色ID| 未登录可传""|
+| roleName         |  角色名称 |未登录可传""|
+| roleCreateTime     | 角色创建时间|未登录可传""|
+| purchase            | 角色累计消费|未登录可传0|
+| tags            | 标签数组|未登录可传空数组|
+
+
+
+
+### 25.获取错误码信息
+
++ 调用API
+
+```java
+String SDKGetErrorCode(int code)
+```
+
++ 调用实例
+
+```java
+String errInfo = AiriSDK.SDKGetErrorCode(100100)
+```
+
+
+### 26.Google S2S
+
++ 调用API
+
+```java
+void SDKServerToServer(String devToken, String linkID, String appEventName, String priceValue, String currencyCode);
+```
+
++ 调用实例
+```java
+AiriSDK.SDKServerToServer("devToken", "linkID", "event_name", "1", "USD");
+```
+
+
+
+### 27.SDKToClipboard   剪贴板
+
+
++ 调用API
+
+```java
+int SDKToClipboard(String valueData)
+```
+
++ 调用实例
+```java
+int flag = AiriSDK.SDKToClipboard("fjfkdsjfksfjsl");
+if(flag == 0){
+  //success;
+}
+
+```
+
+
+
+### 28.统计事件上传
 
 + 调用API
 
@@ -424,41 +743,7 @@ AiriSDKInstance.getInstance().SDKUserEventUpload("role_levelup",json.toString())
 | eventName | 事件名称，要与AiriSDK后台添加的相对应 | 是      |
 | eventJson | 事件详情，为JSON格式的字符串参数     | 是     |
 
-### 13.支付接口
-
-+ 调用API
-
-```java
-void SDKBuy(String productId, String serverTag, String extraData);
-```
-
-+ 调用实例
-
-```java
-AiriSDK.SDKBuy(purchasItem.getProductID(), "audit", "testxxxxxxx2020||");
-```
-
-+ 接口参数详情
-
-| 参数名称                               | 参数说明                                    | 是否必须 |
-|:--------------------------------------|:------------------------------------------|:--------|
-| productId                             | 商品ID，要与支付渠道后台和AiriSDK后台配置的相符合 | 是      |
-| serverTag                             | 服务器标识；提审服:audit、预发布服:preAudit、正式服:production | 是      |
-| extraData                             | 附加参数，在支付结果回调时原样返回               | 是      |
-
-
-+ 回调结果参数说明
-
-| 参数名称     | 参数说明                                           |
-|:------------|:-------------------------------------------------|
-| ORDERID     | AiriSDK订单号                                      |
-| EXTRADATA   | 附加参数，由支付时传入                                |
-| R_CODE | 错误码 : 0成功，其它见后面统一错误码表 |
-| R_MSG | 错误信息，辅助用 |
-| METHOD      | OnBuyNotify |
-
-
-### 14.系统分享(可选)
+### 29.系统分享
 
 + 调用API
 
@@ -493,7 +778,7 @@ AiriSDK.SystemShare("123455", "img file path");
 
 
 
-### 15. void onResume()
+### 30. void onResume()
 
 Adjust统计需要游戏需要在Launcher Activity的onResume方法中调用此接口
 
@@ -509,7 +794,7 @@ void SDKOnResume() ;
 AiriSDK.SDKOnResume();
 ```
 
-### 16. void onPause()
+### 31. void onPause()
 
 Adjust统计需要游戏需要在Launcher Activity的onPause方法中调用此接口
 
