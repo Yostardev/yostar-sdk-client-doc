@@ -27,8 +27,10 @@ AiriSDK.getInstance().setSdkInfoCallback(new AiriSDKConnect.SDKInfoCallback() {
   
             @Override 
             public void onSuccess(String message) {
-
               
+              // message字段可转化为json对象；
+              // 所有异步接口调用后，调用结果都会在该函数返回；
+              // METHOD 字段用于区分来自哪个接口的调用；
             }
         });
 ```
@@ -72,6 +74,7 @@ AiriSDK.SDKInit("https://xxxxx.arknights.com", "googleplay", false, false);
 | LOGIN_UID | string | 缓存的UID |
 | LOGIN_NAME | string | 缓存的名称 |
 | IS_POPUP_AGREEMENT | Int | 是否需要弹出公告栏，1：需要 ，0：不需要 |
+| METHOD | string | OnInitNotify |
 
 ### 2.获取设备号
 
@@ -151,6 +154,7 @@ AiriSDK.QuickLogin();
 | ISNEW | int | 是否为新账号，1：是新账号，0：不是新账号 |
 | MIGRATIONCODE | string | 继承码，账号没有继承码或者继承码过期时，参数为空 |
 | AMAZON_NAME | string | 用于标识是否绑定亚马逊账号 |
+| METHOD | string | OnLoginNotify |
 
 
 
@@ -184,6 +188,7 @@ AiriSDK.SDKVerificationCodeReq("email_address@host.com");
 | ------ | ------ | ------ |
 | R_CODE | string | 错误码 : 0成功，其它见后面统一错误码表 |
 | R_MSG | string | 错误信息，辅助用 |
+| METHOD | string | OnVerificationCodeNotify |
 
 
 ### 6.渠道登陆
@@ -242,6 +247,7 @@ AiriSDK.SDKLogin(AiriSDKCommon.LOGINPLATFORM_YOSTAR, "xxx@host.com", "btdf3gb", 
 | ISNEW | int | 是否为新账号，1：是新账号，0：不是新账号 |
 | MIGRATIONCODE | string | 继承码，账号没有继承码或者继承码过期时，参数为空 |
 | AMAZON_NAME | string | 用于标识是否绑定亚马逊账号 |
+| METHOD | string | OnLoginNotify |
 
 
 
@@ -268,7 +274,7 @@ void SDKTranscodeReq()
 | R_MSG | string | 错误信息，辅助用 |
 | MIGRATIONCODE | string | 继承码 |
 | UID | string | SDK UID |
-
+| METHOD | string | OnMigrationCodeNotify |
 
 ### 8.渠道绑定
 
@@ -301,6 +307,8 @@ AiriSDK.SDKLink(AiriSDKCommon.LOGINPLATFORM_FACEBOOK, "", "");
 | ACCESS_TOKEN | string | 绑定成功之后返回ACCESS_TOKEN |
 | LOGIN_PLATFORM | int | 当前游戏绑定平台，枚举Airisdk.LoginPlatform |
 | SOCAIL_NAME | string | 当前游戏绑定平台用户名称 |
+| METHOD | string | OnLinkNotify |
+
 
 ### 9.覆盖绑定
 
@@ -325,6 +333,7 @@ AiriSDK.SDKNewAccountLink()
 | ACCESS_TOKEN | string | 绑定成功之后返回ACCESS_TOKEN |
 | LOGIN_PLATFORM | int | 当前游戏绑定平台，枚举Airisdk.LoginPlatform |
 | SOCAIL_NAME | string | 当前游戏绑定平台用户名称 |
+| METHOD | string | OnLinkNotify |
 
 
 ### 10.解除绑定
@@ -358,7 +367,7 @@ AiriSDK.SDKNewAccountLink()
 | R_MSG | string | 错误信息，辅助用 |
 | LOGIN_PLATFORM | LoginPlatform（枚举） | 当前游戏绑定平台，枚举Airisdk.LoginPlatform |
 | SOCAIL_NAME | string | 当前游戏绑定平台用户名称 |
-
+| METHOD | string | OnUnLinkNotify |
 
 ### 11.生日设置(可选,日本必接)
 
@@ -388,7 +397,7 @@ AiriSDK.SDKSetBirth(birthDay);
 | R_CODE | string | 错误码 : 0成功，其它见后面统一错误码表 |
 | R_MSG | string | 错误信息，辅助用 |
 | BIRTH | string | 生日，格式“yyyymmdd”，如“19901212”（必要） |
-
+| METHOD | string | OnSetBrithNotify |
 
 ### 12.统计事件上传
 
@@ -442,9 +451,12 @@ AiriSDK.SDKBuy(purchasItem.getProductID(), "audit", "testxxxxxxx2020||");
 
 | 参数名称     | 参数说明                                           |
 |:------------|:-------------------------------------------------|
-| orderId     | AiriSDK订单号                                      |
-| extraData   | 附加参数，由支付时传入                                |
-| ErrorEntity | 支付结果信息，entity.CODE()==0时支付成功，其他情况为失败 |
+| ORDERID     | AiriSDK订单号                                      |
+| EXTRADATA   | 附加参数，由支付时传入                                |
+| R_CODE | 错误码 : 0成功，其它见后面统一错误码表 |
+| R_MSG | 错误信息，辅助用 |
+| METHOD      | OnBuyNotify |
+
 
 ### 14.系统分享(可选)
 
@@ -474,6 +486,7 @@ AiriSDK.SystemShare("123455", "img file path");
 | ------ | ------ | ------ |
 | R_CODE | string | 错误码 : 0成功，其它见后面统一错误码表 |
 | R_MSG | string | 错误信息，辅助用 |
+| METHOD   | string | OnSystemShareNotify |
 
 
 
