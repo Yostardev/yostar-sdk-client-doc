@@ -18,6 +18,7 @@
    * [SDK集成](/ZH/Android/sdk_implementation)
    * [配置工程参数](/ZH/Android/edit_resources)
    * [接口设计说明](/ZH/Android/Interface_design_description)
+   * [错误码](/ZH/Unity3D/2.0.5/errorcode)
     
 * iOS
     * [概述](/ZH/iOS/1.summary)
