@@ -2,7 +2,7 @@
 
 #### demo工程源码目录
 
-<!--[https://github.com/Yostardev/yostar-sdk-android](https://github.com/Yostardev/yostar-sdk-android)-->
+[https://github.com/Yostardev/yostar-sdk-android](https://github.com/Yostardev/yostar-sdk-android)
 
 接入过程您可以查看demo工程作为参考。
 
