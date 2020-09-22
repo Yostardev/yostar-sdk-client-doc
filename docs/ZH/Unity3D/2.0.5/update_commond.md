@@ -10,4 +10,4 @@
 | 2.1.39  | 2020/07/24 | 1: Android更换底层网络请求框架；<br>2: Android 三次调用发货接口请求失败，即刻消耗订单，避免自动退款；<br>3: iOS下单前添加查单-发货-消耗流程;<br>4: 兼容Ipad设备上分享功能;<br>5: 彻底移除AndroidSD卡读写权限;<br>6: 修复IPad设备上Twitter登录时，点击登录框外部引发没回调缺陷 |
 | 2.1.40  | 2020/08/19 |1: Unity设置面板添加 SD存储卡读写权限控制开关<br>2: Android/iOS添加FireBase远程配置功能接口 QueryRemoteConfig(string configKey)<br>3: Android更新FireBase库解决Android P设备对binder数量限制导致在亚马逊pad上crash问题 |
 | 2.1.41  | 2020/08/21 | 1: Android/iOS Firebase远程配置功能链接到FireBase数据埋点 |
-| 2.1.42  | 2020/09/10 | 1: iOS平台: 更新Firebase到V6.31；<br>2: iOS平台: 更新Adjust到V4.23；<br>3: Android/iOS:helpShift切换到AiHelp；<br> 4:新增客服工具接口参数:充值金额；<br> 5:新增客服工具接口参数:标签数组 |
+| 2.1.42  | 2020/09/10 | 1: iOS平台: 更新Firebase到V6.31；<br>2: iOS平台: 更新Adjust到V4.23；<br>3: Android/iOS:helpShift切换到AiHelp；<br> 4:新增客服工具接口参数:充值金额；<br> 5:新增客服工具接口参数:标签数组|
