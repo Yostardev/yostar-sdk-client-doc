@@ -25,5 +25,6 @@
     * [SDK集成](/ZH/iOS/2.AccessProcess)
     * [配置工程参数](/ZH/iOS/3.ConfigProjectParam)
     * [接口设计说明](/ZH/iOS/4.SDKUsage)
+    * [错误码](/ZH/Unity3D/2.0.5/errorcode)
     
 
