@@ -23,7 +23,7 @@
 创建成功后会在目录
 ..\Assets\AiriSDK\Resources\下生成文件ConfigSettings.asset，点击后在inspecrtor如下图
 
-![config_setting](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/config_setting.png)
+![config_setting](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/unity_config.png)
 
 #### Save config
 

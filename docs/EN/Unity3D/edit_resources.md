@@ -22,7 +22,7 @@ If your AiriSDK was installed for the first time, please create a config file as
 
 Once the config file is created, a file named "ConfigSettings.asset" will appear under "..\Assets\AiriSDK\Resources\", click it, and you will find its inspector as the image shown below:
 
-![config_setting](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/config_setting.png)
+![config_setting](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/unity_config.png)
 
 #### Save config
 
