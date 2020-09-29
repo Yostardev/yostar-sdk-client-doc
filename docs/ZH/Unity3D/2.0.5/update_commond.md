@@ -11,3 +11,4 @@
 | 2.1.40  | 2020/08/19 |1: Unity设置面板添加 SD存储卡读写权限控制开关<br>2: Android/iOS添加FireBase远程配置功能接口 QueryRemoteConfig(string configKey)<br>3: Android更新FireBase库解决Android P设备对binder数量限制导致在亚马逊pad上crash问题 |
 | 2.1.41  | 2020/08/21 | 1: Android/iOS Firebase远程配置功能链接到FireBase数据埋点 |
 | 2.1.42  | 2020/09/10 | 1: iOS平台: 更新Firebase到V6.31；<br>2: iOS平台: 更新Adjust到V4.23；<br>3: Android/iOS:helpShift切换到AiHelp；<br> 4:新增客服工具接口参数:充值金额；<br> 5:新增客服工具接口参数:标签数组|
+| 2.1.43  | 2020/09/29 | 1: Android平台添加OneStore、三星渠道支付; <br>2: iOS平台初始化时添加IDFA权限获取弹窗<br>3: 优化未登录游戏用户发起Aihelp客诉的接入方式；|
