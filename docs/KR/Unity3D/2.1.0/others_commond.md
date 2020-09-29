@@ -136,52 +136,21 @@ using Airisdk;
 AiriSDK.Instance.RequestStoreReview();
 ```
 
-### 6、제3자 고객 서비스 HelpShift
+### 6、제3자 고객 서비스 AiHelp
 
-이 인터페이스를 호출하면 HelpShift 제3자 고객 서비스 플러그인이 자동으로 열립니다. 유저는 Help Shift 를 통하여 FAQ를 보거나 개발자 팀에 직접 문의 할 수 있습니다.
+이 인터페이스를 호출하면 AiHelp 제3자 고객 서비스 플러그인이 자동으로 열립니다. 유저는 Help Shift 를 통하여 FAQ를 보거나 개발자 팀에 직접 문의 할 수 있습니다.
 
 + API 호출: 	
 ```csharp
-public void OpenHelpShift()
+public void ShowAiHelpFAQs()
 ```
 + 호출 사례： 
 ```csharp
 using Airisdk;
-AiriSDK.Instance.OpenHelpShift();
+AiriSDK.Instance.ShowAiHelpFAQs();
 ```
 
-### 7、제3자 고객 서비스 HelpShift (캐릭터 파라미터)
-
-이 인터페이스를 호출하면 HelpShift 제3자 고객 서비스 플러그인이 자동으로 열립니다. 유저는 Help Shift 를 통하여 FAQ를 보거나 개발자 팀에 직접 문의 할 수 있습니다.
-
-+ API 호출:
-
-
-```csharp
-public void OpenHelpShift(string roleUid, string roleName, string roleLevel, string roleServer, string rolePurchase, string createTime)
-```
-+ API 파라미터 설명
-
-| 파라미터 명칭 | 파라미터 유형 | 파라미터 설명 |
-| ------ | ------ | ------ |
-| roleUid | string | 캐릭터 ID |
-| roleName  | string | 캐릭터 명칭 |
-| roleLevel  | string | 캐릭터 레벨 |
-| roleServer  | string | 캐릭터가 존재하는 서버 (포맷 : 서버 ID- 서버 명칭) |
-| rolePurchase  | string | 이 서버에서 결제한 금액 (USD) |
-| createTime  | string | 캐릭터 생성 시간 |
-
-
-
-+ 호출 사례:
-
-
-```csharp
-using Airisdk;
-AiriSDK.Instance.OpenHelpShift("11552233", "xxxxxx", 1+"", "2 - rrrrrrr",18 + "", "2019-08-06 10:57:11");
-```
-
-### 8、제3자 고객 서비스 AiHelp (캐릭터 파라미터)
+### 7、제3자 고객 서비스 AiHelp (캐릭터 파라미터)
 
 이 인터페이스를 호출하면 AiHelp 제3자 고객 서비스 플러그인이 자동으로 열립니다. 유저는 Help Shift 를 통하여 FAQ를 보거나 개발자 팀에 직접 문의 할 수 있습니다.
 
@@ -214,7 +183,7 @@ AiriSDK.Instance.ShowAiHelpFAQs("serverId", "id123456", "roleName_one", "2020-09
 ```
 
 
-### 9、계정 삭제
+### 8、계정 삭제
 
 이 인터페이스를 호출하면 이 해당 계정과 제3자 측의 계정을 자동으로 연동 시키고 로컬 캐시 삭제, 서버 데이터 기록이 삭제 됩니다.  개발사측에선 신중히 사용하시기 바랍니다. 
 
@@ -244,7 +213,7 @@ DeleteAccountRet
 | R_MSG | string | 오류 메시지, 서포트 용 |
 
 
-### 10、계정 복구
+### 9、계정 복구
 
 이 인터페이스를 호출하면 이 계정이 모든 타사 계정에 자동으로 연동되고, 로컬 캐시 및 서버 데이터 기록이 삭제됩니다. CP는 주의해서 호출하여 주십시오.
 
@@ -274,14 +243,14 @@ RebornAccountRet
 | R_MSG | string | 오류 메시지, 서포트 용 |
 
 
-### 11、퍼블릭 데이터 획득 인터페이스
+### 10、퍼블릭 데이터 획득 인터페이스
 
 | 속성 | 설명 |
 | ------ | ------ |
 | ```AiriSDK.Instance.GetDeviceID()``` | 유저 디바이스를 획득하는 유일한 식별 번호입니다. |
 | ```AiriSdkData.Instance.AiriSDK_VERSION``` | SDK 버전 번호 |
 
-### 12、유저 약관 확인
+### 11、유저 약관 확인
 
 이 인터페이스는 유저가 '유저 약관 동의'를 클릭 시 호출됩니다.
 
@@ -295,7 +264,7 @@ using Airisdk;
 AiriSDK.Instance.ConifrmAgreement();
 ```
 
-### 13、유저 약관 링크 획득
+### 12、유저 약관 링크 획득
 
 이 인터페이스는 CP가 유저 약관을 출력해야 할 때 사용됩니다.
 
@@ -327,7 +296,7 @@ http://test.sdk.azurlane.jp:3011/user/agreement?version=v1.0.0
 }
 ```
 
-### 14、유저 약관 구체적인 내용 획득
+### 13、유저 약관 구체적인 내용 획득
 
 + API 호출：
 ```csharp
@@ -373,7 +342,7 @@ private void OnGetAgreementResponse(GetAgreementRet ret) {
 ["Part 1 ","Part 2"]
 ```
 
-### 15、소액 환불 계약
+### 14、소액 환불 계약
 
 + API 호출：
 ```csharp
@@ -411,7 +380,7 @@ private void OnGetUnderAgreementResponse(GetUnderAgreementRet ret)
 | SHOP_AGREEMENT | string | 구체적인 약관 내용, JsonArray 문자열 형식. |
 | isSHOW | int | 프로토콜 표시 여부, 1 : 필수, 0 : 필수 |
 
-### 16、Google S2S 인터페이스
+### 15、Google S2S 인터페이스
 
 + API 호출：
 ```csharp
@@ -430,7 +399,7 @@ AiriSDK.Instance.GoogleServerToServer(
 ```
 
 
-### 17、오류 코드 메시지 리턴 인터페이스
+### 16、오류 코드 메시지 리턴 인터페이스
 
 + API 호출：
 ```csharp
@@ -450,7 +419,7 @@ string strMsg = AiriSDK.Instance.GetSDKRecommendedErrorMsg(100404, LanguageType.
 | type | LanguageType | 언어 파라미터, 현재 중국어, 영어, 한국어 및 일본어 만 지원 |
 
 
-### 18、클립 보드
+### 17、클립 보드
 
 + API 호출：
 ```csharp
@@ -471,7 +440,7 @@ if (code == ResultCode.OK) {
 | ------ | ------ | ------ |
 | cValue | string | 클립 보드에 복사해야하는 내용 |
 
-### 19、iOS 시스템 Apple 로그인 지원 여부
+### 18、iOS 시스템 Apple 로그인 지원 여부
 
 + API 호출：
 ```csharp
@@ -483,7 +452,7 @@ public bool IOSAppleSignInAvailable();
 bool isAvailable = AiriSDK.Instance.IOSAppleSignInAvailable();
 ```
 
-### 20、미성년자 청약 철회 약관
+### 19、미성년자 청약 철회 약관
 
 + API 호출：
 ```csharp

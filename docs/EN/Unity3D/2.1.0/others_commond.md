@@ -135,52 +135,21 @@ using Airisdk;
 AiriSDK.Instance.RequestStoreReview();
 ```
 
-### 6、Third-party Customer Service HelpShift
+### 6、Third-party Customer Service AiHelp
 
-Calling this interface will automatically open the HelpShift third-party customer service plug-in. Players can view FAQ on it or make direct inquiry to the developer team.
+Calling this interface will automatically open the AiHelp third-party customer service plug-in. Players can view FAQ on it or make direct inquiry to the developer team.
 
 + Calling API: 	
 ```csharp
-public void OpenHelpShift()
+public void ShowAiHelpFAQs()
 ```
 + Examples of API Call： 
 ```csharp
 using Airisdk;
-AiriSDK.Instance.OpenHelpShift();
+AiriSDK.Instance.ShowAiHelpFAQs();
 ```
 
-### 7、Third-party Customer Service HelpShift (role parameters)
-
-Calling this interface will automatically open the HelpShift third-party customer service plug-in. Players can view FAQ on it or make direct inquiry to the developer team.
-
-+ Calling API:
-
-
-```csharp
-public void OpenHelpShift(string roleUid, string roleName, string roleLevel, string roleServer, string rolePurchase, string createTime)
-```
-+ APIParameter Description
-
-| Parameter Name | Parameter Type | Parameter Description |
-| ------ | ------ | ------ |
-| roleUid | string | Role ID |
-| roleName  | string | Role Name |
-| roleLevel  | string | Role level |
-| roleServer  | string | The server where the role is located (in the format: server ID-server name) |
-| rolePurchase  | string | The recharged amount of the role on this server (USD) |
-| createTime  | string | When the role was created |
-
-
-
-+ Examples of API Call:
-
-
-```csharp
-using Airisdk;
-AiriSDK.Instance.OpenHelpShift("11552233", "RoleNameTest", 1+"", "2 - GameServerTest",18 + "", "2019-08-06 10:57:11");
-```
-
-### 8、Third-party Customer Service AiHelp (role parameters)
+### 7、Third-party Customer Service AiHelp (role parameters)
 
 Calling this interface will automatically open the AiHelp third-party customer service plug-in. Players can view FAQ on it or make direct inquiry to the developer team.
 
@@ -214,7 +183,7 @@ AiriSDK.Instance.ShowAiHelpFAQs("serverId", "id123456", "roleName_one", "2020-09
 
 
 
-### 9、Delete account
+### 8、Delete account
 
 Calling this interface will automatically bind this account to all third-party accounts, and clear the local cache, delete server data records. CP needs to call it with caution.
 
@@ -244,7 +213,7 @@ DeleteAccountRet
 | R_MSG | string | Error message, auxiliary |
 
 
-### 10、Recover Account
+### 9、Recover Account
 
 Calling this interface will automatically bind this account to all third-party accounts, and clear the local cache, delete server data records. CP needs to call it with caution.
 
@@ -274,14 +243,14 @@ RebornAccountRet
 | R_MSG | string | Error message, auxiliary |
 
 
-### 11、Public Data Acquisition Interface
+### 10、Public Data Acquisition Interface
 
 | Interface | Parameter Description | 
 | ------ | ------ |
 | ```AiriSDK.Instance.GetDeviceID()``` | Obtain the unique identification number of the user device |
 | ```AiriSdkData.Instance.AiriSDK_VERSION``` | SDK Version Number |
 
-### 12、Confirm User Agreement
+### 11、Confirm User Agreement
 
 This interface is called when the user clicks to approve the User Agreement.
 
@@ -295,7 +264,7 @@ using Airisdk;
 AiriSDK.Instance.ConifrmAgreement();
 ```
 
-### 13、Obtain the Link of the User Agreement
+### 12、Obtain the Link of the User Agreement
 
 This interface is used when the CP needs to display the User Agreement.
 
@@ -325,7 +294,7 @@ http://test.sdk.azurlane.jp:3011/user/agreement?version=v1.0.0
 }
 ```
 
-### 14、User Agreement Content Acquisition
+### 13、User Agreement Content Acquisition
 
 + Calling API：
 ```csharp
@@ -371,7 +340,7 @@ private void OnGetAgreementResponse(GetAgreementRet ret) {
 ["Part 1 ","Part 2"]
 ```
 
-### 15、Minor Refund Agreement
+### 14、Minor Refund Agreement
 
 + Calling API：
 ```csharp
@@ -409,7 +378,7 @@ private void OnGetUnderAgreementResponse(GetUnderAgreementRet ret)
 | SHOP_AGREEMENT | string | Structral Agreement, format bit JsonArray string |
 | isSHOW | int | Do you want Agreement to display? 1: Yes 0: No |
 
-### 16、Google S2S Interface
+### 15、Google S2S Interface
 
 + Calling API：
 ```csharp
@@ -428,7 +397,7 @@ AiriSDK.Instance.GoogleServerToServer(
 ```
 
 
-### 17、Error Code Message Return Interface
+### 16、Error Code Message Return Interface
 
 + Calling API：
 ```csharp
@@ -448,7 +417,7 @@ string strMsg = AiriSDK.Instance.GetSDKRecommendedErrorMsg(100404, LanguageType.
 | type | LanguageType | Language parameters, currently only supports Chinese, English, Korean and Japanese |
 
 
-### 18、Clipboard
+### 17、Clipboard
 
 + Calling API：
 ```csharp
@@ -469,7 +438,7 @@ if (code == ResultCode.OK) {
 | ------ | ------ | ------ |
 | cValue | string | Content that needs to be copied to the clipboard |
 
-### 19、Does the iOS system support Sign in with apple
+### 18、Does the iOS system support Sign in with apple
 
 + Calling API：
 ```csharp
@@ -481,7 +450,7 @@ public bool IOSAppleSignInAvailable();
 bool isAvailable = AiriSDK.Instance.IOSAppleSignInAvailable();
 ```
 
-### 20、Minor Agreement confirmed
+### 19、Minor Agreement confirmed
 
 + Calling API：
 ```csharp
