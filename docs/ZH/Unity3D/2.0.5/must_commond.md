@@ -5,13 +5,32 @@
 
  + 调用API:		
  ```csharp
- public void Init()
+ public void Init((PayStore payStore))
  ```
  + 调用示例:
 ```csharp
 using Airisdk;
-AiriSDK.Instance.Init();
+AiriSDK.Instance.Init(PayStore.appstore);
 ```
++ 参数说明:
+
+| 参数名称 | 参数类型 | 参数说明 |
+| ------ | ------ | ------ |
+|payStore|PayStore|对应的支付平台|
+```csharp
+public enum PayStore
+    {
+        googleplay,
+        appstore,
+        au,
+        amazon,
+        onestore,
+        samsung,
+    };
+```
+
+
+
  + 回调EVENT		
 ```csharp
 AirisdkEvent.Instance.InitEvent
