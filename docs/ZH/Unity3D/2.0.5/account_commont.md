@@ -245,6 +245,7 @@ LoginRet
 | ISNEW | int | 是否为新账号，1：是新账号，0：不是新账号 |
 | MIGRATIONCODE | string | 继承码，账号没有继承码或者继承码过期时，参数为空 |
 | AMAZON_NAME | string | 用于标识是否绑定亚马逊账号 |
+| CHANNEL_ID| int| 账户创建的渠道，-1：未知，0：Google，1：Apple，2：au，3：Amazon，4：onestore，5：Samsung |
 
 + 回调Event 示例：
 ```csharp
