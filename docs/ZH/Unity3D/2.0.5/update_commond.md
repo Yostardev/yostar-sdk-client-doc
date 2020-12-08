@@ -12,4 +12,5 @@
 | 2.1.41  | 2020/08/21 | 1: Android/iOS Firebase远程配置功能链接到FireBase数据埋点 |
 | 2.1.42  | 2020/09/10 | 1: iOS平台: 更新Firebase到V6.31；<br>2: iOS平台: 更新Adjust到V4.23；<br>3: Android/iOS:helpShift切换到AiHelp；<br> 4:新增客服工具接口参数:充值金额；<br> 5:新增客服工具接口参数:标签数组|
 | 2.1.43  | 2020/09/29 | 1: Android平台添加OneStore、三星渠道支付; <br>2: iOS平台初始化时添加IDFA权限获取弹窗<br>3: 优化未登录游戏用户发起Aihelp客诉的接入方式；|
-| 2.1.44  | 2020/11/10 | 1:  iOS:  IDFA授权弹窗提示文字本地化 (美日韩三服显示不同语言提示文字);<br>2:  Android/iOS:  清除缓存接口功能，不清除游客账号 (避免日服丢失账号)；<br>3:  Android/iOS：登录回调中添加CHANNEL枚举字段，用于标识用户的注册渠道(韩服)；|
+| 2.1.44  | 2020/11/10 | 1: iOS: IDFA授权弹窗提示文字本地化 (美日韩三服显示不同语言提示文字);<br>2:  Android/iOS:  清除缓存接口功能，不清除游客账号 (避免日服丢失账号)；<br>3: Android/iOS：登录回调中添加CHANNEL枚举字段，用于标识用户的注册渠道(韩服)；|
+| 2.1.45  | 2020/12/08 | 1:fireball purchase 事件埋点添加value值;<br>2:iOS平台支持IDFA横屏引导窗；|
