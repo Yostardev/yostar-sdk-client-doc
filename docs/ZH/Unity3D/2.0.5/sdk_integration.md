@@ -1,9 +1,5 @@
 
 
-### 下载资源文件
-[AiriSDK.unitypackage](https://sdkresources.oss-cn-shanghai.aliyuncs.com/YostarSDK/2.1.0/AiriSDK2.1.41.unitypackage)
-
-
 ### 资源文件导入到项目
 
 在Unity编辑器打开了您的游戏工程后，双击下载的资源文件即可通过正常的流程导入所需的文件。
