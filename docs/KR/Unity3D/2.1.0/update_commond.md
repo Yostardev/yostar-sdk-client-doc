@@ -11,3 +11,7 @@
 | 2.1.40  | 2020/08/19 | 1: Unity의 세팅 인터페이스에 SD카드 읽기 쓰기 권한 on/off 제어 기능 추가；<br>2: Android/iOS 에 FireBase 원격 세팅 기능 포트QueryRemoteConfig(string configKey) 를 추가 ;<br>3: Android에서 FireBase 라이브러리를 업데이트 하여 Android P 디바이스가 binder 수량 제한으로 인해 아마존 pad에서 crash를 일으키는 문제 해결;|
 | 2.1.41  | 2020/08/21 | 1: Android/iOS Firebase의 원격 세팅 기능을 FireBase Event Tracking 에 링크 |
 | 2.1.42  | 2020/09/10 | 1: IOS 플랫폼: Firebase를 V6.31으로 업데이트 함；<br>2: IOS플랫폼: Adjust를 V4.23으로 업데이트 함；<br>3: Android/iOS: helpShift를 AiHelp로 교체;<br>4: CS 툴 인터페이스에 신규 추가 된 파라미터 값：결제 금액;<br>5: CS 툴 인터페이스에 신규 추가 된 파라미터 값：태그 배열|
+| 2.1.43  | 2020/09/29 | 1: 안드로이드 플랫폼에 원스토어, 갤럭시 스토어 결제 채널 추가<br>2: iOS 플랫폼 초기화 진행 시 IDFA 권한 획득 알림창 추가<br>3: 미로그인 게임 사용자가 AIHelp 고객센터 엑세스를 시도하는 방식 개선 |
+| 2.1.44  | 2020/11/10 | 1: iOS: IDFA 권한 수락 알림창에 표시되는 문구 현지화(한, 미, 일 3개 서버가 각기 다른 문구 표시)<br>2: 안드로이드/iOS: 캐시 인터페이스 기능을 삭제하고, 게스트 계정은 삭제하지 않음 (일본 서버 계정 유실 방지)<br>3: 안드로이드/iOS: 로그인 콜백 중 CHANNEL Enum 필드를 추가하고, 유저 계정 생성 채널 식별에 사용 (한국 서버) |
+| 2.1.45  | 2020/12/08 | 1: Firebase purchase 이벤트 포인트에 value 값 추가<br>2: iOS 플랫폼이 IDFA 가로 화면 안내창을 지원 |
+| 2.1.46  | 2020/12/18 | 1: 내부 결제 인터페이스 serviceTag (결제 서버 환경) 추가<br>2: Android: Firebase “purchase” 이벤트 포인트 중복 문제 해결 |
