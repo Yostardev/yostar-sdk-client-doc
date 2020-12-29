@@ -713,7 +713,6 @@ int flag = AiriSDK.SDKToClipboard("fjfkdsjfksfjsl");
 if(flag == 0){
   //success;
 }
-
 ```
 
 
