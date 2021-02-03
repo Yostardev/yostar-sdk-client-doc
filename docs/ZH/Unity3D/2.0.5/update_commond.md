@@ -15,3 +15,6 @@
 | 2.1.44  | 2020/11/10 | 1: iOS: IDFA授权弹窗提示文字本地化 (美日韩三服显示不同语言提示文字);<br>2:  Android/iOS:  清除缓存接口功能，不清除游客账号 (避免日服丢失账号)；<br>3: Android/iOS：登录回调中添加CHANNEL枚举字段，用于标识用户的注册渠道(韩服)；|
 | 2.1.45  | 2020/12/08 | 1: Firebase purchase 事件埋点添加value值;<br>2:iOS平台支持IDFA横屏引导窗；|
 | 2.1.46  | 2020/12/18 | 1: 内购支付接口serviceTag(支付服务器环境)增加；<br>2: Android: Firebase “purchase”事件重复埋点问题修复; |
+| 2.1.47  | 2021/02/02 | 1: iOS: 权限提示文案XUPorter自动化配置（idfa授权、AiHelp客诉读取图片授权）；<br>2: Android: 修复Google账号在日服登录时，如果账号未绑定过sdk uid, 返回100180错误码； |
+
+
