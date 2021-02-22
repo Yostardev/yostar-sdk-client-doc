@@ -16,5 +16,6 @@
 | 2.1.45  | 2020/12/08 | 1: Firebase purchase 事件埋点添加value值;<br>2:iOS平台支持IDFA横屏引导窗；|
 | 2.1.46  | 2020/12/18 | 1: 内购支付接口serviceTag(支付服务器环境)增加；<br>2: Android: Firebase “purchase”事件重复埋点问题修复; |
 | 2.1.47  | 2021/02/02 | 1: iOS: 权限提示文案XUPorter自动化配置（idfa授权、AiHelp客诉读取图片授权）；<br>2: Android: 修复Google账号在日服登录时，如果账号未绑定过sdk uid, 返回100180错误码； |
-
+| 2.1.48  | 2021/02/07 | 1：Tw登录闪退缺陷修复 |
+| 2.1.49  | 2021/02/19 | 1:  Android: oneStore \三星支付 添加支付事件埋点；<br>2:  Android: oneStore \三星支付 取消支付添加错误码 200231；<br>3:  iOS: Facebook SDK 更新到9.0；<br>4:  iOS: 系统授权框提示文案配置方式，优化到Xuporter中做自动化配置； |
 
