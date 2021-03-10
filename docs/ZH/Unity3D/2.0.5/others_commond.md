@@ -184,7 +184,33 @@ using Airisdk;
 AiriSDK.Instance.ShowAiHelpFAQs("serverId", "id123456", "roleName_one", "2020-09-10", 1000, {"bad_user", "bug"});
 ```
 
-### 8、删除账号
+### 8、第三方客服AiHelp更新用户标签
+
+调用该接口，会同步用户标签到AIHelp CRM。
+
++ 调用API:
+
+
+```csharp
+public void UpdateUserTag(string roleUid, string roleName, string[] tags)
+```
++ API参数说明
+
+| 参数名称 | 参数类型 | 参数说明 |
+| ------ | ------ | ------ |
+| roleUid | string | 角色ID |
+| roleName  | string | 角色名称 |
+| tags  | string[] | 标签数组 |
+
++ 调用示例:
+
+
+```csharp
+using Airisdk;
+AiriSDK.Instance.UpdateUserTag("id123456", "roleName_one", {"account", "bug"});
+```
+
+### 9、删除账号
 
 调用该接口，会自动此账号与所有第三方的账号绑定，并清理本地缓存，删除服务器数据记录，请CP谨慎调用。
 
@@ -214,7 +240,7 @@ DeleteAccountRet
 | R_MSG | string | 错误信息，辅助用 |
 
 
-### 9、恢复账号
+### 10、恢复账号
 
 调用该接口，会自动此账号与所有第三方的账号绑定，并清理本地缓存，删除服务器数据记录，请CP谨慎调用。
 
@@ -244,14 +270,14 @@ RebornAccountRet
 | R_MSG | string | 错误信息，辅助用 |
 
 
-### 10、公用数据获取接口
+### 11、公用数据获取接口
 
 | 属性 | 说明 | 
 | ------ | ------ |
 | ```AiriSDK.Instance.GetDeviceID()``` | 获取用户设备的唯一标识号 |
 | ```AiriSdkData.Instance.AiriSDK_VERSION``` | SDK版本号 |
 
-### 11、确认用户协议
+### 12、确认用户协议
 
 此接口再用户点击同意协议时调用。
 
@@ -265,7 +291,7 @@ using Airisdk;
 AiriSDK.Instance.ConifrmAgreement();
 ```
 
-### 12、用户协议链接获取
+### 13、用户协议链接获取
 
 此接口用于CP需要显示用户协议时调用
 
@@ -296,7 +322,7 @@ http://test.sdk.azurlane.jp:3011/user/agreement?version=v1.0.0
 }
 ```
 
-### 13、用户协议具体内容获取
+### 14、用户协议具体内容获取
 
 + 调用API：
 ```csharp
@@ -342,7 +368,7 @@ private void OnGetAgreementResponse(GetAgreementRet ret) {
 ["Part 1 ","Part 2"]
 ```
 
-### 14、未成年人退款协议
+### 15、未成年人退款协议
 
 + 调用API：
 ```csharp
@@ -381,7 +407,7 @@ private void OnGetUnderAgreementResponse(GetUnderAgreementRet ret)
 | isSHOW | int | 是否需要显示协议，1：需要，0：不需要 |
 
 
-### 15、Google S2S接口
+### 16、Google S2S接口
 
 + 调用API：
 ```csharp
@@ -400,7 +426,7 @@ AiriSDK.Instance.GoogleServerToServer(
 ```
 
 
-### 16、错误码信息返回接口
+### 17、错误码信息返回接口
 
 + 调用API：
 ```csharp
@@ -420,7 +446,7 @@ string strMsg = AiriSDK.Instance.GetSDKRecommendedErrorMsg(100404, LanguageType.
 | type | LanguageType | 语言参数，暂时只支持中文，英文，韩文，日文 |
 
 
-### 17、剪贴板
+### 18、剪贴板
 
 + 调用API：
 ```csharp
@@ -441,7 +467,7 @@ if (code == ResultCode.OK) {
 | ------ | ------ | ------ |
 | cValue | string | 需要复制到剪贴板的内容 |
 
-### 18、iOS系统是否支持Sign in with apple
+### 19、iOS系统是否支持Sign in with apple
 
 + 调用API：
 ```csharp
@@ -453,7 +479,7 @@ public bool IOSAppleSignInAvailable();
 bool isAvailable = AiriSDK.Instance.IOSAppleSignInAvailable();
 ```
 
-### 19、确认未成年人协议
+### 20、确认未成年人协议
 
 + 调用API：
 ```csharp
