@@ -212,4 +212,72 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
     NSLog(@"%@",response);
 }
 ```
-![notification_code_3](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/notification_code_3.png)  
+![notification_code_3](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/notification_code_3.png)
+
+#### 4. 实现富媒体推送（主要指在推送中出现图片）,如下样式：
+![notification_media_style](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/notification_media_style.png)
+需要额外做一下工作：
+##### 1. Notification Service Extension添加步骤：`Xcode` -> `File` -> `New` -> `Target`，选择Notification Service Extension，如下图所示：
+![notification_ext_create](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/notification_ext_create.png)
+输入Target名，创建完成后在目录下Xcode会自动生成NotificationService的模板:
+![notification_ext_named](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/notification_ext_named.png)
+会出现一下文件夹:
+![notification_ext_end](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/notification_ext_end.png)
+需要如下设置：
+![notification_ext_buildsetting](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/notification_ext_buildsetting.png)
+##### 2. 在`NotificationService.m`文件中修改如下
+```objectivec
+@implementation NotificationService
+
+- (void)didReceiveNotificationRequest:(UNNotificationRequest *)request withContentHandler:(void (^)(UNNotificationContent * _Nonnull))contentHandler {
+    self.contentHandler = contentHandler;
+    self.bestAttemptContent = [request.content mutableCopy];
+    
+    [self loadAttachments:self.bestAttemptContent.userInfo[@"fcm_options"][@"image"]];
+
+}
+
+- (void)serviceExtensionTimeWillExpire {
+    // Called just before the extension will be terminated by the system.
+    // Use this as an opportunity to deliver your "best attempt" at modified content, otherwise the original push payload will be used.
+    self.contentHandler(self.bestAttemptContent);
+}
+
+- (void)loadAttachments:(NSString *)attachUrl {
+    //另一种下载方式
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURL *url = [NSURL URLWithString:attachUrl];
+    
+    NSURLSessionDownloadTask *downloadTask = [session downloadTaskWithURL:url
+                                                        completionHandler:^(NSURL * _Nullable location,
+                                                                            NSURLResponse * _Nullable response,
+                                                                            NSError * _Nullable error) {
+        NSString *caches = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
+        // response.suggestedFilename ： 建议使用的文件名，一般跟服务器端的文件名一致
+        NSString *file = [caches stringByAppendingPathComponent:response.suggestedFilename];
+        
+        // 将临时文件剪切或者复制Caches文件夹
+        NSFileManager *mgr = [NSFileManager defaultManager];
+        
+        // AtPath : 剪切前的文件路径
+        // ToPath : 剪切后的文件路径
+        [mgr moveItemAtPath:location.path toPath:file error:nil];
+        
+        if (file && ![file  isEqualToString: @""])
+        {
+            UNNotificationAttachment *attch= [UNNotificationAttachment attachmentWithIdentifier:@"photo"
+                                                                                            URL:[NSURL URLWithString:[@"file://" stringByAppendingString:file]]
+                                                                                        options:nil
+                                                                                          error:nil];
+            if(attch)
+            {
+                self.bestAttemptContent.attachments = @[attch];
+            }
+        }
+        self.contentHandler(self.bestAttemptContent);
+    }];
+    [downloadTask resume];
+}
+
+@end
+```
