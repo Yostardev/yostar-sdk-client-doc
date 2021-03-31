@@ -172,9 +172,44 @@ Google依赖参数对应：
 ![notification_code_1](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/notification_code_1.png)
 #### 2. 在`UnityAppController.mm`文件中的`- (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions`中添加如下代码`[[YostarPush sharePushInstance] registerPushDelegate:self];`，如下图所示：
 ![notification_code_2](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/notification_code_2.png)
-#### 3. 如果需要处理通知内容，需要在以下方法中实现处理逻辑：`- (void)application:(UIApplication*)application didReceiveRemoteNotification:(NSDictionary*)userInfo`；
-`- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))handler`；
+#### 3. 如果需要处理通知内容，需要在以下方法中实现处理逻辑：
+```objectivec
+- (void)application:(UIApplication*)application 
+didReceiveRemoteNotification:(NSDictionary*)userInfo
+{
+    //TODO:实现处理逻辑
+    AppController_SendNotificationWithArg(kUnityDidReceiveRemoteNotification, userInfo);
+    UnitySendRemoteNotification(userInfo);
+}
+- (void)application:(UIApplication *)application 
+didReceiveRemoteNotification:(NSDictionary *)userInfo 
+fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))handler
+{
+    //TODO:实现处理逻辑
+    AppController_SendNotificationWithArg(kUnityDidReceiveRemoteNotification, userInfo);
+    UnitySendRemoteNotification(userInfo);
+    if (handler)
+    {
+        handler(UIBackgroundFetchResultNoData);
+    }
+}
+```
 实现`YostarPushDelegate`的代理协议：
-`- (void)yoStarUserNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler API_AVAILABLE(ios(10.0));`；
-`- (void)yoStarUserNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler API_AVAILABLE(ios(10.0));`
+```objectivec
+- (void)yoStarUserNotificationCenter:(UNUserNotificationCenter *)center 
+willPresentNotification:(UNNotification *)notification 
+withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler
+{
+    //TODO:实现处理逻辑
+    NSLog(@"%@",notification);
+}
+
+- (void)yoStarUserNotificationCenter:(UNUserNotificationCenter *)center 
+didReceiveNotificationResponse:(UNNotificationResponse *)response
+ withCompletionHandler:(void (^)())completionHandler
+{
+    //TODO:实现处理逻辑
+    NSLog(@"%@",response);
+}
+```
 ![notification_code_3](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/notification_code_3.png)  
