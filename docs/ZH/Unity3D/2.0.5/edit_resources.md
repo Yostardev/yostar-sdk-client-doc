@@ -216,13 +216,17 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 
 #### 4. 实现富媒体推送（主要指在推送中出现图片）,如下样式：
 ![notification_media_style](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/notification_media_style.png)
+
 需要额外做一下工作：
 ##### 1. Notification Service Extension添加步骤：`Xcode` -> `File` -> `New` -> `Target`，选择Notification Service Extension，如下图所示：
 ![notification_ext_create](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/notification_ext_create.png)
+
 输入Target名，创建完成后在目录下Xcode会自动生成NotificationService的模板:
 ![notification_ext_named](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/notification_ext_named.png)
+
 会出现一下文件夹:
 ![notification_ext_end](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/notification_ext_end.png)
+
 需要如下设置：
 ![notification_ext_buildsetting](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/notification_ext_buildsetting.png)
 ##### 2. 在`NotificationService.m`文件中修改如下
