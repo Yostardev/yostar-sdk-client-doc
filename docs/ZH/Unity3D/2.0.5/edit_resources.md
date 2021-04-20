@@ -168,9 +168,9 @@ Google依赖参数对应：
 
 
 ### iOS端接入远程推送功能（可选）
-#### 1. 在`UnityAppController.h`中导入推送头文件 `YostarPush.h`。如果需要处理通知内容需要遵从代理`YostarPushDelegate`，实现协议。如下图所示:
+#### 1. 在`UnityAppController.h`中导入推送头文件 `YostarSDK.h`。如果需要处理通知内容需要遵从代理`YostarPushDelegate`，实现协议。如下图所示:
 ![notification_code_1](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/notification_code_1.png)
-#### 2. 在`UnityAppController.mm`文件中的`- (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions`中添加如下代码`[[YostarPush sharePushInstance] registerPushDelegate:self];`，如下图所示：
+#### 2. 在`UnityAppController.mm`文件中的`- (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions`中添加如下代码`[[YostarSDK yostarShareton] registerPushDelegate:self];`，如下图所示：
 ![notification_code_2](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/notification_code_2.png)
 #### 3. 如果需要处理通知内容，需要在以下方法中实现处理逻辑：
 ```objectivec
