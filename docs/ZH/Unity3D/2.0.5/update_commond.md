@@ -20,3 +20,4 @@
 | 2.1.49  | 2021/02/19 | 1:  Android: oneStore \三星支付 添加支付事件埋点；<br>2:  Android: oneStore \三星支付 取消支付添加错误码 200231；<br>3:  iOS: Facebook SDK 更新到9.0；<br>4:  iOS: 系统授权框提示文案配置方式，优化到Xuporter中做自动化配置； |
 | 2.1.50  | 2021/03/10 | 1: 新增自定义标签同步到Aihelp后台CRM系统的功能接口 |
 | 2.1.51  | 2021/03/24 | 1:  Android:  Google登录参数的配置方式由本地调整为服务器下发；<br>2: iOS: 更新Firebase库至 v6.34.0 |
+| 2.1.52  | 2021/04/26 | Android:<br>1: 更新support库到 androidx库;<br>2: 更新Aihelp库到2.4.2;<br>3: 适配Target Api 30;<br>4: 新增用户设备语言埋点；<br>5: 新增推送功能<br>iOS:<br>1: 升级adjust版本到4.28<br>2: 新增用户设备语言埋点；<br>3: 修复沙箱环境沙箱账号支付闪退bug<br>4: 新增推送功能 |
