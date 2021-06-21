@@ -168,53 +168,8 @@ Google依赖参数对应：
 
 
 ### iOS端接入远程推送功能（可选）
-#### 1. 在`UnityAppController.h`中导入推送头文件 `YostarSDK.h`。如果需要处理通知内容需要遵从代理`YostarPushDelegate`，实现协议。如下图所示:
-![notification_code_1](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/notification_code_1.png)
-#### 2. 在`UnityAppController.mm`文件中的`- (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions`中添加如下代码`[[YostarSDK yostarShareton] registerPushDelegate:self];`，如下图所示：
-![notification_code_2](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/notification_code_2.png)
-#### 3. 如果需要处理通知内容，需要在以下方法中实现处理逻辑：
-```objectivec
-- (void)application:(UIApplication*)application 
-didReceiveRemoteNotification:(NSDictionary*)userInfo
-{
-    //TODO:实现处理逻辑
-    AppController_SendNotificationWithArg(kUnityDidReceiveRemoteNotification, userInfo);
-    UnitySendRemoteNotification(userInfo);
-}
-- (void)application:(UIApplication *)application 
-didReceiveRemoteNotification:(NSDictionary *)userInfo 
-fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))handler
-{
-    //TODO:实现处理逻辑
-    AppController_SendNotificationWithArg(kUnityDidReceiveRemoteNotification, userInfo);
-    UnitySendRemoteNotification(userInfo);
-    if (handler)
-    {
-        handler(UIBackgroundFetchResultNoData);
-    }
-}
-```
-实现`YostarPushDelegate`的代理协议：
-```objectivec
-- (void)yoStarUserNotificationCenter:(UNUserNotificationCenter *)center 
-willPresentNotification:(UNNotification *)notification 
-withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler
-{
-    //TODO:实现处理逻辑
-    NSLog(@"%@",notification);
-}
 
-- (void)yoStarUserNotificationCenter:(UNUserNotificationCenter *)center 
-didReceiveNotificationResponse:(UNNotificationResponse *)response
- withCompletionHandler:(void (^)())completionHandler
-{
-    //TODO:实现处理逻辑
-    NSLog(@"%@",response);
-}
-```
-![notification_code_3](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/notification_code_3.png)
-
-#### 4. 实现富媒体推送（主要指在推送中出现图片）,如下样式：
+####  实现富媒体推送（主要指在推送中出现图片）,如下样式：
 ![notification_media_style](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/notification_media_style.png)
 
 需要额外做一下工作：
@@ -248,6 +203,10 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 }
 
 - (void)loadAttachments:(NSString *)attachUrl {
+    if (!attachUrl) {
+        self.contentHandler(self.bestAttemptContent);
+        return;
+    }
     //另一种下载方式
     NSURLSession *session = [NSURLSession sharedSession];
     NSURL *url = [NSURL URLWithString:attachUrl];
