@@ -182,6 +182,7 @@ Google依赖参数对应：
 会出现一下文件夹:
 ![notification_ext_end](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/notification_ext_end.png)
 
+
 需要如下设置：
 ![notification_ext_buildsetting](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/notification_ext_buildsetting.png)
 ##### 2. 在`NotificationService.m`文件中修改如下
