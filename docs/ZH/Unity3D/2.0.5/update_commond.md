@@ -24,5 +24,5 @@
 | 2.1.53  | 2021/05/20 | 1: 修复android平台aihelp入参为空闪退的缺陷 |
 | 2.1.54  | 2021/05/20 | 1: 修复ios平台aihelp客诉时，未同步用户信息到客诉后台的缺陷 |
 | 2.1.55  | 2021/06/16 | Android:<br>1: 升级google内购库版本至3.0.3;<br>2: 加入google内购反欺诈计划; |
-| 2.1.56  | 2021/06/28 | Android:<br>1: 兼容高版本系统中推送图标显示;<br>iOS:<br>1:修复推送Token上传缺陷<br>2:修复AiHelp客诉消息同步缺陷|
+| 2.1.56  | 2021/06/28 | Android:<br>1: 兼容高版本系统中推送图标显示;<br>iOS:<br>1:修复推送Token上传缺陷<br>2:修复AiHelp客诉消息同步缺陷<br>3:添加adServices库支持adjust无idfa广告归因|
 | 2.1.57  | 2021/07/29 | Android:<br>1: AndroidMainfest文件添加oneStore、三星、亚马逊应用包可见性配置；;<br>2:修复氪金回调有可能丢失的缺陷|
