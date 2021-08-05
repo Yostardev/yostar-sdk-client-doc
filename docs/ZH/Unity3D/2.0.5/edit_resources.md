@@ -176,7 +176,9 @@ Google依赖参数对应：
 ##### 1. Notification Service Extension添加步骤：`Xcode` -> `File` -> `New` -> `Target`，选择Notification Service Extension，如下图所示：
 ![notification_ext_create](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/notification_ext_create.png)
 
-输入Target名，创建完成后在目录下Xcode会自动生成NotificationService的模板:
+
+
+输入ProductName名，请务必使用`YostarNotification`，**以便在使用手动签名时，我们配置正确的描述文件**，创建完成后在目录下Xcode会自动生成NotificationService的模板:
 ![notification_ext_named](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/notification_ext_named.png)
 
 会出现一下文件夹:
