@@ -165,6 +165,11 @@ Google依赖参数对应：
 点击加号添加一项，输入`applinks:webusstatic.yo-star.com`
 ![Capability_setting](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/2.0.5_Capability_setting.png)
 
+
+#### 需要在`Xcode`工程的`Info`中的`URL Types`添加自己的scheme
+`URL scheme` 格式 `Yostar-App的名称+区服`, 比如 `Yostar-ArknightsEN`
+![URLType_setting](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/2.0.5_url_type_setting.png)
+
 #### 检查Link->Runpath Search Paths下，是否有@executable_path/Frameworks， 没有的话新增
 
 
