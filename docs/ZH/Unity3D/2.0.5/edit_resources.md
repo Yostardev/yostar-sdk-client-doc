@@ -160,7 +160,7 @@ Google依赖参数对应：
 
 ### Xcode工程需要的配置
 
-#### 需要在`Xcode`工程的`Capability`开启`Push Notifications`和`Sign In with Apple`
+#### 需要在`Xcode`工程的`Capability`开启`Push Notifications`和`Sign In with Apple`和`Associated Domains`*（此功能可选可以开启Apple universal link 功能）*
 
 ![Capability_setting](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/2.0.5_Capability_setting.png)
 
