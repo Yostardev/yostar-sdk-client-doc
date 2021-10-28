@@ -160,8 +160,9 @@ Google依赖参数对应：
 
 ### Xcode工程需要的配置
 
-#### 需要在`Xcode`工程的`Capability`开启`Push Notifications`和`Sign In with Apple`和`Associated Domains`*（此功能可选可以开启Apple universal link 功能）*
-
+#### 需要在`Xcode`工程的`Capability`开启`Push Notifications`和`Sign In with Apple`和`Associated Domains`
+`Associated Domains` *（此功能可选可以开启Apple universal link 功能）*
+点击加号添加一项，输入`applinks:webusstatic.yo-star.com`
 ![Capability_setting](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/2.0.5_Capability_setting.png)
 
 #### 检查Link->Runpath Search Paths下，是否有@executable_path/Frameworks， 没有的话新增
