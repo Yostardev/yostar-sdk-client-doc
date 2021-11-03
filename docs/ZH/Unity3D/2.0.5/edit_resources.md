@@ -160,12 +160,16 @@ Google依赖参数对应：
 
 ### Xcode工程需要的配置
 
-#### 需要在`Xcode`工程的`Capability`开启`Push Notifications`和`Sign In with Apple`和`Associated Domains`
-`Associated Domains` *（此功能可选可以开启Apple universal link 功能）*
-点击加号添加一项，输入`applinks:webusstatic.yo-star.com`
+#### 需要在`Xcode`工程的`Capability`开启`Push Notifications`和`Sign In with Apple`
 ![Capability_setting](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/2.0.5_Capability_setting.png)
 
+### 接入 `Associated Domains` 功能（可选）
+`Associated Domains` *（此功能可选可以开启Apple universal link 功能）*
+点击加号添加一项，输入`applinks:webusstatic.yo-star.com`
+![Capability_setting](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/2.0.5_Associated_domains.png)
 
+
+### 接入URL Scheme 功能 （可选）
 #### 需要在`Xcode`工程的`Info`中的`URL Types`添加自己的scheme
 `URL scheme` 格式 `Yostar-App的名称+区服`, 比如 `Yostar-ArknightsEN`
 ![URLType_setting](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/2.0.5_url_type_setting.png)
