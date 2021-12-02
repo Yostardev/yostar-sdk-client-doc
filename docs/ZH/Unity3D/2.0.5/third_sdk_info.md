@@ -1,5 +1,5 @@
 
-| SDK   |  iOS版本   | Android版本  |
+| SDK   |  iOS Version   | Android Version |
 |  :----:  | :----:  | :----:  |
 | Adjust  | 4.29.6 |   |
 | Twitter  | 3.2.0 | |
