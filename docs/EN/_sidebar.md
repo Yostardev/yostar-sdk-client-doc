@@ -1,7 +1,7 @@
 * Unity3D
 
    * [Update History](/EN/Unity3D/2.1.0/update_commond)
-   * [Third SDK Information](/ZH/Unity3D/2.0.5/third_sdk_info)
+   * [Third SDK Information](/EN/Unity3D/2.1.0/third_sdk_info)
    * [Overview](/EN/Unity3D/2.1.0/summary)
    * [SDK Integration](/EN/Unity3D/2.1.0/sdk_integration)
    * [Configure Project Parameters](/EN/Unity3D/2.1.0/edit_resources)

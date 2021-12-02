@@ -2,7 +2,7 @@
 
    * 2.1.0
        * [Update History](/KR/Unity3D/2.1.0/update_commond)
-       * [Third SDK Information](/ZH/Unity3D/2.0.5/third_sdk_info)
+       * [Third SDK Information](/KR/Unity3D/2.1.0/third_sdk_info)
        * [개요](/KR/Unity3D/2.1.0/summary)
        * [SDK 통합](/KR/Unity3D/2.1.0/sdk_integration)
        * [프로젝트 파라미터 설정](/KR/Unity3D/2.1.0/edit_resources)
