@@ -27,3 +27,4 @@
 | 2.1.56  | 2021/06/28 | Android:<br>1: 兼容高版本系统中推送图标显示;<br>iOS:<br>1:修复推送Token上传缺陷<br>2:修复AiHelp客诉消息同步缺陷<br>3:添加adServices库支持adjust无idfa广告归因 |
 | 2.1.57  | 2021/07/29 | Android:<br>1: AndroidMainfest文件添加oneStore、三星、亚马逊应用包可见性配置；;<br>2:修复氪金回调有可能丢失的缺陷 |
 | 2.1.58  | 2021/10/13 | iOS:<br>1: 氪金流程中添加200390错误码；<br>Android:<br>1:  Firebase兼容性优化 |
+| 2.1.60  | 2021/12/25 | iOS:<br>1: 添加删除/恢复账号功能；<br>Android:<br>1:  添加删除/恢复账号功能；<br>2：添加PGS登陆服务接入 |

@@ -243,6 +243,7 @@ LoginRet
 | ISCAN_BIND_GUEST | int | 是否可以绑定游客账号(0不可以绑定, 非0可以绑定)，发生在用新FB、TW、悠星账号登陆时，同时检测到相同设备上一次登陆过游客账号。则可以调用API NewAccountLink() 进行绑定，也可不绑定。 |
 | R_DELETETIME | string | 时间单位(单位：毫秒),最终确定删除此账号的时间，在这个时间之前，账号都是可以恢复的 |
 | ISNEW | int | 是否为新账号，1：是新账号，0：不是新账号 |
+| R_COOL_WAIT_DAY | int | 冷静期天数 |
 | MIGRATIONCODE | string | 继承码，账号没有继承码或者继承码过期时，参数为空 |
 | AMAZON_NAME | string | 用于标识是否绑定亚马逊账号 |
 | CHANNEL_ID| int| 账户创建的渠道，-1：未知，0：Google，1：Apple，2：au，3：Amazon，4：onestore，5：Samsung |

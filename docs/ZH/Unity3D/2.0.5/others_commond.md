@@ -238,6 +238,9 @@ DeleteAccountRet
 | ------ | ------ | ------ |
 | R_CODE | string | 错误码 : 0成功，其它见后面统一错误码表 |
 | R_MSG | string | 错误信息，辅助用 |
+| R_COOL_WAIT_DAY | int | 冷静期天数 |
+| R_DELETETIME | string | 账号删除时间 |
+| HAS_COOL_DAYS | int | 1：有冷静期；0：无冷静期 |
 
 
 ### 10、恢复账号
