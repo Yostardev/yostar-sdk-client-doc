@@ -241,7 +241,7 @@ LoginRet
 | GOOGLE_EMAIL | string | Google登陆或绑定的Google邮箱 |
 | SDK_NAME | string | 悠星账号登陆的名称 |
 | ISCAN_BIND_GUEST | int | 是否可以绑定游客账号(0不可以绑定, 非0可以绑定)，发生在用新FB、TW、悠星账号登陆时，同时检测到相同设备上一次登陆过游客账号。则可以调用API NewAccountLink() 进行绑定，也可不绑定。 |
-| R_DELETETIME | string | 时间单位(单位：毫秒),最终确定删除此账号的时间，在这个时间之前，账号都是可以恢复的 |
+| R_DELETETIME | string | 时间单位(单位：毫秒),最终确定删除此账号的时间，在这个时间之前，可通过调用恢复账号接口来取消账号删除 |
 | ISNEW | int | 是否为新账号，1：是新账号，0：不是新账号 |
 | R_COOL_WAIT_DAY | int | 冷静期天数 |
 | MIGRATIONCODE | string | 继承码，账号没有继承码或者继承码过期时，参数为空 |
@@ -358,4 +358,67 @@ string Sdk_AccessToken = AiriSDK.Instance.SDKGetAccessToken();
 
 `SDKGetUID`接口用于获取当前的SDK UID，
 `SDKGetAccessToken`接口用于获取当前缓存的SDK AccessToken，AccessToken用于游戏验证登陆的有效性
+
+
+### 15、删除账号
+
+调用该接口，会将此账号与所有第三方的账号解绑定，并清理本地缓存；在冷静期内可以通过调用恢复账号接口来取消操作；
+
++ 调用API:
+```csharp
+public void DeleteAccount()
+```
++ 调用示例：
+```csharp
+using Airisdk;
+AiriSDK.Instance.DeleteAccount();
+```
++ 回调Event
+
+```csharp
+AirisdkEvent.Instance.DeleteAccountEvent
+```
++ 回调Event类型
+```
+DeleteAccountRet
+```
++ 回调Event参数说明
+
+| 参数名称 | 参数类型 | 参数说明 |
+| ------ | ------ | ------ |
+| R_CODE | string | 错误码 : 0成功，其它见后面统一错误码表 |
+| R_MSG | string | 错误信息，辅助用 |
+| R_COOL_WAIT_DAY | int | 冷静期天数，在冷静期内可以调用恢复账号接口取消删除操作 |
+| R_DELETETIME | string | 真正删除的时间，过期后即便调用恢复账号接口也无法恢复 |
+| HAS_COOL_DAYS | int | 1：有冷静期；0：无冷静期 |
+
+
+### 16、恢复账号
+
+在冷静期内调用该接口，取消删除操作。
+
++ 调用API:
+```csharp
+public void RebornAccount()
+```
++ 调用示例：
+```csharp
+using Airisdk;
+AiriSDK.Instance.RebornAccount();
+```
++ 回调Event
+
+```csharp
+AirisdkEvent.Instance.RebornAccountEvent
+```
++ 回调Event类型
+```
+RebornAccountRet
+```
++ 回调Event参数说明
+
+| 参数名称 | 参数类型 | 参数说明 |
+| ------ | ------ | ------ |
+| R_CODE | string | 错误码 : 0成功，其它见后面统一错误码表 |
+| R_MSG | string | 错误信息，辅助用 |
 

@@ -210,77 +210,14 @@ using Airisdk;
 AiriSDK.Instance.UpdateUserTag("id123456", "roleName_one", {"account", "bug"});
 ```
 
-### 9、删除账号
-
-调用该接口，会自动此账号与所有第三方的账号绑定，并清理本地缓存，删除服务器数据记录，请CP谨慎调用。
-
-+ 调用API: 	
-```csharp
-public void DeleteAccount()
-```
-+ 调用示例： 
-```csharp
-using Airisdk;
-AiriSDK.Instance.DeleteAccount();
-```
-+ 回调Event
-
-```csharp
-AirisdkEvent.Instance.DeleteAccountEvent
-```
-+ 回调Event类型
-```
-DeleteAccountRet
-```
-+ 回调Event参数说明
-
-| 参数名称 | 参数类型 | 参数说明 |
-| ------ | ------ | ------ |
-| R_CODE | string | 错误码 : 0成功，其它见后面统一错误码表 |
-| R_MSG | string | 错误信息，辅助用 |
-| R_COOL_WAIT_DAY | int | 冷静期天数 |
-| R_DELETETIME | string | 真正删除的时间，过期后即便调用恢复账号接口也无法恢复 |
-| HAS_COOL_DAYS | int | 1：有冷静期；0：无冷静期 |
-
-
-### 10、恢复账号
-
-调用该接口，会自动此账号与所有第三方的账号绑定，并清理本地缓存，删除服务器数据记录，请CP谨慎调用。
-
-+ 调用API: 	
-```csharp
-public void RebornAccount()
-```
-+ 调用示例： 
-```csharp
-using Airisdk;
-AiriSDK.Instance.RebornAccount();
-```
-+ 回调Event
-
-```csharp
-AirisdkEvent.Instance.RebornAccountEvent
-```
-+ 回调Event类型
-```
-RebornAccountRet
-```
-+ 回调Event参数说明
-
-| 参数名称 | 参数类型 | 参数说明 |
-| ------ | ------ | ------ |
-| R_CODE | string | 错误码 : 0成功，其它见后面统一错误码表 |
-| R_MSG | string | 错误信息，辅助用 |
-
-
-### 11、公用数据获取接口
+### 9、公用数据获取接口
 
 | 属性 | 说明 | 
 | ------ | ------ |
 | ```AiriSDK.Instance.GetDeviceID()``` | 获取用户设备的唯一标识号 |
 | ```AiriSdkData.Instance.AiriSDK_VERSION``` | SDK版本号 |
 
-### 12、确认用户协议
+### 10、确认用户协议
 
 此接口再用户点击同意协议时调用。
 
@@ -294,7 +231,7 @@ using Airisdk;
 AiriSDK.Instance.ConifrmAgreement();
 ```
 
-### 13、用户协议链接获取
+### 11、用户协议链接获取
 
 此接口用于CP需要显示用户协议时调用
 
@@ -325,7 +262,7 @@ http://test.sdk.azurlane.jp:3011/user/agreement?version=v1.0.0
 }
 ```
 
-### 14、用户协议具体内容获取
+### 12、用户协议具体内容获取
 
 + 调用API：
 ```csharp
@@ -371,7 +308,7 @@ private void OnGetAgreementResponse(GetAgreementRet ret) {
 ["Part 1 ","Part 2"]
 ```
 
-### 15、未成年人退款协议
+### 13、未成年人退款协议
 
 + 调用API：
 ```csharp
@@ -410,7 +347,7 @@ private void OnGetUnderAgreementResponse(GetUnderAgreementRet ret)
 | isSHOW | int | 是否需要显示协议，1：需要，0：不需要 |
 
 
-### 16、Google S2S接口
+### 14、Google S2S接口
 
 + 调用API：
 ```csharp
@@ -429,7 +366,7 @@ AiriSDK.Instance.GoogleServerToServer(
 ```
 
 
-### 17、错误码信息返回接口
+### 15、错误码信息返回接口
 
 + 调用API：
 ```csharp
@@ -449,7 +386,7 @@ string strMsg = AiriSDK.Instance.GetSDKRecommendedErrorMsg(100404, LanguageType.
 | type | LanguageType | 语言参数，暂时只支持中文，英文，韩文，日文 |
 
 
-### 18、剪贴板
+### 16、剪贴板
 
 + 调用API：
 ```csharp
@@ -470,7 +407,7 @@ if (code == ResultCode.OK) {
 | ------ | ------ | ------ |
 | cValue | string | 需要复制到剪贴板的内容 |
 
-### 19、iOS系统是否支持Sign in with apple
+### 17、iOS系统是否支持Sign in with apple
 
 + 调用API：
 ```csharp
@@ -482,7 +419,7 @@ public bool IOSAppleSignInAvailable();
 bool isAvailable = AiriSDK.Instance.IOSAppleSignInAvailable();
 ```
 
-### 20、确认未成年人协议
+### 18、确认未成年人协议
 
 + 调用API：
 ```csharp
