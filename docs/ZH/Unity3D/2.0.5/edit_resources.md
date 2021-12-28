@@ -10,9 +10,8 @@
 | Twitter Key | 分配的Twitter Key |
 | 安卓包名 | 安卓注册用包名 |
 | IOS BUNDLEID | 苹果注册bundleid |
-| HelpShift 各参数 | 第三方客服需要的参数 |
-| Google Api Client ID | Google账号登陆的必须参数，为 OAuth 2.0 客户端的网页客户端ID |
-| Google Play AppID| Google Game Services登陆的必须参数，AppId为Google控制台对应游戏的ID |
+| AiHelp 各参数 | 第三方客服需要的参数 |
+| Google Play AppID| Google Play Games Services登陆的必须参数，AppId为Google控制台对应游戏的ID |
 | Amazon API KEY| Amazon登陆所需参数 |
 | OneStore API KEY| OneStore支付所需参数 |
 
@@ -41,13 +40,13 @@
 
 ConfigSettings填写完整正确参数后，点击```Modify Manifest```，会将manifest下的参数修改成填写的参数内容。
 
-注意：填写正确后必须执行，否则HELPSHIFT功能失效
+注意：填写正确后必须执行，否则AiHELP功能失效
 
 #### modify google service params
 
 从AiriSDK平台的负责方获取文件```google-services.json```，并替换目录\Assets\Plugins\Android\assets下相同文件执行此操作，会将替换目录文件\Assets\Plugins\Android\res\values\google_service_strings.xml中的各项参数，用于google firebase 使用
 
-注意：填写正确后必须执行，否则ADJUST、HELPSHIFT功能将受到影响
+注意：填写正确后必须执行，否则ADJUST、AiHELP功能将受到影响
 
 ### AndroidManifest.xml配置
 
@@ -105,9 +104,9 @@ ConfigSettings填写完整正确参数后，点击```Modify Manifest```，会将
 </activity>
 ```
 
-#### 6、helpshift配置
+#### 6、AiHelp配置
 
-注意:helpshift_apiKey、helpshift_demain、helpshift_appId 三个参数的value需从运营商获取，并在UNITY的ConfigSettings.asset文件设置后，执行ModifyManifest填充正确的数据
+注意:aihelp_apiKey、aihelp_demain、aihelp_appId 三个参数的value需从运营商获取，并在UNITY的ConfigSettings.asset文件设置后，执行ModifyManifest填充正确的数据
 
 注意:必须配置在Application域中
 
@@ -136,13 +135,21 @@ Google依赖参数对应：
     <string name="app_id">xxxxxxxxxx</string>
 ```
 
-注意:必须配置在Application域中
+#### 8、GooglePlayGames配置
+
+注意:以下必须配置在AndroidManifest.xml文件的Application域中
 
 ```xml
-<meta-data android:name="com.google.android.gms.games.APP_ID" android:value="@string/app_id" />
+<meta-data android:name="com.google.android.gms.games.APP_ID" android:value="@string/pgs_service_strings" />
 ```
 
-#### 8、Amazon支付设置
+注意:必须配置在pgs_service_strings.xml文件中
+
+```xml
+<string name="game_services_project_id">xxxxxxxxxx</string>
+```
+
+#### 9、Amazon支付设置
 
 注意:必须配置在Application域中
 

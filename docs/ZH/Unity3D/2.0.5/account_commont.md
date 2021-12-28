@@ -71,18 +71,31 @@ AiriSDK.Instance.LoginWithGoogle();
 AirisdkEvent.Instance.LoginEvent
 ```
 
-### 5、Google Play Game Services登陆
+### 5、GooglePlayGames登陆
+LoginWithGooglePlay方法在2.1.60已废弃；
++ GooglePlayGames在调用初始化后会自动验证登录。
++ GooglePlayGames在调用登录后会与账号自动绑定。
+其中游客账号不能绑定，会返回PLAY_GAME_ACCOUNT_CAN_NOT_LINK_GUEST；
+第三方账号（游客绑定过第三方也算）会直接绑定，如果有绑定冲突会返回PLAY_GAME_ACCOUNT_LINK_OTHER_UID_ALREADY、UID_LINK_OTHER_PLAY_GAME_ACCOUNT_ALREADY、UID_AND_PLAY_GAME_ACCOUNT_ALL_LINKED_OTHER，如果要强制绑定可以调用ConfirmLinkGooglePlayGame方法；
 
-使用Google账号登陆游戏，若第一次使用Google Play Game Services登陆，会自动创建SDK ID。
++ 接入示例:
+请查看 【配置工程参数-8、GooglePlayGames配置】
 
-+ 调用API:		
-```csharp
-public void LoginWithGooglePlay()
-```
 + 调用示例:
 ```csharp
-using Airisdk;
-AiriSDK.Instance.LoginWithGooglePlay();
+If(rc == ResultCode.OK){
+  //todo suc
+} else if (rc == ResultCode.PLAY_GAME_ACCOUNT_LINK_OTHER_UID_ALREADY){
+//todo
+} else if (rc == ResultCode.UID_LINK_OTHER_PLAY_GAME_ACCOUNT_ALREADY){
+ //todo
+} else if (rc == ResultCode.UID_AND_PLAY_GAME_ACCOUNT_ALL_LINKED_OTHER){
+ //todo
+} else if (rc == ResultCode.PLAY_GAME_ACCOUNT_CAN_NOT_LINK_GUEST){
+ //todo
+} else {
+//todo
+}
 ```
 + 回调Event:
 ```csharp

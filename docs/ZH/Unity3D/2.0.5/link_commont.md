@@ -2,6 +2,8 @@
 
 调用函数返回值ResultCode（后续文章专门介绍）仅用来验证参数合法性，实际成功与否需要根据LinkEvent的返回数据进行判断。后面会介绍。
 
+注意：如果接入了GooglePlayGames，绑定步骤是在SDK内部登录时自动绑定的，原有通过此方法调用的绑定逻辑在2.1.60版本已弃用。详细请参考【账号功能-5、GooglePlayGames登陆】；
+
 注意：不可以覆盖绑定，FB、TW账号如果已有绑定账号，需要先解绑。
 
 注意：只能在登陆成功之后调用。
@@ -197,3 +199,8 @@ private void OnUnLinkRespone(UnLinkRet ret) {
 | R_MSG | string | 错误信息，辅助用 |
 | LOGIN_PLATFORM | LoginPlatform（枚举） | 当前游戏绑定平台，枚举Airisdk.LoginPlatform |
 | SOCAIL_NAME | string | 当前游戏绑定平台用户名称 |
+
+### 8、关于GooglePlayGames解绑
+注意：
++ GooglePlayGames解绑：AiriSDK.Instance.UnlinkSocial(LoginPlatform.FACEBOOK)；
++ 除GooglePlayGames解绑的其他第三方账号解绑时，如果code返回PLAY_GAME_ACCOUNT_UNLNK_WARN，可调用ConfirmUnLinkGooglePlayGame强制解绑；
