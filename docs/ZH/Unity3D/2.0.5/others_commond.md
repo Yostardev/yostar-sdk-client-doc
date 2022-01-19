@@ -431,5 +431,21 @@ public void ConfirmUnderAger();
 AiriSDK.Instance.ConfirmUnderAger();
 ```
 
+### 19、问卷调查， 跳转到问卷调查界面
 
++ 调用API：
+```csharp
+public ResultCode ShowSurvey(string activityID,string gameUID);
+```
 
++ 调用示例：
+```csharp
+ResultCode code = AiriSDK.Instance.ShowSurvey("10010", "1234567890");
+```
+
++ 参数说明：
+
+| 参数名称 | 参数类型 | 参数说明 | 备注 |
+| ------ | ------ | ------ | ------ |
+| activityID | string | 问卷id | 必传 |
+| gameUID | string | 游戏的uid | 必传 |
