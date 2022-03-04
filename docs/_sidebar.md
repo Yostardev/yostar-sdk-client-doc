@@ -27,4 +27,13 @@
     * [接口设计说明](/ZH/iOS/4.SDKUsage)
     * [错误码](/ZH/Unity3D/2.0.5/errorcode)
     
-
+* Nintendo
+   * [概述](/ZH/Nintendo/summary)
+   * [SDK集成](/ZH/Nintendo/sdk_implementation)
+   * [配置工程参数](/ZH/Nintendo/edit_resources)
+   * [接口设计说明](/ZH/Nintendo/Interface_design_description)
+        * [1、必接功能](/ZH/Nintendo/must_commond)
+        * [2、账号功能](/ZH/Nintendo/account_commont)
+        * [3、支付功能](/ZH/Nintendo/buy_commond)
+        * [4、其他功能](/ZH/Nintendo/others_commond)
+   * [错误码](/ZH/Unity3D/2.0.5/errorcode)

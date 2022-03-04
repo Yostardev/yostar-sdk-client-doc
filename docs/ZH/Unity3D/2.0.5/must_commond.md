@@ -5,7 +5,7 @@
 
  + 调用API:		
  ```csharp
- public void Init((PayStore payStore))
+ public void Init(PayStore payStore)
  ```
  + 调用示例:
 ```csharp
