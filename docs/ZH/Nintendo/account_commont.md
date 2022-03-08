@@ -24,7 +24,7 @@ public void LoginWithNintendo();
         {
                //提示用户: 用户输入的邮箱号是个新号，是否需要创建游戏账号并与Nintendo账号绑定？
                //确定:  AiriSDK.Instance.ConfirmCreateLinkNintendo();
-               //取消:
+               //取消: 返回登陆界面
   
         }else if (ret.R_CODE == ResultCode.YOSTAR_ACCOUNT_LINKED_NINTENDO_ALREADY)
         {
@@ -33,7 +33,7 @@ public void LoginWithNintendo();
         {
                  //提示用户: 用户输入的邮箱悠星号，没有和nintendo账号绑定过，提示是否需要绑定？
                  //确定:  AiriSDK.Instance.ConfirmLinkNintendo();
-                 //取消:
+                 //取消: 返回登陆界面
          }else{
  
             //提示用户: 登录失败
@@ -87,10 +87,10 @@ ResultCode void LoginWithSDK(string strEmail, string strVerificationCode)
     AirisdkEvent.Instance.LoginEvent += OnLoginRespone;
         
     ResultCode rc = AiriSDK.Instance.LoginWithSDK(strEmail, strVerificationCode);
-    If(rc == ResultCode.OK){ 
-      //todo suc 
+    if(rc == ResultCode.OK){
+      //suc  入参格式正确
     } else { 
-      //todo failed 
+      //fail  入参格式错误，检查邮箱格式
     }
     ```
 
@@ -120,17 +120,17 @@ ResultCode void VerificationCodeReq(string strEmail)
 + 调用示例:
     ```csharp
     using Airisdk;
-    private void OnVerificationCodeRespone(VerificationCodeRet ret)
+    private void OnVerificationCodeResponse(VerificationCodeRet ret)
     {
     }
-    AirisdkEvent.Instance.VerificationCodeEvent += OnVerificationCodeRespone;
+    AirisdkEvent.Instance.VerificationCodeEvent += OnVerificationCodeResponse;
     
     ResultCode rc = AiriSDK.Instance.VerificationCodeReq(strEmail);
-    If(rc == ResultCode.OK){ 
-      //todo suc 
-    } else { 
-      //todo failed 
-    }
+    if(rc == ResultCode.OK){
+          //suc  入参格式正确
+       } else {
+          //fail  入参格式错误，检查邮箱格式
+      }
     ```
 
 + 回调VerificationCodeRet参数说明

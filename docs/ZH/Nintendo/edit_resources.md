@@ -29,5 +29,8 @@
 
 
 ### 设置Nintendo出包参数
+Account/Startup User Account项一定要配置为 Required 选项；
+配置 User Account and Save Data的大小，最低为49152；
 
-appid、data sie
+![nintendo_build](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/nintendo_build.png)
+

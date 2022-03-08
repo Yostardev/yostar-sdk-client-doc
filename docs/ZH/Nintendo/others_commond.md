@@ -91,7 +91,7 @@ AiriSDK.Instance.ConifrmAgreement();
 ``
 
 
-### 17、错误码信息返回接口
+### 4、错误码信息返回接口
 
 + 调用API：
 ```csharp

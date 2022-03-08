@@ -139,47 +139,9 @@ private void OnGetShopAgreementResponse(GetShopAgreementRet ret)
 ```
 ["sa1"]
 ```
-### 4、商店信息获取
-
-调用该接口可以实时获取具体商品ID，价格以及货币单位。
-
-+ 调用API: 
-
-```csharp
-public ResultCode QuerySkuDetails(string[] skus);
-```
-调用示例： 
-
-```csharp
-using Airisdk;
-string[] skus = ["com.yostar.p1","com.yostar.p2"]
-ResultCode resultCode =  AiriSDK.Instance.QuerySkuDetails(skus);
-```
-+ 回调Event：
-
-```csharp
-QuerySkuDetailsEvent
-```
-
-+ 回调Event参数说明
-
-| 参数名称 | 参数类型 | 参数说明 |
-| ------ | ------ | ------ |
-| R_CODE | string | 错误码 : 0成功，其它见后面统一错误码表 |
-| R_MSG | string | 错误信息，辅助用 |
-| R_SKUS | List<SKU> | 商品信息列表 |
-
-+ SKU参数说明
-
-| 参数名称 | 参数类型 | 参数说明 |
-| ------ | ------ | ------ |
-| ID | string | 商品在支付后台配置得商品ID |
-| PRICE | string | 商品在当前支付环境下的价格 |
-| CURRENCY | string | 货币单位 如：US$ |
 
 
-
-### 5、未成年人退款协议
+### 4、未成年人退款协议
 
 + 调用API：
 ```csharp
@@ -220,7 +182,7 @@ private void OnGetUnderAgreementResponse(GetUnderAgreementRet ret)
 
 
 
-### 6、确认未成年人协议
+### 5、确认未成年人协议
 
 + 调用API：
 ```csharp
