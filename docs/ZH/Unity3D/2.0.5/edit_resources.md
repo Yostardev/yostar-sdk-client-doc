@@ -140,7 +140,7 @@ Google依赖参数对应：
 注意:以下必须配置在AndroidManifest.xml文件的Application域中
 
 ```xml
-<meta-data android:name="com.google.android.gms.games.APP_ID" android:value="@string/pgs_service_strings" />
+<meta-data android:name="com.google.android.gms.games.APP_ID" android:value="@string/game_services_project_id" />
 ```
 
 注意:必须配置在pgs_service_strings.xml文件中
