@@ -262,6 +262,7 @@ LoginRet
 | CHANNEL_ID| int| 账户创建的渠道，-1：未知，0：Google，1：Apple，2：au，3：Amazon，4：onestore，5：Samsung |
 | GOOGLE_PLAY_GAME_NAME | string | 绑定的PGS账号用户名 |
 | GOOGLE_PLAY_GAME_ID | string | 绑定的PGS账号用户id |
+| KR_KMC_STATUS | int | KMC实名认证状态（韩服）；1：已实名，2：未实名，3：实名已过期 |
 
 
 + 回调Event 示例：
@@ -430,6 +431,36 @@ AirisdkEvent.Instance.RebornAccountEvent
 + 回调Event类型
 ```
 RebornAccountRet
+```
++ 回调Event参数说明
+
+| 参数名称 | 参数类型 | 参数说明 |
+| ------ | ------ | ------ |
+| R_CODE | string | 错误码 : 0成功，其它见后面统一错误码表 |
+| R_MSG | string | 错误信息，辅助用 |
+
+
+### 17、KMC实名认证
+
+韩服游戏若需要接入KMC实名认证功能，需根据登陆回调中的KR_KMC_STATUS字段来决定是否要调用本接口。
+
++ 调用API:
+```csharp
+public void Cert();
+```
++ 调用示例：
+```csharp
+using Airisdk;
+AiriSDK.Instance.Cert();
+```
++ 回调Event
+
+```csharp
+AirisdkEvent.Instance.UserCertEvent
+```
++ 回调Event类型
+```
+CertRet
 ```
 + 回调Event参数说明
 
