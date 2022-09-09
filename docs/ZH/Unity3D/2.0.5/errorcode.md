@@ -22,16 +22,17 @@
 | 100180  | 	提供的第三方账号并未绑定过游戏账号 | 当前的第三方账号从来没有绑定过游戏账号(已过期或者游戏有特殊需求) |
 | 100190  | 	提供的第三方参数在对应的服务器中验证失败 | 1：SDK服务器中配置的参数与游戏不符合.2：SDK客户端传递值得时候传了错误的参数. |
 | 100200  | 	提供的第三方账号已经绑定过其它的UID | 绑定时，此第三方账号已经绑定过其他的账号 |
-| 100201  | 	登录的GooglePlayGameID已经绑定其他的UID； |
-| 100202  | 	登录的UID已经绑定其他的GooglePlayGameID； |
-| 100203  | 	登录的GooglePlayGameID已经绑定其他的UID，并且登录的UID已经绑定其他的GooglePlayGameID； |
-| 100204  | 	登录的GooglePlayGameID不能绑定游客； |
-| 100205  | 	登录的UID没有绑定GooglePlayGameID； |
+| 100201  | 	当前Google Play Games账号已与其他游戏账号绑定，确定换绑至该游戏账号吗？ | 
+| 100202  | 	该游戏账号已绑定至其他Google Play Games账号，确定换绑至当前登录的Google Play Games账号吗？ |
+| 100203  | 	该游戏账号已绑定至其他Google Play Games账号，且当前的Google Play Games账号已与其他游戏账号绑定，确定要重新换绑吗？ |
+| 100204  | 	游客账号不会与Google Play Games账号绑定，因此无法支持使用该游客账号在其他设备上游玩。若您想要绑定，请先将游客账号与悠星账号/其他第三方账号进行绑定。 |
+| 100205  | 	解绑失败，该游戏账号 未绑定 Google Play Games 账号。 |
+| 100206  | 	非游客账号已与Google Play Games账号自动绑定，您可以通过Google Play Games账号在其他设备上进行登录。 |
 | 100210  | 	提供的第三方账号和该账户绑定过的不匹配 | 玩家使用了另外的第三方账号尝试解除绑定。 |
 | 100211  | 	绑定平台类型错误 | SDK内置的平台类型与CP传入的平台类型不匹配 |
 | 100212  | 	解绑平台类型错误 | SDK内置的平台类型与CP传入的平台类型不匹配 |
 | 100213  | 	不可执行解绑 | 当前账号只绑定一个第三方账户的时候，不可以对账户进行解绑 |
-| 100214  | 	当前账号存在GooglePlayGame绑定，此时解绑的第三方账号为最后一条绑定信息（不包含GooglePlayGame）； |
+| 100214  | 	当前游戏账号与Google Play Games存在绑定，解绑除Google Play Games外的其他绑定方式，Google Play Games账号也将自动解绑。 |
 | 100220  | 	取消授权 | 用户取消了第三方账户的授权 |
 | 100221  | 	FB授权失败 | - |
 | 100222  | 	TW授权失败 | - |
@@ -118,10 +119,17 @@
 | 100180  | 	The third party account is not bound with any game account |
 | 100190  | 	Failed to verify the third party parameter |
 | 100200  | 	The third party account is already bound with another UID |
+| 100201  | 	The Google Play Games account has been linked to another game account. Confirm to unlink it from the old game account and re-link to the current one? |
+| 100202  | 	The game account has been linked to another Google Play Games account. Confirm to unlink it from the old Google Play Games account and re-link to the current one? |
+| 100203  | 	The current game account and Google Play Games account have each been linked to other accounts. Confirm to unlink the both from the old accounts and re-link them together? |
+| 100204  | 	The guest account can't be linked to a Google Play Games account so you can't log on another device with the guest account. If you want to link the guest account to a Google Play Games account, please link it to a Yostar account/third-party account first. |
+| 100205  | 	Unbind failed. Your game account hasn't been linked to a Google Play Games account. |
+| 100206  | 	The non-guest account has been linked to a Google Play Games account automatically. You can log on another device with the Google Play Games account. |
 | 100210  | 	The third party account does not match with the one bound to this account |
 | 100211  | 	Platform binding error |
 | 100212  | 	Platform unbinding error |
 | 100213  | 	Unable to unbind the account |
+| 100214  | 	The game account now is linked to a Google Play Games account. If you unlink it from other accounts (except the Google Play Games account), it will also unlink from the Google Play Games account automatically. |
 | 100220  | 	Authorization canceled |
 | 100221  | 	FB authorization failed |
 | 100222  | 	TW authorization failed |
@@ -205,10 +213,17 @@
 | 100180  | 	ゲームアカウントと連携していないSNSアカウントです\nエラーコード:100180 |
 | 100190  | 	SNSアカウント連携状況の照合に失敗しました\nエラーコード:100190 |
 | 100200  | 	提すでに他のアカウントと連携済みです\nエラーコード:100200 |
+| 100201  | 	現在使用中のGoogle Play Gamesアカウントはすでに別のゲームデータと連携済みです。連携情報をリセットし、現在プレイ中のデータと連携しますか？ |
+| 100202  | 	現在プレイ中のゲームデータはすでに別のGoogle Play Gamesアカウントと連携済みです。連携情報をリセットし、現在使用中のGoogle Play Gamesアカウントと連携しますか？ |
+| 100203  | 	現在ご利用しているGoogle Play Gamesアカウントとゲームデータは、それぞれ異なる連携情報が登録されております。連携情報を全部リセットし、当該データとGoogle Play Gamesアカウントの連携を行いますか？ |
+| 100204  | 	現在ご利用しているゲームデータは別の端末に移行するには、ほかのSNSアカウントやメールアドレスなどと連携する必要があります |
+| 100205  | 	バインド解除に失敗しました。ゲーム アカウントが Google Play ゲーム アカウントにバインドされていません。 |
+| 100206  | 	現在プレイ中のゲームデータがGoogle Play Gamesアカウントと自動的に連携され、別の端末でプレイできるようになります |
 | 100210  | 	ゲームアカウントと連携していないSNSアカウントです\nエラーコード:100210 |
 | 100211  | 	外部サービスとの通信時にエラーが発生しました\nエラーコード:100211 |
 | 100212  | 	外部サービスとの通信時にエラーが発生しました\nエラーコード:100212 |
 | 100213  | 	連携解除に失敗しました\nエラーコード:100213 |
+| 100214  | 	Google Play Games以外の連携を解除すると、Google Play Gamesアカウントとの連携も自動的に解除されます。「本当に連携を解除しますか」 |
 | 100220  | 	連携を解除しました\nエラーコード:100220 |
 | 100221  | 	Facebook連携に失敗しました\nエラーコード:100221 |
 | 100222  | 	Twitter連携に失敗しました\nエラーコード:100222 |
@@ -292,10 +307,17 @@
 | 100180  | 	제공한 제3자 계정이 게임 계정과 연동되지 않았습니다. |
 | 100190  | 	제공한 제3자 파라미터가 서버 인증에 실패하였습니다. |
 | 100200  | 	제공한 제3자 계정은 이미 다른 UID와 연동되였습니다. |
+| 100201  | 	현재 사용 중인 Google Play Games 계정은 이미 다른 게임 계정과 연동되어 있습니다. 연동 정보를 재설정하여 현재 생성 중인 게임 계정과 연동하시겠습니까? |
+| 100202  | 	해당 게임 계정은 이미 다른 Google Play Games 계정과 연동되어 있습니다. 연동 정보를 재설정하여 현재 사용 중인 Google Play Games 계정과 연동하시겠습니까? |
+| 100203  | 	현재 사용 중인 Google Play Games 계정과 게임 계정에 서로 다른 연동 정보가 등록되어 있습니다. 연동 정보를 모두 재설정하고 해당 게임 데이터와 Google Play Games 계정을 연동하시겠습니까? |
+| 100204  | 	게스트 계정은 연동이 불가하며, Google Play Games 계정과 연동하려면 해당 게스트 계정을 우선 다른 SNS 계정 혹은 이메일 주소 등과 연동해야 합니다. |
+| 100205  | 	해당 UID는 Google Play Games 계정과 연동되지 않았습니다. |
+| 100206  | 	본 계정은 Google Play Games 계정과 자동으로 연동되었습니다. 기타 기기에서 해당 Google Play Games 계정을 통해 로그인할 수 있습니다. |
 | 100210  | 	제공한 제3자 계정이 연동 계정과 매칭되지 않았습니다. |
 | 100211  | 	연동 플랫폼 타입 에러 |
 | 100212  | 	연동 해제 플랫폼 타입 에러 |
 | 100213  | 	연동을 해제할 수 없습니다 |
+| 100214  | 	해당 계정과의 연동을 해제하면 Google Play Games 계정과의 연동도 자동으로 해제됩니다. [연동을 해제하시겠습니까?] |
 | 100220  | 	권한 요청 수락 취소 |
 | 100221  | 	Facebook 권한 요청 수락 실패 |
 | 100222  | 	트위터 권한 요청 수락 실패 |
