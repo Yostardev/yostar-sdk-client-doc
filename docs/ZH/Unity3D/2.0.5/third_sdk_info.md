@@ -6,6 +6,6 @@
 | Facebook  | 9.0.0 | 12.0.1 |
 | Firebase  | 6.34.0 | 18.0.0 |
 | AIHelp  | 2.1.1 | 4.1.0 |
-| GooglePay |   | 3.0.3 |
+| GooglePay |   | 4.1.0 |
 | OneStorePay |  | 17.02.00 |
 | AmazonPay | | 2.0.76 |
