@@ -435,12 +435,12 @@ AiriSDK.Instance.ConfirmUnderAger();
 
 + 调用API：
 ```csharp
-public ResultCode ShowSurvey(string activityID,string gameUID);
+public ResultCode ShowSurvey(string activityID,string gameUID,string notifyUrl);
 ```
 
 + 调用示例：
 ```csharp
-ResultCode code = AiriSDK.Instance.ShowSurvey("10010", "1234567890");
+ResultCode code = AiriSDK.Instance.ShowSurvey("10010", "1234567890","https://host.com/api/notifyUrl");
 ```
 
 + 参数说明：
@@ -449,3 +449,4 @@ ResultCode code = AiriSDK.Instance.ShowSurvey("10010", "1234567890");
 | ------ | ------ | ------ | ------ |
 | activityID | string | 问卷id | 必传 |
 | gameUID | string | 游戏的uid | 必传 |
+| notifyUrl | string | 服务器回调地址 | 非必填、不能超过 100 个字符 |
