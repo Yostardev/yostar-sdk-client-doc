@@ -1,6 +1,6 @@
 * Unity3D
 
-   * 2.1.60
+   * 2.2
        * [更新文档](/ZH/Unity3D/2.0.5/update_commond)
        * [三方SDK信息](/ZH/Unity3D/2.0.5/third_sdk_info)
        * [概述](/ZH/Unity3D/2.0.5/summary)
