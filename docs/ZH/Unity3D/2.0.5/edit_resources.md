@@ -170,6 +170,11 @@ Google依赖参数对应：
 #### 需要在`Xcode`工程的`Capability`开启`Push Notifications`和`Sign In with Apple`
 ![Capability_setting](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/2.0.5_Capability_setting.png)
 
+
+#### Unity 2019.3之后，出xcode时，unity会把bundle资源包加到unity framework路径中，导致路径不对加载不到资源文件，需做如下设置
+![bundle_setting](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/2.0.5_bundle_setting.png)
+
+
 ### 接入 `Associated Domains` 功能（可选）
 `Associated Domains` *（此功能可选可以开启Apple universal link 功能）*
 点击加号添加一项，输入`applinks:webusstatic.yo-star.com`
