@@ -1,3 +1,9 @@
+### 功能概述
+
+为了让开发人员能更好的理解我们的SDK的支付&验单流程，我们为游戏开发人员绘制了下列支付时序图:
+![支付时序图](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/sdk_pay.jpg)
+
+
 ### 1、设置用户生日
 
 调用该接口，可以设置用户的生日。在日本，用户的年轻决定了它当月可以氪金的上限。

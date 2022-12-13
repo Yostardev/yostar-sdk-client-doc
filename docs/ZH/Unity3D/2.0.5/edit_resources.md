@@ -1,126 +1,60 @@
-### 配置参数获取
 
-在接入前，请联系AiriSDK平台的负责人员，获取分配给您的应用的以下参数：
 
-| 参数名称 | 参数说明 |
-| ------ | ------ | 
-| Test SdkUrl | 分配的AiriSDK测试服务器访问地址 |
-| Release SdkUrl | 分配的AiriSDK正式服务器访问地址 |
-| Facebook AppID | 分配的facebook AppID |
-| Twitter Key | 分配的Twitter Key |
-| 安卓包名 | 安卓注册用包名 |
-| IOS BUNDLEID | 苹果注册bundleid |
-| AiHelp 各参数 | 第三方客服需要的参数 |
-| Google Play AppID| Google Play Games Services登陆的必须参数，AppId为Google控制台对应游戏的ID |
-| Amazon API KEY| Amazon登陆所需参数 |
-| OneStore API KEY| OneStore支付所需参数 |
 
-以上参数是在SDK初始化时需要的参数。这些参数可以使得SDK能够正常使用账号系统。支付系统的正常工作还需要服务端程序进行配合，请参考服务端文档。
+### 配置接入参数
 
-### 创建和设置config文件
+\* iOS平台Firebase配置文件 GoogleService-Info.plist 添加到`\Assets\AiriSDK\Plugins\iOS\`目录中;
 
-首次导入SDK包，请创建config asset文件，菜单如下图
+\* android台Firebase配置文件 google-services.json 添加到`\Assets\Plugins\Android\assets\`目录中;
 
-![config_accsets](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/config_assets.png)
 
-创建成功后会在目录
-..\Assets\AiriSDK\Resources\下生成文件ConfigSettings.asset，点击后在inspecrtor如下图
+\* 选择菜单栏 *AiriSDK > Config Settings* 菜单项,打开YoStarSDK的参数配置面板;<br/>
 
+![loading.png](https://sdkresources.oss-cn-shanghai.aliyuncs.com/AiriSDK%E6%8E%A5%E5%85%A5%E6%96%87%E6%A1%A3%E5%9B%BE%E5%BA%8A/unity_asset.png)
+<br/>
+
+\* 在配置面板中填写各项功能的接入参数;(若无对应的功能接入需求，相关参数可为空);
 ![airisdk_setting](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/unity_config.png)
 
-#### Save config
+填写完毕后依次点击 **Save Config**、**Modify Manifest**、**Modify Google Service Params** 按钮会将上述配置参数保存在以下目录:
+- \Assets\AiriSDK\Resources\SDKConfigSettings.json
+- \Assets\Plugins\Android\assets\api_key.txt
+- \Assets\Plugins\Android\res\values\pgs_service_strings.xml
+- \Assets\Plugins\Android\AndroidManifest.xml
+- \Assets\Plugins\Android\res\values\google_service_strings.xml
 
-从AiriSDK平台的负责方那里获取到对应的参数，并在ConfigSettings中完整填写，点击```Save Config``` 按钮，会在同目录下生成文件 ```SDKConfigSettings.json```。该数据会在游戏运行时由SDK读取。
 
-如果游戏有`Amazon登陆`需求，需要在`Amazon ApiKey`中添加内容，并且点击`save Config`后，数据会在`Android/assets/api_key.txt`文件中更新。
 
-注意：填写正确后必须执行，否则游戏运行时讲获取不到SDK配置数据
+可根据你的需求,将上述目录加入版本管理,避免每次出包频繁配置参数;
+<br/><br/>
+注: 以上参数必须正确填写，每次修改后，均需执行一次保存操作，否则游戏运行时将无法获得SDK配置参数；
 
-#### Modify manifest
 
-ConfigSettings填写完整正确参数后，点击```Modify Manifest```，会将manifest下的参数修改成填写的参数内容。
 
-注意：填写正确后必须执行，否则AiHELP功能失效
+#### Save config 按钮详解
 
-#### modify google service params
+- 点击```Save Config``` 按钮后，配置参数将保存到`\Assets\AiriSDK\Resources\SDKConfigSettings.json`文件中，运行时供SDK读取。
+- Amazon登录功能所需`Amazon ApiKey`参数会保存到`Android/assets/api_key.txt`文件中，运行时供SDK读取。
+- PGS登录功能所需`Play game app id`参数会保存到`\Assets\Plugins\Android\res\values\pgs_service_strings.xml`文件中，运行时供SDK读取。
 
-从AiriSDK平台的负责方获取文件```google-services.json```，并替换目录\Assets\Plugins\Android\assets下相同文件执行此操作，会将替换目录文件\Assets\Plugins\Android\res\values\google_service_strings.xml中的各项参数，用于google firebase 使用
 
-注意：填写正确后必须执行，否则ADJUST、AiHELP功能将受到影响
+#### Modify Manifest按钮详解
 
-### AndroidManifest.xml配置
+点击```Modify Manifest```按钮后，会将接入aihelp客服sdk、oneStore支付sdk所需的相关参数保存到`\Assets\Plugins\Android\AndroidManifest.xml`文件中，运行时供SDK读取。
 
-针对海外版本，SDK在android平台下需要对manifest.xml文件做一下必要修改
-
-#### 1、权限设置
-
+例：
 ```xml
-<uses-permission android:name="android.permission.INTERNET"/>
+<meta-data android:name="aihelp_apiKey" android:value="xxx" />
+<meta-data android:name="aihelp_demain" android:value="xxx" />
+<meta-data android:name="aihelp_appId" android:value="xxx" />
+<meta-data android:name="oneStore_publicKey"  android:value="MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCYEzSR7kxcQeVT3BPbSufVXH1SnRNjZlk8/G6CXjc8X5Ajms3YFUHtYJZ9/XaBFyJZpuG2OKxxPoXl9KjnRHLZELyxKdThJYYdWP6gpDJalsw+sem6hqiTwt5zeHsEFFv5UQPVU9G4rv99eXTbOvE1HN4phi2ydJH3YoWj781FfQIDAQAB" />
 ```
 
-#### 2、AU支付
 
-```xml
-<uses-permission android:name="com.kddi.market.permission.USE_ALML" />
-```
+#### Modify Google Service Params按钮详解
+点击```Modify Manifest```按钮后，会将`\Assets\Plugins\Android\assets\google-services.json`文件解析后，保存到`\Assets\Plugins\Android\res\values\google_service_strings.xml`中，运行时供Firebase SDK读取
 
-#### 3、分享
-
-```xml
-<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-```
-#### 4、Application设置
-
-必须包含```android:networkSecurityConfig="@xml/airisdk_network_security_config"```的application配置，以适配Android 9.0的网络请求.
-
-```xml
-<application android:allowBackup="true"
-  android:networkSecurityConfig="@xml/airisdk_network_security_config"
-  android:icon="@drawable/app_icon"
-	android:label="@string/app_name"
-  android:supportsRtl="true" >
-<!-- 这里配置firebase、helpshift 等的具体内容，下文详细介绍-->
-<!-- airisdk、facebook、twitter、google、adjsut 的配置以及转移到各AAR文件中，		这里不需要再单独配置-->
-</application>
-```
-
-#### 5、airisdk主activity配置
-
-注意:该步骤主要是用于将android原生平台的信息与支付插件之间互相通信。
-
-注意:必须配置在```Application```域中
-
-注意:```com.unity3d.player.UnityPlayerActivity```可以根据CP需求更改，不强制，但是更改的Activity必须继承```com.unity3d.player.UnityPlayerActivity```或```com.unity3d.player.UnityPlayerNativeActivity```
-
-
-```xml
-<activity android:name="com.unity3d.player.UnityPlayerActivity"
-	android:label="@string/app_name" >
-<intent-filter>
-	<action android:name="android.intent.action.MAIN" />
-	<category android:name="android.intent.category.LAUNCHER" />
-</intent-filter>
-<meta-data android:name="unityplayer.UnityActivity" android:value="true" />
-</activity>
-```
-
-#### 6、AiHelp配置
-
-注意:aihelp_apiKey、aihelp_demain、aihelp_appId 三个参数的value需从运营商获取，并在UNITY的ConfigSettings.asset文件设置后，执行ModifyManifest填充正确的数据
-
-注意:必须配置在Application域中
-
-```xml
-<meta-data android:name="helpshift_apiKey" android:value="xxx" />
-<meta-data android:name="helpshift_demain" android:value="xxx" />
-<meta-data android:name="helpshift_appId" android:value="xxx" />
-```
-
-#### 7、Google登陆配置
-
-注意:com.google.android.gms.games.APP_ID 参数的value需从运营商获取，并在UNITY的ConfigSettings.asset文件设置后，执行ModifyManifest填充正确的数据到google_service_strings.xml文件中
-
-Google依赖参数对应：
+例：
 ```xml
     <string name="default_web_client_id">1xxxxxx.apps.googleusercontent.com</string>
     <string name="fcm_fallback_notification_channel_label">xxxxxx</string>
@@ -135,34 +69,14 @@ Google依赖参数对应：
     <string name="app_id">xxxxxxxxxx</string>
 ```
 
-#### 8、GooglePlayGames配置
+### AndroidManifest.xml配置
 
-注意:以下必须配置在AndroidManifest.xml文件的Application域中
+针对海外版本，SDK在android平台下需要对manifest.xml文件做一下必要修改
 
-```xml
-<meta-data android:name="com.google.android.gms.games.APP_ID" android:value="@string/game_services_project_id" />
-```
-
-注意:必须配置在pgs_service_strings.xml文件中
+#### 1、AU支付
 
 ```xml
-<string name="game_services_project_id">xxxxxxxxxx</string>
-```
-
-#### 9、Amazon支付设置
-
-注意:必须配置在Application域中
-
-```xml
-
-        <receiver android:name="com.amazon.device.iap.ResponseReceiver" >
-            <intent-filter>
-                <action
-                    android:name="com.amazon.inapp.purchasing.NOTIFY"
-                    android:permission="com.amazon.inapp.purchasing.Permission.NOTIFY" />
-            </intent-filter>
-        </receiver>
-
+<uses-permission android:name="com.kddi.market.permission.USE_ALML" />
 ```
 
 ### Xcode工程需要的配置
