@@ -144,7 +144,7 @@ private void OnGetShopAgreementResponse(GetShopAgreementRet ret)
 ```
 ["sa1"]
 ```
-### 4、商店信息获取
+### 4、商品信息获取
 
 调用该接口可以实时获取具体商品ID，价格以及货币单位。
 
