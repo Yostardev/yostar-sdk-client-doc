@@ -1,3 +1,13 @@
+
+
+### 功能概述
+
+为了让开发人员能更好的理解我们的SDK的账户登录&验证流程，我们为游戏开发人员绘制了下列登录时序图:
+
+![登陆时序图](https://raw.githubusercontent.com/Yostardev/yostarsdk/master/docs/_media/sdk_login.jpg)
+
+
+
 ### 1、Nintendo登录
 
 使用Nintendo账号登陆游戏；
